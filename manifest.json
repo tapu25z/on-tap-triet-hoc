@@ -1,0 +1,16 @@
+{
+  "name": "Ôn Thi Triết Học Mác - Lênin",
+  "short_name": "Ôn Triết",
+  "description": "Ứng dụng web ôn tập 100 câu trắc nghiệm Triết học Mác - Lênin có đảo đáp án, thi thử, flashcard",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#4f46e5",
+  "theme_color": "#4f46e5",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
