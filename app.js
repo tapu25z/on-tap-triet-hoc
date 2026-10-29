@@ -1,9 +1,12 @@
 // ==========================================
-// ỨNG DỤNG ÔN THI TRIẾT HỌC MÁC - LÊNIN (100 CÂU)
+// ỨNG DỤNG ÔN THI TRIẾT HỌC MÁC - LÊNIN
+// Hỗ trợ Bộ 300 câu (ĐH SPKT TP.HCM) & Bộ 100 câu cơ bản & Tất cả 400 câu
 // ==========================================
 
 // Global state
-let questions = [];
+let currentSetId = 'set_300'; // 'set_300' | 'set_100' | 'all'
+let currentSetInfo = null;
+let questions = []; // Danh sách câu hỏi của bộ đề hiện tại
 let currentMode = 'practice'; // 'practice' | 'exam' | 'flashcard' | 'wrong' | 'search'
 let practiceIndex = 0;
 let practiceAnswers = {}; // { questionId: selectedText }
@@ -53,7 +56,6 @@ function playSound(type) {
     gain.connect(ctx.destination);
 
     if (type === 'correct') {
-      // Pleasant two-tone chime
       osc.type = 'sine';
       osc.frequency.setValueAtTime(523.25, now); // C5
       osc.frequency.setValueAtTime(659.25, now + 0.1); // E5
@@ -62,7 +64,6 @@ function playSound(type) {
       osc.start(now);
       osc.stop(now + 0.35);
     } else if (type === 'wrong') {
-      // Gentle low tone
       osc.type = 'triangle';
       osc.frequency.setValueAtTime(220, now);
       osc.frequency.setValueAtTime(196, now + 0.12);
@@ -71,7 +72,6 @@ function playSound(type) {
       osc.start(now);
       osc.stop(now + 0.3);
     } else if (type === 'click') {
-      // Short click
       osc.type = 'sine';
       osc.frequency.setValueAtTime(440, now);
       gain.gain.setValueAtTime(0.05, now);
@@ -94,39 +94,96 @@ function shuffleArray(arr) {
   return result;
 }
 
-// Initialize Application
-function initApp() {
-  // Load saved state from LocalStorage
-  loadLocalStorage();
+// ==========================================
+// QUẢN LÝ BỘ CÂU HỎI (QUESTION SETS)
+// ==========================================
 
-  // Initialize questions from RAW_QUESTIONS
-  if (typeof RAW_QUESTIONS !== 'undefined' && Array.isArray(RAW_QUESTIONS)) {
-    questions = RAW_QUESTIONS.map(q => ({
-      ...q,
-      // clone options so we can shuffle independently
-      options: [...q.options]
-    }));
+function loadSet(setId, resetIndex = false) {
+  if (typeof QUESTION_SETS === 'undefined' || !QUESTION_SETS[setId]) {
+    setId = 'set_300';
+  }
+  currentSetId = setId;
+  currentSetInfo = QUESTION_SETS[setId];
+
+  // Deep clone questions & options
+  questions = currentSetInfo.questions.map(q => ({
+    ...q,
+    options: [...q.options]
+  }));
+
+  // Update pills UI
+  document.querySelectorAll('.set-pill').forEach(btn => btn.classList.remove('active'));
+  const pillId = setId === 'all' ? 'pill-set-all' : `pill-${setId.replace('_', '-')}`;
+  const activePill = document.getElementById(pillId);
+  if (activePill) activePill.classList.add('active');
+
+  // Update brand subtitle
+  const subEl = document.getElementById('brand-subtitle');
+  if (subEl) {
+    subEl.textContent = `${currentSetInfo.title} (${questions.length} câu)`;
   }
 
+  // Load localStorage state for this set
+  loadSetLocalStorage(setId);
+
+  if (resetIndex || practiceIndex >= questions.length) {
+    practiceIndex = 0;
+  }
+
+  flashcardIndex = 0;
   flashcardList = [...questions];
 
-  // Apply Theme
-  applyTheme(currentTheme);
+  // Refresh active view
+  if (currentMode === 'practice') {
+    renderPracticeQuestion();
+    updatePracticeProgress();
+  } else if (currentMode === 'flashcard') {
+    renderFlashcard();
+  } else if (currentMode === 'wrong') {
+    renderWrongQuestions();
+  } else if (currentMode === 'search') {
+    const sInput = document.getElementById('search-input');
+    renderSearchResults(sInput ? sInput.value : '');
+  }
 
-  // Setup sound UI
-  updateSoundUI();
-
-  // Render initial practice question
-  renderPracticeQuestion();
-  updatePracticeProgress();
   updateWrongCountBadge();
-
-  // Keyboard navigation
-  setupKeyboardShortcuts();
+  updatePaletteProgressTxt();
 }
 
-// LocalStorage helpers
-function loadLocalStorage() {
+function selectQuestionSet(setId) {
+  playSound('click');
+  loadSet(setId, false);
+  saveLocalStorage();
+}
+
+function loadSetLocalStorage(setId) {
+  try {
+    const savedAnswers = localStorage.getItem(`triet_practice_answers_${setId}`);
+    practiceAnswers = savedAnswers ? JSON.parse(savedAnswers) : {};
+
+    const savedStarred = localStorage.getItem(`triet_starred_${setId}`);
+    starredQuestions = savedStarred ? new Set(JSON.parse(savedStarred)) : new Set();
+
+    const savedWrong = localStorage.getItem(`triet_wrong_${setId}`);
+    wrongQuestions = savedWrong ? new Set(JSON.parse(savedWrong)) : new Set();
+
+    const savedIndex = localStorage.getItem(`triet_practice_index_${setId}`);
+    if (savedIndex !== null) {
+      const idx = parseInt(savedIndex, 10);
+      if (!isNaN(idx) && idx >= 0 && idx < questions.length) {
+        practiceIndex = idx;
+      } else {
+        practiceIndex = 0;
+      }
+    } else {
+      practiceIndex = 0;
+    }
+  } catch (e) {
+    console.error('LocalStorage load error:', e);
+  }
+}
+
+function loadGlobalLocalStorage() {
   try {
     const savedTheme = localStorage.getItem('triet_theme');
     if (savedTheme) currentTheme = savedTheme;
@@ -134,14 +191,10 @@ function loadLocalStorage() {
     const savedSound = localStorage.getItem('triet_sound');
     if (savedSound !== null) soundEnabled = savedSound === 'true';
 
-    const savedStarred = localStorage.getItem('triet_starred');
-    if (savedStarred) starredQuestions = new Set(JSON.parse(savedStarred));
-
-    const savedWrong = localStorage.getItem('triet_wrong');
-    if (savedWrong) wrongQuestions = new Set(JSON.parse(savedWrong));
-
-    const savedAnswers = localStorage.getItem('triet_practice_answers');
-    if (savedAnswers) practiceAnswers = JSON.parse(savedAnswers);
+    const savedSet = localStorage.getItem('triet_current_set');
+    if (savedSet && typeof QUESTION_SETS !== 'undefined' && QUESTION_SETS[savedSet]) {
+      currentSetId = savedSet;
+    }
   } catch (e) {
     console.error('LocalStorage error:', e);
   }
@@ -151,12 +204,33 @@ function saveLocalStorage() {
   try {
     localStorage.setItem('triet_theme', currentTheme);
     localStorage.setItem('triet_sound', soundEnabled);
-    localStorage.setItem('triet_starred', JSON.stringify([...starredQuestions]));
-    localStorage.setItem('triet_wrong', JSON.stringify([...wrongQuestions]));
-    localStorage.setItem('triet_practice_answers', JSON.stringify(practiceAnswers));
+    localStorage.setItem('triet_current_set', currentSetId);
+
+    // Save set-specific state
+    localStorage.setItem(`triet_practice_answers_${currentSetId}`, JSON.stringify(practiceAnswers));
+    localStorage.setItem(`triet_starred_${currentSetId}`, JSON.stringify([...starredQuestions]));
+    localStorage.setItem(`triet_wrong_${currentSetId}`, JSON.stringify([...wrongQuestions]));
+    localStorage.setItem(`triet_practice_index_${currentSetId}`, practiceIndex);
   } catch (e) {
     console.error('LocalStorage save error:', e);
   }
+}
+
+// Initialize Application
+function initApp() {
+  loadGlobalLocalStorage();
+
+  // Apply Theme
+  applyTheme(currentTheme);
+
+  // Setup sound UI
+  updateSoundUI();
+
+  // Load current active question set (Default: set_300)
+  loadSet(currentSetId, false);
+
+  // Keyboard navigation
+  setupKeyboardShortcuts();
 }
 
 // Mode Switcher
@@ -200,7 +274,8 @@ function renderPracticeQuestion() {
   if (!q) return;
 
   // Set header
-  document.getElementById('practice-q-index').textContent = `Câu ${practiceIndex + 1} / ${questions.length} (Gốc #${q.id})`;
+  const rawNumTxt = q.rawId && q.rawId !== q.id ? ` - Gốc #${q.rawId}` : '';
+  document.getElementById('practice-q-index').textContent = `Câu ${practiceIndex + 1} / ${questions.length} (#${q.id}${rawNumTxt})`;
   document.getElementById('practice-q-text').textContent = q.question;
 
   // Star status
@@ -218,9 +293,9 @@ function renderPracticeQuestion() {
   const userAnswer = practiceAnswers[q.id];
   const isAnswered = userAnswer !== undefined;
 
-  const letters = ['A', 'B', 'C', 'D'];
+  const letters = ['A', 'B', 'C', 'D', 'E', 'G', 'H'];
   q.options.forEach((optText, idx) => {
-    const letter = letters[idx];
+    const letter = letters[idx] || `${idx + 1}`;
     const item = document.createElement('div');
     item.className = 'option-item';
     if (isAnswered) item.classList.add('locked');
@@ -293,11 +368,9 @@ function selectPracticeAnswer(questionId, selectedText) {
 
   if (isCorrect) {
     playSound('correct');
-    // If previously marked wrong, remove from wrong list
     wrongQuestions.delete(q.id);
   } else {
     playSound('wrong');
-    // Add to wrong questions list
     wrongQuestions.add(q.id);
   }
 
@@ -311,6 +384,7 @@ function goToPrevQuestion() {
   if (practiceIndex > 0) {
     playSound('click');
     practiceIndex--;
+    saveLocalStorage();
     renderPracticeQuestion();
   }
 }
@@ -319,6 +393,7 @@ function goToNextQuestion() {
   if (practiceIndex < questions.length - 1) {
     playSound('click');
     practiceIndex++;
+    saveLocalStorage();
     renderPracticeQuestion();
   }
 }
@@ -326,7 +401,6 @@ function goToNextQuestion() {
 function revealAnswer() {
   const q = questions[practiceIndex];
   if (!q) return;
-  // If not answered yet, auto fill with wrong or reveal
   if (!practiceAnswers[q.id]) {
     practiceAnswers[q.id] = q.correctAnswer;
     playSound('correct');
@@ -350,7 +424,6 @@ function toggleStarCurrentQuestion() {
 
 function shuffleCurrentOptions() {
   playSound('click');
-  // Re-shuffle options of ALL questions
   questions.forEach(q => {
     q.options = shuffleArray(q.options);
   });
@@ -364,11 +437,11 @@ function shuffleQuestionsOrder() {
   practiceIndex = 0;
   renderPracticeQuestion();
   updatePracticeProgress();
-  alert('Đã đảo ngẫu nhiên thứ tự 100 câu hỏi!');
+  alert(`Đã đảo ngẫu nhiên thứ tự ${questions.length} câu hỏi!`);
 }
 
 function resetPracticeProgress() {
-  if (confirm('Bạn có chắc muốn làm lại từ đầu? Tiến độ các câu đã trả lời sẽ được xóa.')) {
+  if (confirm(`Bạn có chắc muốn làm lại từ đầu bộ "${currentSetInfo.shortTitle}"? Tiến độ các câu đã trả lời sẽ được xóa.`)) {
     practiceAnswers = {};
     practiceIndex = 0;
     saveLocalStorage();
@@ -390,7 +463,14 @@ function updatePracticeProgress() {
 
   const percent = answeredCount > 0 ? Math.round((correctCount / answeredCount) * 100) : 0;
   document.getElementById('practice-score-badge').textContent = `Đúng: ${correctCount}/${answeredCount} (${percent}%)`;
-  document.getElementById('palette-progress-txt').textContent = `${answeredCount}/${total}`;
+  updatePaletteProgressTxt();
+}
+
+function updatePaletteProgressTxt() {
+  const answeredCount = Object.keys(practiceAnswers).length;
+  const total = questions.length;
+  const el = document.getElementById('palette-progress-txt');
+  if (el) el.textContent = `${answeredCount}/${total}`;
 }
 
 function updateWrongCountBadge() {
@@ -423,21 +503,26 @@ function startExam() {
   closeExamSetupModal();
   playSound('click');
 
-  // Select questions: randomly sample `examConfig.size` questions from questions list
+  const count = examConfig.size === 'all'
+    ? questions.length
+    : Math.min(parseInt(examConfig.size, 10), questions.length);
+
+  const durationMins = examConfig.size === 'all'
+    ? Math.max(20, Math.min(180, Math.round(count * 0.9)))
+    : examConfig.timeMinutes;
+
   const shuffledAll = shuffleArray(questions);
-  examQuestions = shuffledAll.slice(0, examConfig.size).map(q => ({
+  examQuestions = shuffledAll.slice(0, count).map(q => ({
     ...q,
-    // also shuffle options
     options: shuffleArray(q.options)
   }));
 
   examIndex = 0;
   examAnswers = {};
   examFlags.clear();
-  examTimeRemaining = examConfig.timeMinutes * 60;
+  examTimeRemaining = durationMins * 60;
   examTimeElapsed = 0;
 
-  // Start timer interval
   if (examTimerInterval) clearInterval(examTimerInterval);
   examTimerInterval = setInterval(updateExamTimer, 1000);
 
@@ -479,7 +564,8 @@ function renderExamQuestion() {
   const q = examQuestions[examIndex];
   if (!q) return;
 
-  document.getElementById('exam-q-index').textContent = `Câu ${examIndex + 1} / ${examQuestions.length}`;
+  const rawNumTxt = q.rawId && q.rawId !== q.id ? ` - Gốc #${q.rawId}` : '';
+  document.getElementById('exam-q-index').textContent = `Câu ${examIndex + 1} / ${examQuestions.length} (#${q.id}${rawNumTxt})`;
   document.getElementById('exam-q-text').textContent = q.question;
 
   // Flag indicator
@@ -503,10 +589,10 @@ function renderExamQuestion() {
   container.innerHTML = '';
 
   const userAnswer = examAnswers[q.id];
-  const letters = ['A', 'B', 'C', 'D'];
+  const letters = ['A', 'B', 'C', 'D', 'E', 'G', 'H'];
 
   q.options.forEach((optText, idx) => {
-    const letter = letters[idx];
+    const letter = letters[idx] || `${idx + 1}`;
     const item = document.createElement('div');
     item.className = 'option-item';
     if (optText === userAnswer) {
@@ -555,46 +641,58 @@ function examGoNext() {
 function toggleExamFlag() {
   const q = examQuestions[examIndex];
   if (!q) return;
+
   if (examFlags.has(q.id)) {
     examFlags.delete(q.id);
   } else {
     examFlags.add(q.id);
   }
+  playSound('click');
   renderExamQuestion();
 }
 
 function confirmSubmitExam() {
-  const total = examQuestions.length;
   const answeredCount = Object.keys(examAnswers).length;
-  const unansweredCount = total - answeredCount;
+  const total = examQuestions.length;
+  const remaining = total - answeredCount;
 
-  let msg = 'Bạn có chắc chắn muốn nộp bài thi?';
-  if (unansweredCount > 0) {
-    msg = `Bạn còn ${unansweredCount} câu CHƯA TRẢ LỜI! Bạn có chắc muốn nộp bài không?`;
+  let msg = `Bạn đã làm ${answeredCount}/${total} câu.`;
+  if (remaining > 0) {
+    msg += ` Còn ${remaining} câu chưa trả lời.`;
   }
+  msg += `\nBạn có chắc chắn muốn nộp bài thi?`;
 
   if (confirm(msg)) {
-    clearInterval(examTimerInterval);
     finishExam();
   }
 }
 
 function finishExam() {
-  // Calculate results
+  if (examTimerInterval) clearInterval(examTimerInterval);
+
   let correctCount = 0;
   let wrongCount = 0;
   let skippedCount = 0;
 
-  examQuestions.forEach(q => {
+  examResults = examQuestions.map(q => {
     const userAns = examAnswers[q.id];
-    if (userAns === undefined) {
+    const isAnswered = userAns !== undefined;
+    const isCorrect = userAns === q.correctAnswer;
+
+    if (!isAnswered) {
       skippedCount++;
-    } else if (userAns === q.correctAnswer) {
+    } else if (isCorrect) {
       correctCount++;
     } else {
       wrongCount++;
-      wrongQuestions.add(q.id); // auto record to wrong questions list
+      wrongQuestions.add(q.id);
     }
+
+    return {
+      ...q,
+      userAnswer: userAns,
+      isCorrect
+    };
   });
 
   saveLocalStorage();
@@ -617,7 +715,6 @@ function finishExam() {
     }))
   };
 
-  // Show result view
   showExamResultView();
 }
 
@@ -658,7 +755,6 @@ function showExamResultView() {
     subEl.textContent = `Bạn trả lời đúng ${res.correctCount}/${res.total} câu. Đừng lo, hãy xem lại các câu sai bên dưới và luyện tập thêm nhé!`;
   }
 
-  // Render review list
   filterExamReview('all');
 }
 
@@ -751,7 +847,7 @@ function nextFlashcard() {
   if (flashcardIndex < flashcardList.length - 1) {
     flashcardIndex++;
   } else {
-    flashcardIndex = 0; // loop
+    flashcardIndex = 0;
   }
   renderFlashcard();
 }
@@ -782,9 +878,10 @@ function renderWrongQuestions() {
   const emptyBox = document.getElementById('wrong-empty-box');
   const totalLabel = document.getElementById('wrong-total-label');
 
-  totalLabel.textContent = `${wrongQuestions.size} câu cần ôn lại`;
+  const wrongList = questions.filter(q => wrongQuestions.has(q.id));
+  totalLabel.textContent = `${wrongList.length} câu cần ôn lại (bộ ${currentSetInfo.shortTitle})`;
 
-  if (wrongQuestions.size === 0) {
+  if (wrongList.length === 0) {
     emptyBox.style.display = 'block';
     container.innerHTML = '';
     return;
@@ -792,8 +889,6 @@ function renderWrongQuestions() {
 
   emptyBox.style.display = 'none';
   container.innerHTML = '';
-
-  const wrongList = questions.filter(q => wrongQuestions.has(q.id));
 
   wrongList.forEach(q => {
     const card = document.createElement('div');
@@ -826,7 +921,7 @@ function removeWrongQuestion(qId) {
 }
 
 function clearWrongQuestions() {
-  if (confirm('Bạn có chắc muốn xóa toàn bộ danh sách câu sai?')) {
+  if (confirm(`Bạn có chắc muốn xóa toàn bộ danh sách câu sai của bộ "${currentSetInfo.shortTitle}"?`)) {
     wrongQuestions.clear();
     saveLocalStorage();
     updateWrongCountBadge();
@@ -835,7 +930,7 @@ function clearWrongQuestions() {
 }
 
 // ==========================================
-// CHẾ ĐỘ TRA CỨU 100 CÂU (SEARCH & LIST)
+// CHẾ ĐỘ TRA CỨU (SEARCH & LIST)
 // ==========================================
 
 function handleSearch(keyword) {
@@ -853,7 +948,7 @@ function renderSearchResults(keyword) {
            String(q.id).includes(keyword);
   });
 
-  document.getElementById('search-count').textContent = filtered.length;
+  document.getElementById('search-count').textContent = `${filtered.length} / ${questions.length}`;
 
   if (filtered.length === 0) {
     container.innerHTML = `<div style="text-align:center; padding:2rem; color:var(--text-muted);">Không tìm thấy câu hỏi nào phù hợp với từ khóa "${keyword}".</div>`;
@@ -936,6 +1031,7 @@ function openPaletteModal() {
         renderExamQuestion();
       } else {
         practiceIndex = idx;
+        saveLocalStorage();
         renderPracticeQuestion();
       }
     };
@@ -981,12 +1077,11 @@ function applyTheme(theme) {
 
 function setupKeyboardShortcuts() {
   window.addEventListener('keydown', e => {
-    // If typing in search box, skip shortcuts
     if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
 
     if (currentMode === 'practice') {
       const q = questions[practiceIndex];
-      if (e.key >= '1' && e.key <= '4') {
+      if (e.key >= '1' && e.key <= '7') {
         const optIdx = parseInt(e.key, 10) - 1;
         if (q && q.options[optIdx] && practiceAnswers[q.id] === undefined) {
           selectPracticeAnswer(q.id, q.options[optIdx]);
@@ -1000,7 +1095,7 @@ function setupKeyboardShortcuts() {
       }
     } else if (currentMode === 'exam') {
       const q = examQuestions[examIndex];
-      if (e.key >= '1' && e.key <= '4') {
+      if (e.key >= '1' && e.key <= '7') {
         const optIdx = parseInt(e.key, 10) - 1;
         if (q && q.options[optIdx]) {
           examAnswers[q.id] = q.options[optIdx];

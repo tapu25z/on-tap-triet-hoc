@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Ôn Thi Triết Học Mác - Lênin (100 Câu Hỏi Trắc Nghiệm)</title>
-  <meta name="description" content="Ứng dụng web ôn thi 100 câu trắc nghiệm Triết học Mác - Lênin có đảo ngẫu nhiên đáp án, thi thử bấm giờ, flashcard và thống kê.">
+  <title>Ôn Thi Triết Học Mác - Lênin (300 & 100 Câu Hỏi Trắc Nghiệm Có Đáp Án)</title>
+  <meta name="description" content="Ứng dụng web ôn thi 300 câu trắc nghiệm Triết học Mác - Lênin (ĐH SPKT) và 100 câu cơ bản có đảo ngẫu nhiên đáp án, thi thử bấm giờ, flashcard và thống kê.">
   <meta name="theme-color" content="#4f46e5">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
@@ -20,7 +20,7 @@
         <div class="brand-icon">🏛️</div>
         <div>
           <h1 class="brand-title">Ôn Thi Triết Học</h1>
-          <span class="brand-subtitle">100 Câu Trắc Nghiệm Mác - Lênin</span>
+          <span class="brand-subtitle" id="brand-subtitle">300 Câu Trắc Nghiệm Mác - Lênin (ĐH SPKT TP.HCM)</span>
         </div>
       </a>
       <div class="header-actions">
@@ -53,6 +53,24 @@
             🔍 Tra cứu
           </button>
         </nav>
+      </div>
+    </div>
+
+    <!-- Question Set Switcher Bar -->
+    <div class="set-switcher-bar">
+      <div class="container set-switcher-container">
+        <span class="set-switcher-title">📚 Chọn bộ đề:</span>
+        <div class="set-pills">
+          <button class="set-pill active" id="pill-set-300" onclick="selectQuestionSet('set_300')" title="Bộ 300 câu hỏi trắc nghiệm ĐH Sư phạm Kỹ thuật TP.HCM">
+            🏛️ Bộ 300 câu (ĐH SPKT) <span class="set-pill-tag">Mới</span>
+          </button>
+          <button class="set-pill" id="pill-set-100" onclick="selectQuestionSet('set_100')" title="Bộ 100 câu hỏi ôn tập cơ bản trọng tâm">
+            📘 Bộ 100 câu cơ bản
+          </button>
+          <button class="set-pill" id="pill-set-all" onclick="selectQuestionSet('all')" title="Tổng hợp cả 2 bộ đề thành 400 câu hỏi">
+            🌟 Tất cả (400 câu)
+          </button>
+        </div>
       </div>
     </div>
   </header>
@@ -394,7 +412,7 @@
       <div class="modal-body">
         <div style="margin-bottom: 1.25rem;">
           <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Số lượng câu hỏi & Thời gian:</label>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;" id="exam-size-options-grid">
             <button type="button" class="btn btn-secondary exam-size-opt active" data-size="20" data-time="20" onclick="selectExamConfig(20, 20, this)">
               20 câu (20 phút)
             </button>
@@ -406,6 +424,12 @@
             </button>
             <button type="button" class="btn btn-secondary exam-size-opt" data-size="100" data-time="90" onclick="selectExamConfig(100, 90, this)">
               100 câu (90 phút)
+            </button>
+            <button type="button" class="btn btn-secondary exam-size-opt" data-size="150" data-time="120" onclick="selectExamConfig(150, 120, this)">
+              150 câu (120 phút)
+            </button>
+            <button type="button" class="btn btn-secondary exam-size-opt" data-size="all" data-time="180" onclick="selectExamConfig('all', 180, this)">
+              Toàn bộ đề
             </button>
           </div>
         </div>

@@ -1,8 +1,6095 @@
-// Bộ dữ liệu 100 câu hỏi ôn tập Triết học Mác - Lênin
-// Đáp án gốc trong file docx là câu A, các lựa chọn đã được xáo trộn ngẫu nhiên.
-const RAW_QUESTIONS = [
+// ==========================================
+// NGÂN HÀNG CÂU HỎI TRẮC NGHIỆM TRIẾT HỌC MÁC - LÊNIN
+// - Bộ 300 câu: Trường ĐH Sư phạm Kỹ thuật TP.HCM (Kèm đáp án chuẩn)
+// - Bộ 100 câu: Ôn tập cơ bản trọng tâm
+// - Tổng hợp: 400 câu trắc nghiệm toàn diện
+// ==========================================
+
+const SET_300_QUESTIONS = [
   {
     "id": 1,
+    "rawId": 1,
+    "uid": "spkt_1",
+    "question": "Hãy sắp xếp theo trình tự xuất hiện từ sớm nhất đến muộn nhất các hình thức thế giới quan sau: Triết học, tôn giáo, thần thoại:",
+    "originalOptions": {
+      "A": "Tôn giáo - thần thoại - triết học",
+      "B": "Thần thoại - tôn giáo - triết học",
+      "C": "Triết học - tôn giáo - thần thoại",
+      "D": "Thần thoại - triết học - tôn giáo"
+    },
+    "originalAnswer": "Thần thoại - tôn giáo - triết học",
+    "originalLetter": "B",
+    "correctAnswer": "Thần thoại - tôn giáo - triết học",
+    "options": [
+      "Triết học - tôn giáo - thần thoại",
+      "Thần thoại - tôn giáo - triết học",
+      "Thần thoại - triết học - tôn giáo",
+      "Tôn giáo - thần thoại - triết học"
+    ]
+  },
+  {
+    "id": 2,
+    "rawId": 2,
+    "uid": "spkt_2",
+    "question": "Triết học ra đời vào thời gian nào?",
+    "originalOptions": {
+      "A": "Thiên niên kỷ II. TCN",
+      "B": "Thế kỷ VIII - thế kỷ VI trước CN",
+      "C": "Thế kỷ II sau CN"
+    },
+    "originalAnswer": "Thế kỷ VIII - thế kỷ VI trước CN",
+    "originalLetter": "B",
+    "correctAnswer": "Thế kỷ VIII - thế kỷ VI trước CN",
+    "options": [
+      "Thế kỷ VIII - thế kỷ VI trước CN",
+      "Thế kỷ II sau CN",
+      "Thiên niên kỷ II. TCN"
+    ]
+  },
+  {
+    "id": 3,
+    "rawId": 3,
+    "uid": "spkt_3",
+    "question": "Triết học ra đời sớm nhất ở đâu?",
+    "originalOptions": {
+      "A": "ấn Độ, Châu Phi , Nga",
+      "B": "ấn Độ, Trung Quốc , Hy Lạp",
+      "C": "Ai Cập, ấn Độ , Trung Quốc"
+    },
+    "originalAnswer": "ấn Độ, Trung Quốc , Hy Lạp",
+    "originalLetter": "B",
+    "correctAnswer": "ấn Độ, Trung Quốc , Hy Lạp",
+    "options": [
+      "ấn Độ, Trung Quốc , Hy Lạp",
+      "Ai Cập, ấn Độ , Trung Quốc",
+      "ấn Độ, Châu Phi , Nga"
+    ]
+  },
+  {
+    "id": 4,
+    "rawId": 4,
+    "uid": "spkt_4",
+    "question": "Triết học nghiên cứu thế giới như thế nào?",
+    "originalOptions": {
+      "A": "Như một đối tượng vật chất cụ thể",
+      "B": "Như một hệ đối tượng vật chất nhất định",
+      "C": "Như một chỉnh thể thống nhất"
+    },
+    "originalAnswer": "Như một chỉnh thể thống nhất",
+    "originalLetter": "C",
+    "correctAnswer": "Như một chỉnh thể thống nhất",
+    "options": [
+      "Như một hệ đối tượng vật chất nhất định",
+      "Như một đối tượng vật chất cụ thể",
+      "Như một chỉnh thể thống nhất"
+    ]
+  },
+  {
+    "id": 5,
+    "rawId": 5,
+    "uid": "spkt_5",
+    "question": "Triết học là gì?",
+    "originalOptions": {
+      "A": "Triết học là tri thức về thế giới tự nhiên",
+      "B": "Triết học là tri thức về tự nhiên và xã hội",
+      "C": "Triết học là tri thức lý luận của con người về thế giới",
+      "D": "Triết học là hệ thống tri thức lý luận chung nhất của con người về thế giới và vị trí của con người trong thế giới"
+    },
+    "originalAnswer": "Triết học là hệ thống tri thức lý luận chung nhất của con người về thế giới và vị trí của con người trong thế giới",
+    "originalLetter": "D",
+    "correctAnswer": "Triết học là hệ thống tri thức lý luận chung nhất của con người về thế giới và vị trí của con người trong thế giới",
+    "options": [
+      "Triết học là tri thức về tự nhiên và xã hội",
+      "Triết học là tri thức lý luận của con người về thế giới",
+      "Triết học là tri thức về thế giới tự nhiên",
+      "Triết học là hệ thống tri thức lý luận chung nhất của con người về thế giới và vị trí của con người trong thế giới"
+    ]
+  },
+  {
+    "id": 6,
+    "rawId": 6,
+    "uid": "spkt_6",
+    "question": "Triết học ra đời trong điều kiện nào?",
+    "originalOptions": {
+      "A": "Xã hội phân chia thành giai cấp",
+      "B": "Xuất hiện tầng lớp lao động trí óc",
+      "C": "Tư duy của con người đạt trình độ tư duy khái quát cao và xuất hiện tầng lớp lao động trí óc có khả năng hệ thống tri thức của con người"
+    },
+    "originalAnswer": "Tư duy của con người đạt trình độ tư duy khái quát cao và xuất hiện tầng lớp lao động trí óc có khả năng hệ thống tri thức của con người",
+    "originalLetter": "C",
+    "correctAnswer": "Tư duy của con người đạt trình độ tư duy khái quát cao và xuất hiện tầng lớp lao động trí óc có khả năng hệ thống tri thức của con người",
+    "options": [
+      "Xuất hiện tầng lớp lao động trí óc",
+      "Tư duy của con người đạt trình độ tư duy khái quát cao và xuất hiện tầng lớp lao động trí óc có khả năng hệ thống tri thức của con người",
+      "Xã hội phân chia thành giai cấp"
+    ]
+  },
+  {
+    "id": 7,
+    "rawId": 7,
+    "uid": "spkt_7",
+    "question": "Triết học ra đời từ đâu?",
+    "originalOptions": {
+      "A": "Từ thực tiễn, do nhu cầu của thực tiễn",
+      "B": "Từ sự suy tư của con người về bản thân mình",
+      "C": "Từ sự sáng tạo của nhà tư tưởng",
+      "D": "Từ sự vận động của ý muốn chủ quan của con người"
+    },
+    "originalAnswer": "Từ thực tiễn, do nhu cầu của thực tiễn",
+    "originalLetter": "A",
+    "correctAnswer": "Từ thực tiễn, do nhu cầu của thực tiễn",
+    "options": [
+      "Từ sự vận động của ý muốn chủ quan của con người",
+      "Từ thực tiễn, do nhu cầu của thực tiễn",
+      "Từ sự sáng tạo của nhà tư tưởng",
+      "Từ sự suy tư của con người về bản thân mình"
+    ]
+  },
+  {
+    "id": 8,
+    "rawId": 8,
+    "uid": "spkt_8",
+    "question": "Nguồn gốc nhận thức của triết học là gì?",
+    "originalOptions": {
+      "A": "Con người đã có một vốn hiểu biết phong phú nhất định và tư duy con người đã đạt tới trình độ trừu tượng hoá, khái quát hoá, hệ thống hoá để xây dựng nên các học thuyết, các lý luận.",
+      "B": "Xã hội phát triển đến mức có sự phân chia thành lao động trí óc và lao động chân tay.",
+      "C": "Xuất hiện sự suy tư và ý muốn chủ quan thuần túy của các nhà tư tưởng.",
+      "D": "Niềm tin tôn giáo và sự thần thánh hóa các hiện tượng tự nhiên."
+    },
+    "originalAnswer": "Con người đã có một vốn hiểu biết phong phú nhất định và tư duy con người đã đạt tới trình độ trừu tượng hoá, khái quát hoá, hệ thống hoá để xây dựng nên các học thuyết, các lý luận.",
+    "originalLetter": "A",
+    "correctAnswer": "Con người đã có một vốn hiểu biết phong phú nhất định và tư duy con người đã đạt tới trình độ trừu tượng hoá, khái quát hoá, hệ thống hoá để xây dựng nên các học thuyết, các lý luận.",
+    "options": [
+      "Con người đã có một vốn hiểu biết phong phú nhất định và tư duy con người đã đạt tới trình độ trừu tượng hoá, khái quát hoá, hệ thống hoá để xây dựng nên các học thuyết, các lý luận.",
+      "Niềm tin tôn giáo và sự thần thánh hóa các hiện tượng tự nhiên.",
+      "Xuất hiện sự suy tư và ý muốn chủ quan thuần túy của các nhà tư tưởng.",
+      "Xã hội phát triển đến mức có sự phân chia thành lao động trí óc và lao động chân tay."
+    ]
+  },
+  {
+    "id": 9,
+    "rawId": 9,
+    "uid": "spkt_9",
+    "question": "Nguồn gốc xã hội của triết học là gì?",
+    "originalOptions": {
+      "A": "Xã hội phát triển đến mức có sự phân chia thành lao động trí óc và lao động chân tay, chế độ công xã nguyên thuỷ đã được thay bằng chế độ chiếm hữu nô lệ - chế độ xã hội có giai cấp đầu tiên trong lịch sử.",
+      "B": "Tư duy con người đạt tới trình độ trừu tượng hoá, khái quát hoá các tri thức kinh nghiệm.",
+      "C": "Con người bắt đầu chế tạo ra công cụ lao động bằng kim loại.",
+      "D": "Sự xuất hiện của các nhà thông thái và tôn giáo lớn trên thế giới."
+    },
+    "originalAnswer": "Xã hội phát triển đến mức có sự phân chia thành lao động trí óc và lao động chân tay, chế độ công xã nguyên thuỷ đã được thay bằng chế độ chiếm hữu nô lệ - chế độ xã hội có giai cấp đầu tiên trong lịch sử.",
+    "originalLetter": "A",
+    "correctAnswer": "Xã hội phát triển đến mức có sự phân chia thành lao động trí óc và lao động chân tay, chế độ công xã nguyên thuỷ đã được thay bằng chế độ chiếm hữu nô lệ - chế độ xã hội có giai cấp đầu tiên trong lịch sử.",
+    "options": [
+      "Xã hội phát triển đến mức có sự phân chia thành lao động trí óc và lao động chân tay, chế độ công xã nguyên thuỷ đã được thay bằng chế độ chiếm hữu nô lệ - chế độ xã hội có giai cấp đầu tiên trong lịch sử.",
+      "Con người bắt đầu chế tạo ra công cụ lao động bằng kim loại.",
+      "Sự xuất hiện của các nhà thông thái và tôn giáo lớn trên thế giới.",
+      "Tư duy con người đạt tới trình độ trừu tượng hoá, khái quát hoá các tri thức kinh nghiệm."
+    ]
+  },
+  {
+    "id": 10,
+    "rawId": 10,
+    "uid": "spkt_10",
+    "question": "Đối tượng của triết học có thay đổi trong lịch sử không?",
+    "originalOptions": {
+      "A": "Không",
+      "B": "Có"
+    },
+    "originalAnswer": "Có",
+    "originalLetter": "B",
+    "correctAnswer": "Có",
+    "options": [
+      "Có",
+      "Không"
+    ]
+  },
+  {
+    "id": 11,
+    "rawId": 11,
+    "uid": "spkt_11",
+    "question": "Thời kỳ Phục Hưng ở Tây Âu là vào thế kỷ nào",
+    "originalOptions": {
+      "A": "Thế kỷ XIV - XV",
+      "B": "Thế kỷ XV - XVI",
+      "C": "Thế kỷ XVI - XVII",
+      "D": "Thế kỷ XVII - XVIII"
+    },
+    "originalAnswer": "Thế kỷ XV - XVI",
+    "originalLetter": "B",
+    "correctAnswer": "Thế kỷ XV - XVI",
+    "options": [
+      "Thế kỷ XIV - XV",
+      "Thế kỷ XVII - XVIII",
+      "Thế kỷ XVI - XVII",
+      "Thế kỷ XV - XVI"
+    ]
+  },
+  {
+    "id": 12,
+    "rawId": 12,
+    "uid": "spkt_12",
+    "question": "Tên gọi thời kỳ Phục Hưng ở Tây Âu có nghĩa là gì?",
+    "originalOptions": {
+      "A": "Khôi phục chủ nghĩa duy vật thời kỳ cổ đại",
+      "B": "Khôi phục triết học thời kỳ cổ đại.",
+      "C": "Khôi phục nền văn hoá cổ đại.",
+      "D": "Khôi phục phép biện chứng tự phát thời kỳ cổ đại"
+    },
+    "originalAnswer": "Khôi phục nền văn hoá cổ đại.",
+    "originalLetter": "C",
+    "correctAnswer": "Khôi phục nền văn hoá cổ đại.",
+    "options": [
+      "Khôi phục phép biện chứng tự phát thời kỳ cổ đại",
+      "Khôi phục chủ nghĩa duy vật thời kỳ cổ đại",
+      "Khôi phục triết học thời kỳ cổ đại.",
+      "Khôi phục nền văn hoá cổ đại."
+    ]
+  },
+  {
+    "id": 13,
+    "rawId": 13,
+    "uid": "spkt_13",
+    "question": "Thời kỳ Phục Hưng là thời kỳ quá độ từ hình thái kinh tế - xã hội nào sang hình thái kinh tế - xã hội nào?",
+    "originalOptions": {
+      "A": "Từ hình thái kinh tế - xã hội chiếm hữu nô lệ sang hình thái kinh tế - xã hội phong kiến.",
+      "B": "Từ hình thái kinh tế - xã hội phong kiến sang kình thái kinh tế - xã hội tư bản chủ nghĩa.",
+      "C": "Từ hình thái kinh tế - xã hội TBCN sang hình thái kinh tế - xã hội XHCN.",
+      "D": "Từ hình thái kinh tế xã hội cộng sản nguyên thuỷ sang hình thái kinh tế xã hội chiếm hữu nô lệ"
+    },
+    "originalAnswer": "Từ hình thái kinh tế - xã hội phong kiến sang kình thái kinh tế - xã hội tư bản chủ nghĩa.",
+    "originalLetter": "B",
+    "correctAnswer": "Từ hình thái kinh tế - xã hội phong kiến sang kình thái kinh tế - xã hội tư bản chủ nghĩa.",
+    "options": [
+      "Từ hình thái kinh tế - xã hội TBCN sang hình thái kinh tế - xã hội XHCN.",
+      "Từ hình thái kinh tế - xã hội chiếm hữu nô lệ sang hình thái kinh tế - xã hội phong kiến.",
+      "Từ hình thái kinh tế xã hội cộng sản nguyên thuỷ sang hình thái kinh tế xã hội chiếm hữu nô lệ",
+      "Từ hình thái kinh tế - xã hội phong kiến sang kình thái kinh tế - xã hội tư bản chủ nghĩa."
+    ]
+  },
+  {
+    "id": 14,
+    "rawId": 14,
+    "uid": "spkt_14",
+    "question": "Khoa học tự nhiên bắt đầu có sự phát triển mạnh mẽ vào thời kỳ nào?",
+    "originalOptions": {
+      "A": "Thời kỳ Phục Hưng",
+      "B": "Thời kỳ trung cổ",
+      "C": "Thời kỳ cổ đại",
+      "D": "Thời kỳ cận đại"
+    },
+    "originalAnswer": "Thời kỳ Phục Hưng",
+    "originalLetter": "A",
+    "correctAnswer": "Thời kỳ Phục Hưng",
+    "options": [
+      "Thời kỳ cổ đại",
+      "Thời kỳ cận đại",
+      "Thời kỳ trung cổ",
+      "Thời kỳ Phục Hưng"
+    ]
+  },
+  {
+    "id": 15,
+    "rawId": 15,
+    "uid": "spkt_15",
+    "question": "Quan hệ giữa khoa học tự nhiên với thần học ở thời kỳ Phục Hưng như thế nào?",
+    "originalOptions": {
+      "A": "Khoa học tự nhiên hoàn toàn phụ thuộc vào thần học và tôn giáo",
+      "B": "Khoa học tự nhiên hoàn toàn độc lập với thần học và tôn giáo.",
+      "C": "Khoa học tự nhiên dần dần độc lập với thần học và tôn giáo"
+    },
+    "originalAnswer": "Khoa học tự nhiên dần dần độc lập với thần học và tôn giáo",
+    "originalLetter": "C",
+    "correctAnswer": "Khoa học tự nhiên dần dần độc lập với thần học và tôn giáo",
+    "options": [
+      "Khoa học tự nhiên hoàn toàn phụ thuộc vào thần học và tôn giáo",
+      "Khoa học tự nhiên dần dần độc lập với thần học và tôn giáo",
+      "Khoa học tự nhiên hoàn toàn độc lập với thần học và tôn giáo."
+    ]
+  },
+  {
+    "id": 16,
+    "rawId": 16,
+    "uid": "spkt_16",
+    "question": "Về khách quan, sự phát triển khoa học tự nhiên và thế giới quan duy tâm tôn giáo quan hệ với nhau như thế nào?",
+    "originalOptions": {
+      "A": "Sự phát triển khoa học tự nhiên củng cố thế giới quan duy tâm tôn giáo.",
+      "B": "Sự phát triển KHTN không ảnh hưởng gì đến thế giới quan duy tâm tôn giáo.",
+      "C": "Sự phát triển KHTN trở thành vũ khí chống lại thế giới quan duy tâm tôn giáo"
+    },
+    "originalAnswer": "Sự phát triển KHTN trở thành vũ khí chống lại thế giới quan duy tâm tôn giáo",
+    "originalLetter": "C",
+    "correctAnswer": "Sự phát triển KHTN trở thành vũ khí chống lại thế giới quan duy tâm tôn giáo",
+    "options": [
+      "Sự phát triển khoa học tự nhiên củng cố thế giới quan duy tâm tôn giáo.",
+      "Sự phát triển KHTN không ảnh hưởng gì đến thế giới quan duy tâm tôn giáo.",
+      "Sự phát triển KHTN trở thành vũ khí chống lại thế giới quan duy tâm tôn giáo"
+    ]
+  },
+  {
+    "id": 17,
+    "rawId": 17,
+    "uid": "spkt_17",
+    "question": "Trong thời kỳ Phục Hưng giai cấp tư sản có vị trí như thế nào đối với sự phát triển xã hội?",
+    "originalOptions": {
+      "A": "Là giai cấp tiến bộ, cách mạng",
+      "B": "Là giai cấp thống trị xã hội.",
+      "C": "Là giai cấp bảo thủ lạc hậu."
+    },
+    "originalAnswer": "Là giai cấp tiến bộ, cách mạng",
+    "originalLetter": "A",
+    "correctAnswer": "Là giai cấp tiến bộ, cách mạng",
+    "options": [
+      "Là giai cấp bảo thủ lạc hậu.",
+      "Là giai cấp thống trị xã hội.",
+      "Là giai cấp tiến bộ, cách mạng"
+    ]
+  },
+  {
+    "id": 18,
+    "rawId": 18,
+    "uid": "spkt_18",
+    "question": "Những nhà khoa học và triết học: Côpécních, Brunô, thuộc thời kỳ nào?",
+    "originalOptions": {
+      "A": "Thời kỳ cổ đại.",
+      "B": "Thời kỳ trung cổ",
+      "C": "Thời kỳ Phục Hưng",
+      "D": "Thời kỳ cận đại."
+    },
+    "originalAnswer": "Thời kỳ Phục Hưng",
+    "originalLetter": "C",
+    "correctAnswer": "Thời kỳ Phục Hưng",
+    "options": [
+      "Thời kỳ Phục Hưng",
+      "Thời kỳ cận đại.",
+      "Thời kỳ trung cổ",
+      "Thời kỳ cổ đại."
+    ]
+  },
+  {
+    "id": 19,
+    "rawId": 19,
+    "uid": "spkt_19",
+    "question": "Nicôlai Côpécních là nhà khoa học của nước nào?",
+    "originalOptions": {
+      "A": "Italia",
+      "B": "Đức",
+      "C": "Balan",
+      "D": "Pháp"
+    },
+    "originalAnswer": "Balan",
+    "originalLetter": "C",
+    "correctAnswer": "Balan",
+    "options": [
+      "Italia",
+      "Đức",
+      "Pháp",
+      "Balan"
+    ]
+  },
+  {
+    "id": 20,
+    "rawId": 20,
+    "uid": "spkt_20",
+    "question": "Nicôlai Côpécních đã đưa ra học thuyết nào?",
+    "originalOptions": {
+      "A": "Thuyết trái đất là trung tâm của vũ trụ.",
+      "B": "Thuyết cấu tạo nguyên tử của vật chất.",
+      "C": "Thuyết ý niệm là nguồn gốc của thế giới.",
+      "D": "Thuyết mặt trời là trung tâm của vũ trụ."
+    },
+    "originalAnswer": "Thuyết mặt trời là trung tâm của vũ trụ.",
+    "originalLetter": "D",
+    "correctAnswer": "Thuyết mặt trời là trung tâm của vũ trụ.",
+    "options": [
+      "Thuyết mặt trời là trung tâm của vũ trụ.",
+      "Thuyết trái đất là trung tâm của vũ trụ.",
+      "Thuyết ý niệm là nguồn gốc của thế giới.",
+      "Thuyết cấu tạo nguyên tử của vật chất."
+    ]
+  },
+  {
+    "id": 21,
+    "rawId": 21,
+    "uid": "spkt_21",
+    "question": "Học thuyết về vũ trụ của Nicôlai Côpécních có ý nghĩa như thế nào đối với sự phát triển khoa học tự nhiên?",
+    "originalOptions": {
+      "A": "Đánh dấu sự ra đời của khoa học tự nhiên",
+      "B": "Đánh dấu bước chuyển từ khoa học tự nhiên thực nghiệm sang khoa học tự nhiên lý luận.",
+      "C": "Đánh dấu sự giải phóng khoa học tự nhiên khỏi thần học và tôn giáo"
+    },
+    "originalAnswer": "Đánh dấu sự giải phóng khoa học tự nhiên khỏi thần học và tôn giáo",
+    "originalLetter": "C",
+    "correctAnswer": "Đánh dấu sự giải phóng khoa học tự nhiên khỏi thần học và tôn giáo",
+    "options": [
+      "Đánh dấu bước chuyển từ khoa học tự nhiên thực nghiệm sang khoa học tự nhiên lý luận.",
+      "Đánh dấu sự giải phóng khoa học tự nhiên khỏi thần học và tôn giáo",
+      "Đánh dấu sự ra đời của khoa học tự nhiên"
+    ]
+  },
+  {
+    "id": 22,
+    "rawId": 22,
+    "uid": "spkt_22",
+    "question": "Đối với thế giới quan tôn giáo, phát minh của Côpécních có ý nghĩa gì?",
+    "originalOptions": {
+      "A": "Củng cố thế giới quan tôn giáo",
+      "B": "Không có ảnh hưởng gì đối với thế giới quan tôn giáo",
+      "C": "Bác bỏ nền tảng của thế giới quan tôn giáo",
+      "D": "Chứng minh tính hợp lý của kinh thánh"
+    },
+    "originalAnswer": "Bác bỏ nền tảng của thế giới quan tôn giáo",
+    "originalLetter": "C",
+    "correctAnswer": "Bác bỏ nền tảng của thế giới quan tôn giáo",
+    "options": [
+      "Không có ảnh hưởng gì đối với thế giới quan tôn giáo",
+      "Chứng minh tính hợp lý của kinh thánh",
+      "Củng cố thế giới quan tôn giáo",
+      "Bác bỏ nền tảng của thế giới quan tôn giáo"
+    ]
+  },
+  {
+    "id": 23,
+    "rawId": 23,
+    "uid": "spkt_23",
+    "question": "Brunô là nhà khoa học và triết học của nước nào?",
+    "originalOptions": {
+      "A": "Đức",
+      "B": "Pháp",
+      "C": "Balan",
+      "D": "Italia"
+    },
+    "originalAnswer": "Italia",
+    "originalLetter": "D",
+    "correctAnswer": "Italia",
+    "options": [
+      "Italia",
+      "Balan",
+      "Pháp",
+      "Đức"
+    ]
+  },
+  {
+    "id": 24,
+    "rawId": 24,
+    "uid": "spkt_24",
+    "question": "Brunô đồng ý với quan niệm của ai về vũ trụ?",
+    "originalOptions": {
+      "A": "Ptôlêmê",
+      "B": "Platôn",
+      "C": "Nicôlai Côpécních",
+      "D": "Hêraclit"
+    },
+    "originalAnswer": "Nicôlai Côpécních",
+    "originalLetter": "C",
+    "correctAnswer": "Nicôlai Côpécních",
+    "options": [
+      "Ptôlêmê",
+      "Platôn",
+      "Nicôlai Côpécních",
+      "Hêraclit"
+    ]
+  },
+  {
+    "id": 25,
+    "rawId": 25,
+    "uid": "spkt_25",
+    "question": "Brunô đã chứng minh về tính chất gì của thế giới (của vũ trụ)",
+    "originalOptions": {
+      "A": "Tính tồn tại thuần tuý của thế giới vật chất",
+      "B": "Tính thống nhất trên cơ sở tinh thần của vật chất.",
+      "C": "Tính thống nhất vật chất của thế giới (của vũ trụ)"
+    },
+    "originalAnswer": "Tính thống nhất vật chất của thế giới (của vũ trụ)",
+    "originalLetter": "C",
+    "correctAnswer": "Tính thống nhất vật chất của thế giới (của vũ trụ)",
+    "options": [
+      "Tính thống nhất vật chất của thế giới (của vũ trụ)",
+      "Tính thống nhất trên cơ sở tinh thần của vật chất.",
+      "Tính tồn tại thuần tuý của thế giới vật chất"
+    ]
+  },
+  {
+    "id": 26,
+    "rawId": 26,
+    "uid": "spkt_26",
+    "question": "Khi xây dựng phương pháp mới của khoa học, Brunô đòi hỏi khoa học tự nhiên phải dựa trên cái gì?",
+    "originalOptions": {
+      "A": "Dự trên những giáo điều tôn giáo",
+      "B": "Dựa trên ý muốn chủ quan",
+      "C": "Dựa trên tình cảm, khát vọng",
+      "D": "Dựa trên thực nghiệm"
+    },
+    "originalAnswer": "Dựa trên thực nghiệm",
+    "originalLetter": "D",
+    "correctAnswer": "Dựa trên thực nghiệm",
+    "options": [
+      "Dựa trên thực nghiệm",
+      "Dựa trên ý muốn chủ quan",
+      "Dự trên những giáo điều tôn giáo",
+      "Dựa trên tình cảm, khát vọng"
+    ]
+  },
+  {
+    "id": 27,
+    "rawId": 27,
+    "uid": "spkt_27",
+    "question": "Brunô bị toà án tôn giáo xử tội như thế nào?",
+    "originalOptions": {
+      "A": "Tù trung thân",
+      "C": "Tử hình (thiêu sống)",
+      "B": "Giam lỏng",
+      "D": "Tha bổng"
+    },
+    "originalAnswer": "Tử hình (thiêu sống)",
+    "originalLetter": "C",
+    "correctAnswer": "Tử hình (thiêu sống)",
+    "options": [
+      "Tử hình (thiêu sống)",
+      "Tha bổng",
+      "Giam lỏng",
+      "Tù trung thân"
+    ]
+  },
+  {
+    "id": 28,
+    "rawId": 28,
+    "uid": "spkt_28",
+    "question": "Triết học của các nhà tư tưởng thời kỳ Phục Hưng có đặc điểm gì?",
+    "originalOptions": {
+      "A": "Có tính chất duy vật tự phát",
+      "B": "Có tính duy tâm khách quan",
+      "C": "Có tính duy tâm chủ quan",
+      "D": "Còn pha trộn giữa các yếu tố duy vật và duy tâm, có tính chất phiếm thần luận"
+    },
+    "originalAnswer": "Còn pha trộn giữa các yếu tố duy vật và duy tâm, có tính chất phiếm thần luận",
+    "originalLetter": "D",
+    "correctAnswer": "Còn pha trộn giữa các yếu tố duy vật và duy tâm, có tính chất phiếm thần luận",
+    "options": [
+      "Có tính duy tâm chủ quan",
+      "Còn pha trộn giữa các yếu tố duy vật và duy tâm, có tính chất phiếm thần luận",
+      "Có tính chất duy vật tự phát",
+      "Có tính duy tâm khách quan"
+    ]
+  },
+  {
+    "id": 29,
+    "rawId": 29,
+    "uid": "spkt_29",
+    "question": "Quan điểm triết học cho rằng thượng đế và tự nhiên chỉ là một gọi là quan điểm có tính chất gì?",
+    "originalOptions": {
+      "A": "Có tính duy vật biện chứng",
+      "B": "Có tính duy tâm, siêu hình",
+      "C": "Có tính chất phiếm thần luận"
+    },
+    "originalAnswer": "Có tính chất phiếm thần luận",
+    "originalLetter": "C",
+    "correctAnswer": "Có tính chất phiếm thần luận",
+    "options": [
+      "Có tính duy vật biện chứng",
+      "Có tính chất phiếm thần luận",
+      "Có tính duy tâm, siêu hình"
+    ]
+  },
+  {
+    "id": 30,
+    "rawId": 30,
+    "uid": "spkt_30",
+    "question": "Quan điểm triết học tự nhiên có tính chất phiếm thần luận là đặc trưng của triết học thời kỳ nào?",
+    "originalOptions": {
+      "A": "Thời kỳ cổ đại",
+      "C": "Thời kỳ trung cổ",
+      "B": "Thời kỳ Phục Hưng",
+      "D": "Thời kỳ cận đại"
+    },
+    "originalAnswer": "Thời kỳ Phục Hưng",
+    "originalLetter": "B",
+    "correctAnswer": "Thời kỳ Phục Hưng",
+    "options": [
+      "Thời kỳ cổ đại",
+      "Thời kỳ cận đại",
+      "Thời kỳ Phục Hưng",
+      "Thời kỳ trung cổ"
+    ]
+  },
+  {
+    "id": 31,
+    "rawId": 31,
+    "uid": "spkt_31",
+    "question": "Những cuộc cách mạng nổ ra ở Hà Lan, Anh, Pháp... thời kỳ cận đại gọi là những cuộc cách mạng nào?",
+    "originalOptions": {
+      "A": "Cách mạng vô sản",
+      "B": "Cách mạng giải phóng dân tộc",
+      "C": "Khởi nghĩa của nông dân",
+      "D": "Cách mạng tư sản."
+    },
+    "originalAnswer": "Cách mạng tư sản.",
+    "originalLetter": "D",
+    "correctAnswer": "Cách mạng tư sản.",
+    "options": [
+      "Cách mạng giải phóng dân tộc",
+      "Khởi nghĩa của nông dân",
+      "Cách mạng tư sản.",
+      "Cách mạng vô sản"
+    ]
+  },
+  {
+    "id": 32,
+    "rawId": 32,
+    "uid": "spkt_32",
+    "question": "Những cuộc cách mạng thời kỳ cận đại ở Tây Âu do mâu thuẫn giữa lực lượng sản xuất với quan hệ sản xuất nào?",
+    "originalOptions": {
+      "A": "Quan hệ sản xuất phong kiến",
+      "B": "Quan hệ sản xuất tư bản chủ nghĩa",
+      "C": "Quan hệ sản xuất chiếm hữu nô lệ",
+      "D": "Quan hệ sản xuất cộng sản nguyên thuỷ"
+    },
+    "originalAnswer": "Quan hệ sản xuất phong kiến",
+    "originalLetter": "A",
+    "correctAnswer": "Quan hệ sản xuất phong kiến",
+    "options": [
+      "Quan hệ sản xuất phong kiến",
+      "Quan hệ sản xuất cộng sản nguyên thuỷ",
+      "Quan hệ sản xuất tư bản chủ nghĩa",
+      "Quan hệ sản xuất chiếm hữu nô lệ"
+    ]
+  },
+  {
+    "id": 33,
+    "rawId": 33,
+    "uid": "spkt_33",
+    "question": "Các cuộc cách mạng ở Tây Âu thời kỳ cận đại nổ ra do mâu thuẫn nào?",
+    "originalOptions": {
+      "A": "Mâu thuẫn giữa lực lượng sản xuất mới với QHSX phong kiến đã trở nên lỗi thời",
+      "B": "Mâu thuẫn giữa nông dân và địa chủ phong kiến",
+      "C": "Mâu thuẫn giữa nô lệ và chủ nô",
+      "D": "Mâu thuẫn giữa tư sản và vô sản"
+    },
+    "originalAnswer": "Mâu thuẫn giữa lực lượng sản xuất mới với QHSX phong kiến đã trở nên lỗi thời",
+    "originalLetter": "A",
+    "correctAnswer": "Mâu thuẫn giữa lực lượng sản xuất mới với QHSX phong kiến đã trở nên lỗi thời",
+    "options": [
+      "Mâu thuẫn giữa nô lệ và chủ nô",
+      "Mâu thuẫn giữa nông dân và địa chủ phong kiến",
+      "Mâu thuẫn giữa tư sản và vô sản",
+      "Mâu thuẫn giữa lực lượng sản xuất mới với QHSX phong kiến đã trở nên lỗi thời"
+    ]
+  },
+  {
+    "id": 34,
+    "rawId": 34,
+    "uid": "spkt_34",
+    "question": "Giai cấp nào lãnh đạo cuộc cách mạng thời kỳ cận đại ?",
+    "originalOptions": {
+      "A": "Giai cấp vô sản",
+      "B": "Giai cấp nông dân",
+      "C": "Giai cấp tư sản",
+      "D": "Giai cấp địa chủ phong kiến"
+    },
+    "originalAnswer": "Giai cấp tư sản",
+    "originalLetter": "C",
+    "correctAnswer": "Giai cấp tư sản",
+    "options": [
+      "Giai cấp vô sản",
+      "Giai cấp địa chủ phong kiến",
+      "Giai cấp tư sản",
+      "Giai cấp nông dân"
+    ]
+  },
+  {
+    "id": 35,
+    "rawId": 35,
+    "uid": "spkt_35",
+    "question": "Cuộc cách mạng nào ở Tây Âu thời kỳ cận đại được C. Mác gọi là cuộc cách mạng có quy mô toàn Châu Âu và có ý nghĩa lớn đối với sự ra đời trật tự xã hội mới.",
+    "originalOptions": {
+      "A": "Cuộc cách mạng ở Hà Lan và ý",
+      "B": "Cuộc cách mạng ở ý và ở áo",
+      "C": "Cuộc cách mạng ở Anh giữa thế kỷ XVII và cách mạng Pháp cuối thế kỷ XVIII."
+    },
+    "originalAnswer": "Cuộc cách mạng ở Anh giữa thế kỷ XVII và cách mạng Pháp cuối thế kỷ XVIII.",
+    "originalLetter": "C",
+    "correctAnswer": "Cuộc cách mạng ở Anh giữa thế kỷ XVII và cách mạng Pháp cuối thế kỷ XVIII.",
+    "options": [
+      "Cuộc cách mạng ở Hà Lan và ý",
+      "Cuộc cách mạng ở Anh giữa thế kỷ XVII và cách mạng Pháp cuối thế kỷ XVIII.",
+      "Cuộc cách mạng ở ý và ở áo"
+    ]
+  },
+  {
+    "id": 36,
+    "rawId": 26,
+    "uid": "spkt_36",
+    "question": "Cuộc cách mạng ở Anh giữa thế kỷ XVII và cuộc cách mạng ở Pháp cuối TK XVIII đánh dấu sự thay thế của trật tự xã hội nào cho xã hội nào?",
+    "originalOptions": {
+      "A": "Trật tự xã hội chiếm hữu nô lệ thay cho trật tự xã hội cộng sản nguyên thuỷ",
+      "B": "Trật tự xã hội phong kiến thay cho trật tự xã hội chiếm hữu nô lệ",
+      "C": "Trật tự xã hội tư sản thay cho trật tự xã hội phong kiến.",
+      "D": "Trật tự xã hội xã hội chủ nghĩa thay cho trật tự xã hội tư sản"
+    },
+    "originalAnswer": "Trật tự xã hội tư sản thay cho trật tự xã hội phong kiến.",
+    "originalLetter": "C",
+    "correctAnswer": "Trật tự xã hội tư sản thay cho trật tự xã hội phong kiến.",
+    "options": [
+      "Trật tự xã hội tư sản thay cho trật tự xã hội phong kiến.",
+      "Trật tự xã hội chiếm hữu nô lệ thay cho trật tự xã hội cộng sản nguyên thuỷ",
+      "Trật tự xã hội xã hội chủ nghĩa thay cho trật tự xã hội tư sản",
+      "Trật tự xã hội phong kiến thay cho trật tự xã hội chiếm hữu nô lệ"
+    ]
+  },
+  {
+    "id": 37,
+    "rawId": 37,
+    "uid": "spkt_37",
+    "question": "Ngành khoa học nào phát triển rực rỡ nhất và có ảnh hưởng lớn nhất đến phương pháp tư duy của thời kỳ cận đại?",
+    "originalOptions": {
+      "A": "Toán học",
+      "C": "Sinh học",
+      "B": "Hoá học",
+      "D": "Cơ học"
+    },
+    "originalAnswer": "Cơ học",
+    "originalLetter": "D",
+    "correctAnswer": "Cơ học",
+    "options": [
+      "Toán học",
+      "Cơ học",
+      "Hoá học",
+      "Sinh học"
+    ]
+  },
+  {
+    "id": 38,
+    "rawId": 38,
+    "uid": "spkt_38",
+    "question": "Ph.Bêcơn là nhà triết học của nước nào?",
+    "originalOptions": {
+      "A": "Nước Anh",
+      "C": "Nước Đức",
+      "B": "Nước Pháp",
+      "D": "Nước Ba lan"
+    },
+    "originalAnswer": "Nước Anh",
+    "originalLetter": "A",
+    "correctAnswer": "Nước Anh",
+    "options": [
+      "Nước Anh",
+      "Nước Đức",
+      "Nước Pháp",
+      "Nước Ba lan"
+    ]
+  },
+  {
+    "id": 39,
+    "rawId": 39,
+    "uid": "spkt_39",
+    "question": "Về lập trường chính trị, Ph.Bêcơn là nhà tư tưởng của giai cấp nào?",
+    "originalOptions": {
+      "A": "Giai cấp chủ nô",
+      "B": "Giai cấp địa chủ phong kiến",
+      "C": "Giai cấp nông dân",
+      "D": "Giai cấp tư sản và tầng lớp quý tộc mới."
+    },
+    "originalAnswer": "Giai cấp tư sản và tầng lớp quý tộc mới.",
+    "originalLetter": "D",
+    "correctAnswer": "Giai cấp tư sản và tầng lớp quý tộc mới.",
+    "options": [
+      "Giai cấp địa chủ phong kiến",
+      "Giai cấp tư sản và tầng lớp quý tộc mới.",
+      "Giai cấp chủ nô",
+      "Giai cấp nông dân"
+    ]
+  },
+  {
+    "id": 40,
+    "rawId": 40,
+    "uid": "spkt_40",
+    "question": "Theo Ph. Bêcơn con người muốn chiếm được của cải của giới tự nhiên thì cần phải có cái gì?",
+    "originalOptions": {
+      "A": "Có niềm tin vào thượng đế",
+      "B": "Có nhiệt tình làm việc",
+      "C": "Có tri thức về tự nhiên",
+      "D": "Có kinh nghiệm sống"
+    },
+    "originalAnswer": "Có tri thức về tự nhiên",
+    "originalLetter": "C",
+    "correctAnswer": "Có tri thức về tự nhiên",
+    "options": [
+      "Có nhiệt tình làm việc",
+      "Có tri thức về tự nhiên",
+      "Có niềm tin vào thượng đế",
+      "Có kinh nghiệm sống"
+    ]
+  },
+  {
+    "id": 41,
+    "rawId": 41,
+    "uid": "spkt_41",
+    "question": "Về phương pháp nhận thức Ph.Bêcơn phê phán phương pháp nào?",
+    "originalOptions": {
+      "A": "Phương pháp kinh nghiệm (phương pháp con kiến)",
+      "B": "Phương pháp kinh viện (phương pháp con nhện)",
+      "C": "Phương pháp phân tích thực nghiệm (phương pháp con ong)",
+      "D": "Phương pháp a và b"
+    },
+    "originalAnswer": "Phương pháp a và b",
+    "originalLetter": "D",
+    "correctAnswer": "Phương pháp a và b",
+    "options": [
+      "Phương pháp kinh viện (phương pháp con nhện)",
+      "Phương pháp phân tích thực nghiệm (phương pháp con ong)",
+      "Phương pháp a và b",
+      "Phương pháp kinh nghiệm (phương pháp con kiến)"
+    ]
+  },
+  {
+    "id": 42,
+    "rawId": 42,
+    "uid": "spkt_42",
+    "question": "Theo Ph. Bêcơn phương pháp nhận thức tốt nhất là phương pháp nào",
+    "originalOptions": {
+      "A": "Phương pháp diễn dịch",
+      "B": "Phương pháp quy nạp",
+      "C": "Phương pháp trừu tượng hoá",
+      "D": "Phương pháp mô hình hoá"
+    },
+    "originalAnswer": "Phương pháp quy nạp",
+    "originalLetter": "B",
+    "correctAnswer": "Phương pháp quy nạp",
+    "options": [
+      "Phương pháp quy nạp",
+      "Phương pháp diễn dịch",
+      "Phương pháp trừu tượng hoá",
+      "Phương pháp mô hình hoá"
+    ]
+  },
+  {
+    "id": 43,
+    "rawId": 43,
+    "uid": "spkt_43",
+    "question": "Ph.Bêcơn gọi phương pháp con nhện là phương pháp triết học của các nhà tư tưởng thời kỳ nào?",
+    "originalOptions": {
+      "A": "Thời kỳ trung cổ",
+      "B": "Thời kỳ cổ đại",
+      "C": "Thời kỳ cận đại",
+      "D": "Thời kỳ Phục hưng"
+    },
+    "originalAnswer": "Thời kỳ trung cổ",
+    "originalLetter": "A",
+    "correctAnswer": "Thời kỳ trung cổ",
+    "options": [
+      "Thời kỳ trung cổ",
+      "Thời kỳ cận đại",
+      "Thời kỳ cổ đại",
+      "Thời kỳ Phục hưng"
+    ]
+  },
+  {
+    "id": 44,
+    "rawId": 44,
+    "uid": "spkt_44",
+    "question": "Phương pháp \"con nhện\" theo Ph.Bêcơn là phương pháp của những nhà triết học theo khuynh hướng nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa kinh nghiệm",
+      "B": "Chủ nghĩa kinh viện",
+      "C": "Thuyết bất khả tri",
+      "D": "Chủ nghĩa duy vật"
+    },
+    "originalAnswer": "Chủ nghĩa kinh viện",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa kinh viện",
+    "options": [
+      "Chủ nghĩa kinh viện",
+      "Chủ nghĩa kinh nghiệm",
+      "Chủ nghĩa duy vật",
+      "Thuyết bất khả tri"
+    ]
+  },
+  {
+    "id": 45,
+    "rawId": 45,
+    "uid": "spkt_45",
+    "question": "Phương pháp rút ra kết quả riêng từ những kết luận chung, không tính đến sự tồn tại thực tế của sự vật, được gọi là phương pháp gì?",
+    "originalOptions": {
+      "A": "Phương pháp quy nạp",
+      "B": "Phương pháp diễn dịch",
+      "C": "Phương pháp kinh nghiệm",
+      "D": "Phương pháp kinh viện"
+    },
+    "originalAnswer": "Phương pháp kinh viện",
+    "originalLetter": "D",
+    "correctAnswer": "Phương pháp kinh viện",
+    "options": [
+      "Phương pháp kinh viện",
+      "Phương pháp diễn dịch",
+      "Phương pháp kinh nghiệm",
+      "Phương pháp quy nạp"
+    ]
+  },
+  {
+    "id": 46,
+    "rawId": 46,
+    "uid": "spkt_46",
+    "question": "Phương pháp \"con kiến\" theo Ph.Bêcơn là phương pháp của các nhà triết học theo khuynh hướng nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa chiết trung",
+      "B": "Chủ nghĩa kinh viện",
+      "C": "Chủ nghĩa bất khả tri",
+      "D": "Chủ nghĩa kinh nghiệm"
+    },
+    "originalAnswer": "Chủ nghĩa kinh nghiệm",
+    "originalLetter": "D",
+    "correctAnswer": "Chủ nghĩa kinh nghiệm",
+    "options": [
+      "Chủ nghĩa kinh nghiệm",
+      "Chủ nghĩa kinh viện",
+      "Chủ nghĩa chiết trung",
+      "Chủ nghĩa bất khả tri"
+    ]
+  },
+  {
+    "id": 47,
+    "rawId": 47,
+    "uid": "spkt_47",
+    "question": "Phương pháp nghiên cứu chỉ dựa vào kinh nghiệm thực tế, không có khái quát, theo Ph.Bêcơn được gọi là phương pháp gì?",
+    "originalOptions": {
+      "A": "Phương pháp \"con nhện\"",
+      "B": "Phương pháp \"con kiến\"",
+      "C": "Phương pháp \"con ong\"",
+      "D": "Phương pháp thực nghiệm"
+    },
+    "originalAnswer": "Phương pháp \"con kiến\"",
+    "originalLetter": "B",
+    "correctAnswer": "Phương pháp \"con kiến\"",
+    "options": [
+      "Phương pháp \"con ong\"",
+      "Phương pháp \"con kiến\"",
+      "Phương pháp \"con nhện\"",
+      "Phương pháp thực nghiệm"
+    ]
+  },
+  {
+    "id": 48,
+    "rawId": 48,
+    "uid": "spkt_48",
+    "question": "Theo Ph.Bêcơn phương pháp nghiên cứu khoa học chân chính phải là phương pháp nào?",
+    "originalOptions": {
+      "A": "Phương pháp \"con nhện\"",
+      "B": "Phương pháp \"con kiến\"",
+      "C": "Phương pháp \"con ong\"",
+      "D": "Phương pháp suy diễn"
+    },
+    "originalAnswer": "Phương pháp \"con ong\"",
+    "originalLetter": "C",
+    "correctAnswer": "Phương pháp \"con ong\"",
+    "options": [
+      "Phương pháp suy diễn",
+      "Phương pháp \"con kiến\"",
+      "Phương pháp \"con ong\"",
+      "Phương pháp \"con nhện\""
+    ]
+  },
+  {
+    "id": 49,
+    "rawId": 49,
+    "uid": "spkt_49",
+    "question": "Ph.Bêcơn là nhà triết học thuộc trường phái nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm chủ quan",
+      "B": "Chủ nghĩa duy tâm khách quan",
+      "C": "Chủ nghĩa duy vật siêu hình",
+      "D": "Chủ nghĩa duy vật biện chứng"
+    },
+    "originalAnswer": "Chủ nghĩa duy vật siêu hình",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy vật siêu hình",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng",
+      "Chủ nghĩa duy tâm chủ quan",
+      "Chủ nghĩa duy vật siêu hình",
+      "Chủ nghĩa duy tâm khách quan"
+    ]
+  },
+  {
+    "id": 50,
+    "rawId": 50,
+    "uid": "spkt_50",
+    "question": "Những trường phái triết học nào xem thường lý luận?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm khách quan",
+      "B": "Chủ nghĩa kinh viện",
+      "C": "Chủ nghĩa duy vật siêu hình",
+      "D": "Chủ nghĩa kinh nghiệm"
+    },
+    "originalAnswer": "Chủ nghĩa kinh nghiệm",
+    "originalLetter": "D",
+    "correctAnswer": "Chủ nghĩa kinh nghiệm",
+    "options": [
+      "Chủ nghĩa kinh viện",
+      "Chủ nghĩa duy tâm khách quan",
+      "Chủ nghĩa kinh nghiệm",
+      "Chủ nghĩa duy vật siêu hình"
+    ]
+  },
+  {
+    "id": 51,
+    "rawId": 51,
+    "uid": "spkt_51",
+    "question": "Những nhà triết học nào xem thường kinh nghiệm, xa rời cuộc sống?",
+    "originalOptions": {
+      "A": "Chủ nghĩa kinh nghiệm",
+      "B": "Chủ nghĩa duy vật biện chứng",
+      "C": "Chủ nghĩa kinh viện",
+      "D": "Chủ nghĩa duy vật siêu hình"
+    },
+    "originalAnswer": "Chủ nghĩa kinh viện",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa kinh viện",
+    "options": [
+      "Chủ nghĩa kinh viện",
+      "Chủ nghĩa kinh nghiệm",
+      "Chủ nghĩa duy vật siêu hình",
+      "Chủ nghĩa duy vật biện chứng"
+    ]
+  },
+  {
+    "id": 52,
+    "rawId": 52,
+    "uid": "spkt_52",
+    "question": "Nhận định nào sau đây là đúng?",
+    "originalOptions": {
+      "A": "Các nhà triết học duy vật đều thuộc chủ nghĩa kinh nghiệm và ngược lại",
+      "B": "Các nhà triết học duy tâm đều thuộc chủ nghĩa kinh viện và ngược lại",
+      "C": "Cả hai đều không đúng"
+    },
+    "originalAnswer": "Cả hai đều không đúng",
+    "originalLetter": "C",
+    "correctAnswer": "Cả hai đều không đúng",
+    "options": [
+      "Các nhà triết học duy tâm đều thuộc chủ nghĩa kinh viện và ngược lại",
+      "Các nhà triết học duy vật đều thuộc chủ nghĩa kinh nghiệm và ngược lại",
+      "Cả hai đều không đúng"
+    ]
+  },
+  {
+    "id": 53,
+    "rawId": 53,
+    "uid": "spkt_53",
+    "question": "Ph. Bêcơn sinh vào năm bao nhiêu và mất năm bao nhiêu?",
+    "originalOptions": {
+      "A": "1560 - 1625",
+      "B": "1561 - 1626",
+      "C": "1562 - 1627",
+      "D": "1563 - 1628"
+    },
+    "originalAnswer": "1561 - 1626",
+    "originalLetter": "B",
+    "correctAnswer": "1561 - 1626",
+    "options": [
+      "1563 - 1628",
+      "1560 - 1625",
+      "1561 - 1626",
+      "1562 - 1627"
+    ]
+  },
+  {
+    "id": 54,
+    "rawId": 54,
+    "uid": "spkt_54",
+    "question": "Tômat Hốpxơ sinh năm bao nhiêu và mất năm bao nhiêu?",
+    "originalOptions": {
+      "A": "1500 - 1570",
+      "B": "1550 - 1629",
+      "C": "1588 - 1679",
+      "D": "1587 - 1678"
+    },
+    "originalAnswer": "1588 - 1679",
+    "originalLetter": "C",
+    "correctAnswer": "1588 - 1679",
+    "options": [
+      "1587 - 1678",
+      "1588 - 1679",
+      "1550 - 1629",
+      "1500 - 1570"
+    ]
+  },
+  {
+    "id": 55,
+    "rawId": 55,
+    "uid": "spkt_55",
+    "question": "Ai là người sáng tạo ra hệ thống đầu tiên của chủ nghĩa duy vật siêu hình trong lịch sử triết học?",
+    "originalOptions": {
+      "A": "Ph. Bêcơn",
+      "B": "Tô mát Hốp Xơ",
+      "C": "Giôn Lốc Cơ",
+      "D": "Xpinôda"
+    },
+    "originalAnswer": "Tô mát Hốp Xơ",
+    "originalLetter": "B",
+    "correctAnswer": "Tô mát Hốp Xơ",
+    "options": [
+      "Xpinôda",
+      "Giôn Lốc Cơ",
+      "Ph. Bêcơn",
+      "Tô mát Hốp Xơ"
+    ]
+  },
+  {
+    "id": 56,
+    "rawId": 56,
+    "uid": "spkt_56",
+    "question": "Quan điểm của Tômát Hôpxơ về tự nhiên đứng trên lập trường triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật tự phát",
+      "B": "Chủ nghĩa duy tâm chủ quan",
+      "C": "Chủ nghĩa duy vật biện chứng",
+      "D": "Chủ nghĩa duy vật siêu hình"
+    },
+    "originalAnswer": "Chủ nghĩa duy vật siêu hình",
+    "originalLetter": "D",
+    "correctAnswer": "Chủ nghĩa duy vật siêu hình",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng",
+      "Chủ nghĩa duy tâm chủ quan",
+      "Chủ nghĩa duy vật siêu hình",
+      "Chủ nghĩa duy vật tự phát"
+    ]
+  },
+  {
+    "id": 57,
+    "rawId": 57,
+    "uid": "spkt_57",
+    "question": "Chủ nghĩa duy vật của Tômát Hốp-xơ thể hiện ở quan điểm nào sau đây?",
+    "originalOptions": {
+      "A": "Giới tự nhiên là tổng các vật tồn tại khách quan có quảng tính (độ dài) phân biệt nhau bởi đại lượng, hình khối, vị trí và vận động đổi vị trí trong không gian",
+      "B": "Tính phong phú về chất không phải là thuộc tính khách quan của giới tự nhiên",
+      "C": "Chất lượng của sự vật là hình thức tri giác chung"
+    },
+    "originalAnswer": "Giới tự nhiên là tổng các vật tồn tại khách quan có quảng tính (độ dài) phân biệt nhau bởi đại lượng, hình khối, vị trí và vận động đổi vị trí trong không gian",
+    "originalLetter": "A",
+    "correctAnswer": "Giới tự nhiên là tổng các vật tồn tại khách quan có quảng tính (độ dài) phân biệt nhau bởi đại lượng, hình khối, vị trí và vận động đổi vị trí trong không gian",
+    "options": [
+      "Tính phong phú về chất không phải là thuộc tính khách quan của giới tự nhiên",
+      "Chất lượng của sự vật là hình thức tri giác chung",
+      "Giới tự nhiên là tổng các vật tồn tại khách quan có quảng tính (độ dài) phân biệt nhau bởi đại lượng, hình khối, vị trí và vận động đổi vị trí trong không gian"
+    ]
+  },
+  {
+    "id": 58,
+    "rawId": 58,
+    "uid": "spkt_58",
+    "question": "Tômát Hôpxơ quan niệm về vận động như thế nào?",
+    "originalOptions": {
+      "A": "Vận động chỉ là vận động cơ giới",
+      "B": "Vận động bao gồm cả vận động hoá học và sinh học",
+      "C": "Vận động là sự biến đổi chung",
+      "D": "Vận động là phương thức tồn tại của sinh vật"
+    },
+    "originalAnswer": "Vận động chỉ là vận động cơ giới",
+    "originalLetter": "A",
+    "correctAnswer": "Vận động chỉ là vận động cơ giới",
+    "options": [
+      "Vận động chỉ là vận động cơ giới",
+      "Vận động là phương thức tồn tại của sinh vật",
+      "Vận động là sự biến đổi chung",
+      "Vận động bao gồm cả vận động hoá học và sinh học"
+    ]
+  },
+  {
+    "id": 59,
+    "rawId": 59,
+    "uid": "spkt_59",
+    "question": "Tính chất siêu hình trong quan niệm của Tômát Hốpxơ về tự nhiên thể hiện ở chỗ nào?",
+    "originalOptions": {
+      "A": "Giới tự nhiên tồn tại khách quan",
+      "B": "Giới tự nhiên là tổng số các vật có quảng tính (độ dài)",
+      "C": "Vận động cơ giới là thuộc tính của giới tự nhiên",
+      "D": "Vận động của giới tự nhiên là vận động cơ giới"
+    },
+    "originalAnswer": "Vận động của giới tự nhiên là vận động cơ giới",
+    "originalLetter": "D",
+    "correctAnswer": "Vận động của giới tự nhiên là vận động cơ giới",
+    "options": [
+      "Giới tự nhiên tồn tại khách quan",
+      "Vận động cơ giới là thuộc tính của giới tự nhiên",
+      "Vận động của giới tự nhiên là vận động cơ giới",
+      "Giới tự nhiên là tổng số các vật có quảng tính (độ dài)"
+    ]
+  },
+  {
+    "id": 60,
+    "rawId": 60,
+    "uid": "spkt_60",
+    "question": "Tính chất siêu hình trong quan niệm của Tômát Hốpxơ về con người thể hiện như thế nào?",
+    "originalOptions": {
+      "A": "Con người là một cơ thể sống phức tạp như động vật",
+      "B": "Con người là một bộ phận của tự nhiên",
+      "C": "Con người là một kết cấu vật chất",
+      "D": "Con người như một chiếc xe, mà tim là lò xo, khớp xương là cái bánh xe"
+    },
+    "originalAnswer": "Con người như một chiếc xe, mà tim là lò xo, khớp xương là cái bánh xe",
+    "originalLetter": "D",
+    "correctAnswer": "Con người như một chiếc xe, mà tim là lò xo, khớp xương là cái bánh xe",
+    "options": [
+      "Con người như một chiếc xe, mà tim là lò xo, khớp xương là cái bánh xe",
+      "Con người là một cơ thể sống phức tạp như động vật",
+      "Con người là một kết cấu vật chất",
+      "Con người là một bộ phận của tự nhiên"
+    ]
+  },
+  {
+    "id": 61,
+    "rawId": 61,
+    "uid": "spkt_61",
+    "question": "Về phương pháp nhận thức, Tômat Hốp-xơ hiểu theo quan điểm nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy lý",
+      "B": "Chủ nghĩa duy danh",
+      "C": "Nghệ thuật kết hợp giữa chủ nghĩa duy lý và chủ nghĩa duy danh"
+    },
+    "originalAnswer": "Nghệ thuật kết hợp giữa chủ nghĩa duy lý và chủ nghĩa duy danh",
+    "originalLetter": "C",
+    "correctAnswer": "Nghệ thuật kết hợp giữa chủ nghĩa duy lý và chủ nghĩa duy danh",
+    "options": [
+      "Chủ nghĩa duy lý",
+      "Chủ nghĩa duy danh",
+      "Nghệ thuật kết hợp giữa chủ nghĩa duy lý và chủ nghĩa duy danh"
+    ]
+  },
+  {
+    "id": 62,
+    "rawId": 62,
+    "uid": "spkt_62",
+    "question": "Tô mát Hốp-xơ hiểu bước chuyển từ cái riêng sang cái chung từ tri giác cảm tính đến khái niệm theo quan điểm nào?",
+    "originalOptions": {
+      "A": "Duy lý luận",
+      "B": "Duy danh luận",
+      "C": "Kinh nghiệm luận"
+    },
+    "originalAnswer": "Duy danh luận",
+    "originalLetter": "B",
+    "correctAnswer": "Duy danh luận",
+    "options": [
+      "Duy lý luận",
+      "Kinh nghiệm luận",
+      "Duy danh luận"
+    ]
+  },
+  {
+    "id": 63,
+    "rawId": 63,
+    "uid": "spkt_63",
+    "question": "Quan niệm về bản chất khái niệm của Tômát Hốp-xơ thuộc khuynh hướng triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy thực",
+      "B": "Chủ nghĩa duy tâm chủ quan",
+      "C": "Chủ nghĩa duy danh",
+      "D": "Chủ nghĩa duy vật tự phát"
+    },
+    "originalAnswer": "Chủ nghĩa duy danh",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy danh",
+    "options": [
+      "Chủ nghĩa duy thực",
+      "Chủ nghĩa duy tâm chủ quan",
+      "Chủ nghĩa duy danh",
+      "Chủ nghĩa duy vật tự phát"
+    ]
+  },
+  {
+    "id": 64,
+    "rawId": 64,
+    "uid": "spkt_64",
+    "question": "Theo quan điểm duy Danh, Tômát Hốp xơ coi khái niệm là gì?",
+    "originalOptions": {
+      "A": "Là những đặc điểm chung của các sự vật của giới tự nhiên",
+      "B": "Chỉ là tên của những cái tên.",
+      "C": "Khái niệm là thực thể tinh thần tồn tại trước & độc lập với sự vật",
+      "D": "Khái niệm là bản chất của sự vật"
+    },
+    "originalAnswer": "Chỉ là tên của những cái tên.",
+    "originalLetter": "B",
+    "correctAnswer": "Chỉ là tên của những cái tên.",
+    "options": [
+      "Chỉ là tên của những cái tên.",
+      "Khái niệm là thực thể tinh thần tồn tại trước & độc lập với sự vật",
+      "Khái niệm là bản chất của sự vật",
+      "Là những đặc điểm chung của các sự vật của giới tự nhiên"
+    ]
+  },
+  {
+    "id": 65,
+    "rawId": 65,
+    "uid": "spkt_65",
+    "question": "Mặt tiến bộ trong quan điểm về xã hội của Tômát Hốpxơ là ở chỗ nào?",
+    "originalOptions": {
+      "A": "Cho nguồn gốc của nhà nước không phải từ thần thánh mà là sự qui ước và thoả thuận giữa con người.",
+      "B": "Cho hình thức quân chủ là hình thức chính quyền lý tưởng.",
+      "C": "Tôn giáo và giáo hội vẫn có ích cho nhà nước.",
+      "D": "Coi quyền lực của giai cấp đại tư sản là vô hạn."
+    },
+    "originalAnswer": "Cho nguồn gốc của nhà nước không phải từ thần thánh mà là sự qui ước và thoả thuận giữa con người.",
+    "originalLetter": "A",
+    "correctAnswer": "Cho nguồn gốc của nhà nước không phải từ thần thánh mà là sự qui ước và thoả thuận giữa con người.",
+    "options": [
+      "Tôn giáo và giáo hội vẫn có ích cho nhà nước.",
+      "Coi quyền lực của giai cấp đại tư sản là vô hạn.",
+      "Cho hình thức quân chủ là hình thức chính quyền lý tưởng.",
+      "Cho nguồn gốc của nhà nước không phải từ thần thánh mà là sự qui ước và thoả thuận giữa con người."
+    ]
+  },
+  {
+    "id": 66,
+    "rawId": 66,
+    "uid": "spkt_66",
+    "question": "Tômát Hốp xơ cho nguồn gốc của nhà nước là gì?",
+    "originalOptions": {
+      "A": "Do thần thánh sáng tạo ra.",
+      "B": "Do ý chí của giai cấp thống trị",
+      "C": "Do sự quy ước, thoả thuận giữa con người nhằm tránh những cuộc chiến tranh tàn khốc.",
+      "D": "Do ý muốn chủ quan của cá nhân nhà tư tưởng."
+    },
+    "originalAnswer": "Do sự quy ước, thoả thuận giữa con người nhằm tránh những cuộc chiến tranh tàn khốc.",
+    "originalLetter": "C",
+    "correctAnswer": "Do sự quy ước, thoả thuận giữa con người nhằm tránh những cuộc chiến tranh tàn khốc.",
+    "options": [
+      "Do ý muốn chủ quan của cá nhân nhà tư tưởng.",
+      "Do thần thánh sáng tạo ra.",
+      "Do sự quy ước, thoả thuận giữa con người nhằm tránh những cuộc chiến tranh tàn khốc.",
+      "Do ý chí của giai cấp thống trị"
+    ]
+  },
+  {
+    "id": 67,
+    "rawId": 67,
+    "uid": "spkt_67",
+    "question": "Hãy đánh giá quan niệm của Tômát Hốp xơ về nhà nước cho rằng: nhà nước ra đời là do sự quy ước, thoả thuận giữa con người?",
+    "originalOptions": {
+      "A": "Không có gì tiến bộ, chỉ là quan điểm duy tâm tôn giáo",
+      "B": "Có giá trị, vì đã phát triển quan điểm duy vật, về xã hội.",
+      "C": "Có giá trị bác bỏ nguồn gốc thần thánh của nhà nước, đồng thời vẫn chứa đựng yếu tố duy tâm chủ nghĩa"
+    },
+    "originalAnswer": "Có giá trị bác bỏ nguồn gốc thần thánh của nhà nước, đồng thời vẫn chứa đựng yếu tố duy tâm chủ nghĩa",
+    "originalLetter": "C",
+    "correctAnswer": "Có giá trị bác bỏ nguồn gốc thần thánh của nhà nước, đồng thời vẫn chứa đựng yếu tố duy tâm chủ nghĩa",
+    "options": [
+      "Có giá trị, vì đã phát triển quan điểm duy vật, về xã hội.",
+      "Có giá trị bác bỏ nguồn gốc thần thánh của nhà nước, đồng thời vẫn chứa đựng yếu tố duy tâm chủ nghĩa",
+      "Không có gì tiến bộ, chỉ là quan điểm duy tâm tôn giáo"
+    ]
+  },
+  {
+    "id": 68,
+    "rawId": 68,
+    "uid": "spkt_68",
+    "question": "Đề-các-tơ là nhà triết học và khoa học của nước nào ?",
+    "originalOptions": {
+      "A": "Anh",
+      "B": "Bồ Đào Nha",
+      "C": "Mỹ",
+      "D": "Pháp"
+    },
+    "originalAnswer": "Pháp",
+    "originalLetter": "D",
+    "correctAnswer": "Pháp",
+    "options": [
+      "Bồ Đào Nha",
+      "Mỹ",
+      "Pháp",
+      "Anh"
+    ]
+  },
+  {
+    "id": 69,
+    "rawId": 69,
+    "uid": "spkt_69",
+    "question": "Đề-các-tơ sinh vào năm nào và mất vào năm nào?",
+    "originalOptions": {
+      "A": "1590 - 1650",
+      "B": "1596 - 1654",
+      "C": "1594 - 1654",
+      "D": "1596 - 1650"
+    },
+    "originalAnswer": "1596 - 1654",
+    "originalLetter": "B",
+    "correctAnswer": "1596 - 1654",
+    "options": [
+      "1594 - 1654",
+      "1596 - 1650",
+      "1596 - 1654",
+      "1590 - 1650"
+    ]
+  },
+  {
+    "id": 70,
+    "rawId": 70,
+    "uid": "spkt_70",
+    "question": "Khi giải quyết vấn đề cơ bản của triết học, Đềcáctơ đứng trên lập trường triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật",
+      "B": "Chủ nghĩa duy tâm khách quan",
+      "C": "Chủ nghĩa duy tâm chủ quan",
+      "D": "Thuyết nhị nguyên"
+    },
+    "originalAnswer": "Thuyết nhị nguyên",
+    "originalLetter": "D",
+    "correctAnswer": "Thuyết nhị nguyên",
+    "options": [
+      "Chủ nghĩa duy vật",
+      "Chủ nghĩa duy tâm chủ quan",
+      "Thuyết nhị nguyên",
+      "Chủ nghĩa duy tâm khách quan"
+    ]
+  },
+  {
+    "id": 71,
+    "rawId": 71,
+    "uid": "spkt_71",
+    "question": "Đềcáctơ giải quyết mối quan hệ giữa vật chất và ý thức như thế nào?",
+    "originalOptions": {
+      "A": "Thực thể vật chất độc lập và quyết định thực thể ý thức.",
+      "B": "Thực thể vật chất không tồn tại độc lập mà phụ thuộc vào thực thể ý thức",
+      "C": "Thực thể vật chất và thực thể ý thức độc lập nhau, song song cùng tồn tại.",
+      "D": "Thực thể ý thức phụ thuộc vào thực thể vật chất, nhưng có tính độc lập tương đối."
+    },
+    "originalAnswer": "Thực thể vật chất và thực thể ý thức độc lập nhau, song song cùng tồn tại.",
+    "originalLetter": "C",
+    "correctAnswer": "Thực thể vật chất và thực thể ý thức độc lập nhau, song song cùng tồn tại.",
+    "options": [
+      "Thực thể ý thức phụ thuộc vào thực thể vật chất, nhưng có tính độc lập tương đối.",
+      "Thực thể vật chất độc lập và quyết định thực thể ý thức.",
+      "Thực thể vật chất và thực thể ý thức độc lập nhau, song song cùng tồn tại.",
+      "Thực thể vật chất không tồn tại độc lập mà phụ thuộc vào thực thể ý thức"
+    ]
+  },
+  {
+    "id": 72,
+    "rawId": 72,
+    "uid": "spkt_72",
+    "question": "Quan điểm của Đềcáctơ về quan hệ giữa vật chất và ý thức cuối cùng lại rơi vào quan điểm nào? Vì sao?",
+    "originalOptions": {
+      "A": "Duy vật; vì coi vật chất độc lập với ý thức",
+      "B": "Duy vật không triệt để; vì không thừa nhận vật chất quyết định ý thức",
+      "C": "Nhị nguyên vì thừa nhận hai thực thể tạo thành hai thế giới",
+      "D": "Duy tâm; vì thừa nhận thực thể vật chất và tinh thần tuy độc lập nhưng đều phụ thuộc vào thực thể thứ ba đó là thượng đế."
+    },
+    "originalAnswer": "Duy tâm; vì thừa nhận thực thể vật chất và tinh thần tuy độc lập nhưng đều phụ thuộc vào thực thể thứ ba đó là thượng đế.",
+    "originalLetter": "D",
+    "correctAnswer": "Duy tâm; vì thừa nhận thực thể vật chất và tinh thần tuy độc lập nhưng đều phụ thuộc vào thực thể thứ ba đó là thượng đế.",
+    "options": [
+      "Nhị nguyên vì thừa nhận hai thực thể tạo thành hai thế giới",
+      "Duy vật không triệt để; vì không thừa nhận vật chất quyết định ý thức",
+      "Duy vật; vì coi vật chất độc lập với ý thức",
+      "Duy tâm; vì thừa nhận thực thể vật chất và tinh thần tuy độc lập nhưng đều phụ thuộc vào thực thể thứ ba đó là thượng đế."
+    ]
+  },
+  {
+    "id": 73,
+    "rawId": 73,
+    "uid": "spkt_73",
+    "question": "Đềcáctơ đứng trên quan điểm nào trong lĩnh vực vật lý?",
+    "originalOptions": {
+      "A": "Quan điểm duy tâm khách quan",
+      "B": "Quan điểm duy tâm chủ quan",
+      "C": "Quan điểm nhị nguyên",
+      "D": "Quan điểm duy vật"
+    },
+    "originalAnswer": "Quan điểm duy vật",
+    "originalLetter": "D",
+    "correctAnswer": "Quan điểm duy vật",
+    "options": [
+      "Quan điểm duy tâm chủ quan",
+      "Quan điểm nhị nguyên",
+      "Quan điểm duy tâm khách quan",
+      "Quan điểm duy vật"
+    ]
+  },
+  {
+    "id": 74,
+    "rawId": 74,
+    "uid": "spkt_74",
+    "question": "Trong lĩnh vực vật lý Đềcáctơ quan niệm về tự nhiên như thế nào?",
+    "originalOptions": {
+      "A": "Tự nhiên là tổng các vật có quán tính",
+      "B": "Tự nhiên và thượng đế là một.",
+      "C": "Tự nhiên là hiện thân của thượng đế",
+      "D": "Tự nhiên là một khối thống nhất gồm những hạt nhỏ vật chất có quán tính và vận động vĩnh viễn theo những quy luật cơ học"
+    },
+    "originalAnswer": "Tự nhiên là một khối thống nhất gồm những hạt nhỏ vật chất có quán tính và vận động vĩnh viễn theo những quy luật cơ học",
+    "originalLetter": "D",
+    "correctAnswer": "Tự nhiên là một khối thống nhất gồm những hạt nhỏ vật chất có quán tính và vận động vĩnh viễn theo những quy luật cơ học",
+    "options": [
+      "Tự nhiên là một khối thống nhất gồm những hạt nhỏ vật chất có quán tính và vận động vĩnh viễn theo những quy luật cơ học",
+      "Tự nhiên và thượng đế là một.",
+      "Tự nhiên là hiện thân của thượng đế",
+      "Tự nhiên là tổng các vật có quán tính"
+    ]
+  },
+  {
+    "id": 75,
+    "rawId": 75,
+    "uid": "spkt_75",
+    "question": "Điều khẳng định nào sau đây là đúng?",
+    "originalOptions": {
+      "A": "Đềcáctơ là nhà duy vật biện chứng vì coi vật chất tồn tại khách quan.",
+      "B": "Đềcáctơ là nhà duy vật vì phủ nhận uy quyền của nhà thờ và tôn giáo",
+      "C": "Đềcáctơ là nhà triết học duy tâm vì đề cao sức mạnh của lý tưởng con người",
+      "D": "Đềcáctơ đem tính khoa học thay cho niềm tin tôn giáo mù quáng chống lại uy quyền của tôn giáo."
+    },
+    "originalAnswer": "Đềcáctơ đem tính khoa học thay cho niềm tin tôn giáo mù quáng chống lại uy quyền của tôn giáo.",
+    "originalLetter": "D",
+    "correctAnswer": "Đềcáctơ đem tính khoa học thay cho niềm tin tôn giáo mù quáng chống lại uy quyền của tôn giáo.",
+    "options": [
+      "Đềcáctơ là nhà duy vật biện chứng vì coi vật chất tồn tại khách quan.",
+      "Đềcáctơ đem tính khoa học thay cho niềm tin tôn giáo mù quáng chống lại uy quyền của tôn giáo.",
+      "Đềcáctơ là nhà duy vật vì phủ nhận uy quyền của nhà thờ và tôn giáo",
+      "Đềcáctơ là nhà triết học duy tâm vì đề cao sức mạnh của lý tưởng con người"
+    ]
+  },
+  {
+    "id": 76,
+    "rawId": 76,
+    "uid": "spkt_76",
+    "question": "Điều nhận định nào sau đây là đúng?",
+    "originalOptions": {
+      "A": "Đềcáctơ nghi ngờ khả năng nhận thức của con người.",
+      "B": "Vì coi nghi ngờ là điểm xuất phát của nhận thức khoa học, nên Đềcáctơ phủ nhận khả năng nhận thức của con người.",
+      "C": "Quan điểm của Đềcáctơ và Hium là như nhau vì đều nghi ngờ nhận thức của con người",
+      "D": "Đềcáctơ coi nghi ngờ là điểm xuất phát của nghiên cứu khoa học để phủ nhận sự mê tín, phủ nhận niềm tin tôn giáo"
+    },
+    "originalAnswer": "Đềcáctơ coi nghi ngờ là điểm xuất phát của nghiên cứu khoa học để phủ nhận sự mê tín, phủ nhận niềm tin tôn giáo",
+    "originalLetter": "D",
+    "correctAnswer": "Đềcáctơ coi nghi ngờ là điểm xuất phát của nghiên cứu khoa học để phủ nhận sự mê tín, phủ nhận niềm tin tôn giáo",
+    "options": [
+      "Vì coi nghi ngờ là điểm xuất phát của nhận thức khoa học, nên Đềcáctơ phủ nhận khả năng nhận thức của con người.",
+      "Đềcáctơ nghi ngờ khả năng nhận thức của con người.",
+      "Quan điểm của Đềcáctơ và Hium là như nhau vì đều nghi ngờ nhận thức của con người",
+      "Đềcáctơ coi nghi ngờ là điểm xuất phát của nghiên cứu khoa học để phủ nhận sự mê tín, phủ nhận niềm tin tôn giáo"
+    ]
+  },
+  {
+    "id": 77,
+    "rawId": 77,
+    "uid": "spkt_77",
+    "question": "Luận điểm Đềcáctơ \"tôi tư duy vậy tôi tồn tại\" có ý nghĩa gì?",
+    "originalOptions": {
+      "A": "Nhấn mạnh vai trò của tư duy, duy lý",
+      "B": "Nhấn mạnh vai trò của cảm giác",
+      "C": "Phủ nhận vai trò của chủ thể",
+      "D": "Đề cao kinh nghiệm."
+    },
+    "originalAnswer": "Nhấn mạnh vai trò của tư duy, duy lý",
+    "originalLetter": "A",
+    "correctAnswer": "Nhấn mạnh vai trò của tư duy, duy lý",
+    "options": [
+      "Phủ nhận vai trò của chủ thể",
+      "Nhấn mạnh vai trò của cảm giác",
+      "Đề cao kinh nghiệm.",
+      "Nhấn mạnh vai trò của tư duy, duy lý"
+    ]
+  },
+  {
+    "id": 78,
+    "rawId": 78,
+    "uid": "spkt_78",
+    "question": "Theo Đềcáctơ tiêu chuẩn của chân lý là gì?",
+    "originalOptions": {
+      "A": "Là thực tiễn",
+      "B": "Là tư duy rõ ràng, mạch lạc",
+      "C": "Là cảm giác, kinh nghiệm về sự vật",
+      "D": "Là được nhiều người thừa nhận ."
+    },
+    "originalAnswer": "Là tư duy rõ ràng, mạch lạc",
+    "originalLetter": "B",
+    "correctAnswer": "Là tư duy rõ ràng, mạch lạc",
+    "options": [
+      "Là tư duy rõ ràng, mạch lạc",
+      "Là được nhiều người thừa nhận .",
+      "Là thực tiễn",
+      "Là cảm giác, kinh nghiệm về sự vật"
+    ]
+  },
+  {
+    "id": 79,
+    "rawId": 79,
+    "uid": "spkt_79",
+    "question": "Luận điểm của Đềcáctơ \"Tôi tư duy vậy tôi tồn tại\" thể hiện khuynh hướng triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm khách quan",
+      "B": "Chủ nghĩa duy vật tầm thường",
+      "C": "Thuyết hoài nghi",
+      "D": "Chủ nghĩa duy tâm chủ quan"
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm chủ quan",
+    "originalLetter": "D",
+    "correctAnswer": "Chủ nghĩa duy tâm chủ quan",
+    "options": [
+      "Thuyết hoài nghi",
+      "Chủ nghĩa duy tâm chủ quan",
+      "Chủ nghĩa duy tâm khách quan",
+      "Chủ nghĩa duy vật tầm thường"
+    ]
+  },
+  {
+    "id": 80,
+    "rawId": 80,
+    "uid": "spkt_80",
+    "question": "Xpinôda là nhà triết học nước nào?",
+    "originalOptions": {
+      "A": "Hà Lan",
+      "C": "Đức",
+      "B": "áo",
+      "D": "Pháp"
+    },
+    "originalAnswer": "Hà Lan",
+    "originalLetter": "A",
+    "correctAnswer": "Hà Lan",
+    "options": [
+      "áo",
+      "Hà Lan",
+      "Pháp",
+      "Đức"
+    ]
+  },
+  {
+    "id": 81,
+    "rawId": 81,
+    "uid": "spkt_81",
+    "question": "Xpinôda là nhà triết học thuộc trường phái nào?",
+    "originalOptions": {
+      "A": "Duy tâm chủ quan",
+      "B": "Duy vật biện chứng",
+      "C": "Duy tâm khách quan",
+      "D": "Duy vật và vô thần"
+    },
+    "originalAnswer": "Duy vật và vô thần",
+    "originalLetter": "D",
+    "correctAnswer": "Duy vật và vô thần",
+    "options": [
+      "Duy vật và vô thần",
+      "Duy tâm chủ quan",
+      "Duy vật biện chứng",
+      "Duy tâm khách quan"
+    ]
+  },
+  {
+    "id": 82,
+    "rawId": 82,
+    "uid": "spkt_82",
+    "question": "Nhận định nào sau đây là đúng",
+    "originalOptions": {
+      "A": "Xpinôda là nhà triết học nhị nguyên",
+      "B": "Xpinôda là nhà triết học duy tâm khách quan",
+      "C": "Xpinôda là nhà triết học duy vật biện chứng",
+      "D": "Xpinôda là nhà triết học nhất nguyên."
+    },
+    "originalAnswer": "Xpinôda là nhà triết học nhị nguyên",
+    "originalLetter": "A",
+    "correctAnswer": "Xpinôda là nhà triết học nhị nguyên",
+    "options": [
+      "Xpinôda là nhà triết học duy vật biện chứng",
+      "Xpinôda là nhà triết học nhất nguyên.",
+      "Xpinôda là nhà triết học duy tâm khách quan",
+      "Xpinôda là nhà triết học nhị nguyên"
+    ]
+  },
+  {
+    "id": 83,
+    "rawId": 83,
+    "uid": "spkt_83",
+    "question": "Điều khẳng định nào sau đây về Xpinôda là sai?",
+    "originalOptions": {
+      "A": "Xpinôda là nhà triết học duy vật và vô thần",
+      "B": "Xpinôda là nhà triết học nhất nguyên coi quảng tính và tư duy là thuộc tính của một thực thể",
+      "C": "Xpinôda chống lại quan điểm nhị nguyên của Đềcáctơ.",
+      "D": "Xpinôda là nhà triết học nhị nguyên"
+    },
+    "originalAnswer": "Xpinôda là nhà triết học nhị nguyên",
+    "originalLetter": "D",
+    "correctAnswer": "Xpinôda là nhà triết học nhị nguyên",
+    "options": [
+      "Xpinôda là nhà triết học nhất nguyên coi quảng tính và tư duy là thuộc tính của một thực thể",
+      "Xpinôda là nhà triết học nhị nguyên",
+      "Xpinôda chống lại quan điểm nhị nguyên của Đềcáctơ.",
+      "Xpinôda là nhà triết học duy vật và vô thần"
+    ]
+  },
+  {
+    "id": 84,
+    "rawId": 84,
+    "uid": "spkt_84",
+    "question": "Quan điểm duy vật của Xpinôda về thế giới là ở chỗ nào?",
+    "originalOptions": {
+      "A": "Thế giới là thế giới của các sự vật riêng lẻ",
+      "B": "Thế giới là phức hợp cảm giác",
+      "C": "Thế giới là sự tha hoá của ý niệm",
+      "D": "Thế giới là cái bóng của thế giới ý niệm"
+    },
+    "originalAnswer": "Thế giới là thế giới của các sự vật riêng lẻ",
+    "originalLetter": "A",
+    "correctAnswer": "Thế giới là thế giới của các sự vật riêng lẻ",
+    "options": [
+      "Thế giới là phức hợp cảm giác",
+      "Thế giới là sự tha hoá của ý niệm",
+      "Thế giới là cái bóng của thế giới ý niệm",
+      "Thế giới là thế giới của các sự vật riêng lẻ"
+    ]
+  },
+  {
+    "id": 85,
+    "rawId": 85,
+    "uid": "spkt_85",
+    "question": "Tại sao quan điểm của Xpinôda lại rơi vào quan điểm của thuyết định mệnh máy móc?",
+    "originalOptions": {
+      "A": "Coi thế gới gồm các sự vật riêng lẻ",
+      "B": "Coi các sự vật trong thế giới đều có nguyên nhân",
+      "C": "Đồng nhất nguyên nhân với tính tất yếu coi ngẫu nhiên chỉ là phạm trù chủ quan",
+      "D": "Khẳng định có thể nhận thức thế giới bằng phương pháp toán học."
+    },
+    "originalAnswer": "Đồng nhất nguyên nhân với tính tất yếu coi ngẫu nhiên chỉ là phạm trù chủ quan",
+    "originalLetter": "C",
+    "correctAnswer": "Đồng nhất nguyên nhân với tính tất yếu coi ngẫu nhiên chỉ là phạm trù chủ quan",
+    "options": [
+      "Coi thế gới gồm các sự vật riêng lẻ",
+      "Đồng nhất nguyên nhân với tính tất yếu coi ngẫu nhiên chỉ là phạm trù chủ quan",
+      "Coi các sự vật trong thế giới đều có nguyên nhân",
+      "Khẳng định có thể nhận thức thế giới bằng phương pháp toán học."
+    ]
+  },
+  {
+    "id": 86,
+    "rawId": 86,
+    "uid": "spkt_86",
+    "question": "Quan niệm về ý thức của Xpinôda chịu ảnh hưởng của ai, và quan niệm đó như thế nào?",
+    "originalOptions": {
+      "A": "Chịu ảnh hưởng của thuyết bất khả tri, không thừa nhận con người có khả năng nhận thức được thế giới.",
+      "B": "Chịu ảnh hưởng của những người theo vật hoạt luận, thừa nhận mọi vật đều có ý thức.",
+      "C": "Chịu ảnh hưởng của chủ nghĩa duy lý cho chỉ có con người mới có ý thức.",
+      "D": "Chịu ảnh hưởng của tôn giáo, cho ý thức có nguồn góc từ thần thánh."
+    },
+    "originalAnswer": "Chịu ảnh hưởng của những người theo vật hoạt luận, thừa nhận mọi vật đều có ý thức.",
+    "originalLetter": "B",
+    "correctAnswer": "Chịu ảnh hưởng của những người theo vật hoạt luận, thừa nhận mọi vật đều có ý thức.",
+    "options": [
+      "Chịu ảnh hưởng của chủ nghĩa duy lý cho chỉ có con người mới có ý thức.",
+      "Chịu ảnh hưởng của thuyết bất khả tri, không thừa nhận con người có khả năng nhận thức được thế giới.",
+      "Chịu ảnh hưởng của tôn giáo, cho ý thức có nguồn góc từ thần thánh.",
+      "Chịu ảnh hưởng của những người theo vật hoạt luận, thừa nhận mọi vật đều có ý thức."
+    ]
+  },
+  {
+    "id": 87,
+    "rawId": 87,
+    "uid": "spkt_87",
+    "question": "Quan niệm về ý thức của Xpinôda thuộc loại nào?",
+    "originalOptions": {
+      "A": "Duy vật biện chứng",
+      "B": "Duy tâm chủ quan",
+      "C": "Duy tâm khách quan",
+      "D": "Vật hoạt luận"
+    },
+    "originalAnswer": "Vật hoạt luận",
+    "originalLetter": "D",
+    "correctAnswer": "Vật hoạt luận",
+    "options": [
+      "Duy tâm khách quan",
+      "Duy vật biện chứng",
+      "Vật hoạt luận",
+      "Duy tâm chủ quan"
+    ]
+  },
+  {
+    "id": 88,
+    "rawId": 88,
+    "uid": "spkt_88",
+    "question": "Quan niệm về con người của Xpinôda đứng trên lập trường nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm chủ quan",
+      "B": "Chủ nghĩa duy tâm khách quan",
+      "C": "Thuyết nhị nguyên",
+      "D": "Chủ nghĩa tự nhiên"
+    },
+    "originalAnswer": "Chủ nghĩa tự nhiên",
+    "originalLetter": "D",
+    "correctAnswer": "Chủ nghĩa tự nhiên",
+    "options": [
+      "Chủ nghĩa duy tâm chủ quan",
+      "Thuyết nhị nguyên",
+      "Chủ nghĩa duy tâm khách quan",
+      "Chủ nghĩa tự nhiên"
+    ]
+  },
+  {
+    "id": 89,
+    "rawId": 89,
+    "uid": "spkt_89",
+    "question": "Về nhận thức luận, Xpinôda theo chủ nghĩa nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy cảm",
+      "B": "Chủ nghĩa duy lý.",
+      "C": "Chủ nghĩa kinh nghiệm.",
+      "D": "Chủ nghĩa duy vật biện chứng"
+    },
+    "originalAnswer": "Chủ nghĩa duy lý.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy lý.",
+    "options": [
+      "Chủ nghĩa duy cảm",
+      "Chủ nghĩa duy vật biện chứng",
+      "Chủ nghĩa duy lý.",
+      "Chủ nghĩa kinh nghiệm."
+    ]
+  },
+  {
+    "id": 90,
+    "rawId": 90,
+    "uid": "spkt_90",
+    "question": "Theo Xpinôda chân lý đáng tin cậy đạt được ở giai đoạn nhận thức nào?",
+    "originalOptions": {
+      "A": "Giai đoạn nhận thức lý tính",
+      "B": "Giai đoạn nhận thức cảm tính",
+      "C": "Cả hai giai đoạn",
+      "D": "Không đạt được ở giai đoạn nào"
+    },
+    "originalAnswer": "Giai đoạn nhận thức lý tính",
+    "originalLetter": "A",
+    "correctAnswer": "Giai đoạn nhận thức lý tính",
+    "options": [
+      "Cả hai giai đoạn",
+      "Không đạt được ở giai đoạn nào",
+      "Giai đoạn nhận thức lý tính",
+      "Giai đoạn nhận thức cảm tính"
+    ]
+  },
+  {
+    "id": 91,
+    "rawId": 91,
+    "uid": "spkt_91",
+    "question": "Xpinôda quan niệm về nhận thức trực giác như thế nào?",
+    "originalOptions": {
+      "A": "Là \"ánh sáng nội tâm\" giúp con người liên hệ trực tiếp với thượng đế",
+      "B": "Là trí tuệ anh minh như nền tảng của mọi tri thức",
+      "C": "Một năng lực trí tuệ của phép nhận thức sự vật",
+      "D": "Cả ba nội dung trên"
+    },
+    "originalAnswer": "Cả ba nội dung trên",
+    "originalLetter": "D",
+    "correctAnswer": "Cả ba nội dung trên",
+    "options": [
+      "Cả ba nội dung trên",
+      "Một năng lực trí tuệ của phép nhận thức sự vật",
+      "Là \"ánh sáng nội tâm\" giúp con người liên hệ trực tiếp với thượng đế",
+      "Là trí tuệ anh minh như nền tảng của mọi tri thức"
+    ]
+  },
+  {
+    "id": 92,
+    "rawId": 92,
+    "uid": "spkt_92",
+    "question": "Khái niệm đạo đức của Xpinôda gắn với khái niệm \"con người tự do\" không? nếu có thì như thế nào?",
+    "originalOptions": {
+      "A": "Không",
+      "B": "Có, con người tự do hành động theo ý muốn của mình",
+      "C": "Có, con người chỉ có thể trở thành tự do khi được chỉ đạo bởi lý tính",
+      "D": "Không. Vì trong tự nhiên chỉ có cái tất yếu"
+    },
+    "originalAnswer": "Có, con người chỉ có thể trở thành tự do khi được chỉ đạo bởi lý tính",
+    "originalLetter": "C",
+    "correctAnswer": "Có, con người chỉ có thể trở thành tự do khi được chỉ đạo bởi lý tính",
+    "options": [
+      "Có, con người tự do hành động theo ý muốn của mình",
+      "Không. Vì trong tự nhiên chỉ có cái tất yếu",
+      "Không",
+      "Có, con người chỉ có thể trở thành tự do khi được chỉ đạo bởi lý tính"
+    ]
+  },
+  {
+    "id": 93,
+    "rawId": 93,
+    "uid": "spkt_93",
+    "question": "Quan niệm của Xpinôda về pháp quyền và xã hội được xây dựng trên lập trường nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa tự nhiên",
+      "B": "Chủ nghĩa duy vật biện chứng",
+      "C": "Chủ nghĩa duy tâm khách quan",
+      "D": "Chủ nghĩa tự do tư sản"
+    },
+    "originalAnswer": "Chủ nghĩa tự nhiên",
+    "originalLetter": "A",
+    "correctAnswer": "Chủ nghĩa tự nhiên",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng",
+      "Chủ nghĩa tự nhiên",
+      "Chủ nghĩa duy tâm khách quan",
+      "Chủ nghĩa tự do tư sản"
+    ]
+  },
+  {
+    "id": 94,
+    "rawId": 94,
+    "uid": "spkt_94",
+    "question": "Xpinôda quan niệm về nguồn gốc tôn giáo từ đâu?",
+    "originalOptions": {
+      "A": "Sự tin tưởng vào ánh sáng nội tâm",
+      "B": "Sự bất lực trước các lực lượng xã hội",
+      "C": "Sự sợ hãi",
+      "D": "Sự không hiểu biết về tự nhiên"
+    },
+    "originalAnswer": "Sự sợ hãi",
+    "originalLetter": "C",
+    "correctAnswer": "Sự sợ hãi",
+    "options": [
+      "Sự bất lực trước các lực lượng xã hội",
+      "Sự không hiểu biết về tự nhiên",
+      "Sự sợ hãi",
+      "Sự tin tưởng vào ánh sáng nội tâm"
+    ]
+  },
+  {
+    "id": 95,
+    "rawId": 95,
+    "uid": "spkt_95",
+    "question": "Trong nhận thức luận của mình, Giôn Lốccơ phê phán Đềcáctơ về cái gì?",
+    "originalOptions": {
+      "A": "Về thuyết nhị nguyên",
+      "B": "Về quan niệm máy móc đối với con người",
+      "C": "Về thuyết thừa nhận tồn tại tư tưởng bẩm sinh",
+      "D": "Về quan niệm duy vật trong lĩnh vực vật lý"
+    },
+    "originalAnswer": "Về thuyết thừa nhận tồn tại tư tưởng bẩm sinh",
+    "originalLetter": "C",
+    "correctAnswer": "Về thuyết thừa nhận tồn tại tư tưởng bẩm sinh",
+    "options": [
+      "Về quan niệm duy vật trong lĩnh vực vật lý",
+      "Về thuyết thừa nhận tồn tại tư tưởng bẩm sinh",
+      "Về thuyết nhị nguyên",
+      "Về quan niệm máy móc đối với con người"
+    ]
+  },
+  {
+    "id": 96,
+    "rawId": 96,
+    "uid": "spkt_96",
+    "question": "Theo quan niệm của G.Lốccơ tri thức, chân lý do đâu mà có?",
+    "originalOptions": {
+      "A": "Do ý niệm bẩm sinh",
+      "B": "Do kết quả của quá trình nhận thức",
+      "C": "Do thượng đế ban tặng",
+      "D": "Do hoạt động thực tiễn"
+    },
+    "originalAnswer": "Do kết quả của quá trình nhận thức",
+    "originalLetter": "B",
+    "correctAnswer": "Do kết quả của quá trình nhận thức",
+    "options": [
+      "Do thượng đế ban tặng",
+      "Do ý niệm bẩm sinh",
+      "Do hoạt động thực tiễn",
+      "Do kết quả của quá trình nhận thức"
+    ]
+  },
+  {
+    "id": 97,
+    "rawId": 97,
+    "uid": "spkt_97",
+    "question": "Giôn Lốccơ là nhà triết học nước nào?",
+    "originalOptions": {
+      "A": "Pháp",
+      "C": "ý",
+      "B": "Anh",
+      "D": "Mỹ"
+    },
+    "originalAnswer": "Anh",
+    "originalLetter": "B",
+    "correctAnswer": "Anh",
+    "options": [
+      "Mỹ",
+      "Pháp",
+      "Anh",
+      "ý"
+    ]
+  },
+  {
+    "id": 98,
+    "rawId": 98,
+    "uid": "spkt_98",
+    "question": "Về nhận thức luận ai là người nêu ra nguyên lý tabula rasa (tấm bảng sạch)",
+    "originalOptions": {
+      "A": "Xpinôda",
+      "C": "Đềcáctơ",
+      "B": "Platôn",
+      "D": "Giôn Lốccơ"
+    },
+    "originalAnswer": "Giôn Lốccơ",
+    "originalLetter": "D",
+    "correctAnswer": "Giôn Lốccơ",
+    "options": [
+      "Giôn Lốccơ",
+      "Platôn",
+      "Đềcáctơ",
+      "Xpinôda"
+    ]
+  },
+  {
+    "id": 99,
+    "rawId": 99,
+    "uid": "spkt_99",
+    "question": "Nguyên lý tabula rasa (tấm bảng sạch) theo cách hiểu của người đề xuất khẳng định những nội dung gì?",
+    "originalOptions": {
+      "A": "Mọi tri thức không phải là bẩm sinh, mà là kết quả nhận thức",
+      "B": "Mọi quá trình nhận thức đều phải xuất phát từ cơ quan cảm giác",
+      "C": "Linh hồn con người có vai trò tích cực nhất định",
+      "D": "Cả ba nội dung trên"
+    },
+    "originalAnswer": "Cả ba nội dung trên",
+    "originalLetter": "D",
+    "correctAnswer": "Cả ba nội dung trên",
+    "options": [
+      "Cả ba nội dung trên",
+      "Mọi quá trình nhận thức đều phải xuất phát từ cơ quan cảm giác",
+      "Mọi tri thức không phải là bẩm sinh, mà là kết quả nhận thức",
+      "Linh hồn con người có vai trò tích cực nhất định"
+    ]
+  },
+  {
+    "id": 100,
+    "rawId": 100,
+    "uid": "spkt_100",
+    "question": "Nội dung thuyết tabula rasa (tấm bảng sạch) đứng trên lập trường triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm khách quan",
+      "B": "Chủ nghĩa duy tâm chủ quan",
+      "C": "Chủ nghĩa duy vật",
+      "D": "Thuyết bất khả tri"
+    },
+    "originalAnswer": "Chủ nghĩa duy vật",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy vật",
+    "options": [
+      "Chủ nghĩa duy tâm khách quan",
+      "Chủ nghĩa duy vật",
+      "Thuyết bất khả tri",
+      "Chủ nghĩa duy tâm chủ quan"
+    ]
+  },
+  {
+    "id": 101,
+    "rawId": 101,
+    "uid": "spkt_101",
+    "question": "Hạn chế của thuyết tabula rasa (tấm bảng sạch) là ở chỗ nào?",
+    "originalOptions": {
+      "A": "Đề cao vai trò nhận thức lý tính",
+      "B": "Phủ nhận nhận thức cảm tính",
+      "C": "Đề cao nhận thức cảm tính một cách tuyệt đối",
+      "D": "Chưa thấy vai trò của kinh nghiệm"
+    },
+    "originalAnswer": "Đề cao nhận thức cảm tính một cách tuyệt đối",
+    "originalLetter": "C",
+    "correctAnswer": "Đề cao nhận thức cảm tính một cách tuyệt đối",
+    "options": [
+      "Đề cao vai trò nhận thức lý tính",
+      "Chưa thấy vai trò của kinh nghiệm",
+      "Đề cao nhận thức cảm tính một cách tuyệt đối",
+      "Phủ nhận nhận thức cảm tính"
+    ]
+  },
+  {
+    "id": 102,
+    "rawId": 102,
+    "uid": "spkt_102",
+    "question": "Trong quan niệm về kinh nghiệm. Giôn Lốccơ đứng trên lập trường nào?",
+    "originalOptions": {
+      "A": "Lập trường của chủ nghĩa duy lý",
+      "B": "Lập trường của chủ nghĩa duy cảm",
+      "C": "Lập trường của thuyết nhị nguyên",
+      "D": "Lập trường của thuyết bất khả tri"
+    },
+    "originalAnswer": "Lập trường của chủ nghĩa duy cảm",
+    "originalLetter": "B",
+    "correctAnswer": "Lập trường của chủ nghĩa duy cảm",
+    "options": [
+      "Lập trường của thuyết nhị nguyên",
+      "Lập trường của chủ nghĩa duy lý",
+      "Lập trường của chủ nghĩa duy cảm",
+      "Lập trường của thuyết bất khả tri"
+    ]
+  },
+  {
+    "id": 103,
+    "rawId": 103,
+    "uid": "spkt_103",
+    "question": "Giôn Lốccơ coi lý tính là gì?",
+    "originalOptions": {
+      "A": "Là ý niệm bẩm sinh",
+      "B": "Là hoạt động của linh hồn",
+      "C": "Là kinh nghiệm bên trong",
+      "D": "Là giai đoạn phản ánh khái quát sự vật"
+    },
+    "originalAnswer": "Là kinh nghiệm bên trong",
+    "originalLetter": "C",
+    "correctAnswer": "Là kinh nghiệm bên trong",
+    "options": [
+      "Là kinh nghiệm bên trong",
+      "Là giai đoạn phản ánh khái quát sự vật",
+      "Là hoạt động của linh hồn",
+      "Là ý niệm bẩm sinh"
+    ]
+  },
+  {
+    "id": 104,
+    "rawId": 104,
+    "uid": "spkt_104",
+    "question": "Luận điểm nào thể hiện lập trường duy cảm của Giôn Lốccơ?",
+    "originalOptions": {
+      "A": "Tôi tư duy vậy tôi tồn tại",
+      "B": "Mọi nhận thức đều xuất phát từ kinh nghiệm",
+      "C": "Kinh nghiệm là nguồn gốc của nhận thức",
+      "D": "Không có cái gì trong lý tính mà trước đó lại không có trong cảm tính."
+    },
+    "originalAnswer": "Không có cái gì trong lý tính mà trước đó lại không có trong cảm tính.",
+    "originalLetter": "D",
+    "correctAnswer": "Không có cái gì trong lý tính mà trước đó lại không có trong cảm tính.",
+    "options": [
+      "Mọi nhận thức đều xuất phát từ kinh nghiệm",
+      "Không có cái gì trong lý tính mà trước đó lại không có trong cảm tính.",
+      "Kinh nghiệm là nguồn gốc của nhận thức",
+      "Tôi tư duy vậy tôi tồn tại"
+    ]
+  },
+  {
+    "id": 105,
+    "rawId": 105,
+    "uid": "spkt_105",
+    "question": "Giôn Lốccơ quan niệm về \"ý niệm phức tạp\" như thế nào?",
+    "originalOptions": {
+      "A": "ý niệm phức tạp là kết quả phản ánh trực tiếp nhiều đặc tính của sự vật",
+      "B": "ý niệm phức tạp là kết quả của phản ánh khái quát đặc tính nào đó của sự vật",
+      "C": "ý niệm phức tạp là tổng hợp \"ý niệm đơn giản\"",
+      "D": "\"ý niệm phức tạp\" là kết quả của hoạt động của riêng lý tính hoàn toàn chủ quan của con người"
+    },
+    "originalAnswer": "\"ý niệm phức tạp\" là kết quả của hoạt động của riêng lý tính hoàn toàn chủ quan của con người",
+    "originalLetter": "D",
+    "correctAnswer": "\"ý niệm phức tạp\" là kết quả của hoạt động của riêng lý tính hoàn toàn chủ quan của con người",
+    "options": [
+      "\"ý niệm phức tạp\" là kết quả của hoạt động của riêng lý tính hoàn toàn chủ quan của con người",
+      "ý niệm phức tạp là kết quả của phản ánh khái quát đặc tính nào đó của sự vật",
+      "ý niệm phức tạp là kết quả phản ánh trực tiếp nhiều đặc tính của sự vật",
+      "ý niệm phức tạp là tổng hợp \"ý niệm đơn giản\""
+    ]
+  },
+  {
+    "id": 106,
+    "rawId": 96,
+    "uid": "spkt_106",
+    "question": "Quan niệm về \"ý niệm phức tạp\" của Giôn Lốccơ có quan hệ với lập trường nào về thế giới?",
+    "originalOptions": {
+      "A": "Lập trường duy Thực về thế giới",
+      "B": "Lập trường duy Danh về thế giới",
+      "C": "Lập trường nhị nguyên về thế giới",
+      "D": "Lập trường duy vật biện chứng về thế giới"
+    },
+    "originalAnswer": "Lập trường duy Danh về thế giới",
+    "originalLetter": "B",
+    "correctAnswer": "Lập trường duy Danh về thế giới",
+    "options": [
+      "Lập trường nhị nguyên về thế giới",
+      "Lập trường duy Danh về thế giới",
+      "Lập trường duy vật biện chứng về thế giới",
+      "Lập trường duy Thực về thế giới"
+    ]
+  },
+  {
+    "id": 107,
+    "rawId": 107,
+    "uid": "spkt_107",
+    "question": "Ai là người đã phân chia tính chất của sự vật ra thành \"chất có trước\" và \"chất có sau\"",
+    "originalOptions": {
+      "A": "Xpinôdza",
+      "C": "Ph. Bêcơn",
+      "B": "Đềcáctơ",
+      "D": "Giôn Lốccơ"
+    },
+    "originalAnswer": "Giôn Lốccơ",
+    "originalLetter": "D",
+    "correctAnswer": "Giôn Lốccơ",
+    "options": [
+      "Giôn Lốccơ",
+      "Ph. Bêcơn",
+      "Xpinôdza",
+      "Đềcáctơ"
+    ]
+  },
+  {
+    "id": 108,
+    "rawId": 108,
+    "uid": "spkt_108",
+    "question": "Quan niệm về \"chất có sau\" của tác giả là thế nào?",
+    "originalOptions": {
+      "A": "\" Chất có sau\" có được nhờ sự tác động của các sự vật khách quan vào giác quan con người.",
+      "B": "\" Chất có sau\" hoàn toàn là sản phẩm của con người",
+      "C": "\" Chất có sau\" khi thì là khi thì là , không nhất quán",
+      "D": "\" Chất có sau\" là ảo giác không có thật"
+    },
+    "originalAnswer": "\" Chất có sau\" khi thì là khi thì là , không nhất quán",
+    "originalLetter": "C",
+    "correctAnswer": "\" Chất có sau\" khi thì là khi thì là , không nhất quán",
+    "options": [
+      "\" Chất có sau\" hoàn toàn là sản phẩm của con người",
+      "\" Chất có sau\" có được nhờ sự tác động của các sự vật khách quan vào giác quan con người.",
+      "\" Chất có sau\" là ảo giác không có thật",
+      "\" Chất có sau\" khi thì là khi thì là , không nhất quán"
+    ]
+  },
+  {
+    "id": 109,
+    "rawId": 109,
+    "uid": "spkt_109",
+    "question": "Gioócgiơ Béccơli là nhà triết học của nước nào?",
+    "originalOptions": {
+      "A": "Anh",
+      "C": "Pháp",
+      "B": "Hà Lan",
+      "D": "Đức"
+    },
+    "originalAnswer": "Anh",
+    "originalLetter": "A",
+    "correctAnswer": "Anh",
+    "options": [
+      "Pháp",
+      "Anh",
+      "Đức",
+      "Hà Lan"
+    ]
+  },
+  {
+    "id": 110,
+    "rawId": 110,
+    "uid": "spkt_110",
+    "question": "Gioócgiơ Béccơli là nhà triết học theo khuynh hướng nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật siêu hình",
+      "B": "Chủ nghĩa duy vật biện chứng",
+      "C": "Chủ nghĩa duy tâm chủ quan",
+      "D": "Chủ nghĩa duy tâm khách quan"
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm chủ quan",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy tâm chủ quan",
+    "options": [
+      "Chủ nghĩa duy tâm chủ quan",
+      "Chủ nghĩa duy vật siêu hình",
+      "Chủ nghĩa duy tâm khách quan",
+      "Chủ nghĩa duy vật biện chứng"
+    ]
+  },
+  {
+    "id": 111,
+    "rawId": 111,
+    "uid": "spkt_111",
+    "question": "Câu 111 Theo quan niệm của Béccơli sự tồn tại các sự vật cụ thể trong thế giới do cái gì quyết định?",
+    "originalOptions": {
+      "A": "Mọi vật do nguyên tử tạo nên",
+      "B": "Vật tồn tại không phụ thuộc vào cảm giác",
+      "C": "Vật do thượng đế tạo ra",
+      "D": "Vật do phức hợp các cảm giác"
+    },
+    "originalAnswer": "Vật do phức hợp các cảm giác",
+    "originalLetter": "D",
+    "correctAnswer": "Vật do phức hợp các cảm giác",
+    "options": [
+      "Vật tồn tại không phụ thuộc vào cảm giác",
+      "Vật do phức hợp các cảm giác",
+      "Vật do thượng đế tạo ra",
+      "Mọi vật do nguyên tử tạo nên"
+    ]
+  },
+  {
+    "id": 112,
+    "rawId": 112,
+    "uid": "spkt_112",
+    "question": "Triết học của Béccơli cuối cùng chuyển sang triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật tầm thường",
+      "B": "Chủ nghĩa duy tâm khách quan",
+      "C": "Chủ nghĩa duy vật biện chứng",
+      "D": "Thuyết bất khả tri"
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm khách quan",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy tâm khách quan",
+    "options": [
+      "Thuyết bất khả tri",
+      "Chủ nghĩa duy vật tầm thường",
+      "Chủ nghĩa duy tâm khách quan",
+      "Chủ nghĩa duy vật biện chứng"
+    ]
+  },
+  {
+    "id": 113,
+    "rawId": 113,
+    "uid": "spkt_113",
+    "question": "Về bản chất triết học của Béccơli phản ánh hệ tư tưởng của giai cấp nào?",
+    "originalOptions": {
+      "A": "Giai cấp địa chủ phong kiến",
+      "B": "Giai cấp chủ nô",
+      "C": "Giai cấp tư sản đã giành được chính quyền",
+      "D": "Giai cấp tư sản chưa giành được chính quyền"
+    },
+    "originalAnswer": "Giai cấp tư sản đã giành được chính quyền",
+    "originalLetter": "C",
+    "correctAnswer": "Giai cấp tư sản đã giành được chính quyền",
+    "options": [
+      "Giai cấp tư sản chưa giành được chính quyền",
+      "Giai cấp chủ nô",
+      "Giai cấp địa chủ phong kiến",
+      "Giai cấp tư sản đã giành được chính quyền"
+    ]
+  },
+  {
+    "id": 114,
+    "rawId": 114,
+    "uid": "spkt_114",
+    "question": "Davít Hium là nhà triết học nước nào?",
+    "originalOptions": {
+      "A": "Pháp",
+      "C": "áo",
+      "B": "Anh",
+      "D": "Hà Lan"
+    },
+    "originalAnswer": "Anh",
+    "originalLetter": "B",
+    "correctAnswer": "Anh",
+    "options": [
+      "Anh",
+      "Pháp",
+      "áo",
+      "Hà Lan"
+    ]
+  },
+  {
+    "id": 115,
+    "rawId": 115,
+    "uid": "spkt_115",
+    "question": "Davít Hium sống vào thời gian nào?",
+    "originalOptions": {
+      "A": "1700 - 1760",
+      "B": "1710 - 1765",
+      "C": "1711 - 1766",
+      "D": "1712 - 1767"
+    },
+    "originalAnswer": "1711 - 1766",
+    "originalLetter": "C",
+    "correctAnswer": "1711 - 1766",
+    "options": [
+      "1712 - 1767",
+      "1710 - 1765",
+      "1711 - 1766",
+      "1700 - 1760"
+    ]
+  },
+  {
+    "id": 116,
+    "rawId": 116,
+    "uid": "spkt_116",
+    "question": "Về lý luận nhận thức, Đavít Hium đứng trên lập trường nào?",
+    "originalOptions": {
+      "A": "Thuyết khả tri duy vật siêu hình",
+      "B": "Thuyết khả tri duy tâm",
+      "C": "Thuyết bất khả tri và hiện tượng luận",
+      "D": "Thuyết khả tri duy vật biện chứng"
+    },
+    "originalAnswer": "Thuyết bất khả tri và hiện tượng luận",
+    "originalLetter": "C",
+    "correctAnswer": "Thuyết bất khả tri và hiện tượng luận",
+    "options": [
+      "Thuyết khả tri duy tâm",
+      "Thuyết khả tri duy vật biện chứng",
+      "Thuyết khả tri duy vật siêu hình",
+      "Thuyết bất khả tri và hiện tượng luận"
+    ]
+  },
+  {
+    "id": 117,
+    "rawId": 117,
+    "uid": "spkt_117",
+    "question": "Quan niệm của Đavít Hium về tính nhân quả như thế nào?",
+    "originalOptions": {
+      "A": "Kết quả chứa đựng trong nguyên nhân",
+      "B": "Nguyên nhân có trước và sinh ra kết quả",
+      "C": "Kết quả được rút ra từ nguyên nhân",
+      "D": "Không thể chứng minh kết quả được rút ra từ nguyên nhân trong khoa học tự nhiên"
+    },
+    "originalAnswer": "Không thể chứng minh kết quả được rút ra từ nguyên nhân trong khoa học tự nhiên",
+    "originalLetter": "D",
+    "correctAnswer": "Không thể chứng minh kết quả được rút ra từ nguyên nhân trong khoa học tự nhiên",
+    "options": [
+      "Không thể chứng minh kết quả được rút ra từ nguyên nhân trong khoa học tự nhiên",
+      "Nguyên nhân có trước và sinh ra kết quả",
+      "Kết quả chứa đựng trong nguyên nhân",
+      "Kết quả được rút ra từ nguyên nhân"
+    ]
+  },
+  {
+    "id": 118,
+    "rawId": 118,
+    "uid": "spkt_118",
+    "question": "Hium quan niệm về sự tồn tại của quan hệ nhân quả như thế nào?",
+    "originalOptions": {
+      "A": "Tồn tại khách quan và là quy luật của tự nhiên",
+      "B": "Tính nhân quả không tồn tại ở đâu cả chỉ là sự bịa đặt của con người",
+      "C": "Tính nhân quả không phải là quy luật, mà do thói quen của con người quy định."
+    },
+    "originalAnswer": "Tính nhân quả không phải là quy luật, mà do thói quen của con người quy định.",
+    "originalLetter": "C",
+    "correctAnswer": "Tính nhân quả không phải là quy luật, mà do thói quen của con người quy định.",
+    "options": [
+      "Tính nhân quả không phải là quy luật, mà do thói quen của con người quy định.",
+      "Tính nhân quả không tồn tại ở đâu cả chỉ là sự bịa đặt của con người",
+      "Tồn tại khách quan và là quy luật của tự nhiên"
+    ]
+  },
+  {
+    "id": 119,
+    "rawId": 119,
+    "uid": "spkt_119",
+    "question": "Theo Đavít Hium cần giáo dục cho con người cái gì?",
+    "originalOptions": {
+      "A": "Thói quen",
+      "B": "Các tri thức khoa học tự nhiên",
+      "C": "Kiến thức triết học",
+      "D": "Thẩm mỹ học"
+    },
+    "originalAnswer": "Thói quen",
+    "originalLetter": "A",
+    "correctAnswer": "Thói quen",
+    "options": [
+      "Các tri thức khoa học tự nhiên",
+      "Thói quen",
+      "Kiến thức triết học",
+      "Thẩm mỹ học"
+    ]
+  },
+  {
+    "id": 120,
+    "rawId": 120,
+    "uid": "spkt_120",
+    "question": "Triết học ánh sáng xuất hiện trong thời gian nào và ở đâu?",
+    "originalOptions": {
+      "A": "Thế kỷ XVI - XVII, ở Italia",
+      "B": "Thế kỷ XVII - XVIII, ở Anh",
+      "C": "Nửa cuối thế kỷ XVIII, ở Đức",
+      "D": "Nửa cuối thế kỷ XVIII ở Pháp"
+    },
+    "originalAnswer": "Nửa cuối thế kỷ XVIII ở Pháp",
+    "originalLetter": "D",
+    "correctAnswer": "Nửa cuối thế kỷ XVIII ở Pháp",
+    "options": [
+      "Thế kỷ XVII - XVIII, ở Anh",
+      "Nửa cuối thế kỷ XVIII, ở Đức",
+      "Nửa cuối thế kỷ XVIII ở Pháp",
+      "Thế kỷ XVI - XVII, ở Italia"
+    ]
+  },
+  {
+    "id": 121,
+    "rawId": 121,
+    "uid": "spkt_121",
+    "question": "Những nhà triết học khai sáng Pháp chuẩn bị về mặt tư tưởng cho cuộc cách mạng nào?",
+    "originalOptions": {
+      "A": "Cách mạng vô sản",
+      "B": "Cách mạng tư sản",
+      "C": "Cách mạng dân tộc, dân chủ",
+      "D": "Cách mạng nông dân chống phong kiến"
+    },
+    "originalAnswer": "Cách mạng tư sản",
+    "originalLetter": "B",
+    "correctAnswer": "Cách mạng tư sản",
+    "options": [
+      "Cách mạng dân tộc, dân chủ",
+      "Cách mạng nông dân chống phong kiến",
+      "Cách mạng tư sản",
+      "Cách mạng vô sản"
+    ]
+  },
+  {
+    "id": 122,
+    "rawId": 122,
+    "uid": "spkt_122",
+    "question": "La Mettri (1709 - 1751) là nhà triết học nước nào?",
+    "originalOptions": {
+      "A": "Nga",
+      "C": "Pháp",
+      "B": "Italia",
+      "D": "Đức"
+    },
+    "originalAnswer": "Pháp",
+    "originalLetter": "C",
+    "correctAnswer": "Pháp",
+    "options": [
+      "Pháp",
+      "Italia",
+      "Nga",
+      "Đức"
+    ]
+  },
+  {
+    "id": 123,
+    "rawId": 123,
+    "uid": "spkt_123",
+    "question": "Quan niệm cho thực thể vật chất là thống nhất ba hình thức của nó trong giới tự nhiên, giới vô cơ, thực vật, động vật (bao gồm con người) là của nhà triết học nào?",
+    "originalOptions": {
+      "A": "Xpinôda",
+      "C": "Ph. Bêcơn",
+      "B": "La Mettri",
+      "D": "Điđrô"
+    },
+    "originalAnswer": "La Mettri",
+    "originalLetter": "B",
+    "correctAnswer": "La Mettri",
+    "options": [
+      "Điđrô",
+      "Xpinôda",
+      "Ph. Bêcơn",
+      "La Mettri"
+    ]
+  },
+  {
+    "id": 124,
+    "rawId": 124,
+    "uid": "spkt_124",
+    "question": "La Mettri coi đặc tính cơ bản của vật chất là gì?",
+    "originalOptions": {
+      "A": "Quảng tính, vận động và cảm thụ",
+      "B": "Quảng tính, khối lượng và vận động",
+      "C": "Quảng tính, vận động"
+    },
+    "originalAnswer": "Quảng tính, vận động và cảm thụ",
+    "originalLetter": "A",
+    "correctAnswer": "Quảng tính, vận động và cảm thụ",
+    "options": [
+      "Quảng tính, vận động",
+      "Quảng tính, vận động và cảm thụ",
+      "Quảng tính, khối lượng và vận động"
+    ]
+  },
+  {
+    "id": 125,
+    "rawId": 125,
+    "uid": "spkt_125",
+    "question": "Về thế giới quan La Mettri là nhà triết học thuộc trào lưu nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm khách quan",
+      "B": "Chủ nghĩa duy tâm chủ quan",
+      "C": "Chủ nghĩa duy vật",
+      "D": "Chủ nghĩa kinh nghiệm phê phán"
+    },
+    "originalAnswer": "Chủ nghĩa duy vật",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy vật",
+    "options": [
+      "Chủ nghĩa kinh nghiệm phê phán",
+      "Chủ nghĩa duy tâm khách quan",
+      "Chủ nghĩa duy vật",
+      "Chủ nghĩa duy tâm chủ quan"
+    ]
+  },
+  {
+    "id": 126,
+    "rawId": 126,
+    "uid": "spkt_126",
+    "question": "Trong vấn đề nhận thức luận, khi La Mettri nói: nhờ cơ quan cảm giác mà người ta suy nghĩ, giác quan là kẻ đáng tin cậy trong đời sống hàng ngày, La Mettri đứng trên quan điểm nào?",
+    "originalOptions": {
+      "A": "Duy lý",
+      "B": "Duy vật biện chứng",
+      "C": "Duy giác luận",
+      "D": "Bất khả tri"
+    },
+    "originalAnswer": "Duy giác luận",
+    "originalLetter": "C",
+    "correctAnswer": "Duy giác luận",
+    "options": [
+      "Duy lý",
+      "Duy vật biện chứng",
+      "Bất khả tri",
+      "Duy giác luận"
+    ]
+  },
+  {
+    "id": 127,
+    "rawId": 127,
+    "uid": "spkt_127",
+    "question": "Điều khẳng định nào sau đây là sai:",
+    "originalOptions": {
+      "A": "La Mettri bác bỏ thuyết nhị nguyên của Đềcáctơ",
+      "B": "La Mettri bảo vệ thuyết nhị nguyên của Đềcáctơ",
+      "C": "La Mettri xem con người như một cái máy",
+      "D": "La Mettri giải thích các hiện tượng sinh lý theo quy luật cơ học"
+    },
+    "originalAnswer": "La Mettri bảo vệ thuyết nhị nguyên của Đềcáctơ",
+    "originalLetter": "B",
+    "correctAnswer": "La Mettri bảo vệ thuyết nhị nguyên của Đềcáctơ",
+    "options": [
+      "La Mettri giải thích các hiện tượng sinh lý theo quy luật cơ học",
+      "La Mettri xem con người như một cái máy",
+      "La Mettri bác bỏ thuyết nhị nguyên của Đềcáctơ",
+      "La Mettri bảo vệ thuyết nhị nguyên của Đềcáctơ"
+    ]
+  },
+  {
+    "id": 128,
+    "rawId": 128,
+    "uid": "spkt_128",
+    "question": "Điều khẳng định nào sau đây là sai?",
+    "originalOptions": {
+      "A": "Điđrô thừa nhận vật chất tồn tại vĩnh viễn",
+      "B": "Điđrô thừa nhận vật chất tồn tại khách quan ngoài ý thức của con người",
+      "C": "Điđrô cho vật chất là một thực thể duy nhất, nguyên nhân tồn tại của nó nằm ngay trong bản thân nó.",
+      "D": "Điđrô không thừa nhận nguyên nhân tồn tại của vật chất nằm ngay trong bản thân nó."
+    },
+    "originalAnswer": "Điđrô không thừa nhận nguyên nhân tồn tại của vật chất nằm ngay trong bản thân nó.",
+    "originalLetter": "D",
+    "correctAnswer": "Điđrô không thừa nhận nguyên nhân tồn tại của vật chất nằm ngay trong bản thân nó.",
+    "options": [
+      "Điđrô cho vật chất là một thực thể duy nhất, nguyên nhân tồn tại của nó nằm ngay trong bản thân nó.",
+      "Điđrô thừa nhận vật chất tồn tại vĩnh viễn",
+      "Điđrô không thừa nhận nguyên nhân tồn tại của vật chất nằm ngay trong bản thân nó.",
+      "Điđrô thừa nhận vật chất tồn tại khách quan ngoài ý thức của con người"
+    ]
+  },
+  {
+    "id": 129,
+    "rawId": 129,
+    "uid": "spkt_129",
+    "question": "Điều khẳng định nào sau đây là đúng?",
+    "originalOptions": {
+      "A": "Điđrô cho vận động và vật chất là thống nhất chặt chẽ",
+      "B": "Điđrô không thừa nhận vận động và vật chất là thống nhất",
+      "C": "Điđrô thừa nhận có trạng thái đứng im tuyệt đối",
+      "D": "Điđrô phủ nhận vận động của vật thể là qúa trình phát triển, biến đổi không ngừng."
+    },
+    "originalAnswer": "Điđrô cho vận động và vật chất là thống nhất chặt chẽ",
+    "originalLetter": "A",
+    "correctAnswer": "Điđrô cho vận động và vật chất là thống nhất chặt chẽ",
+    "options": [
+      "Điđrô cho vận động và vật chất là thống nhất chặt chẽ",
+      "Điđrô phủ nhận vận động của vật thể là qúa trình phát triển, biến đổi không ngừng.",
+      "Điđrô thừa nhận có trạng thái đứng im tuyệt đối",
+      "Điđrô không thừa nhận vận động và vật chất là thống nhất"
+    ]
+  },
+  {
+    "id": 130,
+    "rawId": 130,
+    "uid": "spkt_130",
+    "question": "Điều khẳng định nào sau đây là sai?",
+    "originalOptions": {
+      "A": "Điđrô thể hiện quan niệm vô thần thông qua tư tưởng biện chứng về vận động",
+      "B": "Điđrô chưa tiếp cận tư tưởng về tự thân vận động của vật chất",
+      "C": "Điđrô cho rằng mỗi phân tử có một nguồn vận động bên trong, mà ông gọi là lực nội tâm.",
+      "D": "Điđrô chống lại sự tồn tại của thượng đế"
+    },
+    "originalAnswer": "Điđrô chưa tiếp cận tư tưởng về tự thân vận động của vật chất",
+    "originalLetter": "B",
+    "correctAnswer": "Điđrô chưa tiếp cận tư tưởng về tự thân vận động của vật chất",
+    "options": [
+      "Điđrô chưa tiếp cận tư tưởng về tự thân vận động của vật chất",
+      "Điđrô thể hiện quan niệm vô thần thông qua tư tưởng biện chứng về vận động",
+      "Điđrô cho rằng mỗi phân tử có một nguồn vận động bên trong, mà ông gọi là lực nội tâm.",
+      "Điđrô chống lại sự tồn tại của thượng đế"
+    ]
+  },
+  {
+    "id": 131,
+    "rawId": 131,
+    "uid": "spkt_131",
+    "question": "Khi khẳng định vật chất là nguyên nhân của cảm giác, Điđrô đã đứng trên quan điểm triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm",
+      "B": "Thuyết nhị nguyên",
+      "C": "Chủ nghĩa duy vật",
+      "D": "Chủ nghĩa kinh nghiệm phê phán"
+    },
+    "originalAnswer": "Chủ nghĩa duy vật",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy vật",
+    "options": [
+      "Thuyết nhị nguyên",
+      "Chủ nghĩa kinh nghiệm phê phán",
+      "Chủ nghĩa duy tâm",
+      "Chủ nghĩa duy vật"
+    ]
+  },
+  {
+    "id": 132,
+    "rawId": 132,
+    "uid": "spkt_132",
+    "question": "Tư tưởng biện chứng của Điđrô về vận động thể hiện ở chỗ nào?",
+    "originalOptions": {
+      "A": "Giải thích vận động là sự thay đổi vị trí trong không gian",
+      "B": "Cho nguyên nhân vận động là do lực tác động",
+      "C": "Giải thích tự thân vận động của vật chất bằng mâu thuẫn nội tại của sự vật và tính đa dạng của nó."
+    },
+    "originalAnswer": "Giải thích tự thân vận động của vật chất bằng mâu thuẫn nội tại của sự vật và tính đa dạng của nó.",
+    "originalLetter": "C",
+    "correctAnswer": "Giải thích tự thân vận động của vật chất bằng mâu thuẫn nội tại của sự vật và tính đa dạng của nó.",
+    "options": [
+      "Giải thích tự thân vận động của vật chất bằng mâu thuẫn nội tại của sự vật và tính đa dạng của nó.",
+      "Giải thích vận động là sự thay đổi vị trí trong không gian",
+      "Cho nguyên nhân vận động là do lực tác động"
+    ]
+  },
+  {
+    "id": 133,
+    "rawId": 133,
+    "uid": "spkt_133",
+    "question": "Quan niệm của Điđrô về nguồn gốc của ý thức con người như thế nào?",
+    "originalOptions": {
+      "A": "ý thức có nguồn gốc từ thần thánh",
+      "B": "ý thức là thuộc tính của mọi dạng vật chất",
+      "C": "ý thức là thuộc tính của vật chất có tổ chức cao xuất hiện do sự phức tạp hoá của vật chất hữu cơ.",
+      "D": "ý thức con người vốn có trong bộ não."
+    },
+    "originalAnswer": "ý thức là thuộc tính của vật chất có tổ chức cao xuất hiện do sự phức tạp hoá của vật chất hữu cơ.",
+    "originalLetter": "C",
+    "correctAnswer": "ý thức là thuộc tính của vật chất có tổ chức cao xuất hiện do sự phức tạp hoá của vật chất hữu cơ.",
+    "options": [
+      "ý thức là thuộc tính của mọi dạng vật chất",
+      "ý thức là thuộc tính của vật chất có tổ chức cao xuất hiện do sự phức tạp hoá của vật chất hữu cơ.",
+      "ý thức có nguồn gốc từ thần thánh",
+      "ý thức con người vốn có trong bộ não."
+    ]
+  },
+  {
+    "id": 134,
+    "rawId": 134,
+    "uid": "spkt_134",
+    "question": "Khẳng định nào sau đây là đúng",
+    "originalOptions": {
+      "A": "Điđrô cho rằng vật chất là nguyên nhân của cảm giác",
+      "B": "Điđrô cho rằng vật chất là phức hợp của cảm giác",
+      "C": "Điđrô cho rằng sự vật là phản ánh của thế giới ý niệm",
+      "D": "Điđrô phủ nhận khả năng nhận thức thế giới của con người."
+    },
+    "originalAnswer": "Điđrô cho rằng vật chất là nguyên nhân của cảm giác",
+    "originalLetter": "A",
+    "correctAnswer": "Điđrô cho rằng vật chất là nguyên nhân của cảm giác",
+    "options": [
+      "Điđrô cho rằng vật chất là nguyên nhân của cảm giác",
+      "Điđrô cho rằng sự vật là phản ánh của thế giới ý niệm",
+      "Điđrô cho rằng vật chất là phức hợp của cảm giác",
+      "Điđrô phủ nhận khả năng nhận thức thế giới của con người."
+    ]
+  },
+  {
+    "id": 135,
+    "rawId": 135,
+    "uid": "spkt_135",
+    "question": "Trong lĩnh vực xã hội Điđrô đứng trên quan điểm triết học nào?",
+    "originalOptions": {
+      "A": "Duy vật siêu hình",
+      "B": "Duy vật biện chứng",
+      "C": "Duy tâm"
+    },
+    "originalAnswer": "Duy tâm",
+    "originalLetter": "C",
+    "correctAnswer": "Duy tâm",
+    "options": [
+      "Duy vật biện chứng",
+      "Duy tâm",
+      "Duy vật siêu hình"
+    ]
+  },
+  {
+    "id": 136,
+    "rawId": 136,
+    "uid": "spkt_136",
+    "question": "Những luận điểm nào sau đây là đúng?",
+    "originalOptions": {
+      "A": "Điđrô khẳng định nguồn gốc thần thánh của vua chúa.",
+      "B": "Điđrô phủ nhận nguồn gốc thần thánh của vua chúa.",
+      "C": "Điđrô tán thành chế độ chuyên chế.",
+      "D": "Điđrô chống lại chế độ quân chủ lập hiến."
+    },
+    "originalAnswer": "Điđrô khẳng định nguồn gốc thần thánh của vua chúa.",
+    "originalLetter": "A",
+    "correctAnswer": "Điđrô khẳng định nguồn gốc thần thánh của vua chúa.",
+    "options": [
+      "Điđrô phủ nhận nguồn gốc thần thánh của vua chúa.",
+      "Điđrô chống lại chế độ quân chủ lập hiến.",
+      "Điđrô tán thành chế độ chuyên chế.",
+      "Điđrô khẳng định nguồn gốc thần thánh của vua chúa."
+    ]
+  },
+  {
+    "id": 137,
+    "rawId": 137,
+    "uid": "spkt_137",
+    "question": "Triết học cổ điển Đức bảo vệ về mặt tư tưởng chế độ nhà nước nào?",
+    "originalOptions": {
+      "A": "Nhà nước dân chủ chủ nô",
+      "B": "Nhà nước dân chủ tư sản",
+      "C": "Nhà nước chuyên chế Phổ.",
+      "D": "Nhà nước chuyên chế chủ nô"
+    },
+    "originalAnswer": "Nhà nước chuyên chế Phổ.",
+    "originalLetter": "C",
+    "correctAnswer": "Nhà nước chuyên chế Phổ.",
+    "options": [
+      "Nhà nước dân chủ chủ nô",
+      "Nhà nước chuyên chế Phổ.",
+      "Nhà nước dân chủ tư sản",
+      "Nhà nước chuyên chế chủ nô"
+    ]
+  },
+  {
+    "id": 138,
+    "rawId": 138,
+    "uid": "spkt_138",
+    "question": "Sắp xếp theo thứ tự năm sinh trước - sau của các nhà triết học sau",
+    "originalOptions": {
+      "A": "Cantơ - Phoi-ơ-bắc - Hêghen",
+      "B": "Cantơ - Hêghen - Phoi-ơ-bắc",
+      "C": "Hêghen - Cantơ - Phoi-ơ-bắc",
+      "D": "Phoi-ơ-bắc - Cantơ - Hêghen"
+    },
+    "originalAnswer": "Cantơ - Hêghen - Phoi-ơ-bắc",
+    "originalLetter": "B",
+    "correctAnswer": "Cantơ - Hêghen - Phoi-ơ-bắc",
+    "options": [
+      "Phoi-ơ-bắc - Cantơ - Hêghen",
+      "Hêghen - Cantơ - Phoi-ơ-bắc",
+      "Cantơ - Hêghen - Phoi-ơ-bắc",
+      "Cantơ - Phoi-ơ-bắc - Hêghen"
+    ]
+  },
+  {
+    "id": 139,
+    "rawId": 139,
+    "uid": "spkt_139",
+    "question": "Khi đưa ra quan niệm về \"vật tự nó\" ở ngoài con người, Cantơ là nhà triết học thuộc khuynh hướng nào?",
+    "originalOptions": {
+      "A": "Duy tâm chủ quan",
+      "B": "Duy tâm khách quan",
+      "C": "Duy vật",
+      "D": "Nhị nguyên"
+    },
+    "originalAnswer": "Duy vật",
+    "originalLetter": "C",
+    "correctAnswer": "Duy vật",
+    "options": [
+      "Duy tâm chủ quan",
+      "Duy tâm khách quan",
+      "Duy vật",
+      "Nhị nguyên"
+    ]
+  },
+  {
+    "id": 140,
+    "rawId": 140,
+    "uid": "spkt_140",
+    "question": "Khi cho rằng các vật thể quanh ta không liên quan đến thế giới \"vật tự nó\", mà chỉ là \"các hiện tượng phù hợp với cảm giác và tri thức do lý tính chúng ta tạo ra\", Cantơ là nhà triết học thuộc khuynh hướng nào?",
+    "originalOptions": {
+      "A": "Duy vật biện chứng.",
+      "B": "Duy vật siêu hình",
+      "C": "Duy tâm chủ quan",
+      "D": "Duy tâm khách quan"
+    },
+    "originalAnswer": "Duy tâm chủ quan",
+    "originalLetter": "C",
+    "correctAnswer": "Duy tâm chủ quan",
+    "options": [
+      "Duy tâm chủ quan",
+      "Duy vật siêu hình",
+      "Duy tâm khách quan",
+      "Duy vật biện chứng."
+    ]
+  },
+  {
+    "id": 141,
+    "rawId": 141,
+    "uid": "spkt_141",
+    "question": "Khi cho không gian, thời gian, tính nhân quả không thuộc bản thân thế giới tự nhiên, Cantơ đứng trên quan điểm triết học nào?",
+    "originalOptions": {
+      "A": "Duy vật biện chứng.",
+      "B": "Duy tâm.",
+      "C": "Duy vật siêu hình"
+    },
+    "originalAnswer": "Duy tâm.",
+    "originalLetter": "B",
+    "correctAnswer": "Duy tâm.",
+    "options": [
+      "Duy vật siêu hình",
+      "Duy tâm.",
+      "Duy vật biện chứng."
+    ]
+  },
+  {
+    "id": 142,
+    "rawId": 142,
+    "uid": "spkt_142",
+    "question": "Trong lĩnh vực nhận thức luận, Cantơ là nhà triết học theo khuynh hướng nào?",
+    "originalOptions": {
+      "A": "Khả tri luận có tính chất duy vật.",
+      "B": "Khả tri luận có tính chất duy tâm khách quan.",
+      "C": "Bất khả tri luận có tính chất duy tâm chủ quan."
+    },
+    "originalAnswer": "Bất khả tri luận có tính chất duy tâm chủ quan.",
+    "originalLetter": "C",
+    "correctAnswer": "Bất khả tri luận có tính chất duy tâm chủ quan.",
+    "options": [
+      "Khả tri luận có tính chất duy tâm khách quan.",
+      "Bất khả tri luận có tính chất duy tâm chủ quan.",
+      "Khả tri luận có tính chất duy vật."
+    ]
+  },
+  {
+    "id": 143,
+    "rawId": 143,
+    "uid": "spkt_143",
+    "question": "Khẳng định nào sau đây là đúng",
+    "originalOptions": {
+      "A": "Phép biện chứng của Hêghen là phép biện chứng duy vật",
+      "B": "Phép biện chứng của Hêghen là phép biện chứng tự phát.",
+      "C": "Phép biện chứng của Hêghen là phép biện chứng duy tâm khách quan",
+      "D": "Phép biện chứng của Hêghen là phép biện chứng tiên nghiệm chủ quan."
+    },
+    "originalAnswer": "Phép biện chứng của Hêghen là phép biện chứng duy tâm khách quan",
+    "originalLetter": "C",
+    "correctAnswer": "Phép biện chứng của Hêghen là phép biện chứng duy tâm khách quan",
+    "options": [
+      "Phép biện chứng của Hêghen là phép biện chứng duy vật",
+      "Phép biện chứng của Hêghen là phép biện chứng duy tâm khách quan",
+      "Phép biện chứng của Hêghen là phép biện chứng tự phát.",
+      "Phép biện chứng của Hêghen là phép biện chứng tiên nghiệm chủ quan."
+    ]
+  },
+  {
+    "id": 144,
+    "rawId": 144,
+    "uid": "spkt_144",
+    "question": "Theo Hêghen khởi nguyên của thế giới là gì?",
+    "originalOptions": {
+      "A": "Nguyên tử.",
+      "B": "Không khí.",
+      "C": "ý niệm tuyệt đối",
+      "D": "Vật chất không xác định"
+    },
+    "originalAnswer": "ý niệm tuyệt đối",
+    "originalLetter": "C",
+    "correctAnswer": "ý niệm tuyệt đối",
+    "options": [
+      "Không khí.",
+      "Nguyên tử.",
+      "ý niệm tuyệt đối",
+      "Vật chất không xác định"
+    ]
+  },
+  {
+    "id": 145,
+    "rawId": 145,
+    "uid": "spkt_145",
+    "question": "Trong triết học của Hêghen giữa tinh thần và tự nhiên quan hệ với nhau như thế nào?",
+    "originalOptions": {
+      "A": "Tinh thần là kết quả phát triển của tự nhiên.",
+      "B": "Tinh thần là thuộc tính của tự nhiên",
+      "C": "Tự nhiên là sản phẩm của tinh thần, là một tồn tại khác của tinh thần.",
+      "D": "Tự nhiên là nguồn gốc của tinh thần."
+    },
+    "originalAnswer": "Tự nhiên là sản phẩm của tinh thần, là một tồn tại khác của tinh thần.",
+    "originalLetter": "C",
+    "correctAnswer": "Tự nhiên là sản phẩm của tinh thần, là một tồn tại khác của tinh thần.",
+    "options": [
+      "Tinh thần là thuộc tính của tự nhiên",
+      "Tinh thần là kết quả phát triển của tự nhiên.",
+      "Tự nhiên là sản phẩm của tinh thần, là một tồn tại khác của tinh thần.",
+      "Tự nhiên là nguồn gốc của tinh thần."
+    ]
+  },
+  {
+    "id": 146,
+    "rawId": 146,
+    "uid": "spkt_146",
+    "question": "Khẳng định nào sau đây là sai?",
+    "originalOptions": {
+      "A": "Hêghen cho rằng \"ý niệm tuyệt đối\" tồn tại vĩnh viễn.",
+      "B": "Hêghen cho rằng \"ý niệm tuyệt đối\" vận động trong sự phụ thuộc vào giới tự nhiên và xã hội.",
+      "C": "Hêghen cho rằng \"ý niệm tuyệt đối\" là tính thứ nhất, tự nhiên là tính thứ hai."
+    },
+    "originalAnswer": "Hêghen cho rằng \"ý niệm tuyệt đối\" vận động trong sự phụ thuộc vào giới tự nhiên và xã hội.",
+    "originalLetter": "B",
+    "correctAnswer": "Hêghen cho rằng \"ý niệm tuyệt đối\" vận động trong sự phụ thuộc vào giới tự nhiên và xã hội.",
+    "options": [
+      "Hêghen cho rằng \"ý niệm tuyệt đối\" là tính thứ nhất, tự nhiên là tính thứ hai.",
+      "Hêghen cho rằng \"ý niệm tuyệt đối\" tồn tại vĩnh viễn.",
+      "Hêghen cho rằng \"ý niệm tuyệt đối\" vận động trong sự phụ thuộc vào giới tự nhiên và xã hội."
+    ]
+  },
+  {
+    "id": 147,
+    "rawId": 147,
+    "uid": "spkt_147",
+    "question": "Trong số những nhà triết học sau đây, ai là người trình bầy toàn bộ giới tự nhiên, lịch sử, và tư duy trong sự vận động, biến đổi và phát triển?",
+    "originalOptions": {
+      "A": "Đềcáctơ",
+      "C": "Cantơ",
+      "B": "Hêghen",
+      "D": "Phoi-ơ-bắc."
+    },
+    "originalAnswer": "Hêghen",
+    "originalLetter": "B",
+    "correctAnswer": "Hêghen",
+    "options": [
+      "Cantơ",
+      "Hêghen",
+      "Đềcáctơ",
+      "Phoi-ơ-bắc."
+    ]
+  },
+  {
+    "id": 148,
+    "rawId": 148,
+    "uid": "spkt_148",
+    "question": "Hãy chỉ ra đâu là quan điểm của Hêghen?",
+    "originalOptions": {
+      "A": "Quy luật của phép biện chứng được rút ra từ tự nhiên.",
+      "B": "Quy luật của phép biện chứng được hoàn thành trong tư duy và được ứng dụng vào tự nhiên và xã hôị.",
+      "C": "Quy luật của phép biện chứng do ý thức chủ quan con người tạo ra."
+    },
+    "originalAnswer": "Quy luật của phép biện chứng được hoàn thành trong tư duy và được ứng dụng vào tự nhiên và xã hôị.",
+    "originalLetter": "B",
+    "correctAnswer": "Quy luật của phép biện chứng được hoàn thành trong tư duy và được ứng dụng vào tự nhiên và xã hôị.",
+    "options": [
+      "Quy luật của phép biện chứng được rút ra từ tự nhiên.",
+      "Quy luật của phép biện chứng do ý thức chủ quan con người tạo ra.",
+      "Quy luật của phép biện chứng được hoàn thành trong tư duy và được ứng dụng vào tự nhiên và xã hôị."
+    ]
+  },
+  {
+    "id": 149,
+    "rawId": 149,
+    "uid": "spkt_149",
+    "question": "Luận điểm sau đây là của ai: Cái gì tồn tại thì hợp lý, cái gì hợp lý thì tồn tại.",
+    "originalOptions": {
+      "A": "Arixtốt",
+      "C": "Hêghen",
+      "B": "Cantơ",
+      "D": "Phoi-ơ-bắc"
+    },
+    "originalAnswer": "Hêghen",
+    "originalLetter": "C",
+    "correctAnswer": "Hêghen",
+    "options": [
+      "Phoi-ơ-bắc",
+      "Hêghen",
+      "Cantơ",
+      "Arixtốt"
+    ]
+  },
+  {
+    "id": 150,
+    "rawId": 150,
+    "uid": "spkt_150",
+    "question": "Hãy chỉ ra đâu là quan điểm của Hêghen?",
+    "originalOptions": {
+      "A": "Nhà nước hiện thực chỉ là tồn tại khác của khái niệm nhà nước.",
+      "B": "Khái niệm nhà nước là sự phản ánh nhà nước hiện thực.",
+      "C": "Khái niệm nhà nước và nhà nước hiện thực là hai thực thể độc lập với nhau."
+    },
+    "originalAnswer": "Nhà nước hiện thực chỉ là tồn tại khác của khái niệm nhà nước.",
+    "originalLetter": "A",
+    "correctAnswer": "Nhà nước hiện thực chỉ là tồn tại khác của khái niệm nhà nước.",
+    "options": [
+      "Nhà nước hiện thực chỉ là tồn tại khác của khái niệm nhà nước.",
+      "Khái niệm nhà nước là sự phản ánh nhà nước hiện thực.",
+      "Khái niệm nhà nước và nhà nước hiện thực là hai thực thể độc lập với nhau."
+    ]
+  },
+  {
+    "id": 151,
+    "rawId": 151,
+    "uid": "spkt_151",
+    "question": "Hệ thống triết học của Hêghen gồm những bộ phận chính nào?",
+    "originalOptions": {
+      "A": "Lôgic học; triết học về tự nhiên; triết học về lịch sử; triết học về tinh thần.",
+      "B": "Triết học về tự nhiên; triết học về tinh thần.",
+      "C": "Triết học về tự nhiên; triết học về xã hội; triết học về tinh thần",
+      "D": "Lôgic học; triết học về tự nhiên; triết học về tinh thần"
+    },
+    "originalAnswer": "Lôgic học; triết học về tự nhiên; triết học về tinh thần",
+    "originalLetter": "D",
+    "correctAnswer": "Lôgic học; triết học về tự nhiên; triết học về tinh thần",
+    "options": [
+      "Lôgic học; triết học về tự nhiên; triết học về tinh thần",
+      "Triết học về tự nhiên; triết học về tinh thần.",
+      "Triết học về tự nhiên; triết học về xã hội; triết học về tinh thần",
+      "Lôgic học; triết học về tự nhiên; triết học về lịch sử; triết học về tinh thần."
+    ]
+  },
+  {
+    "id": 152,
+    "rawId": 152,
+    "uid": "spkt_152",
+    "question": "Mâu thuẫn sau đây là mâu thuẫn trong hệ thống triết học của nhà triết học nào: \"Mâu thuẫn giữa phương pháp cách mạng với hệ thống bảo thủ\"",
+    "originalOptions": {
+      "A": "Platôn",
+      "C": "Hêghen",
+      "B": "Arixtốt",
+      "D": "Cantơ"
+    },
+    "originalAnswer": "Hêghen",
+    "originalLetter": "C",
+    "correctAnswer": "Hêghen",
+    "options": [
+      "Platôn",
+      "Hêghen",
+      "Cantơ",
+      "Arixtốt"
+    ]
+  },
+  {
+    "id": 153,
+    "rawId": 153,
+    "uid": "spkt_153",
+    "question": "Thêm cụm từ vào câu sau cho thích hợp: Mâu thuẫn giữa ..(1).. của phép biện chứng với .....(2).....của hệ thống triết học của Hêghen.",
+    "originalOptions": {
+      "A": "1- Tính vận động; 2- tính đứng im",
+      "B": "1- Tính bảo thủ; 2- tính cách mạng.",
+      "C": "1- Tính cách mạng; 2- tính bảo thủ",
+      "D": "1-Tính biện chứng; 2- tính siêu hình"
+    },
+    "originalAnswer": "1- Tính cách mạng; 2- tính bảo thủ",
+    "originalLetter": "C",
+    "correctAnswer": "1- Tính cách mạng; 2- tính bảo thủ",
+    "options": [
+      "1- Tính vận động; 2- tính đứng im",
+      "1-Tính biện chứng; 2- tính siêu hình",
+      "1- Tính bảo thủ; 2- tính cách mạng.",
+      "1- Tính cách mạng; 2- tính bảo thủ"
+    ]
+  },
+  {
+    "id": 154,
+    "rawId": 154,
+    "uid": "spkt_154",
+    "question": "Mác chỉ ra đâu là hạt nhân hợp lý trong triết học của Hêghen",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật",
+      "B": "Chủ nghĩa duy tâm",
+      "C": "Phép biện chứng như lý luận về sự phát triển",
+      "D": "Tư tưởng về vận động"
+    },
+    "originalAnswer": "Phép biện chứng như lý luận về sự phát triển",
+    "originalLetter": "C",
+    "correctAnswer": "Phép biện chứng như lý luận về sự phát triển",
+    "options": [
+      "Phép biện chứng như lý luận về sự phát triển",
+      "Tư tưởng về vận động",
+      "Chủ nghĩa duy vật",
+      "Chủ nghĩa duy tâm"
+    ]
+  },
+  {
+    "id": 155,
+    "rawId": 155,
+    "uid": "spkt_155",
+    "question": "Phoi-ơ-bắc là nhà triết học theo trường phái nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm khách quan.",
+      "B": "Chủ nghĩa duy tâm chủ quan",
+      "C": "Chủ nghĩa duy vật biện chứng",
+      "D": "Chủ nghĩa duy vật siêu hình."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật siêu hình.",
+    "originalLetter": "D",
+    "correctAnswer": "Chủ nghĩa duy vật siêu hình.",
+    "options": [
+      "Chủ nghĩa duy tâm chủ quan",
+      "Chủ nghĩa duy tâm khách quan.",
+      "Chủ nghĩa duy vật biện chứng",
+      "Chủ nghĩa duy vật siêu hình."
+    ]
+  },
+  {
+    "id": 156,
+    "rawId": 156,
+    "uid": "spkt_156",
+    "question": "Xét về nội dung tư tưởng của học thuyết, Phoi-ơ-bắc là nhà tư tưởng của giai cấp nào?",
+    "originalOptions": {
+      "A": "Giai cấp địa chủ quý tộc Đức.",
+      "B": "Giai cấp vô sản Đức.",
+      "C": "Giai cấp tư sản dân chủ Đức"
+    },
+    "originalAnswer": "Giai cấp tư sản dân chủ Đức",
+    "originalLetter": "C",
+    "correctAnswer": "Giai cấp tư sản dân chủ Đức",
+    "options": [
+      "Giai cấp địa chủ quý tộc Đức.",
+      "Giai cấp vô sản Đức.",
+      "Giai cấp tư sản dân chủ Đức"
+    ]
+  },
+  {
+    "id": 157,
+    "rawId": 157,
+    "uid": "spkt_157",
+    "question": "Triết học của nhà triết học nào mang tính chất nhân bản",
+    "originalOptions": {
+      "A": "Điđrô.",
+      "C": "Phoi-ơ-bắc",
+      "B": "Cantơ",
+      "D": "Hêghen"
+    },
+    "originalAnswer": "Phoi-ơ-bắc",
+    "originalLetter": "C",
+    "correctAnswer": "Phoi-ơ-bắc",
+    "options": [
+      "Phoi-ơ-bắc",
+      "Điđrô.",
+      "Cantơ",
+      "Hêghen"
+    ]
+  },
+  {
+    "id": 158,
+    "rawId": 158,
+    "uid": "spkt_158",
+    "question": "Khẳng định nào sau đây là đúng của Phoi-ơ-bắc.",
+    "originalOptions": {
+      "A": "Phoi-ơ-bắc cho tự nhiên là \"tồn tại khác\" của tinh thần.",
+      "B": "Phoi-ơ-bắc cho tự nhiên tồn tại độc lập với ý thức của con người, vận động nhờ những cơ sở bên trong nó",
+      "C": "Phoi-ơ-bắc cho tinh thần và thể xác tồn tại tách rời nhau."
+    },
+    "originalAnswer": "Phoi-ơ-bắc cho tự nhiên tồn tại độc lập với ý thức của con người, vận động nhờ những cơ sở bên trong nó",
+    "originalLetter": "B",
+    "correctAnswer": "Phoi-ơ-bắc cho tự nhiên tồn tại độc lập với ý thức của con người, vận động nhờ những cơ sở bên trong nó",
+    "options": [
+      "Phoi-ơ-bắc cho tự nhiên là \"tồn tại khác\" của tinh thần.",
+      "Phoi-ơ-bắc cho tinh thần và thể xác tồn tại tách rời nhau.",
+      "Phoi-ơ-bắc cho tự nhiên tồn tại độc lập với ý thức của con người, vận động nhờ những cơ sở bên trong nó"
+    ]
+  },
+  {
+    "id": 159,
+    "rawId": 159,
+    "uid": "spkt_159",
+    "question": "Triết học nhân bản của Phoi-ơ-bắc có ưu điểm gì?",
+    "originalOptions": {
+      "A": "Chống lại quan niệm nhị nguyên luận về sự tách rời tinh thần khỏi thể xác.",
+      "B": "Chống lại chủ nghĩa duy vật tầm thường cho ý thức do óc tiết ra",
+      "C": "Chống lại quan niệm của đạo Thiên chúa về thượng đế",
+      "D": "Cả 3 điểm a,b,c",
+      "E": "Hai điểm a & b."
+    },
+    "originalAnswer": "Cả 3 điểm a,b,c",
+    "originalLetter": "D",
+    "correctAnswer": "Cả 3 điểm a,b,c",
+    "options": [
+      "Chống lại quan niệm nhị nguyên luận về sự tách rời tinh thần khỏi thể xác.",
+      "Hai điểm a & b.",
+      "Chống lại quan niệm của đạo Thiên chúa về thượng đế",
+      "Cả 3 điểm a,b,c",
+      "Chống lại chủ nghĩa duy vật tầm thường cho ý thức do óc tiết ra"
+    ]
+  },
+  {
+    "id": 160,
+    "rawId": 160,
+    "uid": "spkt_160",
+    "question": "Triết học nhân bản của Phoi-ơ-bắc có hạn chế gì?",
+    "originalOptions": {
+      "A": "Đồng nhất ý thức với một dạng vật chất.",
+      "B": "Cho con người sáng tạo ra thượng đế",
+      "C": "Cho con người chỉ mang những thuộc tính sinh học bẩm sinh",
+      "D": "Cả 3 điểm a, b, c."
+    },
+    "originalAnswer": "Cho con người chỉ mang những thuộc tính sinh học bẩm sinh",
+    "originalLetter": "C",
+    "correctAnswer": "Cho con người chỉ mang những thuộc tính sinh học bẩm sinh",
+    "options": [
+      "Đồng nhất ý thức với một dạng vật chất.",
+      "Cho con người chỉ mang những thuộc tính sinh học bẩm sinh",
+      "Cho con người sáng tạo ra thượng đế",
+      "Cả 3 điểm a, b, c."
+    ]
+  },
+  {
+    "id": 161,
+    "rawId": 161,
+    "uid": "spkt_161",
+    "question": "Ông cho rằng: con người sáng tạo ra thượng đế, bản tính con người là tình yêu, tôn giáo cũng là một tình yêu. Ông là ai?",
+    "originalOptions": {
+      "A": "Cantơ",
+      "C": "Phoi-ơ-bắc.",
+      "B": "Hêghen",
+      "D": "Điđrô"
+    },
+    "originalAnswer": "Phoi-ơ-bắc.",
+    "originalLetter": "C",
+    "correctAnswer": "Phoi-ơ-bắc.",
+    "options": [
+      "Cantơ",
+      "Điđrô",
+      "Hêghen",
+      "Phoi-ơ-bắc."
+    ]
+  },
+  {
+    "id": 162,
+    "rawId": 162,
+    "uid": "spkt_162",
+    "question": "Phoi-ơ-bắc có nói đến sự \"tha hoá\" không. Nếu có thì quan niệm của ông thế nào?",
+    "originalOptions": {
+      "A": "Không.",
+      "B": "Có, đó là tha hoá của ý niệm",
+      "C": "Có, đó là tha hoá của lao động.",
+      "D": "Có, đó là tha hoá bản chất con người về thượng đế."
+    },
+    "originalAnswer": "Có, đó là tha hoá bản chất con người về thượng đế.",
+    "originalLetter": "D",
+    "correctAnswer": "Có, đó là tha hoá bản chất con người về thượng đế.",
+    "options": [
+      "Có, đó là tha hoá bản chất con người về thượng đế.",
+      "Không.",
+      "Có, đó là tha hoá của lao động.",
+      "Có, đó là tha hoá của ý niệm"
+    ]
+  },
+  {
+    "id": 163,
+    "rawId": 163,
+    "uid": "spkt_163",
+    "question": "Ưu điểm lớn nhất của triết học cổ điển Đức là gì?",
+    "originalOptions": {
+      "A": "Phát triển tư tưởng duy vật về thế giới của thế kỷ XVII - XVIII.",
+      "B": "Khắc phục triệt để quan điểm siêu hình của chủ nghĩa duy vật cũ.",
+      "C": "Phát triển tư tưởng biện chứng đạt trình độ một hệ thống lý luận.",
+      "D": "Phê phán quan điểm tôn giáo về thế giới."
+    },
+    "originalAnswer": "Phát triển tư tưởng biện chứng đạt trình độ một hệ thống lý luận.",
+    "originalLetter": "C",
+    "correctAnswer": "Phát triển tư tưởng biện chứng đạt trình độ một hệ thống lý luận.",
+    "options": [
+      "Phát triển tư tưởng duy vật về thế giới của thế kỷ XVII - XVIII.",
+      "Khắc phục triệt để quan điểm siêu hình của chủ nghĩa duy vật cũ.",
+      "Phê phán quan điểm tôn giáo về thế giới.",
+      "Phát triển tư tưởng biện chứng đạt trình độ một hệ thống lý luận."
+    ]
+  },
+  {
+    "id": 164,
+    "rawId": 164,
+    "uid": "spkt_164",
+    "question": "Hạn chế lớn nhất của triết học cổ điển Đức là ở chỗ nào?",
+    "originalOptions": {
+      "A": "Chưa khắc phục được quan điểm siêu hình trong triết học duy vật cũ.",
+      "B": "Chưa có quan điểm duy vật về lịch sử xã hội.",
+      "C": "Có tính chất duy tâm khách quan (đặc biệt triết học của Hêghen)."
+    },
+    "originalAnswer": "Có tính chất duy tâm khách quan (đặc biệt triết học của Hêghen).",
+    "originalLetter": "C",
+    "correctAnswer": "Có tính chất duy tâm khách quan (đặc biệt triết học của Hêghen).",
+    "options": [
+      "Chưa có quan điểm duy vật về lịch sử xã hội.",
+      "Có tính chất duy tâm khách quan (đặc biệt triết học của Hêghen).",
+      "Chưa khắc phục được quan điểm siêu hình trong triết học duy vật cũ."
+    ]
+  },
+  {
+    "id": 165,
+    "rawId": 165,
+    "uid": "spkt_165",
+    "question": "Xét về bản chất chủ nghĩa duy vật của Phoi-ơ-bắc là:",
+    "originalOptions": {
+      "A": "Cao hơn chủ nghĩa duy vật thế kỷ XVII - XVIII ở Tây Âu",
+      "B": "Thấp hơn chủ nghĩa duy vật thế kỷ XVII - XVII ở Tây Âu",
+      "C": "Không vượt quá trình độ chủ nghĩa duy vật thế kỷ XVII - XVIII ở Tây Âu."
+    },
+    "originalAnswer": "Không vượt quá trình độ chủ nghĩa duy vật thế kỷ XVII - XVIII ở Tây Âu.",
+    "originalLetter": "C",
+    "correctAnswer": "Không vượt quá trình độ chủ nghĩa duy vật thế kỷ XVII - XVIII ở Tây Âu.",
+    "options": [
+      "Cao hơn chủ nghĩa duy vật thế kỷ XVII - XVIII ở Tây Âu",
+      "Thấp hơn chủ nghĩa duy vật thế kỷ XVII - XVII ở Tây Âu",
+      "Không vượt quá trình độ chủ nghĩa duy vật thế kỷ XVII - XVIII ở Tây Âu."
+    ]
+  },
+  {
+    "id": 166,
+    "rawId": 166,
+    "uid": "spkt_166",
+    "question": "Triết học Mác ra đời vào thời gian nào?",
+    "originalOptions": {
+      "A": "Những năm 20 của thế kỷ XIX",
+      "B": "Những năm 30 của thế kỷ XIX.",
+      "C": "Những năm 40 của thế kỷ XIX.",
+      "D": "Những năm 50 của thế kỷ XIX."
+    },
+    "originalAnswer": "Những năm 40 của thế kỷ XIX.",
+    "originalLetter": "C",
+    "correctAnswer": "Những năm 40 của thế kỷ XIX.",
+    "options": [
+      "Những năm 50 của thế kỷ XIX.",
+      "Những năm 40 của thế kỷ XIX.",
+      "Những năm 20 của thế kỷ XIX",
+      "Những năm 30 của thế kỷ XIX."
+    ]
+  },
+  {
+    "id": 167,
+    "rawId": 167,
+    "uid": "spkt_167",
+    "question": "Triết học Mác - Lênin do ai sáng lập và phát triển?",
+    "originalOptions": {
+      "A": "C. Mác, Ph. Ăngghen; V.I. Lênin.",
+      "B": "C. Mác và Ph. Ăngghen.",
+      "C": "V.I. Lênin",
+      "D": "Ph. Ăngghen."
+    },
+    "originalAnswer": "C. Mác, Ph. Ăngghen; V.I. Lênin.",
+    "originalLetter": "A",
+    "correctAnswer": "C. Mác, Ph. Ăngghen; V.I. Lênin.",
+    "options": [
+      "C. Mác và Ph. Ăngghen.",
+      "V.I. Lênin",
+      "Ph. Ăngghen.",
+      "C. Mác, Ph. Ăngghen; V.I. Lênin."
+    ]
+  },
+  {
+    "id": 168,
+    "rawId": 168,
+    "uid": "spkt_168",
+    "question": "Điều kiện kinh tế xã hội cho sự ra đời của triết học Mác - Lênin?",
+    "originalOptions": {
+      "A": "Phương thức sản xuất tư bản chủ nghĩa được củng cố và phát triển.",
+      "B": "Giai cấp vô sản ra đời và trở thành lực lượng chính trị - xã hội độc lập",
+      "C": "Giai cấp tư sản đã trở nên bảo thủ.",
+      "D": "cả a, b, c.",
+      "G": "Điểm a và b."
+    },
+    "originalAnswer": "Điểm a và b.",
+    "originalLetter": "G",
+    "correctAnswer": "Điểm a và b.",
+    "options": [
+      "Điểm a và b.",
+      "Giai cấp tư sản đã trở nên bảo thủ.",
+      "Giai cấp vô sản ra đời và trở thành lực lượng chính trị - xã hội độc lập",
+      "Phương thức sản xuất tư bản chủ nghĩa được củng cố và phát triển.",
+      "cả a, b, c."
+    ]
+  },
+  {
+    "id": 169,
+    "rawId": 169,
+    "uid": "spkt_169",
+    "question": "Triết học Mác ra đời trong điều kiện kinh tế - xã hội nào?",
+    "originalOptions": {
+      "A": "Phương thức sản xuất tư bản chủ nghĩa đã trở thành phương thức sản xuất thống trị.",
+      "B": "Phương thức sản xuất tư bản chủ nghĩa mới xuất hiện.",
+      "C": "Chủ nghĩa tư bản đã trở thành chủ nghĩa đế quốc.",
+      "D": "Cả a, b, c"
+    },
+    "originalAnswer": "Phương thức sản xuất tư bản chủ nghĩa đã trở thành phương thức sản xuất thống trị.",
+    "originalLetter": "A",
+    "correctAnswer": "Phương thức sản xuất tư bản chủ nghĩa đã trở thành phương thức sản xuất thống trị.",
+    "options": [
+      "Phương thức sản xuất tư bản chủ nghĩa đã trở thành phương thức sản xuất thống trị.",
+      "Cả a, b, c",
+      "Chủ nghĩa tư bản đã trở thành chủ nghĩa đế quốc.",
+      "Phương thức sản xuất tư bản chủ nghĩa mới xuất hiện."
+    ]
+  },
+  {
+    "id": 170,
+    "rawId": 170,
+    "uid": "spkt_170",
+    "question": "Nguồn gốc lý luận của chủ nghĩa Mác là gì?",
+    "originalOptions": {
+      "A": "Triết học khai sáng Pháp thế kỷ XVIII.",
+      "B": "Triết học cổ điển Đức.",
+      "C": "Kinh tế chính trị học cổ điển Anh",
+      "D": "Chủ nghĩa xã hội không tưởng Pháp và Anh.",
+      "G": "Cả a, b, c và d.",
+      "E": "Gồm b, c và d. Chú ý bản in Ngân hàng bị thiếu và d ở cả g và e"
+    },
+    "originalAnswer": "Gồm b, c và d. Chú ý bản in Ngân hàng bị thiếu và d ở cả g và e",
+    "originalLetter": "E",
+    "correctAnswer": "Gồm b, c và d. Chú ý bản in Ngân hàng bị thiếu và d ở cả g và e",
+    "options": [
+      "Cả a, b, c và d.",
+      "Kinh tế chính trị học cổ điển Anh",
+      "Triết học khai sáng Pháp thế kỷ XVIII.",
+      "Triết học cổ điển Đức.",
+      "Gồm b, c và d. Chú ý bản in Ngân hàng bị thiếu và d ở cả g và e",
+      "Chủ nghĩa xã hội không tưởng Pháp và Anh."
+    ]
+  },
+  {
+    "id": 171,
+    "rawId": 171,
+    "uid": "spkt_171",
+    "question": "Nguồn gốc lý luận trực tiếp của triết học Mác là gì?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật Khai sáng Pháp",
+      "B": "Triết học cổ điển Đức",
+      "C": "Kinh tế chính trị cổ điển Anh",
+      "D": "Chủ nghĩa xã hội không tưởng Pháp và Anh"
+    },
+    "originalAnswer": "Triết học cổ điển Đức",
+    "originalLetter": "B",
+    "correctAnswer": "Triết học cổ điển Đức",
+    "options": [
+      "Kinh tế chính trị cổ điển Anh",
+      "Chủ nghĩa xã hội không tưởng Pháp và Anh",
+      "Triết học cổ điển Đức",
+      "Chủ nghĩa duy vật Khai sáng Pháp"
+    ]
+  },
+  {
+    "id": 172,
+    "rawId": 172,
+    "uid": "spkt_172",
+    "question": "Khẳng định nào sau đây là sai?",
+    "originalOptions": {
+      "A": "Triết học Mác là sự kết hợp phép biện chứng của Hêghen và chủ nghĩa duy vật của Phoi-ơ- bắc",
+      "B": "Triết học Mác có sự thống nhất giữa phương pháp biện chứng và thế giới quan duy vật.",
+      "C": "Triết học Mác kế thừa và cải tạo phép biện chứng của Hêghen trên cơ sở duy vật."
+    },
+    "originalAnswer": "Triết học Mác là sự kết hợp phép biện chứng của Hêghen và chủ nghĩa duy vật của Phoi-ơ- bắc",
+    "originalLetter": "A",
+    "correctAnswer": "Triết học Mác là sự kết hợp phép biện chứng của Hêghen và chủ nghĩa duy vật của Phoi-ơ- bắc",
+    "options": [
+      "Triết học Mác kế thừa và cải tạo phép biện chứng của Hêghen trên cơ sở duy vật.",
+      "Triết học Mác có sự thống nhất giữa phương pháp biện chứng và thế giới quan duy vật.",
+      "Triết học Mác là sự kết hợp phép biện chứng của Hêghen và chủ nghĩa duy vật của Phoi-ơ- bắc"
+    ]
+  },
+  {
+    "id": 173,
+    "rawId": 173,
+    "uid": "spkt_173",
+    "question": "Khẳng định nào sau đây là đúng?",
+    "originalOptions": {
+      "A": "Trong triết học Mác, phép biện chứng và chủ nghĩa duy vật thống nhất với nhau.",
+      "B": "Triết học Mác là sự kết hợp phép biện chứng của Hêghen với chủ nghĩa duy vật của Phoi-ơ- bắc",
+      "C": "Trong triết học Mác, phép biện chứng tách rời với chủ nghĩa duy vật."
+    },
+    "originalAnswer": "Trong triết học Mác, phép biện chứng và chủ nghĩa duy vật thống nhất với nhau.",
+    "originalLetter": "A",
+    "correctAnswer": "Trong triết học Mác, phép biện chứng và chủ nghĩa duy vật thống nhất với nhau.",
+    "options": [
+      "Triết học Mác là sự kết hợp phép biện chứng của Hêghen với chủ nghĩa duy vật của Phoi-ơ- bắc",
+      "Trong triết học Mác, phép biện chứng tách rời với chủ nghĩa duy vật.",
+      "Trong triết học Mác, phép biện chứng và chủ nghĩa duy vật thống nhất với nhau."
+    ]
+  },
+  {
+    "id": 174,
+    "rawId": 174,
+    "uid": "spkt_174",
+    "question": "Đâu là nguồn gốc lý luận của chủ nghĩa Mác?",
+    "originalOptions": {
+      "A": "Kinh tế chính trị cổ điển Anh",
+      "B": "Kinh tế chính trị cổ điển Đức",
+      "C": "Chủ nghĩa duy vật tự phát thời kỳ cổ đại",
+      "D": "Khoa học tự nhiên thế kỷ XVII - XVIII."
+    },
+    "originalAnswer": "Kinh tế chính trị cổ điển Anh",
+    "originalLetter": "A",
+    "correctAnswer": "Kinh tế chính trị cổ điển Anh",
+    "options": [
+      "Chủ nghĩa duy vật tự phát thời kỳ cổ đại",
+      "Khoa học tự nhiên thế kỷ XVII - XVIII.",
+      "Kinh tế chính trị cổ điển Đức",
+      "Kinh tế chính trị cổ điển Anh"
+    ]
+  },
+  {
+    "id": 175,
+    "rawId": 175,
+    "uid": "spkt_175",
+    "question": "Đâu là nguồn gốc lý luận của chủ nghĩa Mác?",
+    "originalOptions": {
+      "A": "Tư tưởng xã hội phương Đông cổ đại",
+      "B": "Chủ nghĩa xã hội không tưởng Pháp và Anh",
+      "C": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII ở Tây Âu.",
+      "D": "Phép biện chứng tự phát trong triết học Hy Lạp cổ đại."
+    },
+    "originalAnswer": "Chủ nghĩa xã hội không tưởng Pháp và Anh",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa xã hội không tưởng Pháp và Anh",
+    "options": [
+      "Tư tưởng xã hội phương Đông cổ đại",
+      "Chủ nghĩa xã hội không tưởng Pháp và Anh",
+      "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII ở Tây Âu.",
+      "Phép biện chứng tự phát trong triết học Hy Lạp cổ đại."
+    ]
+  },
+  {
+    "id": 176,
+    "rawId": 176,
+    "uid": "spkt_176",
+    "question": "Theo quan điểm của chủ nghĩa duy vật biện chứng về tác động của khoa học tự nhiên nửa đầu thế kỷ XIX đối với phương pháp tư duy siêu hình, luận điểm nào sau đây là đúng.",
+    "originalOptions": {
+      "A": "Khoa học tự nhiên nửa đầu thế kỷ XIX phù hợp với phương pháp tư duy siêu hình.",
+      "B": "Khoa học tự nhiên nửa đầu thế kỷ XIX làm bộc lộ tính hạn chế và sự bất lực của phương pháp tư duy siêu hình trong việc nhận thức thế giới",
+      "C": "KHTN khẳng định vai trò tích cực của phương pháp tư duy siêu hình"
+    },
+    "originalAnswer": "Khoa học tự nhiên nửa đầu thế kỷ XIX làm bộc lộ tính hạn chế và sự bất lực của phương pháp tư duy siêu hình trong việc nhận thức thế giới",
+    "originalLetter": "B",
+    "correctAnswer": "Khoa học tự nhiên nửa đầu thế kỷ XIX làm bộc lộ tính hạn chế và sự bất lực của phương pháp tư duy siêu hình trong việc nhận thức thế giới",
+    "options": [
+      "Khoa học tự nhiên nửa đầu thế kỷ XIX phù hợp với phương pháp tư duy siêu hình.",
+      "KHTN khẳng định vai trò tích cực của phương pháp tư duy siêu hình",
+      "Khoa học tự nhiên nửa đầu thế kỷ XIX làm bộc lộ tính hạn chế và sự bất lực của phương pháp tư duy siêu hình trong việc nhận thức thế giới"
+    ]
+  },
+  {
+    "id": 177,
+    "rawId": 177,
+    "uid": "spkt_177",
+    "question": "Những phát minh của khoa học tự nhiên nửa đầu thế kỷ XIX đã cung cấp cơ sở tri thức khoa học cho sự phát triển cái gì?",
+    "originalOptions": {
+      "A": "Phát triển phương pháp tư duy siêu hình",
+      "B": "Phát triển phép biện chứng tự phát",
+      "C": "Phát triển tính thần bí của phép biện chứng duy tâm",
+      "D": "Phát triển tư duy biện chứng thoát khỏi tính tự phát thời kỳ cổ đại và thoát khỏi cái vỏ thần bí của phép biện chứng duy tâm."
+    },
+    "originalAnswer": "Phát triển tư duy biện chứng thoát khỏi tính tự phát thời kỳ cổ đại và thoát khỏi cái vỏ thần bí của phép biện chứng duy tâm.",
+    "originalLetter": "D",
+    "correctAnswer": "Phát triển tư duy biện chứng thoát khỏi tính tự phát thời kỳ cổ đại và thoát khỏi cái vỏ thần bí của phép biện chứng duy tâm.",
+    "options": [
+      "Phát triển tính thần bí của phép biện chứng duy tâm",
+      "Phát triển phép biện chứng tự phát",
+      "Phát triển phương pháp tư duy siêu hình",
+      "Phát triển tư duy biện chứng thoát khỏi tính tự phát thời kỳ cổ đại và thoát khỏi cái vỏ thần bí của phép biện chứng duy tâm."
+    ]
+  },
+  {
+    "id": 178,
+    "rawId": 178,
+    "uid": "spkt_178",
+    "question": "Ba phát minh lớn nhất của khoa học tự nhiên làm cơ sở khoa học tự nhiên cho sự ra đời tư duy biện chứng duy vật đầu thế kỷ XIX là những phát minh nào?",
+    "originalOptions": {
+      "A": "1) Thuyết mặt trời làm trung tâm vũ trụ của Côpécních, 2) định luật bảo toàn khối lượng của Lômônôxốp, 3) học thuyết tế bào.",
+      "B": "1) Định luật bảo toàn và chuyển hoá năng lượng, 2) học thuyết tế bào, 3) học thuyết tiến hoá của Đácuyn.",
+      "C": "1) Phát hiện ra nguyên tử, 2) phát hiện ra điện tử, 3) định luật bảo toàn và chuyển hoá năng lượng."
+    },
+    "originalAnswer": "1) Định luật bảo toàn và chuyển hoá năng lượng, 2) học thuyết tế bào, 3) học thuyết tiến hoá của Đácuyn.",
+    "originalLetter": "B",
+    "correctAnswer": "1) Định luật bảo toàn và chuyển hoá năng lượng, 2) học thuyết tế bào, 3) học thuyết tiến hoá của Đácuyn.",
+    "options": [
+      "1) Thuyết mặt trời làm trung tâm vũ trụ của Côpécních, 2) định luật bảo toàn khối lượng của Lômônôxốp, 3) học thuyết tế bào.",
+      "1) Phát hiện ra nguyên tử, 2) phát hiện ra điện tử, 3) định luật bảo toàn và chuyển hoá năng lượng.",
+      "1) Định luật bảo toàn và chuyển hoá năng lượng, 2) học thuyết tế bào, 3) học thuyết tiến hoá của Đácuyn."
+    ]
+  },
+  {
+    "id": 179,
+    "rawId": 179,
+    "uid": "spkt_179",
+    "question": "Về mặt triết học, định luật bảo toàn và chuyển hoá năng lượng chứng minh cho quan điểm nào?",
+    "originalOptions": {
+      "A": "Quan điểm siêu hình phủ nhận sự vận động.",
+      "B": "Quan điểm duy tâm phủ nhận sự vận động là khách quan.",
+      "C": "Quan điểm biện chứng duy vật thừa nhận sự chuyển hoá lẫn nhau của giới tự nhiên vô cơ."
+    },
+    "originalAnswer": "Quan điểm biện chứng duy vật thừa nhận sự chuyển hoá lẫn nhau của giới tự nhiên vô cơ.",
+    "originalLetter": "C",
+    "correctAnswer": "Quan điểm biện chứng duy vật thừa nhận sự chuyển hoá lẫn nhau của giới tự nhiên vô cơ.",
+    "options": [
+      "Quan điểm biện chứng duy vật thừa nhận sự chuyển hoá lẫn nhau của giới tự nhiên vô cơ.",
+      "Quan điểm duy tâm phủ nhận sự vận động là khách quan.",
+      "Quan điểm siêu hình phủ nhận sự vận động."
+    ]
+  },
+  {
+    "id": 180,
+    "rawId": 180,
+    "uid": "spkt_180",
+    "question": "Ba phát minh trong khoa học tự nhiên: định luật bảo toàn và chuyển hoá năng lượng, học thuyết tế bào, học thuyết tiến hoá chứng minh thế giới vật chất có tính chất gì?",
+    "originalOptions": {
+      "A": "Tính chất tách rời tĩnh tại của thế giới vật chất.",
+      "B": "Tính chất biện chứng của sự vận động và phát triển của thế giới vật chất.",
+      "C": "Tính chất không tồn tại thực của thế giới vật chất."
+    },
+    "originalAnswer": "Tính chất biện chứng của sự vận động và phát triển của thế giới vật chất.",
+    "originalLetter": "B",
+    "correctAnswer": "Tính chất biện chứng của sự vận động và phát triển của thế giới vật chất.",
+    "options": [
+      "Tính chất tách rời tĩnh tại của thế giới vật chất.",
+      "Tính chất biện chứng của sự vận động và phát triển của thế giới vật chất.",
+      "Tính chất không tồn tại thực của thế giới vật chất."
+    ]
+  },
+  {
+    "id": 181,
+    "rawId": 181,
+    "uid": "spkt_181",
+    "question": "Phát minh nào trong khoa học tự nhiên nửa đầu thế kỷ XIX vạch ra nguồn gốc tự nhiên của con ngươì, chống lại quan điểm tôn giáo?",
+    "originalOptions": {
+      "A": "Học thuyết tế bào.",
+      "B": "Học thuyết tiến hóa.",
+      "C": "Định luật bảo toàn và chuyển hoá năng lượng."
+    },
+    "originalAnswer": "Học thuyết tiến hóa.",
+    "originalLetter": "B",
+    "correctAnswer": "Học thuyết tiến hóa.",
+    "options": [
+      "Học thuyết tiến hóa.",
+      "Học thuyết tế bào.",
+      "Định luật bảo toàn và chuyển hoá năng lượng."
+    ]
+  },
+  {
+    "id": 182,
+    "rawId": 182,
+    "uid": "spkt_182",
+    "question": "Phát minh nào trong khoa học tự nhiên nửa đầu thế kỷ XIX vạch ra sự thống nhất giữa thế giới động vật và thực vật?",
+    "originalOptions": {
+      "A": "Học thuyết tế bào.",
+      "B": "Học thuyết tiến hoá.",
+      "C": "Định luật bảo toàn và chuyển hoá năng lượng."
+    },
+    "originalAnswer": "Học thuyết tế bào.",
+    "originalLetter": "A",
+    "correctAnswer": "Học thuyết tế bào.",
+    "options": [
+      "Học thuyết tế bào.",
+      "Định luật bảo toàn và chuyển hoá năng lượng.",
+      "Học thuyết tiến hoá."
+    ]
+  },
+  {
+    "id": 183,
+    "rawId": 183,
+    "uid": "spkt_183",
+    "question": "Khẳng định nào sau đây là đúng",
+    "originalOptions": {
+      "A": "Triết học Mác ra đời vào giữa thế kỷ XIX là một tất yếu lịch sử.",
+      "B": "Triết học Mác ra đời do thiên tài của Mác và Ăngghen.",
+      "C": "Triết học Mác ra đời hoàn toàn ngẫu nhiên.",
+      "D": "Triết học Mác ra đời thực hiện mục đích đã được định trước."
+    },
+    "originalAnswer": "Triết học Mác ra đời vào giữa thế kỷ XIX là một tất yếu lịch sử.",
+    "originalLetter": "A",
+    "correctAnswer": "Triết học Mác ra đời vào giữa thế kỷ XIX là một tất yếu lịch sử.",
+    "options": [
+      "Triết học Mác ra đời thực hiện mục đích đã được định trước.",
+      "Triết học Mác ra đời do thiên tài của Mác và Ăngghen.",
+      "Triết học Mác ra đời hoàn toàn ngẫu nhiên.",
+      "Triết học Mác ra đời vào giữa thế kỷ XIX là một tất yếu lịch sử."
+    ]
+  },
+  {
+    "id": 184,
+    "rawId": 184,
+    "uid": "spkt_184",
+    "question": "Cho biết năm sinh, năm mất và nơi sinh của Mác",
+    "originalOptions": {
+      "A": "1818 - 1883, ở Béc-linh",
+      "B": "1818 - 1884, ở thành phố Tơ-re-vơ tỉnh Ranh",
+      "C": "1817 - 1883, ở thành phố Tơ-re-vơ, tỉnh Ranh",
+      "D": "1818 - 1883, ở thành phố Tơ-re-vơ, tỉnh Ranh"
+    },
+    "originalAnswer": "1818 - 1883, ở thành phố Tơ-re-vơ, tỉnh Ranh",
+    "originalLetter": "D",
+    "correctAnswer": "1818 - 1883, ở thành phố Tơ-re-vơ, tỉnh Ranh",
+    "options": [
+      "1818 - 1883, ở Béc-linh",
+      "1817 - 1883, ở thành phố Tơ-re-vơ, tỉnh Ranh",
+      "1818 - 1883, ở thành phố Tơ-re-vơ, tỉnh Ranh",
+      "1818 - 1884, ở thành phố Tơ-re-vơ tỉnh Ranh"
+    ]
+  },
+  {
+    "id": 185,
+    "rawId": 185,
+    "uid": "spkt_185",
+    "question": "Khi học ở Béc-linh về triết học, Mác đứmg trên quan điểm nào?",
+    "originalOptions": {
+      "A": "Triết học duy vật biện chứng",
+      "B": "Triết học duy vật siêu hình",
+      "C": "Triết học duy tâm của Hêghen",
+      "D": "Triết học kinh viện của tôn giáo"
+    },
+    "originalAnswer": "Triết học duy tâm của Hêghen",
+    "originalLetter": "C",
+    "correctAnswer": "Triết học duy tâm của Hêghen",
+    "options": [
+      "Triết học duy vật siêu hình",
+      "Triết học duy vật biện chứng",
+      "Triết học kinh viện của tôn giáo",
+      "Triết học duy tâm của Hêghen"
+    ]
+  },
+  {
+    "id": 186,
+    "rawId": 186,
+    "uid": "spkt_186",
+    "question": "Khi học ở Béc-linh, Mác tham gia hoạt động trong trào lưu triết học nào?",
+    "originalOptions": {
+      "A": "Phái Hêghen già (phái bảo thủ)",
+      "B": "Phái Hêghen trẻ (phái cấp tiến)",
+      "C": "Không tham gia vào phái nào."
+    },
+    "originalAnswer": "Phái Hêghen trẻ (phái cấp tiến)",
+    "originalLetter": "B",
+    "correctAnswer": "Phái Hêghen trẻ (phái cấp tiến)",
+    "options": [
+      "Phái Hêghen trẻ (phái cấp tiến)",
+      "Không tham gia vào phái nào.",
+      "Phái Hêghen già (phái bảo thủ)"
+    ]
+  },
+  {
+    "id": 187,
+    "rawId": 187,
+    "uid": "spkt_187",
+    "question": "Vào năm 1841, Mác coi nhiệm vụ của triết học phải phục vụ cái gì?",
+    "originalOptions": {
+      "A": "Phục vụ cuộc đấu tranh của giai cấp vô sản.",
+      "B": "Phục vụ chế độ xã hội hiện tại",
+      "C": "Phục vụ cuộc đấu tranh cho sự nghiệp giải phóng con người."
+    },
+    "originalAnswer": "Phục vụ cuộc đấu tranh cho sự nghiệp giải phóng con người.",
+    "originalLetter": "C",
+    "correctAnswer": "Phục vụ cuộc đấu tranh cho sự nghiệp giải phóng con người.",
+    "options": [
+      "Phục vụ cuộc đấu tranh cho sự nghiệp giải phóng con người.",
+      "Phục vụ chế độ xã hội hiện tại",
+      "Phục vụ cuộc đấu tranh của giai cấp vô sản."
+    ]
+  },
+  {
+    "id": 188,
+    "rawId": 188,
+    "uid": "spkt_188",
+    "question": "Vào năm 1841, trong tư tưởng của Mác có mâu thuẫn gì?",
+    "originalOptions": {
+      "A": "Mâu thuẫn giữa chủ nghĩa duy tâm triết học với tinh thần dân chủ cách mạng và vô thần.",
+      "B": "Mâu thuẫn giữa chủ nghĩa duy tâm triết học với tinh thần cách mạng vô sản",
+      "C": "Cả a và b."
+    },
+    "originalAnswer": "Mâu thuẫn giữa chủ nghĩa duy tâm triết học với tinh thần dân chủ cách mạng và vô thần.",
+    "originalLetter": "A",
+    "correctAnswer": "Mâu thuẫn giữa chủ nghĩa duy tâm triết học với tinh thần dân chủ cách mạng và vô thần.",
+    "options": [
+      "Mâu thuẫn giữa chủ nghĩa duy tâm triết học với tinh thần cách mạng vô sản",
+      "Mâu thuẫn giữa chủ nghĩa duy tâm triết học với tinh thần dân chủ cách mạng và vô thần.",
+      "Cả a và b."
+    ]
+  },
+  {
+    "id": 189,
+    "rawId": 189,
+    "uid": "spkt_189",
+    "question": "Ph. Ăngghen sinh năm nào, ở đâu và mất năm nào?",
+    "originalOptions": {
+      "A": "1819 - 1895, ở thành phố Bác-men",
+      "B": "1820 - 1895, ở thành Béc-linh",
+      "C": "1820 - 1895, ở thành phố Bác-men.",
+      "D": "1821 - 1895, ở thành phố Bác-men."
+    },
+    "originalAnswer": "1820 - 1895, ở thành phố Bác-men.",
+    "originalLetter": "C",
+    "correctAnswer": "1820 - 1895, ở thành phố Bác-men.",
+    "options": [
+      "1820 - 1895, ở thành phố Bác-men.",
+      "1821 - 1895, ở thành phố Bác-men.",
+      "1819 - 1895, ở thành phố Bác-men",
+      "1820 - 1895, ở thành Béc-linh"
+    ]
+  },
+  {
+    "id": 190,
+    "rawId": 190,
+    "uid": "spkt_190",
+    "question": "Vào những năm 30 của thế kỷ XIX Ph. Ăngghen đã tham gia vào nhóm triết học nào, ở đâu?",
+    "originalOptions": {
+      "A": "Phái Hêghen già, ở Béc-linh.",
+      "B": "Phái Hêghen trẻ, ở Béc-linh.",
+      "C": "Hêghen già, ở Bác-men.",
+      "D": "Hêghen trẻ, ở Bác-men."
+    },
+    "originalAnswer": "Phái Hêghen trẻ, ở Béc-linh.",
+    "originalLetter": "B",
+    "correctAnswer": "Phái Hêghen trẻ, ở Béc-linh.",
+    "options": [
+      "Phái Hêghen già, ở Béc-linh.",
+      "Hêghen già, ở Bác-men.",
+      "Phái Hêghen trẻ, ở Béc-linh.",
+      "Hêghen trẻ, ở Bác-men."
+    ]
+  },
+  {
+    "id": 191,
+    "rawId": 191,
+    "uid": "spkt_191",
+    "question": "Vào năm 1841 - 1842, về mặt triết học Ph. Ăngghen đứng trên lập trường triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật.",
+      "B": "Chủ nghĩa duy tâm chủ quan.",
+      "C": "Chủ nghĩa duy tâm khách quan."
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm khách quan.",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy tâm khách quan.",
+    "options": [
+      "Chủ nghĩa duy tâm khách quan.",
+      "Chủ nghĩa duy vật.",
+      "Chủ nghĩa duy tâm chủ quan."
+    ]
+  },
+  {
+    "id": 192,
+    "rawId": 192,
+    "uid": "spkt_192",
+    "question": "Vào năm 1841 - 1842, Ph. Ăngghen đã nhận thấy mâu thuẫn gì trong triết học của Hêghen?",
+    "originalOptions": {
+      "A": "Mâu thuẫn giữa phương pháp biện chứng và hệ thống duy tâm.",
+      "B": "Mâu thuẫn giữa tính cách mạng và tính bảo thủ trong triết học Hêghen.",
+      "C": "Mâu thuẫn giữa phương pháp siêu hình và hệ thống duy tâm."
+    },
+    "originalAnswer": "Mâu thuẫn giữa tính cách mạng và tính bảo thủ trong triết học Hêghen.",
+    "originalLetter": "B",
+    "correctAnswer": "Mâu thuẫn giữa tính cách mạng và tính bảo thủ trong triết học Hêghen.",
+    "options": [
+      "Mâu thuẫn giữa phương pháp siêu hình và hệ thống duy tâm.",
+      "Mâu thuẫn giữa tính cách mạng và tính bảo thủ trong triết học Hêghen.",
+      "Mâu thuẫn giữa phương pháp biện chứng và hệ thống duy tâm."
+    ]
+  },
+  {
+    "id": 193,
+    "rawId": 193,
+    "uid": "spkt_193",
+    "question": "Tác phẩm nào đánh dấu việc hoàn thành bước chuyển từ lập trường triết học duy tâm sang lập trường triết học duy vật của Mác?",
+    "originalOptions": {
+      "A": "Nhận xét bản chỉ thị mới nhất về chế độ kiểm duyệt của Phổ.",
+      "B": "Góp phần phê phán triết học pháp quyền của Hêghen.",
+      "C": "Góp phần phê phán triết học pháp quyền của Hêghen. Lời nói đầu."
+    },
+    "originalAnswer": "Góp phần phê phán triết học pháp quyền của Hêghen. Lời nói đầu.",
+    "originalLetter": "C",
+    "correctAnswer": "Góp phần phê phán triết học pháp quyền của Hêghen. Lời nói đầu.",
+    "options": [
+      "Góp phần phê phán triết học pháp quyền của Hêghen. Lời nói đầu.",
+      "Nhận xét bản chỉ thị mới nhất về chế độ kiểm duyệt của Phổ.",
+      "Góp phần phê phán triết học pháp quyền của Hêghen."
+    ]
+  },
+  {
+    "id": 194,
+    "rawId": 194,
+    "uid": "spkt_194",
+    "question": "Tác phẩm nào của Mác và Ăngghen đánh dấu sự hoàn thành về cơ bản triết học Mác nói riêng và chủ nghĩa Mác nói chung?",
+    "originalOptions": {
+      "A": "Hệ tư tưởng Đức",
+      "B": "Tuyên ngôn của Đảng cộng sản.",
+      "C": "Sự khốn cùng của triết học",
+      "D": "Luận cương về Phoi-ơ-bắc."
+    },
+    "originalAnswer": "Tuyên ngôn của Đảng cộng sản.",
+    "originalLetter": "B",
+    "correctAnswer": "Tuyên ngôn của Đảng cộng sản.",
+    "options": [
+      "Sự khốn cùng của triết học",
+      "Hệ tư tưởng Đức",
+      "Tuyên ngôn của Đảng cộng sản.",
+      "Luận cương về Phoi-ơ-bắc."
+    ]
+  },
+  {
+    "id": 195,
+    "rawId": 195,
+    "uid": "spkt_195",
+    "question": "Tác phẩm \"Tư bản\" do ai viết?",
+    "originalOptions": {
+      "A": "C. Mác.",
+      "B": "Ph. Ăngghen",
+      "C": "C. Mác và Ph. Ăngghen"
+    },
+    "originalAnswer": "C. Mác.",
+    "originalLetter": "A",
+    "correctAnswer": "C. Mác.",
+    "options": [
+      "C. Mác.",
+      "C. Mác và Ph. Ăngghen",
+      "Ph. Ăngghen"
+    ]
+  },
+  {
+    "id": 196,
+    "rawId": 196,
+    "uid": "spkt_196",
+    "question": "Tác phẩm \"Chống Đuyrinh\" là của tác giả nào và viết vào năm nào?",
+    "originalOptions": {
+      "A": "C. Mác, vào 1876 - 1878",
+      "B": "Ph. Ăngghen, vào 1876 - 1878.",
+      "C": "C. Mác và Ph. Ăngghen, vào 1877 - 1878.",
+      "D": "Ph. Ăngghen, vào 1877 - 1878"
+    },
+    "originalAnswer": "Ph. Ăngghen, vào 1876 - 1878.",
+    "originalLetter": "B",
+    "correctAnswer": "Ph. Ăngghen, vào 1876 - 1878.",
+    "options": [
+      "C. Mác và Ph. Ăngghen, vào 1877 - 1878.",
+      "C. Mác, vào 1876 - 1878",
+      "Ph. Ăngghen, vào 1876 - 1878.",
+      "Ph. Ăngghen, vào 1877 - 1878"
+    ]
+  },
+  {
+    "id": 197,
+    "rawId": 197,
+    "uid": "spkt_197",
+    "question": "Luận điểm sau là của ai và trong tác phẩm nào: \"Các nhà triết học đã chỉ giải thích thế giới bằng nhiều cách khác nhau, song vấn đề là cải tạo thế giới\"",
+    "originalOptions": {
+      "A": "Của Ph. Ăngghen, trong tác phẩm \"Biện chứng của tự nhiên\".",
+      "B": "Của C. Mác, trong tác phẩm \"Luận cương về Phoi-ơ-bắc\".",
+      "C": "Của Lênin, trong tác phẩm \"Bút ký triết học\"."
+    },
+    "originalAnswer": "Của C. Mác, trong tác phẩm \"Luận cương về Phoi-ơ-bắc\".",
+    "originalLetter": "B",
+    "correctAnswer": "Của C. Mác, trong tác phẩm \"Luận cương về Phoi-ơ-bắc\".",
+    "options": [
+      "Của Lênin, trong tác phẩm \"Bút ký triết học\".",
+      "Của Ph. Ăngghen, trong tác phẩm \"Biện chứng của tự nhiên\".",
+      "Của C. Mác, trong tác phẩm \"Luận cương về Phoi-ơ-bắc\"."
+    ]
+  },
+  {
+    "id": 198,
+    "rawId": 198,
+    "uid": "spkt_198",
+    "question": "Thực chất bước chuyển cách mạng trong triết học do Mác và Ăngghen thực hiện là nội dung nào sau đây?",
+    "originalOptions": {
+      "A": "Thống nhất giữa thế giới quan duy vật và phép biện chứng trong một hệ thống triết học.",
+      "B": "Thống nhất giữa triết học của Hêghen và triết học của Phoi-ơ-bắc.",
+      "C": "Phê phán chủ nghĩa duy vật siêu hình của Phoi-ơ-bắc",
+      "D": "Phê phán triết học duy tâm của Hêghen."
+    },
+    "originalAnswer": "Thống nhất giữa thế giới quan duy vật và phép biện chứng trong một hệ thống triết học.",
+    "originalLetter": "A",
+    "correctAnswer": "Thống nhất giữa thế giới quan duy vật và phép biện chứng trong một hệ thống triết học.",
+    "options": [
+      "Thống nhất giữa thế giới quan duy vật và phép biện chứng trong một hệ thống triết học.",
+      "Phê phán triết học duy tâm của Hêghen.",
+      "Thống nhất giữa triết học của Hêghen và triết học của Phoi-ơ-bắc.",
+      "Phê phán chủ nghĩa duy vật siêu hình của Phoi-ơ-bắc"
+    ]
+  },
+  {
+    "id": 199,
+    "rawId": 199,
+    "uid": "spkt_199",
+    "question": "Thực chất bước chuyển cách mạng trong triết học do Mác và Ăngghen thực hiện là nội dung nào sau đây?",
+    "originalOptions": {
+      "A": "Xây dựng được quan điểm duy vật biện chứng về lịch sử xã hội.",
+      "B": "Xây dựng được quan điểm duy vật về tự nhiên.",
+      "C": "Xây dựng được quan điểm biện chứng về tự nhiên."
+    },
+    "originalAnswer": "Xây dựng được quan điểm duy vật biện chứng về lịch sử xã hội.",
+    "originalLetter": "A",
+    "correctAnswer": "Xây dựng được quan điểm duy vật biện chứng về lịch sử xã hội.",
+    "options": [
+      "Xây dựng được quan điểm biện chứng về tự nhiên.",
+      "Xây dựng được quan điểm duy vật về tự nhiên.",
+      "Xây dựng được quan điểm duy vật biện chứng về lịch sử xã hội."
+    ]
+  },
+  {
+    "id": 200,
+    "rawId": 200,
+    "uid": "spkt_200",
+    "question": "Thực chất bước chuyển cách mạng trong triết học do Mác và Ăngghen thực hiện là nội dung nào sau đây?",
+    "originalOptions": {
+      "A": "Thống nhất phép biện chứng và thế giới quan duy vật trong một hệ thống triết học",
+      "B": "Xây dựng được chủ nghĩa duy vật lịch sử",
+      "C": "Xác định đối tượng triết học và khoa học tự nhiên, chấm dứt quan niệm sai lầm cho triết học là khoa học của mọi khoa học.",
+      "D": "Gồm cả a, b và c."
+    },
+    "originalAnswer": "Gồm cả a, b và c.",
+    "originalLetter": "D",
+    "correctAnswer": "Gồm cả a, b và c.",
+    "options": [
+      "Thống nhất phép biện chứng và thế giới quan duy vật trong một hệ thống triết học",
+      "Xây dựng được chủ nghĩa duy vật lịch sử",
+      "Gồm cả a, b và c.",
+      "Xác định đối tượng triết học và khoa học tự nhiên, chấm dứt quan niệm sai lầm cho triết học là khoa học của mọi khoa học."
+    ]
+  },
+  {
+    "id": 201,
+    "rawId": 201,
+    "uid": "spkt_201",
+    "question": "Khẳng định nào sau đây là sai",
+    "originalOptions": {
+      "A": "Triết học Mác cho triết học là khoa học của mọi khoa học.",
+      "B": "Theo quan điểm của triết học Mác triết học không thay thế được các khoa học cụ thể.",
+      "C": "Theo quan điểm của triết học Mác sự phát triển của triết học quan hệ chặt chẽ với sự phát triển của khoa học tự nhiên."
+    },
+    "originalAnswer": "Triết học Mác cho triết học là khoa học của mọi khoa học.",
+    "originalLetter": "A",
+    "correctAnswer": "Triết học Mác cho triết học là khoa học của mọi khoa học.",
+    "options": [
+      "Theo quan điểm của triết học Mác triết học không thay thế được các khoa học cụ thể.",
+      "Triết học Mác cho triết học là khoa học của mọi khoa học.",
+      "Theo quan điểm của triết học Mác sự phát triển của triết học quan hệ chặt chẽ với sự phát triển của khoa học tự nhiên."
+    ]
+  },
+  {
+    "id": 202,
+    "rawId": 202,
+    "uid": "spkt_202",
+    "question": "V.I. Lênin bổ sung và phát triển triết học Mác trong hoàn cảnh nào",
+    "originalOptions": {
+      "A": "Chủ nghĩa tư bản thế giới chưa ra đời.",
+      "B": "Chủ nghĩa tư bản độc quyền ra đời.",
+      "C": "Chủ nghĩa tư bản ở giai đoạn tự do cạnh tranh."
+    },
+    "originalAnswer": "Chủ nghĩa tư bản độc quyền ra đời.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa tư bản độc quyền ra đời.",
+    "options": [
+      "Chủ nghĩa tư bản ở giai đoạn tự do cạnh tranh.",
+      "Chủ nghĩa tư bản thế giới chưa ra đời.",
+      "Chủ nghĩa tư bản độc quyền ra đời."
+    ]
+  },
+  {
+    "id": 203,
+    "rawId": 203,
+    "uid": "spkt_203",
+    "question": "Tác phẩm \"Chủ nghĩa duy vật và chủ nghĩa kinh nghiệm phê phán\" là của tác giả nào và được xuất bản năm nào?",
+    "originalOptions": {
+      "A": "Tác giả Plê-kha-nốp, xuất bản 1909",
+      "B": "Tác giả V.I. Lênin, xuất bản 1909.",
+      "C": "Tác giả Ph. Ăngghen, xuất bản 1910.",
+      "D": "Tác giả V.I. Lênin, xuất bản 1908"
+    },
+    "originalAnswer": "Tác giả V.I. Lênin, xuất bản 1909.",
+    "originalLetter": "B",
+    "correctAnswer": "Tác giả V.I. Lênin, xuất bản 1909.",
+    "options": [
+      "Tác giả Ph. Ăngghen, xuất bản 1910.",
+      "Tác giả V.I. Lênin, xuất bản 1908",
+      "Tác giả V.I. Lênin, xuất bản 1909.",
+      "Tác giả Plê-kha-nốp, xuất bản 1909"
+    ]
+  },
+  {
+    "id": 204,
+    "rawId": 204,
+    "uid": "spkt_204",
+    "question": "Tác phẩm \"Bút ký triết học\" là của tác giả nào?",
+    "originalOptions": {
+      "A": "C. Mác.",
+      "C": "V.I. Lênin",
+      "B": "Ph. Ăngghen.",
+      "D": "Hêghen"
+    },
+    "originalAnswer": "V.I. Lênin",
+    "originalLetter": "C",
+    "correctAnswer": "V.I. Lênin",
+    "options": [
+      "Hêghen",
+      "V.I. Lênin",
+      "Ph. Ăngghen.",
+      "C. Mác."
+    ]
+  },
+  {
+    "id": 205,
+    "rawId": 205,
+    "uid": "spkt_205",
+    "question": "Lênin phê phán chủ nghĩa dân tuý trong tác phẩm nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật và chủ nghĩa kinh nghiệm phê phán",
+      "B": "Những người bạn dân là thế nào và họ đấu tranh chống những người dân chủ ra sao.",
+      "C": "Nhà nước và cách mạng",
+      "D": "Bút ký triết học"
+    },
+    "originalAnswer": "Những người bạn dân là thế nào và họ đấu tranh chống những người dân chủ ra sao.",
+    "originalLetter": "B",
+    "correctAnswer": "Những người bạn dân là thế nào và họ đấu tranh chống những người dân chủ ra sao.",
+    "options": [
+      "Nhà nước và cách mạng",
+      "Chủ nghĩa duy vật và chủ nghĩa kinh nghiệm phê phán",
+      "Bút ký triết học",
+      "Những người bạn dân là thế nào và họ đấu tranh chống những người dân chủ ra sao."
+    ]
+  },
+  {
+    "id": 206,
+    "rawId": 206,
+    "uid": "spkt_206",
+    "question": "Đâu là lập trường triết học của chủ nghĩa dân tuý?",
+    "originalOptions": {
+      "A": "Duy tâm chủ quan về lịch sử.",
+      "B": "Duy tâm khách quan về lịch sử.",
+      "C": "Duy vật siêu hình về lịch sử."
+    },
+    "originalAnswer": "Duy tâm chủ quan về lịch sử.",
+    "originalLetter": "A",
+    "correctAnswer": "Duy tâm chủ quan về lịch sử.",
+    "options": [
+      "Duy vật siêu hình về lịch sử.",
+      "Duy tâm khách quan về lịch sử.",
+      "Duy tâm chủ quan về lịch sử."
+    ]
+  },
+  {
+    "id": 207,
+    "rawId": 207,
+    "uid": "spkt_207",
+    "question": "Về triết học quan điểm của chủ nghĩa kinh nghiệm phê phán theo lập trường nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm khách quan.",
+      "B": "Chủ nghĩa duy tâm chủ quan.",
+      "C": "Chủ nghĩa duy vật siêu hình.",
+      "D": "Chủ nghĩa duy vật biện chứng."
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm chủ quan.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy tâm chủ quan.",
+    "options": [
+      "Chủ nghĩa duy vật siêu hình.",
+      "Chủ nghĩa duy tâm khách quan.",
+      "Chủ nghĩa duy tâm chủ quan.",
+      "Chủ nghĩa duy vật biện chứng."
+    ]
+  },
+  {
+    "id": 208,
+    "rawId": 208,
+    "uid": "spkt_208",
+    "question": "Luận điểm về khả năng thắng lợi của cách mạng vô sản ở khâu yếu nhất của hệ thống tư bản chủ nghĩa thế giới là của ai?",
+    "originalOptions": {
+      "A": "C. Mác.",
+      "C": "V.I. Lênin.",
+      "B": "Ph. Ăngghen.",
+      "D": "Hồ Chí Minh"
+    },
+    "originalAnswer": "V.I. Lênin.",
+    "originalLetter": "C",
+    "correctAnswer": "V.I. Lênin.",
+    "options": [
+      "C. Mác.",
+      "Ph. Ăngghen.",
+      "V.I. Lênin.",
+      "Hồ Chí Minh"
+    ]
+  },
+  {
+    "id": 209,
+    "rawId": 209,
+    "uid": "spkt_209",
+    "question": "Chính sách kinh tế mới ở Nga đầu thế kỷ XX do ai đề xuất?",
+    "originalOptions": {
+      "A": "Plê-kha-nốp",
+      "C": "Sít-ta-lin.",
+      "B": "V.I. Lênin."
+    },
+    "originalAnswer": "V.I. Lênin.",
+    "originalLetter": "B",
+    "correctAnswer": "V.I. Lênin.",
+    "options": [
+      "Plê-kha-nốp",
+      "V.I. Lênin.",
+      "Sít-ta-lin."
+    ]
+  },
+  {
+    "id": 210,
+    "rawId": 210,
+    "uid": "spkt_210",
+    "question": "Một học thuyết triết học chỉ mang tính nhất nguyên khi nào?",
+    "originalOptions": {
+      "A": "Khi thừa nhận tính thống nhất của thế giới.",
+      "B": "Khi không thừa nhận sự thống nhất của thế giới.",
+      "C": "Khi thừa nhận ý thức và vật chất độc lập với nhau"
+    },
+    "originalAnswer": "Khi thừa nhận tính thống nhất của thế giới.",
+    "originalLetter": "A",
+    "correctAnswer": "Khi thừa nhận tính thống nhất của thế giới.",
+    "options": [
+      "Khi thừa nhận tính thống nhất của thế giới.",
+      "Khi thừa nhận ý thức và vật chất độc lập với nhau",
+      "Khi không thừa nhận sự thống nhất của thế giới."
+    ]
+  },
+  {
+    "id": 211,
+    "rawId": 211,
+    "uid": "spkt_211",
+    "question": "Quan điểm triết học nào cho rằng sự thống nhất của thế giới không phải ở tính tồn tại của nó mà ở tính vật chất của nó?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm",
+      "B": "Chủ nghĩa duy vật siêu hình.",
+      "C": "Chủ nghĩa duy vật biện chứng."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy vật siêu hình.",
+      "Chủ nghĩa duy tâm"
+    ]
+  },
+  {
+    "id": 212,
+    "rawId": 212,
+    "uid": "spkt_212",
+    "question": "Sự khác nhau căn bản giữa chủ nghĩa duy vật và chủ nghĩa duy tâm về sự thống nhất của thế giới là ở cái gì?",
+    "originalOptions": {
+      "A": "Thừa nhận tính tồn tại của thế giới.",
+      "B": "Thừa nhận tính vật chất của thế giới.",
+      "C": "Không thừa nhận tính tồn tại của thế giới."
+    },
+    "originalAnswer": "Thừa nhận tính vật chất của thế giới.",
+    "originalLetter": "B",
+    "correctAnswer": "Thừa nhận tính vật chất của thế giới.",
+    "options": [
+      "Thừa nhận tính vật chất của thế giới.",
+      "Không thừa nhận tính tồn tại của thế giới.",
+      "Thừa nhận tính tồn tại của thế giới."
+    ]
+  },
+  {
+    "id": 213,
+    "rawId": 213,
+    "uid": "spkt_213",
+    "question": "Chủ nghĩa duy tâm tìm nguồn gốc của sự thống nhất của thế giới ở cái gì?",
+    "originalOptions": {
+      "A": "ở tính vật chất của thế giới.",
+      "B": "ở ý niệm tuyệt đối hoặc ở ý thức của con người.",
+      "C": "ở sự vận động và chuyển hoá lẫn nhau của thế giới."
+    },
+    "originalAnswer": "ở ý niệm tuyệt đối hoặc ở ý thức của con người.",
+    "originalLetter": "B",
+    "correctAnswer": "ở ý niệm tuyệt đối hoặc ở ý thức của con người.",
+    "options": [
+      "ở sự vận động và chuyển hoá lẫn nhau của thế giới.",
+      "ở tính vật chất của thế giới.",
+      "ở ý niệm tuyệt đối hoặc ở ý thức của con người."
+    ]
+  },
+  {
+    "id": 214,
+    "rawId": 214,
+    "uid": "spkt_214",
+    "question": "Quan điểm triết học nào cho rằng thế giới thống nhất vì được con người nghĩ về nó như một cái thống nhất",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm khách quan.",
+      "B": "Chủ nghĩa duy tâm chủ quan.",
+      "C": "Chủ nghĩa duy vật biện chứng.",
+      "D": "Chủ nghĩa duy vật siêu hình."
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm chủ quan.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy tâm chủ quan.",
+    "options": [
+      "Chủ nghĩa duy tâm chủ quan.",
+      "Chủ nghĩa duy vật siêu hình.",
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy tâm khách quan."
+    ]
+  },
+  {
+    "id": 215,
+    "rawId": 215,
+    "uid": "spkt_215",
+    "question": "Quan điểm triết học nào tìm nguồn gốc của sự thống nhất của thế giới ở bản nguyên đầu tiên (ở thực thể đầu tiên duy nhất)?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật biện chứng.",
+      "B": "Chủ nghĩa duy vật siêu hình trước Mác.",
+      "C": "Chủ nghĩa duy tâm"
+    },
+    "originalAnswer": "Chủ nghĩa duy vật siêu hình trước Mác.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy vật siêu hình trước Mác.",
+    "options": [
+      "Chủ nghĩa duy vật siêu hình trước Mác.",
+      "Chủ nghĩa duy tâm",
+      "Chủ nghĩa duy vật biện chứng."
+    ]
+  },
+  {
+    "id": 216,
+    "rawId": 216,
+    "uid": "spkt_216",
+    "question": "Đâu không phải là câu trả lời của chủ nghĩa duy vật biện chứng về tính thống nhất vật chất của thế giới",
+    "originalOptions": {
+      "A": "Chỉ có một thế giới duy nhất là thế giới vật chất.",
+      "B": "Mọi bộ phận của thế giới vật chất đều liên hệ chuyển hoá lẫn nhau.",
+      "C": "Thế giới vật chất tồn tại khách quan, vĩnh viễn, vô hạn, vô tận, không do ai sinh ra và không mất đi.",
+      "D": "Thế giới vật chất bao gồm những bộ phận riêng biệt nhau."
+    },
+    "originalAnswer": "Thế giới vật chất bao gồm những bộ phận riêng biệt nhau.",
+    "originalLetter": "D",
+    "correctAnswer": "Thế giới vật chất bao gồm những bộ phận riêng biệt nhau.",
+    "options": [
+      "Thế giới vật chất bao gồm những bộ phận riêng biệt nhau.",
+      "Thế giới vật chất tồn tại khách quan, vĩnh viễn, vô hạn, vô tận, không do ai sinh ra và không mất đi.",
+      "Chỉ có một thế giới duy nhất là thế giới vật chất.",
+      "Mọi bộ phận của thế giới vật chất đều liên hệ chuyển hoá lẫn nhau."
+    ]
+  },
+  {
+    "id": 217,
+    "rawId": 217,
+    "uid": "spkt_217",
+    "question": "Trường phái triết học phủ nhận sự tồn tại một thế giới duy nhất là thế giới vật chất?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật biện chứng.",
+      "B": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+      "C": "Chủ nghĩa duy tâm."
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm.",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy tâm.",
+    "options": [
+      "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+      "Chủ nghĩa duy tâm.",
+      "Chủ nghĩa duy vật biện chứng."
+    ]
+  },
+  {
+    "id": 218,
+    "rawId": 218,
+    "uid": "spkt_218",
+    "question": "Điều khẳng định sau đây là đúng hay sai: Chỉ có chủ nghĩa duy vật biện chứng mới cho rằng mọi bộ phận của thế giới vật chất đều có mối liên hệ chuyển hoá lẫn nhau một cách khách quan.",
+    "originalOptions": {
+      "A": "Đúng",
+      "B": "Sai",
+      "C": "Không xác định"
+    },
+    "originalAnswer": "Đúng",
+    "originalLetter": "A",
+    "correctAnswer": "Đúng",
+    "options": [
+      "Không xác định",
+      "Đúng",
+      "Sai"
+    ]
+  },
+  {
+    "id": 219,
+    "rawId": 219,
+    "uid": "spkt_219",
+    "question": "Không thừa nhận tính vô hạn và vô tận của thế giới vật chất có chứng minh được tính thống nhất vật chất của thế giới không?",
+    "originalOptions": {
+      "A": "Có thể",
+      "B": "Không thể"
+    },
+    "originalAnswer": "Không thể",
+    "originalLetter": "B",
+    "correctAnswer": "Không thể",
+    "options": [
+      "Không thể",
+      "Có thể"
+    ]
+  },
+  {
+    "id": 220,
+    "rawId": 220,
+    "uid": "spkt_220",
+    "question": "Cho rằng có thế giới tinh thần tồn tại độc lập bên cạnh thế giới vật chất sẽ rơi vào quan điểm triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm.",
+      "B": "Chủ nghĩa duy vật biện chứng .",
+      "C": "Chủ nghĩa duy vật siêu hình.",
+      "D": "có thể a hoặc b."
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm.",
+    "originalLetter": "A",
+    "correctAnswer": "Chủ nghĩa duy tâm.",
+    "options": [
+      "Chủ nghĩa duy tâm.",
+      "Chủ nghĩa duy vật biện chứng .",
+      "Chủ nghĩa duy vật siêu hình.",
+      "có thể a hoặc b."
+    ]
+  },
+  {
+    "id": 221,
+    "rawId": 221,
+    "uid": "spkt_221",
+    "question": "Nhà triết học nào coi sự vật cảm tính là cái bóng của ý niệm?",
+    "originalOptions": {
+      "A": "Đê-mô-crít",
+      "C": "Pla-tôn.",
+      "B": "A-ri-xtốt.",
+      "D": "Hêghen."
+    },
+    "originalAnswer": "Pla-tôn.",
+    "originalLetter": "C",
+    "correctAnswer": "Pla-tôn.",
+    "options": [
+      "Pla-tôn.",
+      "Hêghen.",
+      "Đê-mô-crít",
+      "A-ri-xtốt."
+    ]
+  },
+  {
+    "id": 222,
+    "rawId": 222,
+    "uid": "spkt_222",
+    "question": "Coi sự vật cảm tính là cái bóng của ý niệm. Đó là quan điểm của trường phái triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm chủ quan",
+      "B": "Chủ nghĩa duy tâm khách quan.",
+      "C": "Chủ nghĩa duy vật siêu hình."
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm khách quan.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy tâm khách quan.",
+    "options": [
+      "Chủ nghĩa duy vật siêu hình.",
+      "Chủ nghĩa duy tâm khách quan.",
+      "Chủ nghĩa duy tâm chủ quan"
+    ]
+  },
+  {
+    "id": 223,
+    "rawId": 223,
+    "uid": "spkt_223",
+    "question": "Coi thế giới vật chất là kết quả của quá trình phát triển của ý niệm tuyệt đối là quan điểm cuả trường phái triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm chủ quan.",
+      "B": "Chủ nghĩa duy tâm khách quan.",
+      "C": "Chủ nghĩa duy vật siêu hình.",
+      "D": "Chủ nghĩa duy vật biện chứng."
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm khách quan.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy tâm khách quan.",
+    "options": [
+      "Chủ nghĩa duy tâm khách quan.",
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy vật siêu hình.",
+      "Chủ nghĩa duy tâm chủ quan."
+    ]
+  },
+  {
+    "id": 224,
+    "rawId": 224,
+    "uid": "spkt_224",
+    "question": "Luận điểm cho: \"tồn tại tức là được cảm giác\" là của ai và thuộc lập trường triết học nào?",
+    "originalOptions": {
+      "A": "Của Hêghen, thuộc lập trường của chủ nghĩa duy tâm khách quan.",
+      "B": "Của Béc-cơ-li, thuộc lập trường chủ nghĩa duy tâm chủ quan.",
+      "C": "Của Pla-tôn, thuộc lập trường chủ nghĩa duy tâm khách quan.",
+      "D": "Của A-ri-xtốt, thuộc lập trường chủ nghĩa duy vật."
+    },
+    "originalAnswer": "Của Béc-cơ-li, thuộc lập trường chủ nghĩa duy tâm chủ quan.",
+    "originalLetter": "B",
+    "correctAnswer": "Của Béc-cơ-li, thuộc lập trường chủ nghĩa duy tâm chủ quan.",
+    "options": [
+      "Của Hêghen, thuộc lập trường của chủ nghĩa duy tâm khách quan.",
+      "Của Béc-cơ-li, thuộc lập trường chủ nghĩa duy tâm chủ quan.",
+      "Của A-ri-xtốt, thuộc lập trường chủ nghĩa duy vật.",
+      "Của Pla-tôn, thuộc lập trường chủ nghĩa duy tâm khách quan."
+    ]
+  },
+  {
+    "id": 225,
+    "rawId": 225,
+    "uid": "spkt_225",
+    "question": "Nhà triết học nào cho nước là thực thể đầu tiên của thế giới và quan điểm đó thuộc lập trường triết học nào?",
+    "originalOptions": {
+      "A": "Talét - chủ nghĩa duy vật tự phát.",
+      "B": "Điđrô - Chủ nghĩa duy vật biện chứng",
+      "C": "Béc-cơ-li, - chủ nghĩa duy tâm chủ quan",
+      "D": "Pla-tôn, - chủ nghĩa duy tâm khách quan."
+    },
+    "originalAnswer": "Talét - chủ nghĩa duy vật tự phát.",
+    "originalLetter": "A",
+    "correctAnswer": "Talét - chủ nghĩa duy vật tự phát.",
+    "options": [
+      "Điđrô - Chủ nghĩa duy vật biện chứng",
+      "Talét - chủ nghĩa duy vật tự phát.",
+      "Béc-cơ-li, - chủ nghĩa duy tâm chủ quan",
+      "Pla-tôn, - chủ nghĩa duy tâm khách quan."
+    ]
+  },
+  {
+    "id": 226,
+    "rawId": 226,
+    "uid": "spkt_226",
+    "question": "Nhà triết học nào coi lửa là thực thể đầu tiên của thế giới và đó là lập trường triết học nào?",
+    "originalOptions": {
+      "A": "Đê-mô-crít, - chủ nghĩa duy vật tự phát",
+      "B": "Hê-ra-clít, - chủ nghĩa duy vật tự phát.",
+      "C": "Hê-ra-clít, - chủ nghĩa duy tâm khách quan.",
+      "D": "Ana-ximen, - chủ ngiã duy vật tự phát."
+    },
+    "originalAnswer": "Hê-ra-clít, - chủ nghĩa duy vật tự phát.",
+    "originalLetter": "B",
+    "correctAnswer": "Hê-ra-clít, - chủ nghĩa duy vật tự phát.",
+    "options": [
+      "Hê-ra-clít, - chủ nghĩa duy vật tự phát.",
+      "Ana-ximen, - chủ ngiã duy vật tự phát.",
+      "Hê-ra-clít, - chủ nghĩa duy tâm khách quan.",
+      "Đê-mô-crít, - chủ nghĩa duy vật tự phát"
+    ]
+  },
+  {
+    "id": 227,
+    "rawId": 227,
+    "uid": "spkt_227",
+    "question": "Nhà triết học nào cho nguyên tử và khoảng không là thực thể đầu tiên của thế giới và đó là lập trường triết học nào?",
+    "originalOptions": {
+      "A": "Đê-mô-rít, chủ nghĩa duy vật tự phát.",
+      "B": "Hê-ra-clít, - chủ nghĩa duy vật tự phát",
+      "C": "Đê-mô-crít, chủ nghĩa duy tâm khách quan.",
+      "D": "A-ri-xtốt, - chủ nghĩa duy vật tự phát."
+    },
+    "originalAnswer": "Đê-mô-rít, chủ nghĩa duy vật tự phát.",
+    "originalLetter": "A",
+    "correctAnswer": "Đê-mô-rít, chủ nghĩa duy vật tự phát.",
+    "options": [
+      "A-ri-xtốt, - chủ nghĩa duy vật tự phát.",
+      "Hê-ra-clít, - chủ nghĩa duy vật tự phát",
+      "Đê-mô-crít, chủ nghĩa duy tâm khách quan.",
+      "Đê-mô-rít, chủ nghĩa duy vật tự phát."
+    ]
+  },
+  {
+    "id": 228,
+    "rawId": 228,
+    "uid": "spkt_228",
+    "question": "Đồng nhất vật chất nói chung với một vật thể hữu hình cảm tính đang tồn tại trong thế giới bên ngoài là quan điểm của trường phái triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm.",
+      "B": "Chủ nghĩa duy vật tự phát.",
+      "C": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+      "D": "Chủ nghĩa duy vật biện chứng."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật tự phát.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy vật tự phát.",
+    "options": [
+      "Chủ nghĩa duy vật tự phát.",
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+      "Chủ nghĩa duy tâm."
+    ]
+  },
+  {
+    "id": 229,
+    "rawId": 229,
+    "uid": "spkt_229",
+    "question": "Đồng nhất vật chất nói chung với nguyên tử - một phần tử vật chất nhỏ nhất, đó là quan điểm của trường phái triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+      "B": "Chủ nghĩa duy vật tự phát.",
+      "C": "Chủ nghĩa duy vật biện chứng."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật tự phát.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy vật tự phát.",
+    "options": [
+      "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy vật tự phát."
+    ]
+  },
+  {
+    "id": 230,
+    "rawId": 230,
+    "uid": "spkt_230",
+    "question": "Đặc điểm chung của quan niệm duy vật về vật chất ở thời kỳ cổ đại là gì?",
+    "originalOptions": {
+      "A": "Đồng nhất vật chất nói chung với nguyên tử.",
+      "B": "Đồng nhất vật chất nói chung với một dạng cụ thể hữu hình, cảm tính của vật chất.",
+      "C": "Đồng nhất vật chất với khối lượng.",
+      "D": "Đồng nhất vật chất với ý thức."
+    },
+    "originalAnswer": "Đồng nhất vật chất nói chung với một dạng cụ thể hữu hình, cảm tính của vật chất.",
+    "originalLetter": "B",
+    "correctAnswer": "Đồng nhất vật chất nói chung với một dạng cụ thể hữu hình, cảm tính của vật chất.",
+    "options": [
+      "Đồng nhất vật chất với ý thức.",
+      "Đồng nhất vật chất nói chung với một dạng cụ thể hữu hình, cảm tính của vật chất.",
+      "Đồng nhất vật chất nói chung với nguyên tử.",
+      "Đồng nhất vật chất với khối lượng."
+    ]
+  },
+  {
+    "id": 231,
+    "rawId": 131,
+    "uid": "spkt_231",
+    "question": "Hạn chế chung của quan niệm duy vật về vật chất ở thời kỳ cổ đại.",
+    "originalOptions": {
+      "A": "Có tính chất duy tâm chủ quan.",
+      "B": "Có tính chất duy vật tự phát, là những phỏng đoán dựa trên những tài liệu cảm tính là chủ yếu, chưa có cơ sở khoa học.",
+      "C": "Có tính chất duy vật máy móc siêu hình."
+    },
+    "originalAnswer": "Có tính chất duy vật tự phát, là những phỏng đoán dựa trên những tài liệu cảm tính là chủ yếu, chưa có cơ sở khoa học.",
+    "originalLetter": "B",
+    "correctAnswer": "Có tính chất duy vật tự phát, là những phỏng đoán dựa trên những tài liệu cảm tính là chủ yếu, chưa có cơ sở khoa học.",
+    "options": [
+      "Có tính chất duy vật máy móc siêu hình.",
+      "Có tính chất duy vật tự phát, là những phỏng đoán dựa trên những tài liệu cảm tính là chủ yếu, chưa có cơ sở khoa học.",
+      "Có tính chất duy tâm chủ quan."
+    ]
+  },
+  {
+    "id": 232,
+    "rawId": 232,
+    "uid": "spkt_232",
+    "question": "Đâu là mặt tích cực trong quan niệm duy vật về vật chất ở thời kỳ cổ đại?",
+    "originalOptions": {
+      "A": "Chống quan niệm máy móc siêu hình.",
+      "B": "Chống quan niệm duy tâm tôn giáo",
+      "C": "Thúc đẩy sự phát triển tư tưởng khoa học về thế giới.",
+      "D": "Gồm b và c.",
+      "G": "Gồm cả a,b và c"
+    },
+    "originalAnswer": "Gồm b và c.",
+    "originalLetter": "D",
+    "correctAnswer": "Gồm b và c.",
+    "options": [
+      "Gồm cả a,b và c",
+      "Thúc đẩy sự phát triển tư tưởng khoa học về thế giới.",
+      "Chống quan niệm duy tâm tôn giáo",
+      "Chống quan niệm máy móc siêu hình.",
+      "Gồm b và c."
+    ]
+  },
+  {
+    "id": 233,
+    "rawId": 233,
+    "uid": "spkt_233",
+    "question": "Đỉnh cao nhất của tư tưởng duy vật cổ đại về vật chất là ở chỗ nào?",
+    "originalOptions": {
+      "A": "ở quan niệm về lửa là bản nguyên của thế giới",
+      "B": "ở thuyết nguyên tử của Lơ-xíp và Đê-mô-crít.",
+      "C": "ở quan niệm về con số là bản nguyên của thế giới."
+    },
+    "originalAnswer": "ở thuyết nguyên tử của Lơ-xíp và Đê-mô-crít.",
+    "originalLetter": "B",
+    "correctAnswer": "ở thuyết nguyên tử của Lơ-xíp và Đê-mô-crít.",
+    "options": [
+      "ở quan niệm về lửa là bản nguyên của thế giới",
+      "ở thuyết nguyên tử của Lơ-xíp và Đê-mô-crít.",
+      "ở quan niệm về con số là bản nguyên của thế giới."
+    ]
+  },
+  {
+    "id": 234,
+    "rawId": 234,
+    "uid": "spkt_234",
+    "question": "Quan niệm duy vật về vật chất ở thế kỷ XVII - XVIII có tiến bộ hơn so với thời kỳ cổ đại không? nếu có thì tiến bộ ở chỗ nào?",
+    "originalOptions": {
+      "A": "Không tiến bộ hơn.",
+      "B": "Có tiến bộ hơn ở chỗ không đồng nhất vật chất với dạng cụ thể của vật chất.",
+      "C": "Có tiến bộ ở chỗ coi vật chất và vận động không tách rời nhau, vật chất và vận động có nguyên nhân tự thân."
+    },
+    "originalAnswer": "Có tiến bộ ở chỗ coi vật chất và vận động không tách rời nhau, vật chất và vận động có nguyên nhân tự thân.",
+    "originalLetter": "C",
+    "correctAnswer": "Có tiến bộ ở chỗ coi vật chất và vận động không tách rời nhau, vật chất và vận động có nguyên nhân tự thân.",
+    "options": [
+      "Có tiến bộ hơn ở chỗ không đồng nhất vật chất với dạng cụ thể của vật chất.",
+      "Không tiến bộ hơn.",
+      "Có tiến bộ ở chỗ coi vật chất và vận động không tách rời nhau, vật chất và vận động có nguyên nhân tự thân."
+    ]
+  },
+  {
+    "id": 235,
+    "rawId": 235,
+    "uid": "spkt_235",
+    "question": "Đâu là quan niệm về vật chất của chủ nghĩa duy vật thế kỷ XVII - XVIII.",
+    "originalOptions": {
+      "A": "Đồng nhất vật chất nói chung với một dạng cụ thể hữu hình có tính chất cảm tính của vật chất.",
+      "B": "Đồng nhất vật chất nói chung với một dạng cụ thể, đồng thời trong quan niệm về vật chất có nhiều yếu tố biện chứng.",
+      "C": "Không đồng nhất vật chất nói chung với một dạng cụ thể của vật chất"
+    },
+    "originalAnswer": "Đồng nhất vật chất nói chung với một dạng cụ thể, đồng thời trong quan niệm về vật chất có nhiều yếu tố biện chứng.",
+    "originalLetter": "B",
+    "correctAnswer": "Đồng nhất vật chất nói chung với một dạng cụ thể, đồng thời trong quan niệm về vật chất có nhiều yếu tố biện chứng.",
+    "options": [
+      "Không đồng nhất vật chất nói chung với một dạng cụ thể của vật chất",
+      "Đồng nhất vật chất nói chung với một dạng cụ thể hữu hình có tính chất cảm tính của vật chất.",
+      "Đồng nhất vật chất nói chung với một dạng cụ thể, đồng thời trong quan niệm về vật chất có nhiều yếu tố biện chứng."
+    ]
+  },
+  {
+    "id": 236,
+    "rawId": 236,
+    "uid": "spkt_236",
+    "question": "Phương pháp tư duy nào chi phối những hiểu biết triết học duy vật về vật chất ở thế kỷ XVII - XVIII?",
+    "originalOptions": {
+      "A": "Phương pháp biện chứng duy tâm",
+      "B": "Phương pháp biện chứng duy vật.",
+      "C": "Phương pháp siêu hình máy móc."
+    },
+    "originalAnswer": "Phương pháp siêu hình máy móc.",
+    "originalLetter": "C",
+    "correctAnswer": "Phương pháp siêu hình máy móc.",
+    "options": [
+      "Phương pháp biện chứng duy tâm",
+      "Phương pháp biện chứng duy vật.",
+      "Phương pháp siêu hình máy móc."
+    ]
+  },
+  {
+    "id": 237,
+    "rawId": 237,
+    "uid": "spkt_237",
+    "question": "Thuộc lập trường triết học nào khi giải thích mọi hiện tượng của tự nhiên bằng sự tác động qua lại của lực đẩy và lực hút của vật thể?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật tự phát thời kỳ cổ đại",
+      "B": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+      "C": "Chủ nghĩa duy vật biện chứng.",
+      "D": "Chủ nghĩa duy tâm."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+    "options": [
+      "Chủ nghĩa duy vật tự phát thời kỳ cổ đại",
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+      "Chủ nghĩa duy tâm."
+    ]
+  },
+  {
+    "id": 238,
+    "rawId": 238,
+    "uid": "spkt_238",
+    "question": "Quan niệm về vật chất của chủ nghĩa duy vật thời kỳ nào đã quy giản sự khác nhau về chất giữa các vật về sự khác nhau về lượng?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật biện chứng thời kỳ hiện đại",
+      "B": "Chủ nghĩa duy vật tự phát thời kỳ cổ đại",
+      "C": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII"
+    },
+    "originalAnswer": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng thời kỳ hiện đại",
+      "Chủ nghĩa duy vật tự phát thời kỳ cổ đại",
+      "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII"
+    ]
+  },
+  {
+    "id": 239,
+    "rawId": 239,
+    "uid": "spkt_239",
+    "question": "Đồng nhất vật chất với khối lượng đó là quan niệm về vật chất của ai và ở thời kỳ nào?",
+    "originalOptions": {
+      "A": "Các nhà triết học duy vật thời kỳ cổ đại.",
+      "B": "Các nhà triết học thời kỳ Phục hưng.",
+      "C": "Các nhà khoa học tự nhiên thế kỷ XVII - XVIII.",
+      "D": "Các nhà triết học duy vật biện chứng thời kỳ cổ đại."
+    },
+    "originalAnswer": "Các nhà khoa học tự nhiên thế kỷ XVII - XVIII.",
+    "originalLetter": "C",
+    "correctAnswer": "Các nhà khoa học tự nhiên thế kỷ XVII - XVIII.",
+    "options": [
+      "Các nhà triết học thời kỳ Phục hưng.",
+      "Các nhà triết học duy vật biện chứng thời kỳ cổ đại.",
+      "Các nhà triết học duy vật thời kỳ cổ đại.",
+      "Các nhà khoa học tự nhiên thế kỷ XVII - XVIII."
+    ]
+  },
+  {
+    "id": 240,
+    "rawId": 240,
+    "uid": "spkt_240",
+    "question": "Coi vận động của vật chất chỉ là biểu hiện của vận động cơ học, đó là quan điểm về vận động và vật chất của ai?",
+    "originalOptions": {
+      "A": "Các nhà triết học duy vật thời kỳ cổ đại.",
+      "B": "Các nhà khoa học tự nhiên và triết học thế kỷ XVII - XVIII.",
+      "C": "Các nhà triết học duy vật biện chứng hiện đại.",
+      "D": "Các nhà triết học duy tâm thế kỷ XVII - XVIII."
+    },
+    "originalAnswer": "Các nhà khoa học tự nhiên và triết học thế kỷ XVII - XVIII.",
+    "originalLetter": "B",
+    "correctAnswer": "Các nhà khoa học tự nhiên và triết học thế kỷ XVII - XVIII.",
+    "options": [
+      "Các nhà triết học duy tâm thế kỷ XVII - XVIII.",
+      "Các nhà triết học duy vật thời kỳ cổ đại.",
+      "Các nhà khoa học tự nhiên và triết học thế kỷ XVII - XVIII.",
+      "Các nhà triết học duy vật biện chứng hiện đại."
+    ]
+  },
+  {
+    "id": 241,
+    "rawId": 241,
+    "uid": "spkt_241",
+    "question": "Những tài liệu nào ảnh hưởng trực tiếp đến quan niệm triết học về vật chất ở thế kỷ XVII - XVIII?",
+    "originalOptions": {
+      "A": "Quan sát trực tiếp",
+      "B": "Khoa học tự nhiên ở trình độ lý luận.",
+      "C": "Khoa học tự nhiên thực nghiệm nhất là cơ học.",
+      "D": "Khoa học xã hội ."
+    },
+    "originalAnswer": "Khoa học tự nhiên thực nghiệm nhất là cơ học.",
+    "originalLetter": "C",
+    "correctAnswer": "Khoa học tự nhiên thực nghiệm nhất là cơ học.",
+    "options": [
+      "Quan sát trực tiếp",
+      "Khoa học tự nhiên ở trình độ lý luận.",
+      "Khoa học tự nhiên thực nghiệm nhất là cơ học.",
+      "Khoa học xã hội ."
+    ]
+  },
+  {
+    "id": 242,
+    "rawId": 242,
+    "uid": "spkt_242",
+    "question": "Đồng nhất vật chất nói chung với một dạng cụ thể hoặc một thuộc tính cụ thể của vật chất, coi vật chất có giới hạn tột cùng, đó là đặc điểm chung của hệ thống triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật biện chứng.",
+      "B": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+      "C": "Chủ nghĩa duy vật trước Mác.",
+      "D": "Chủ nghĩa duy vật tự phát thời kỳ cổ đại."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật trước Mác.",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy vật trước Mác.",
+    "options": [
+      "Chủ nghĩa duy vật tự phát thời kỳ cổ đại.",
+      "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy vật trước Mác."
+    ]
+  },
+  {
+    "id": 243,
+    "rawId": 243,
+    "uid": "spkt_243",
+    "question": "Quan điểm của trường phái triết học nào coi khối lượng chỉ là thuộc tính của vật chất, gắn liền với vật chất?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm.",
+      "B": "Chủ nghĩa duy vật siêu hình.",
+      "C": "Chủ nghĩa duy vật biện chứng."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy tâm.",
+      "Chủ nghĩa duy vật siêu hình."
+    ]
+  },
+  {
+    "id": 244,
+    "rawId": 244,
+    "uid": "spkt_244",
+    "question": "Khẳng định nào sau đây là đúng?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật tự phát cổ đại đồng nhất vật chất nói chung với khối lượng.",
+      "B": "Chủ nghĩa duy vật nói chung đồng nhất vật chất với khối lượng.",
+      "C": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII đồng nhất vật chất nói chung với khối lượng."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII đồng nhất vật chất nói chung với khối lượng.",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII đồng nhất vật chất nói chung với khối lượng.",
+    "options": [
+      "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII đồng nhất vật chất nói chung với khối lượng.",
+      "Chủ nghĩa duy vật tự phát cổ đại đồng nhất vật chất nói chung với khối lượng.",
+      "Chủ nghĩa duy vật nói chung đồng nhất vật chất với khối lượng."
+    ]
+  },
+  {
+    "id": 245,
+    "rawId": 245,
+    "uid": "spkt_245",
+    "question": "Hiện tượng phóng xạ mà khoa học tự nhiên phát hiện ra chứng minh điều gì?",
+    "originalOptions": {
+      "A": "Vật chất nói chung là bất biến.",
+      "B": "Nguyên tử là bất biến.",
+      "C": "Nguyên tử là không bất biến."
+    },
+    "originalAnswer": "Nguyên tử là không bất biến.",
+    "originalLetter": "C",
+    "correctAnswer": "Nguyên tử là không bất biến.",
+    "options": [
+      "Vật chất nói chung là bất biến.",
+      "Nguyên tử là không bất biến.",
+      "Nguyên tử là bất biến."
+    ]
+  },
+  {
+    "id": 246,
+    "rawId": 246,
+    "uid": "spkt_246",
+    "question": "Phát minh ra hiện tượng phóng xạ và điện tử bác bỏ quan niệm triết học nào về vật chất",
+    "originalOptions": {
+      "A": "Quan niệm duy vật siêu hình về vật chất.",
+      "B": "Quan niệm duy tâm về vật chất cho nguyên tử không tồn tại.",
+      "C": "Quan niệm duy vật biện chứng về vật chất."
+    },
+    "originalAnswer": "Quan niệm duy vật siêu hình về vật chất.",
+    "originalLetter": "A",
+    "correctAnswer": "Quan niệm duy vật siêu hình về vật chất.",
+    "options": [
+      "Quan niệm duy vật siêu hình về vật chất.",
+      "Quan niệm duy vật biện chứng về vật chất.",
+      "Quan niệm duy tâm về vật chất cho nguyên tử không tồn tại."
+    ]
+  },
+  {
+    "id": 247,
+    "rawId": 247,
+    "uid": "spkt_247",
+    "question": "Chủ nghĩa duy tâm đã lợi dụng những phát minh của khoa học tự nhiên về hiện tượng phóng xạ và điện tử để chứng minh cái gì?",
+    "originalOptions": {
+      "A": "Chứng minh nguyên tử không phải là bất biến.",
+      "B": "Chứng minh nguyên tử biến đổi đồng nhất với vật chất mất đi.",
+      "C": "Chứng minh nguyên tử biến đổi nhưng vật chất nói chung không mất đi."
+    },
+    "originalAnswer": "Chứng minh nguyên tử biến đổi đồng nhất với vật chất mất đi.",
+    "originalLetter": "B",
+    "correctAnswer": "Chứng minh nguyên tử biến đổi đồng nhất với vật chất mất đi.",
+    "options": [
+      "Chứng minh nguyên tử không phải là bất biến.",
+      "Chứng minh nguyên tử biến đổi đồng nhất với vật chất mất đi.",
+      "Chứng minh nguyên tử biến đổi nhưng vật chất nói chung không mất đi."
+    ]
+  },
+  {
+    "id": 248,
+    "rawId": 248,
+    "uid": "spkt_248",
+    "question": "Quan niệm coi điện tử là phi vật chất thuộc lập trường triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật siêu hình.",
+      "B": "Chủ nghĩa duy tâm.",
+      "C": "Chủ nghĩa duy vật biện chứng."
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy tâm.",
+    "options": [
+      "Chủ nghĩa duy tâm.",
+      "Chủ nghĩa duy vật siêu hình.",
+      "Chủ nghĩa duy vật biện chứng."
+    ]
+  },
+  {
+    "id": 249,
+    "rawId": 249,
+    "uid": "spkt_249",
+    "question": "Đồng nhất sự biến đổi của nguyên tử và khối lượng với sự biến mất của vật chất sẽ rơi vào quan điểm triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật biện chứng.",
+      "B": "Chủ nghĩa duy vật siêu hình.",
+      "C": "Chủ nghĩa duy tâm."
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm.",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy tâm.",
+    "options": [
+      "Chủ nghĩa duy vật siêu hình.",
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy tâm."
+    ]
+  },
+  {
+    "id": 250,
+    "rawId": 250,
+    "uid": "spkt_250",
+    "question": "Quan điểm của chủ nghĩa duy vật biện chứng về hiện tượng phóng xạ như thế nào?",
+    "originalOptions": {
+      "A": "Chứng minh nguyên tử không bất biến, nhưng không chứng minh vật chất biến mất. b. Chứng minh nguyên tử biến mất và vật chất cũng biến mất.",
+      "C": "Chứng minh cơ sở vật chất của chủ nghĩa duy vật không còn."
+    },
+    "originalAnswer": "Chứng minh nguyên tử không bất biến, nhưng không chứng minh vật chất biến mất. b. Chứng minh nguyên tử biến mất và vật chất cũng biến mất.",
+    "originalLetter": "A",
+    "correctAnswer": "Chứng minh nguyên tử không bất biến, nhưng không chứng minh vật chất biến mất. b. Chứng minh nguyên tử biến mất và vật chất cũng biến mất.",
+    "options": [
+      "Chứng minh cơ sở vật chất của chủ nghĩa duy vật không còn.",
+      "Chứng minh nguyên tử không bất biến, nhưng không chứng minh vật chất biến mất. b. Chứng minh nguyên tử biến mất và vật chất cũng biến mất."
+    ]
+  },
+  {
+    "id": 251,
+    "rawId": 251,
+    "uid": "spkt_251",
+    "question": "Theo Lênin những phát minh của khoa học tự nhiên cuối thế kỷ XIX đầu thế kỷ XX đã làm tiêu tan cái gì?",
+    "originalOptions": {
+      "A": "Tiêu tan vật chất nói chung.",
+      "B": "Tiêu tan dạng tồn tại cụ thể của vật chất.",
+      "C": "Tiêu tan giới hạn hiểu biết trước đây về vật chất, quan điểm siêu hình về vật chất."
+    },
+    "originalAnswer": "Tiêu tan giới hạn hiểu biết trước đây về vật chất, quan điểm siêu hình về vật chất.",
+    "originalLetter": "C",
+    "correctAnswer": "Tiêu tan giới hạn hiểu biết trước đây về vật chất, quan điểm siêu hình về vật chất.",
+    "options": [
+      "Tiêu tan giới hạn hiểu biết trước đây về vật chất, quan điểm siêu hình về vật chất.",
+      "Tiêu tan dạng tồn tại cụ thể của vật chất.",
+      "Tiêu tan vật chất nói chung."
+    ]
+  },
+  {
+    "id": 252,
+    "rawId": 252,
+    "uid": "spkt_252",
+    "question": "Luận điểm cho rằng: \"Điện tử cũng vô cùng vô tận, tự nhiên là vô tận\" do ai nêu ra và trong tác phẩm nào?",
+    "originalOptions": {
+      "A": "Ăngghen nêu, trong tác phẩm \"Chống Đuyrinh\".",
+      "B": "Mác nêu trong tác phẩm \"Tư bản\"",
+      "C": "Lênin nêu trong tác phẩm \"Chủ nghĩa duy vật và chủ nghĩa kinh nghiệm phê phán\".",
+      "D": "Lênin nêu trong tác phẩm \"Bút ký triết học\"."
+    },
+    "originalAnswer": "Lênin nêu trong tác phẩm \"Chủ nghĩa duy vật và chủ nghĩa kinh nghiệm phê phán\".",
+    "originalLetter": "C",
+    "correctAnswer": "Lênin nêu trong tác phẩm \"Chủ nghĩa duy vật và chủ nghĩa kinh nghiệm phê phán\".",
+    "options": [
+      "Mác nêu trong tác phẩm \"Tư bản\"",
+      "Ăngghen nêu, trong tác phẩm \"Chống Đuyrinh\".",
+      "Lênin nêu trong tác phẩm \"Chủ nghĩa duy vật và chủ nghĩa kinh nghiệm phê phán\".",
+      "Lênin nêu trong tác phẩm \"Bút ký triết học\"."
+    ]
+  },
+  {
+    "id": 253,
+    "rawId": 253,
+    "uid": "spkt_253",
+    "question": "Quan điểm cho rằng: nhận thức mới về nguyên tử - phát hiện ra điện tử - làm cho nguyên tử không tồn tại, thuộc lập trường triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật siêu hình.",
+      "B": "Chủ nghĩa duy tâm chủ quan.",
+      "C": "Chủ nghĩa duy vật biện chứng",
+      "D": "Chủ nghĩa duy tâm khách quan."
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm chủ quan.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy tâm chủ quan.",
+    "options": [
+      "Chủ nghĩa duy vật siêu hình.",
+      "Chủ nghĩa duy tâm chủ quan.",
+      "Chủ nghĩa duy vật biện chứng",
+      "Chủ nghĩa duy tâm khách quan."
+    ]
+  },
+  {
+    "id": 254,
+    "rawId": 254,
+    "uid": "spkt_254",
+    "question": "Quan điểm triết học nào cho rằng, nhận thức mới về nguyên tử chỉ bác bỏ quan niệm cũ về vật chất, không bác bỏ sự tồn tại vật chất nói chung?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật trước Mác.",
+      "B": "Chủ nghĩa duy tâm.",
+      "C": "Chủ nghĩa duy vật biện chứng."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy vật trước Mác.",
+      "Chủ nghĩa duy tâm."
+    ]
+  },
+  {
+    "id": 255,
+    "rawId": 255,
+    "uid": "spkt_255",
+    "question": "Định nghĩa về vật chất của Lênin được nêu trong tác phẩm nào?",
+    "originalOptions": {
+      "A": "Biện chứng của tự nhiên",
+      "B": "Chủ nghĩa duy vật và chủ nghĩa kinh nghiệm phê phán.",
+      "C": "Bút ký triết học",
+      "D": "Nhà nước và cách mạng."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật và chủ nghĩa kinh nghiệm phê phán.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy vật và chủ nghĩa kinh nghiệm phê phán.",
+    "options": [
+      "Bút ký triết học",
+      "Nhà nước và cách mạng.",
+      "Chủ nghĩa duy vật và chủ nghĩa kinh nghiệm phê phán.",
+      "Biện chứng của tự nhiên"
+    ]
+  },
+  {
+    "id": 256,
+    "rawId": 256,
+    "uid": "spkt_256",
+    "question": "Đâu là quan niệm về vật chất của triết học Mác - Lênin?",
+    "originalOptions": {
+      "A": "Đồng nhất vật chất nói chung với một dạng cụ thẻ của vật chất.",
+      "B": "Không đồng nhất vật chất nói chung với dạng cụ thể của vật chất.",
+      "C": "Coi có vật chất chung tồn tại tách rời các dạng cụ thể của vật chất."
+    },
+    "originalAnswer": "Không đồng nhất vật chất nói chung với dạng cụ thể của vật chất.",
+    "originalLetter": "B",
+    "correctAnswer": "Không đồng nhất vật chất nói chung với dạng cụ thể của vật chất.",
+    "options": [
+      "Coi có vật chất chung tồn tại tách rời các dạng cụ thể của vật chất.",
+      "Đồng nhất vật chất nói chung với một dạng cụ thẻ của vật chất.",
+      "Không đồng nhất vật chất nói chung với dạng cụ thể của vật chất."
+    ]
+  },
+  {
+    "id": 257,
+    "rawId": 257,
+    "uid": "spkt_257",
+    "question": "Thêm cụm từ thích hợp vào câu sau để được định nghĩa về vật chất của Lênin: Vật chất là ......(1) dùng để chỉ .......(2).. được đem lại cho con người trong cảm giác, được cảm giác của chúng ta chép lại, chụp lại, phản ảnh và tồn tại không lệ thuộc vào cảm giác.",
+    "originalOptions": {
+      "A": "1- Vật thể, 2- hoạt động",
+      "B": "1- Phạm trù triết học, 2- Thực tại khách quan.",
+      "C": "1- Phạm trù triết học, 2- Một vật thể"
+    },
+    "originalAnswer": "1- Phạm trù triết học, 2- Thực tại khách quan.",
+    "originalLetter": "B",
+    "correctAnswer": "1- Phạm trù triết học, 2- Thực tại khách quan.",
+    "options": [
+      "1- Vật thể, 2- hoạt động",
+      "1- Phạm trù triết học, 2- Một vật thể",
+      "1- Phạm trù triết học, 2- Thực tại khách quan."
+    ]
+  },
+  {
+    "id": 258,
+    "rawId": 258,
+    "uid": "spkt_258",
+    "question": "Định nghĩa về vật chất của Lênin bao quát đặc tính quan trọng nhất của mọi dạng vật chất để phân biệt với ý thức, đó là đặc tính gì?",
+    "originalOptions": {
+      "A": "Thực tại khách quan độc lập với ý thức của con người.",
+      "B": "Vận động và biến đổi.",
+      "C": "Có khối lượng và quảng tính."
+    },
+    "originalAnswer": "Thực tại khách quan độc lập với ý thức của con người.",
+    "originalLetter": "A",
+    "correctAnswer": "Thực tại khách quan độc lập với ý thức của con người.",
+    "options": [
+      "Thực tại khách quan độc lập với ý thức của con người.",
+      "Có khối lượng và quảng tính.",
+      "Vận động và biến đổi."
+    ]
+  },
+  {
+    "id": 259,
+    "rawId": 259,
+    "uid": "spkt_259",
+    "question": "Theo quan điểm của chủ nghĩa duy vật biện chứng, vật chất với tư cách là phạm trù triết học có đặc tính gì?",
+    "originalOptions": {
+      "A": "Vô hạn, vô tận, vĩnh viễn tồn tại, độc lập với ý thức.",
+      "B": "Có giới hạn, có sinh ra và có mất đi.",
+      "C": "Vô hạn, vô tận, vĩnh viễn tồn tại."
+    },
+    "originalAnswer": "Vô hạn, vô tận, vĩnh viễn tồn tại, độc lập với ý thức.",
+    "originalLetter": "A",
+    "correctAnswer": "Vô hạn, vô tận, vĩnh viễn tồn tại, độc lập với ý thức.",
+    "options": [
+      "Vô hạn, vô tận, vĩnh viễn tồn tại, độc lập với ý thức.",
+      "Vô hạn, vô tận, vĩnh viễn tồn tại.",
+      "Có giới hạn, có sinh ra và có mất đi."
+    ]
+  },
+  {
+    "id": 260,
+    "rawId": 260,
+    "uid": "spkt_260",
+    "question": "Theo quan niệm của chủ nghĩa duy vật biện chứng về vật chất, chân không có vật chất tồn tại không?",
+    "originalOptions": {
+      "A": "Có.",
+      "B": "Không có",
+      "C": "Vừa có, vừa không có."
+    },
+    "originalAnswer": "Có.",
+    "originalLetter": "A",
+    "correctAnswer": "Có.",
+    "options": [
+      "Có.",
+      "Vừa có, vừa không có.",
+      "Không có"
+    ]
+  },
+  {
+    "id": 261,
+    "rawId": 261,
+    "uid": "spkt_261",
+    "question": "Khẳng định sau đây là đúng hay sai: chủ nghĩa duy vật biện chứng không thừa nhận cái gì con người biết được mới là vật chất.",
+    "originalOptions": {
+      "A": "Đúng",
+      "C": "Vừa đúng, vừa sai",
+      "B": "Sai."
+    },
+    "originalAnswer": "Đúng",
+    "originalLetter": "A",
+    "correctAnswer": "Đúng",
+    "options": [
+      "Đúng",
+      "Sai.",
+      "Vừa đúng, vừa sai"
+    ]
+  },
+  {
+    "id": 262,
+    "rawId": 262,
+    "uid": "spkt_262",
+    "question": "Đâu là quan niệm về vật chất của chủ nghĩa duy vật biện chứng",
+    "originalOptions": {
+      "A": "Vật chất là cái gây nên cảm giác cho chúng ta.",
+      "B": "Cái gì không gây nên cảm giác ở chúng ta thì không phải là vật chất",
+      "C": "Cái không cảm giác được thì không phải là vật chất."
+    },
+    "originalAnswer": "Vật chất là cái gây nên cảm giác cho chúng ta.",
+    "originalLetter": "A",
+    "correctAnswer": "Vật chất là cái gây nên cảm giác cho chúng ta.",
+    "options": [
+      "Cái không cảm giác được thì không phải là vật chất.",
+      "Vật chất là cái gây nên cảm giác cho chúng ta.",
+      "Cái gì không gây nên cảm giác ở chúng ta thì không phải là vật chất"
+    ]
+  },
+  {
+    "id": 263,
+    "rawId": 263,
+    "uid": "spkt_263",
+    "question": "Quan điểm sau đây thuộc trường phái triết học nào: cái gì cảm giác được là vật chất.",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật siêu hình.",
+      "B": "Chủ nghĩa duy vật biện chứng.",
+      "C": "Chủ nghĩa duy tâm khách quan",
+      "D": "Chủ nghĩa duy tâm chủ quan."
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm chủ quan.",
+    "originalLetter": "D",
+    "correctAnswer": "Chủ nghĩa duy tâm chủ quan.",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy tâm chủ quan.",
+      "Chủ nghĩa duy tâm khách quan",
+      "Chủ nghĩa duy vật siêu hình."
+    ]
+  },
+  {
+    "id": 264,
+    "rawId": 264,
+    "uid": "spkt_264",
+    "question": "Khẳng định nào sau đây là đúng?",
+    "originalOptions": {
+      "A": "Định nghĩa về vật chất của Lênin thừa nhận vật chất tồn tại khách quan ngoài ý thức con người, thông qua các dạng cụ thể.",
+      "B": "Định nghĩa về vật chất của Lênin thừa nhận vật chất nói chung tồn tại vĩnh viễn, tách rời các dạng cụ thể của vật chất",
+      "C": "Định nghĩa về vật chất của Lênin đồng nhất vật chất nói chung với một dạng cụ thể của vật chất.",
+      "D": "Cả a, b, c, đều đúng"
+    },
+    "originalAnswer": "Định nghĩa về vật chất của Lênin thừa nhận vật chất tồn tại khách quan ngoài ý thức con người, thông qua các dạng cụ thể.",
+    "originalLetter": "A",
+    "correctAnswer": "Định nghĩa về vật chất của Lênin thừa nhận vật chất tồn tại khách quan ngoài ý thức con người, thông qua các dạng cụ thể.",
+    "options": [
+      "Định nghĩa về vật chất của Lênin thừa nhận vật chất nói chung tồn tại vĩnh viễn, tách rời các dạng cụ thể của vật chất",
+      "Cả a, b, c, đều đúng",
+      "Định nghĩa về vật chất của Lênin thừa nhận vật chất tồn tại khách quan ngoài ý thức con người, thông qua các dạng cụ thể.",
+      "Định nghĩa về vật chất của Lênin đồng nhất vật chất nói chung với một dạng cụ thể của vật chất."
+    ]
+  },
+  {
+    "id": 265,
+    "rawId": 265,
+    "uid": "spkt_265",
+    "question": "Khi nói vật chất là cái được cảm giác của chúng ta chép lại, phản ánh lại, về mặt nhận thức luận Lênin muốn khẳng định điều gì?",
+    "originalOptions": {
+      "A": "Cảm giác, ý thức của chúng ta có khả năng phản ánh đúng thế giới khách quan.",
+      "B": "Cám giác ý thức của chúng ta không thể phản ánh đúng thế giới vật chất.",
+      "C": "Cảm giác, ý thức phụ thuộc thụ động vào thế giới vật chất."
+    },
+    "originalAnswer": "Cảm giác, ý thức của chúng ta có khả năng phản ánh đúng thế giới khách quan.",
+    "originalLetter": "A",
+    "correctAnswer": "Cảm giác, ý thức của chúng ta có khả năng phản ánh đúng thế giới khách quan.",
+    "options": [
+      "Cám giác ý thức của chúng ta không thể phản ánh đúng thế giới vật chất.",
+      "Cảm giác, ý thức phụ thuộc thụ động vào thế giới vật chất.",
+      "Cảm giác, ý thức của chúng ta có khả năng phản ánh đúng thế giới khách quan."
+    ]
+  },
+  {
+    "id": 266,
+    "rawId": 266,
+    "uid": "spkt_266",
+    "question": "Đâu là quan điểm của chủ nghĩa duy vật biện chứng về vật chất?",
+    "originalOptions": {
+      "A": "Vật chất là vật thể",
+      "B": "Vật chất không loại trừ cái không là vật thể.",
+      "C": "Không là vật thể thì không phải là vật chất."
+    },
+    "originalAnswer": "Vật chất không loại trừ cái không là vật thể.",
+    "originalLetter": "B",
+    "correctAnswer": "Vật chất không loại trừ cái không là vật thể.",
+    "options": [
+      "Vật chất là vật thể",
+      "Vật chất không loại trừ cái không là vật thể.",
+      "Không là vật thể thì không phải là vật chất."
+    ]
+  },
+  {
+    "id": 267,
+    "rawId": 267,
+    "uid": "spkt_267",
+    "question": "Quan điểm triết học nào tách rời vật chất với vận động",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm.",
+      "B": "Chủ nghĩa duy vật siêu hình.",
+      "C": "Chủ nghĩa duy vật biện chứng."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật siêu hình.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy vật siêu hình.",
+    "options": [
+      "Chủ nghĩa duy tâm.",
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy vật siêu hình."
+    ]
+  },
+  {
+    "id": 268,
+    "rawId": 268,
+    "uid": "spkt_268",
+    "question": "Trường phái triết học nào cho vận động bao gồm mọi sự biến đổi của vật chất, là phương thức tồn tại của vật chất.",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật siêu hình.",
+      "B": "Chủ nghĩa duy vật biện chứng.",
+      "C": "Chủ nghĩa duy tâm chủ quan.",
+      "D": "Chủ nghĩa duy tâm khách quan."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "options": [
+      "Chủ nghĩa duy tâm chủ quan.",
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy tâm khách quan.",
+      "Chủ nghĩa duy vật siêu hình."
+    ]
+  },
+  {
+    "id": 269,
+    "rawId": 269,
+    "uid": "spkt_269",
+    "question": "Nếu cho rằng có vật chất không vận động và có vận động thuần tuý ngoài vật chất sẽ rơi vào lập trường triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật tự phát thời kỳ cổ đại.",
+      "B": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+      "C": "Chủ nghĩa duy vật biện chứng."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+      "Chủ nghĩa duy vật tự phát thời kỳ cổ đại."
+    ]
+  },
+  {
+    "id": 270,
+    "rawId": 270,
+    "uid": "spkt_270",
+    "question": "Trường phái triết học nào cho không thể có vật chất không vận động và không thể có vận động ngoài vật chất.",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật tự phát thời kỳ cổ đại.",
+      "B": "Chủ nghĩa duy vật siêu hình",
+      "C": "Chủ nghĩa duy vật biện chứng."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy vật siêu hình",
+      "Chủ nghĩa duy vật tự phát thời kỳ cổ đại."
+    ]
+  },
+  {
+    "id": 271,
+    "rawId": 271,
+    "uid": "spkt_271",
+    "question": "Đâu là quan niệm của chủ nghĩa duy vật biện chứng về vận động.",
+    "originalOptions": {
+      "A": "Có vật chất không vận động.",
+      "B": "Có vận động thuần tuý ngoài vật chất.",
+      "C": "Không có vận động thuần tuý ngoài vật chất."
+    },
+    "originalAnswer": "Không có vận động thuần tuý ngoài vật chất.",
+    "originalLetter": "C",
+    "correctAnswer": "Không có vận động thuần tuý ngoài vật chất.",
+    "options": [
+      "Có vận động thuần tuý ngoài vật chất.",
+      "Không có vận động thuần tuý ngoài vật chất.",
+      "Có vật chất không vận động."
+    ]
+  },
+  {
+    "id": 272,
+    "rawId": 272,
+    "uid": "spkt_272",
+    "question": "Đâu là quan điểm của chủ nghĩa duy vật biện chứng về vận động?",
+    "originalOptions": {
+      "A": "Vận động là sự tự thân vận động của vật chất, không được sáng tạo ra và không mất đi.",
+      "B": "Vận động là sự đẩy và hút của vật thể.",
+      "C": "Vận động được sáng tạo ra và có thể mất đi."
+    },
+    "originalAnswer": "Vận động là sự tự thân vận động của vật chất, không được sáng tạo ra và không mất đi.",
+    "originalLetter": "A",
+    "correctAnswer": "Vận động là sự tự thân vận động của vật chất, không được sáng tạo ra và không mất đi.",
+    "options": [
+      "Vận động được sáng tạo ra và có thể mất đi.",
+      "Vận động là sự tự thân vận động của vật chất, không được sáng tạo ra và không mất đi.",
+      "Vận động là sự đẩy và hút của vật thể."
+    ]
+  },
+  {
+    "id": 273,
+    "rawId": 273,
+    "uid": "spkt_273",
+    "question": "Ph. Ăngghen đã chia vận động làm mấy hình thức cơ bản:",
+    "originalOptions": {
+      "A": "4 hình thức",
+      "C": "5 hình thức cơ bản.",
+      "B": "3 hình thức"
+    },
+    "originalAnswer": "5 hình thức cơ bản.",
+    "originalLetter": "C",
+    "correctAnswer": "5 hình thức cơ bản.",
+    "options": [
+      "3 hình thức",
+      "5 hình thức cơ bản.",
+      "4 hình thức"
+    ]
+  },
+  {
+    "id": 274,
+    "rawId": 274,
+    "uid": "spkt_274",
+    "question": "Theo cách phân chia các hình thức vận động của Ăngghen, hình thức nào là thấp nhất?",
+    "originalOptions": {
+      "A": "Cơ học",
+      "C": "Hoá học",
+      "B": "Vật lý"
+    },
+    "originalAnswer": "Cơ học",
+    "originalLetter": "A",
+    "correctAnswer": "Cơ học",
+    "options": [
+      "Hoá học",
+      "Cơ học",
+      "Vật lý"
+    ]
+  },
+  {
+    "id": 275,
+    "rawId": 275,
+    "uid": "spkt_275",
+    "question": "Theo cách phân chia các hình thức vận động của Ăngghen, hình thức nào là cao nhất và phức tạp nhất?",
+    "originalOptions": {
+      "A": "Sinh học.",
+      "C": "Vận động xã hội.",
+      "B": "Hoá học."
+    },
+    "originalAnswer": "Vận động xã hội.",
+    "originalLetter": "C",
+    "correctAnswer": "Vận động xã hội.",
+    "options": [
+      "Sinh học.",
+      "Vận động xã hội.",
+      "Hoá học."
+    ]
+  },
+  {
+    "id": 276,
+    "rawId": 276,
+    "uid": "spkt_276",
+    "question": "Trường phái triết học nào cho vận động và đứng im không tách rời nhau?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật tự phát.",
+      "B": "Chủ nghĩa duy vật biện chứng.",
+      "C": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+      "Chủ nghĩa duy vật tự phát."
+    ]
+  },
+  {
+    "id": 277,
+    "rawId": 277,
+    "uid": "spkt_277",
+    "question": "Trường phái triết học nào cho vận động là tuyệt đối, đứng im là tương đối?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật tự phát.",
+      "B": "Chủ nghĩa duy vật biện chứng.",
+      "C": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "options": [
+      "Chủ nghĩa duy vật tự phát.",
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII."
+    ]
+  },
+  {
+    "id": 278,
+    "rawId": 278,
+    "uid": "spkt_278",
+    "question": "Đâu là quan điểm của chủ nghĩa duy vật biện chứng?",
+    "originalOptions": {
+      "A": "Không gian và thời gian là hình thức tồn tại của vật chất, không tách rời vật chất.",
+      "B": "Không gian và thời gian phụ thuộc vào cảm giác của con người",
+      "C": "Tồn tại không gian và thời gian thuần tuý ngoài vật chất."
+    },
+    "originalAnswer": "Không gian và thời gian là hình thức tồn tại của vật chất, không tách rời vật chất.",
+    "originalLetter": "A",
+    "correctAnswer": "Không gian và thời gian là hình thức tồn tại của vật chất, không tách rời vật chất.",
+    "options": [
+      "Không gian và thời gian là hình thức tồn tại của vật chất, không tách rời vật chất.",
+      "Tồn tại không gian và thời gian thuần tuý ngoài vật chất.",
+      "Không gian và thời gian phụ thuộc vào cảm giác của con người"
+    ]
+  },
+  {
+    "id": 279,
+    "rawId": 279,
+    "uid": "spkt_279",
+    "question": "Trường phái triết học nào cho không gian và thời gian là do thói quen của con người quy định",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật siêu hình",
+      "B": "Chủ nghĩa duy tâm chủ quan.",
+      "C": "Chủ nghĩa duy vật biện chứng",
+      "D": "Chủ nghĩa duy tâm khách quan."
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm chủ quan.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy tâm chủ quan.",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng",
+      "Chủ nghĩa duy vật siêu hình",
+      "Chủ nghĩa duy tâm chủ quan.",
+      "Chủ nghĩa duy tâm khách quan."
+    ]
+  },
+  {
+    "id": 280,
+    "rawId": 280,
+    "uid": "spkt_280",
+    "question": "Khẳng định sau đây đúng hay sai: Quan điểm siêu hình cho có không gian thuần tuý tồn ngoài vật chất.",
+    "originalOptions": {
+      "A": "Sai",
+      "B": "Đúng."
+    },
+    "originalAnswer": "Đúng.",
+    "originalLetter": "B",
+    "correctAnswer": "Đúng.",
+    "options": [
+      "Đúng.",
+      "Sai"
+    ]
+  },
+  {
+    "id": 281,
+    "rawId": 281,
+    "uid": "spkt_281",
+    "question": "Khẳng định sau đây đúng hay sai: Chủ nghĩa duy vật biện chứng cho không có không gian và thời gian thuần tuý ngoài vật chất.",
+    "originalOptions": {
+      "A": "Đúng",
+      "B": "Sai."
+    },
+    "originalAnswer": "Đúng",
+    "originalLetter": "A",
+    "correctAnswer": "Đúng",
+    "options": [
+      "Đúng",
+      "Sai."
+    ]
+  },
+  {
+    "id": 282,
+    "rawId": 282,
+    "uid": "spkt_282",
+    "question": "Luận điểm nào sau đây là đúng?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm thừa nhận tính khách quan, vô tận và vĩnh cửu của không gian và thời gian",
+      "B": "Chủ nghĩa duy vật siêu hình thừa nhận tính khách quan, vô tận, gắn liền với vật chất của không gian và thời gian.",
+      "C": "Chủ nghĩa duy vật biện chứng thừa nhận không gian, thời gian là hình thức tồn tại của vật chất, có tính khách quan, vô tận và vĩnh cửu."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật biện chứng thừa nhận không gian, thời gian là hình thức tồn tại của vật chất, có tính khách quan, vô tận và vĩnh cửu.",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy vật biện chứng thừa nhận không gian, thời gian là hình thức tồn tại của vật chất, có tính khách quan, vô tận và vĩnh cửu.",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng thừa nhận không gian, thời gian là hình thức tồn tại của vật chất, có tính khách quan, vô tận và vĩnh cửu.",
+      "Chủ nghĩa duy tâm thừa nhận tính khách quan, vô tận và vĩnh cửu của không gian và thời gian",
+      "Chủ nghĩa duy vật siêu hình thừa nhận tính khách quan, vô tận, gắn liền với vật chất của không gian và thời gian."
+    ]
+  },
+  {
+    "id": 283,
+    "rawId": 283,
+    "uid": "spkt_283",
+    "question": "Quan điểm của chủ nghĩa duy tâm về nguồn gốc của ý thức?",
+    "originalOptions": {
+      "A": "Là sự phản ánh của hiện thực khách quan.",
+      "B": "Là thuộc tính của bộ não người, do não người tiết ra.",
+      "C": "Phủ nhận nguồn gốc vật chất của ý thức."
+    },
+    "originalAnswer": "Phủ nhận nguồn gốc vật chất của ý thức.",
+    "originalLetter": "C",
+    "correctAnswer": "Phủ nhận nguồn gốc vật chất của ý thức.",
+    "options": [
+      "Phủ nhận nguồn gốc vật chất của ý thức.",
+      "Là thuộc tính của bộ não người, do não người tiết ra.",
+      "Là sự phản ánh của hiện thực khách quan."
+    ]
+  },
+  {
+    "id": 284,
+    "rawId": 284,
+    "uid": "spkt_284",
+    "question": "Đâu là quan điểm của chủ nghĩa duy vật biện chứng về phản ánh?",
+    "originalOptions": {
+      "A": "Phản ánh là thuộc tính của mọi dạng vật chất là cái vốn có của mọi dạng vật chất.",
+      "B": "Phản ánh chỉ là đặc tính của một số vật thể.",
+      "C": "Phản ánh không phải là cái vốn có của thế giới vật chất, chỉ là ý thức con người tưởng tượng ra."
+    },
+    "originalAnswer": "Phản ánh là thuộc tính của mọi dạng vật chất là cái vốn có của mọi dạng vật chất.",
+    "originalLetter": "A",
+    "correctAnswer": "Phản ánh là thuộc tính của mọi dạng vật chất là cái vốn có của mọi dạng vật chất.",
+    "options": [
+      "Phản ánh không phải là cái vốn có của thế giới vật chất, chỉ là ý thức con người tưởng tượng ra.",
+      "Phản ánh là thuộc tính của mọi dạng vật chất là cái vốn có của mọi dạng vật chất.",
+      "Phản ánh chỉ là đặc tính của một số vật thể."
+    ]
+  },
+  {
+    "id": 285,
+    "rawId": 285,
+    "uid": "spkt_285",
+    "question": "Đồng nhất ý thức với phản ánh vật lý, đó là quan điểm của trường phái triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm khách quan.",
+      "B": "Chủ nghĩa duy vật biện chứng",
+      "C": "Chủ nghĩa duy vật siêu hình trước Mác.",
+      "D": "Chủ nghĩa duy tâm chủ quan."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật siêu hình trước Mác.",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy vật siêu hình trước Mác.",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng",
+      "Chủ nghĩa duy vật siêu hình trước Mác.",
+      "Chủ nghĩa duy tâm chủ quan.",
+      "Chủ nghĩa duy tâm khách quan."
+    ]
+  },
+  {
+    "id": 286,
+    "rawId": 286,
+    "uid": "spkt_286",
+    "question": "Trường phái triết học nào đồng nhất ý thức với một dạng vật chất?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật biện chứng.",
+      "B": "Chủ nghĩa duy vật tầm thường.",
+      "C": "Chủ nghĩa duy tâm."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật tầm thường.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy vật tầm thường.",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy vật tầm thường.",
+      "Chủ nghĩa duy tâm."
+    ]
+  },
+  {
+    "id": 287,
+    "rawId": 287,
+    "uid": "spkt_287",
+    "question": "Trường phái triết học nào cho ý thức không phải là chức năng của não",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật biện chứng.",
+      "B": "Chủ nghĩa duy tâm khách quan.",
+      "C": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII."
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm khách quan.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy tâm khách quan.",
+    "options": [
+      "Chủ nghĩa duy tâm khách quan.",
+      "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+      "Chủ nghĩa duy vật biện chứng."
+    ]
+  },
+  {
+    "id": 288,
+    "rawId": 288,
+    "uid": "spkt_288",
+    "question": "Trường phái triết học nào cho quá trình ý thức không tách rời đồng thời không đồng nhất với quá trình sinh lý thần kinh của não người?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật biện chứng.",
+      "B": "Chủ nghĩa duy vật siêu hình",
+      "C": "Chủ nghĩa duy tâm chủ quan."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "originalLetter": "A",
+    "correctAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "options": [
+      "Chủ nghĩa duy tâm chủ quan.",
+      "Chủ nghĩa duy vật siêu hình",
+      "Chủ nghĩa duy vật biện chứng."
+    ]
+  },
+  {
+    "id": 289,
+    "rawId": 289,
+    "uid": "spkt_289",
+    "question": "Đâu là quan niệm của chủ nghĩa duy vật biện chứng về nguồn gốc tự nhiên của ý thức?",
+    "originalOptions": {
+      "A": "ý thức tồn tại trên cơ sở quá trình sinh lý của não người.",
+      "B": "ý thức không đồng nhất với quá trình sinh lý của não người.",
+      "C": "ý thức đồng nhất với quá trình sinh lý của não người.",
+      "D": "Gồm a và b."
+    },
+    "originalAnswer": "Gồm a và b.",
+    "originalLetter": "D",
+    "correctAnswer": "Gồm a và b.",
+    "options": [
+      "ý thức tồn tại trên cơ sở quá trình sinh lý của não người.",
+      "Gồm a và b.",
+      "ý thức đồng nhất với quá trình sinh lý của não người.",
+      "ý thức không đồng nhất với quá trình sinh lý của não người."
+    ]
+  },
+  {
+    "id": 290,
+    "rawId": 290,
+    "uid": "spkt_290",
+    "question": "Theo quan điểm của chủ nghĩa duy vật biện chứng thiếu sự tác động của thế giới khách quan vào não người, có hình thành và phát triển được ý thức không?",
+    "originalOptions": {
+      "A": "Không",
+      "B": "có thể hình thành được",
+      "C": "Vừa có thể, vừa không thể"
+    },
+    "originalAnswer": "Không",
+    "originalLetter": "A",
+    "correctAnswer": "Không",
+    "options": [
+      "Không",
+      "Vừa có thể, vừa không thể",
+      "có thể hình thành được"
+    ]
+  },
+  {
+    "id": 291,
+    "rawId": 291,
+    "uid": "spkt_291",
+    "question": "Luận điểm nào sau đây là của chủ nghĩa duy vật biện chứng về nguồn gốc của ý thức?",
+    "originalOptions": {
+      "A": "Có não người, có sự tác động của thế giới vào não người là có sự hình thành và phát triển ý thức.",
+      "B": "Không cần sự tác động của thế giới vật chất vào não người vẫn hình thành được ý thức.",
+      "C": "Có não người, có sự tác động của thế giới bên ngoài vẫn chưa đủ điều kiện để hình thành và phát triển ý thức."
+    },
+    "originalAnswer": "Có não người, có sự tác động của thế giới bên ngoài vẫn chưa đủ điều kiện để hình thành và phát triển ý thức.",
+    "originalLetter": "C",
+    "correctAnswer": "Có não người, có sự tác động của thế giới bên ngoài vẫn chưa đủ điều kiện để hình thành và phát triển ý thức.",
+    "options": [
+      "Có não người, có sự tác động của thế giới vào não người là có sự hình thành và phát triển ý thức.",
+      "Có não người, có sự tác động của thế giới bên ngoài vẫn chưa đủ điều kiện để hình thành và phát triển ý thức.",
+      "Không cần sự tác động của thế giới vật chất vào não người vẫn hình thành được ý thức."
+    ]
+  },
+  {
+    "id": 292,
+    "rawId": 292,
+    "uid": "spkt_292",
+    "question": "Theo quan điểm của chủ nghĩa duy vật biện chứng ở động vật bậc cao có thể đạt đến hình thức phản ánh nào?",
+    "originalOptions": {
+      "A": "Phản ánh ý thức.",
+      "B": "Phản ánh tâm lý động vật.",
+      "C": "Tính kích thích."
+    },
+    "originalAnswer": "Phản ánh tâm lý động vật.",
+    "originalLetter": "B",
+    "correctAnswer": "Phản ánh tâm lý động vật.",
+    "options": [
+      "Tính kích thích.",
+      "Phản ánh ý thức.",
+      "Phản ánh tâm lý động vật."
+    ]
+  },
+  {
+    "id": 293,
+    "rawId": 293,
+    "uid": "spkt_293",
+    "question": "Điều khẳng định nào sau đây là sai?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật biện chứng cho rằng động vật bậc cao chưa có ý thức.",
+      "B": "Chủ nghĩa duy vật biện chứng cho rằng động vật bậc cao cũng có ý thức.",
+      "C": "Chủ nghĩa duy vật biện chứng cho rằng chỉ có con người mới có ý thức",
+      "D": "Chủ nghĩa duy vật đều cho ý thức là sự phản ánh hiện thực khách quan vào óc con người."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật biện chứng cho rằng động vật bậc cao cũng có ý thức.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy vật biện chứng cho rằng động vật bậc cao cũng có ý thức.",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng cho rằng động vật bậc cao cũng có ý thức.",
+      "Chủ nghĩa duy vật biện chứng cho rằng chỉ có con người mới có ý thức",
+      "Chủ nghĩa duy vật đều cho ý thức là sự phản ánh hiện thực khách quan vào óc con người.",
+      "Chủ nghĩa duy vật biện chứng cho rằng động vật bậc cao chưa có ý thức."
+    ]
+  },
+  {
+    "id": 294,
+    "rawId": 294,
+    "uid": "spkt_294",
+    "question": "Hình thức phản ánh đặc trưng của của thế giới vô cơ là gì?",
+    "originalOptions": {
+      "A": "Phản ánh vật lý hoá học.",
+      "B": "Phản ánh sinh học.",
+      "C": "Phản ánh ý thức."
+    },
+    "originalAnswer": "Phản ánh vật lý hoá học.",
+    "originalLetter": "A",
+    "correctAnswer": "Phản ánh vật lý hoá học.",
+    "options": [
+      "Phản ánh ý thức.",
+      "Phản ánh vật lý hoá học.",
+      "Phản ánh sinh học."
+    ]
+  },
+  {
+    "id": 295,
+    "rawId": 295,
+    "uid": "spkt_295",
+    "question": "Hình thức phản ánh đặc trưng của thế giới thực vật và động vật chưa có hệ thần kinh là gì?",
+    "originalOptions": {
+      "A": "Phản ánh vật lý, hoá học.",
+      "B": "Tính kích thích.",
+      "C": "Tính cảm ứng",
+      "D": "Tâm lý động vật."
+    },
+    "originalAnswer": "Tính kích thích.",
+    "originalLetter": "B",
+    "correctAnswer": "Tính kích thích.",
+    "options": [
+      "Tâm lý động vật.",
+      "Tính cảm ứng",
+      "Phản ánh vật lý, hoá học.",
+      "Tính kích thích."
+    ]
+  },
+  {
+    "id": 296,
+    "rawId": 296,
+    "uid": "spkt_296",
+    "question": "Hình thức phản ánh đặc trưng của động vật có hệ thần kinh là gì?",
+    "originalOptions": {
+      "A": "Tính kích thích.",
+      "B": "Tâm lý động vật.",
+      "C": "Tính cảm ứng.",
+      "D": "các phản xạ."
+    },
+    "originalAnswer": "các phản xạ.",
+    "originalLetter": "D",
+    "correctAnswer": "các phản xạ.",
+    "options": [
+      "Tâm lý động vật.",
+      "Tính cảm ứng.",
+      "các phản xạ.",
+      "Tính kích thích."
+    ]
+  },
+  {
+    "id": 297,
+    "rawId": 297,
+    "uid": "spkt_297",
+    "question": "Đâu là quan điểm của chủ nghĩa duy vật biện chứng vê nguồn gốc của ý thức?",
+    "originalOptions": {
+      "A": "ý thức ra đời là kết quả quá trình phát triển lâu dài thuộc tính phản ánh của thế giới vật chất.",
+      "B": "ý thức ra đời là kết quả sự tác động lẫn nhau giữa các sự vật vật chất.",
+      "C": "ý thức ra đời là kết quả quá trình tiến hoá của hệ thần kinh."
+    },
+    "originalAnswer": "ý thức ra đời là kết quả quá trình phát triển lâu dài thuộc tính phản ánh của thế giới vật chất.",
+    "originalLetter": "A",
+    "correctAnswer": "ý thức ra đời là kết quả quá trình phát triển lâu dài thuộc tính phản ánh của thế giới vật chất.",
+    "options": [
+      "ý thức ra đời là kết quả quá trình phát triển lâu dài thuộc tính phản ánh của thế giới vật chất.",
+      "ý thức ra đời là kết quả quá trình tiến hoá của hệ thần kinh.",
+      "ý thức ra đời là kết quả sự tác động lẫn nhau giữa các sự vật vật chất."
+    ]
+  },
+  {
+    "id": 298,
+    "rawId": 298,
+    "uid": "spkt_298",
+    "question": "Theo quan điểm của chủ nghĩa duy vật biện chứng nguồn gốc tự nhiên của ý thức gồm những yếu tố nào?",
+    "originalOptions": {
+      "A": "Bộ óc con người.",
+      "D": "Gồm a và b.",
+      "B": "Thế giới bên ngoài tác động vào bộ óc.",
+      "G": "Gồm cả a, b, và c.",
+      "C": "Lao động của con người"
+    },
+    "originalAnswer": "Gồm a và b.",
+    "originalLetter": "D",
+    "correctAnswer": "Gồm a và b.",
+    "options": [
+      "Thế giới bên ngoài tác động vào bộ óc.",
+      "Bộ óc con người.",
+      "Gồm a và b.",
+      "Gồm cả a, b, và c.",
+      "Lao động của con người"
+    ]
+  },
+  {
+    "id": 299,
+    "rawId": 299,
+    "uid": "spkt_299",
+    "question": "Theo quan điểm của chủ nghĩa duy vật biện chứng điều kiện cần và đủ cho sự ra đời và phát triển ý thức là những điều kiện nào?",
+    "originalOptions": {
+      "A": "Bộ óc con người và thế giới bên ngoài tác động vào bộ óc người",
+      "B": "Lao động của con người và ngôn ngữ.",
+      "C": "Gồm cả a, và b."
+    },
+    "originalAnswer": "Gồm cả a, và b.",
+    "originalLetter": "C",
+    "correctAnswer": "Gồm cả a, và b.",
+    "options": [
+      "Gồm cả a, và b.",
+      "Lao động của con người và ngôn ngữ.",
+      "Bộ óc con người và thế giới bên ngoài tác động vào bộ óc người"
+    ]
+  },
+  {
+    "id": 300,
+    "rawId": 300,
+    "uid": "spkt_300",
+    "question": "Nguồn gốc xã hội của ý thức là yếu tố nào?",
+    "originalOptions": {
+      "A": "Bộ óc con người.",
+      "B": "Sự tác động của thế giới bên ngoài vào bộ óc con người.",
+      "C": "Lao động và ngôn ngữ của con người."
+    },
+    "originalAnswer": "Lao động và ngôn ngữ của con người.",
+    "originalLetter": "C",
+    "correctAnswer": "Lao động và ngôn ngữ của con người.",
+    "options": [
+      "Bộ óc con người.",
+      "Sự tác động của thế giới bên ngoài vào bộ óc con người.",
+      "Lao động và ngôn ngữ của con người."
+    ]
+  }
+];
+
+const SET_100_QUESTIONS = [
+  {
+    "id": 1,
+    "uid": "basic_1",
     "question": "Theo quan điểm của triết học Mác - Lênin, với tư cách là một hình thái ý thức xã hội, triết học ra đời dựa trên những nguồn gốc cơ bản nào?",
     "originalA": "Nguồn gốc nhận thức và nguồn gốc xã hội.",
     "originalOptions": {
@@ -21,6 +6108,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 2,
+    "uid": "basic_2",
     "question": "Ph. Ăngghen đã chỉ rõ: \"Vấn đề cơ bản lớn của mọi triết học, đặc biệt là của triết học hiện đại, là vấn đề...\" gì?",
     "originalA": "Quan hệ giữa tư duy với tồn tại.",
     "originalOptions": {
@@ -39,6 +6127,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 3,
+    "uid": "basic_3",
     "question": "Loại hình thế giới quan nào được coi là đỉnh cao của các loại thế giới quan trong lịch sử vì đòi hỏi thế giới phải được xem xét dựa trên nguyên lý về mối liên hệ phổ biến và sự phát triển?",
     "originalA": "Thế giới quan duy vật biện chứng.",
     "originalOptions": {
@@ -57,6 +6146,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 4,
+    "uid": "basic_4",
     "question": "Phương pháp tư duy nào đòi hỏi phải nhận thức đối tượng ở trạng thái luôn vận động biến đổi, nằm trong khuynh hướng phổ quát là phát triển và nguồn gốc của sự biến đổi là do mâu thuẫn nội tại?",
     "originalA": "Phương pháp biện chứng.",
     "originalOptions": {
@@ -75,6 +6165,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 5,
+    "uid": "basic_5",
     "question": "Sự khác biệt cơ bản giữa chủ nghĩa duy tâm chủ quan và chủ nghĩa duy tâm khách quan là gì?",
     "originalA": "Chủ nghĩa duy tâm chủ quan thừa nhận tính thứ nhất của ý thức con người; còn chủ nghĩa duy tâm khách quan coi ý thức là thứ tinh thần khách quan có trước và tồn tại độc lập với con người.",
     "originalOptions": {
@@ -93,6 +6184,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 6,
+    "uid": "basic_6",
     "question": "Hình thức triết học nào thừa nhận tính thứ nhất của ý thức con người, khẳng định mọi sự vật, hiện tượng chỉ là phức hợp của những cảm giác?",
     "originalA": "Chủ nghĩa duy tâm chủ quan.",
     "originalOptions": {
@@ -111,6 +6203,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 7,
+    "uid": "basic_7",
     "question": "Chọn phát biểu KHÔNG ĐÚNG về đặc trưng của phương pháp tư duy biện chứng?",
     "originalA": "Coi nguyên nhân của sự biến đổi của đối tượng nằm ở các lực lượng siêu nhiên bên ngoài đối tượng.",
     "originalOptions": {
@@ -129,6 +6222,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 8,
+    "uid": "basic_8",
     "question": "C. Mác và Ph. Ăngghen đã kế thừa và cải tạo những yếu tố nào trong triết học cổ điển Đức để xây dựng nên triết học duy vật biện chứng?",
     "originalA": "Kế thừa \"hạt nhân hợp lý\" trong phép biện chứng của Hegel và quan điểm duy vật trong triết học của Feuerbach.",
     "originalOptions": {
@@ -147,6 +6241,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 9,
+    "uid": "basic_9",
     "question": "Trong quá trình lãnh đạo cách mạng, Đảng Cộng sản Việt Nam đã đóng góp quan trọng vào sự phát triển kho tàng triết học Mác - Lênin thông qua việc hoạch định đường lối thực hiện đồng thời hai nhiệm vụ chiến lược nào sau năm 1954?",
     "originalA": "Xây dựng chủ nghĩa xã hội ở miền Bắc; đấu tranh giải phóng dân tộc, thống nhất Tổ quốc ở miền Nam.",
     "originalOptions": {
@@ -165,6 +6260,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 10,
+    "uid": "basic_10",
     "question": "Khi làm việc nhóm để giải quyết một đề tài nghiên cứu về nguyên nhân sụp đổ của mô hình chủ nghĩa xã hội ở Liên Xô và Đông Âu, sinh viên cần vận dụng phương pháp luận triết học Mác - Lênin như thế nào để có cách phân tích khoa học nhất?",
     "originalA": "Phân tích sự việc một cách toàn diện, lịch sử - cụ thể, tìm ra nguyên nhân từ những sai lầm chủ quan, giáo điều, xa rời lập trường Mác - Lênin chứ không phải do bản chất của chủ nghĩa xã hội.",
     "originalOptions": {
@@ -183,6 +6279,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 11,
+    "uid": "basic_11",
     "question": "Bản chất của ý thức là:",
     "originalA": "Là sự phản ánh hiện thực khách quan vào đầu óc con người một cách năng động và sáng tạo.",
     "originalOptions": {
@@ -201,6 +6298,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 12,
+    "uid": "basic_12",
     "question": "Thực tiễn là:",
     "originalA": "Hoạt động vật chất của con người nhằm cải tạo tự nhiên và xã hội theo nhu cầu của con người ở mỗi giai đoạn lịch sử.",
     "originalOptions": {
@@ -219,6 +6317,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 13,
+    "uid": "basic_13",
     "question": "Con đường phát triển của sự vật mà quy luật phủ định của phủ định vạch ra là con đường nào?",
     "originalA": "Đường xoáy ốc đi lên",
     "originalOptions": {
@@ -237,6 +6336,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 14,
+    "uid": "basic_14",
     "question": "Phạm trù triết học nào dùng để chỉ tổng hợp tất cả những mặt, những yếu tố, những quá trình tạo nên sự vật?",
     "originalA": "Nội dung",
     "originalOptions": {
@@ -255,6 +6355,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 15,
+    "uid": "basic_15",
     "question": "Thống nhất của hai mặt đối lập là:",
     "originalA": "Sự nương tựa lẫn nhau, tồn tại không tách rời nhau, mặt này lấy mặt kia làm tiền đề cho sự tồn tại của mình và ngược lại.",
     "originalOptions": {
@@ -273,6 +6374,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 16,
+    "uid": "basic_16",
     "question": "Giai đoạn mà con người sử dụng các giác quan để tác động trực tiếp vào các sự vật nhằm nắm bắt các sự vật ấy được gọi là:",
     "originalA": "Nhận thức cảm tính",
     "originalOptions": {
@@ -291,6 +6393,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 17,
+    "uid": "basic_17",
     "question": "Theo quan điểm của chủ nghĩa duy vật biện chứng luận điểm nào sau đây là sai?",
     "originalA": "Phủ định biện chứng phụ thuộc vào ý thức của con người",
     "originalOptions": {
@@ -309,6 +6412,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 18,
+    "uid": "basic_18",
     "question": "Chọn câu trả lời đúng theo quan điểm của triết học Mác-Lênin:",
     "originalA": "Ý thức được hình thành trực tiếp từ lao động.",
     "originalOptions": {
@@ -327,6 +6431,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 19,
+    "uid": "basic_19",
     "question": "Ph.Ăngghen viết: “...... là điều kiện cơ bản đầu tiên của toàn bộ đời sống loài người, và như thế đến một mức mà trên một ý nghĩa nào đó, chúng ta phải nói: ....... đã sáng tạo ra bản thân con người”. Hãy điền một từ vào chỗ trống để hoàn thiện câu trên.",
     "originalA": "Lao động",
     "originalOptions": {
@@ -345,6 +6450,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 20,
+    "uid": "basic_20",
     "question": "Phép biện chứng duy vật là:",
     "originalA": "Phép biện chứng được xác lập trên lập trường của chủ nghĩa duy vật.",
     "originalOptions": {
@@ -363,6 +6469,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 21,
+    "uid": "basic_21",
     "question": "Khả năng được hình thành do quy luật vận động nội tại của sự vật quy định thì được gọi là:",
     "originalA": "Khả năng tất nhiên.",
     "originalOptions": {
@@ -381,6 +6488,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 22,
+    "uid": "basic_22",
     "question": "Quy luật được coi là hạt nhân của phép biện chứng duy vật là:",
     "originalA": "Quy luật thống nhất và đấu tranh của các mặt đối lập",
     "originalOptions": {
@@ -399,6 +6507,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 23,
+    "uid": "basic_23",
     "question": "Thuộc tính đặc trưng của vật chất theo quan niệm của triết học Mác - Lênin là:",
     "originalA": "Là tồn tại khách quan, độc lập với ý thức con người.",
     "originalOptions": {
@@ -417,6 +6526,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 24,
+    "uid": "basic_24",
     "question": "Quy luật vạch ra cách thức của sự phát triển là:",
     "originalA": "Quy luật từ những sự thay đổi về lượng thành những sự thay đổi về chất và ngược lại.",
     "originalOptions": {
@@ -435,6 +6545,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 25,
+    "uid": "basic_25",
     "question": "Theo quan điểm của chủ nghĩa duy vật biện chứng, luận điểm nào sau đây là đúng?",
     "originalA": "Trong hoạt động thực tiễn phải dựa vào hiện thực, đồng thời phải tính đến khả năng",
     "originalOptions": {
@@ -453,6 +6564,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 26,
+    "uid": "basic_26",
     "question": "“Trong quá trình xây dựng đại học số, cần kế thừa những giá trị của giáo dục truyền thống nhưng phải đổi mới phương pháp dạy học, ứng dụng công nghệ và phát triển năng lực người học”. Đây là quan điểm:",
     "originalA": "Phát triển",
     "originalOptions": {
@@ -471,6 +6583,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 27,
+    "uid": "basic_27",
     "question": "Quan điểm cho rằng: “Phụ nữ chỉ nên làm công việc nội trợ, không phù hợp với các vị trí lãnh đạo”. Đây là quan điểm:",
     "originalA": "Định kiến",
     "originalOptions": {
@@ -489,6 +6602,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 28,
+    "uid": "basic_28",
     "question": "Trong xã hội sự phát triển biểu hiện ra như thế nào?",
     "originalA": "Sự thay thế chế độ xã hội này bằng một chế độ xã hội khác cao hơn dân chủ, văn minh hơn",
     "originalOptions": {
@@ -507,6 +6621,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 29,
+    "uid": "basic_29",
     "question": "Cơ sở lý luận của quan điểm lịch sử - cụ thể là:",
     "originalA": "Nguyên lý về mối liên hệ phổ biến.",
     "originalOptions": {
@@ -525,6 +6640,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 30,
+    "uid": "basic_30",
     "question": "Trong hoạt động thực tiễn sai lầm của trì trệ bảo thủ là do không tôn trọng quy luật nào của phép biện chứng duy vật?",
     "originalA": "Quy luật lượng - chất",
     "originalOptions": {
@@ -543,6 +6659,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 31,
+    "uid": "basic_31",
     "question": "Theo quan điểm của chủ nghĩa duy vật biện chứng, luận điểm nào sau đây là sai?",
     "originalA": "Trong giới hạn của độ sự thay đổi của lượng đều đưa đến sự thay đổi về chất của sự vật",
     "originalOptions": {
@@ -561,6 +6678,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 32,
+    "uid": "basic_32",
     "question": "Trong sản xuất xã hội, loại hình sản xuất nào là cơ bản nhất?",
     "originalA": "Sản xuất vật chất.",
     "originalOptions": {
@@ -579,6 +6697,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 33,
+    "uid": "basic_33",
     "question": "Phương diện nào trong phương thức sản xuất thể hiện mối quan hệ giữa con người với tự nhiên trong quá trình sản xuất vật chất?",
     "originalA": "Lực lượng sản xuất.",
     "originalOptions": {
@@ -597,6 +6716,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 34,
+    "uid": "basic_34",
     "question": "Mặt nào sau đây trong quan hệ sản xuất giữ vai trò quyết định?",
     "originalA": "Quan hệ sở hữu đối với tư liệu sản xuất.",
     "originalOptions": {
@@ -615,6 +6735,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 35,
+    "uid": "basic_35",
     "question": "Trong bối cảnh hội nhập quốc tế và chuyển đổi số của Việt Nam hiện nay, yêu cầu quan trọng nhất đối với người lao động là gì?",
     "originalA": "Có chuyên môn, kỹ năng nghề nghiệp vững vàng; chủ động rèn luyện sức khỏe và học tập suốt đời, nâng cao năng lực số, tác phong công nghiệp, kỷ luật lao động và tuân thủ pháp luật.",
     "originalOptions": {
@@ -633,6 +6754,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 36,
+    "uid": "basic_36",
     "question": "Một doanh nghiệp tại Việt Nam đầu tư dây chuyền sản xuất tự động nhằm nâng cao năng lực sản xuất, đồng thời thực hiện đầy đủ các quy định pháp luật về lao động và bảo vệ môi trường. Tình huống trên là biểu hiện phương diện nào của nền sản xuất xã hội",
     "originalA": "Phát triển lực lượng sản xuất.",
     "originalOptions": {
@@ -651,6 +6773,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 37,
+    "uid": "basic_37",
     "question": "Theo quan điểm của chủ nghĩa duy vật lịch sử, trong bối cảnh Cách mạng công nghiệp lần thứ tư hiện nay, nhận định nào sau đây không đúng về sự phát triển của trí tuệ nhân tạo (AI)?",
     "originalA": "AI không làm thay đổi quan hệ sản xuất của xã hội.",
     "originalOptions": {
@@ -669,6 +6792,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 38,
+    "uid": "basic_38",
     "question": "Thực chất của quan hệ biện chứng giữa cơ sở hạ tầng và kiến trúc thượng tầng là:",
     "originalA": "Quan hệ giữa kinh tế và chính trị.",
     "originalOptions": {
@@ -687,6 +6811,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 39,
+    "uid": "basic_39",
     "question": "Căn cứ vào đâu để phân chia giai cấp thành giai cấp cơ bản và giai cấp không cơ bản ?",
     "originalA": "Vào phương thức sản xuất mà giai cấp đó đại diện.",
     "originalOptions": {
@@ -705,6 +6830,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 40,
+    "uid": "basic_40",
     "question": "Nghị quyết số 57-NQ/TW về đột phá, phát triển khoa học, công nghệ, đổi mới sáng tạo và chuyển đổi số quốc gia của Bộ Chính trị ban hành năm 2024 phản ánh sự vận dụng nội dung nào trong học thuyết hình thái kinh tế - xã hội?",
     "originalA": "Quy luật về sự phù hợp của quan hệ sản xuất với trình độ của lực lượng sản xuất.",
     "originalOptions": {
@@ -723,6 +6849,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 41,
+    "uid": "basic_41",
     "question": "Yếu tố cơ bản nhất trong kiến trúc thượng tầng của xã hội có giai cấp là: …",
     "originalA": "Chính trị và nhà nước",
     "originalOptions": {
@@ -741,6 +6868,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 42,
+    "uid": "basic_42",
     "question": "Mối quan hệ giữa lĩnh vực kinh tế và lĩnh vực chính trị của xã hội được khái quát trong quy luật nào?",
     "originalA": "Quy luật về mối quan hệ biện chứng giữa cơ sở hạ tầng và kiến trúc thượng tầng.",
     "originalOptions": {
@@ -759,6 +6887,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 43,
+    "uid": "basic_43",
     "question": "Trong bối cảnh chuyển đổi số ở Việt Nam hiện nay, việc xây dựng Chính phủ số phản ánh yếu tố nào trong kiến trúc thượng tầng?",
     "originalA": "Chính trị và pháp quyền.",
     "originalOptions": {
@@ -777,6 +6906,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 44,
+    "uid": "basic_44",
     "question": "Việc các trường đại học đưa nội dung phòng chống tham nhũng, an ninh mạng vào chương trình đào tạo là sự vận dụng chủ yếu của hình thái ý thức xã hội nào?",
     "originalA": "Ý thức pháp quyền.",
     "originalOptions": {
@@ -795,6 +6925,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 45,
+    "uid": "basic_45",
     "question": "Bài học kinh nghiệm mà Đảng cộng sản Việt Nam rút ra trong công cuộc đổi mới là gì?",
     "originalA": "Kết hợp đổi mới kinh tế và đổi mới chính trị.",
     "originalOptions": {
@@ -813,6 +6944,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 46,
+    "uid": "basic_46",
     "question": "Theo chủ nghĩa duy vật lịch sử, nhà nước mang bản chất của:",
     "originalA": "Giai cấp thống trị.",
     "originalOptions": {
@@ -831,6 +6963,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 47,
+    "uid": "basic_47",
     "question": "Nhận định nào sau đây là sai?",
     "originalA": "Trong kết cấu của ý thức xã hội, tâm lý xã hội và hệ tư tưởng tách rời nhau.",
     "originalOptions": {
@@ -849,6 +6982,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 48,
+    "uid": "basic_48",
     "question": "Việc các trường đại học tăng cường giáo dục đạo đức nghề nghiệp, trách nhiệm xã hội và văn hóa ứng xử cho sinh viên trong nội dung chương trình đào tạo là sự thể hiện của hình thái ý thức xã hội nào?",
     "originalA": "Ý thức đạo đức.",
     "originalOptions": {
@@ -867,6 +7001,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 49,
+    "uid": "basic_49",
     "question": "Quan điểm nào sau đây không phải là của chủ nghĩa duy vật lịch sử?",
     "originalA": "Con người không khác biệt so với con vật khi họ bắt đầu sản xuất ra những tư liệu sinh hoạt của mình.",
     "originalOptions": {
@@ -885,6 +7020,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 50,
+    "uid": "basic_50",
     "question": "Theo quan điểm của chủ nghĩa duy vật lịch sử về bản chất con người, câu ca dao: “Trong đầm gì đẹp bằng sen, lá xanh bông trắng lại chen nhị vàng, nhị vàng bông trắng lá xanh, gần bùn mà chẳng hôi tanh mùi bùn” nói lên điều gì?",
     "originalA": "Mặc dù chịu tác động của hoàn cảnh xã hội, con người vẫn có khả năng rèn luyện, phát huy những giá trị tốt đẹp để hoàn thiện bản thân.",
     "originalOptions": {
@@ -903,6 +7039,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 51,
+    "uid": "basic_51",
     "question": "Khi giải quyết mặt thứ nhất vấn đề cơ bản của triết học, trường phái nào cho rằng ý thức, tinh thần, ý niệm, cảm giác là cái có trước giới tự nhiên?",
     "originalA": "Chủ nghĩa duy tâm.",
     "originalOptions": {
@@ -921,6 +7058,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 52,
+    "uid": "basic_52",
     "question": "Đoạn tuyệt triệt để với tham vọng coi triết học là “khoa học của các khoa học”, triết học Mác xác định đối tượng nghiên cứu của mình là gì?",
     "originalA": "Giải quyết mối quan hệ giữa vật chất và ý thức trên lập trường duy vật biện chứng và nghiên cứu những quy luật chung nhất của tự nhiên, xã hội và tư duy.",
     "originalOptions": {
@@ -939,6 +7077,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 53,
+    "uid": "basic_53",
     "question": "Việc giải quyết mặt thứ nhất vấn đề cơ bản của triết học (giữa ý thức và vật chất thì cái nào có trước) đã chia các nhà triết học thành hai trường phái lớn nào?",
     "originalA": "Chủ nghĩa duy vật và chủ nghĩa duy tâm.",
     "originalOptions": {
@@ -957,6 +7096,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 54,
+    "uid": "basic_54",
     "question": "Hình thức nào của chủ nghĩa duy vật thừa nhận tính thứ nhất của vật chất nhưng lại đồng nhất vật chất với một hay một số chất cụ thể của vật chất?",
     "originalA": "Chủ nghĩa duy vật chất phác.",
     "originalOptions": {
@@ -975,6 +7115,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 55,
+    "uid": "basic_55",
     "question": "Khi xem xét một sự vật, nếu chủ thể nhận thức \"chỉ nhìn thấy cây mà không thấy rừng\", chỉ nhìn thấy trạng thái tĩnh mà quên mất sự vận động của sự vật, thì chủ thể đó đang mắc phải sai lầm của phương pháp tư duy nào?",
     "originalA": "Phương pháp siêu hình.",
     "originalOptions": {
@@ -993,6 +7134,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 56,
+    "uid": "basic_56",
     "question": "Một nhà khoa học khi nghiên cứu một hiện tượng xã hội chỉ chú ý đến các yếu tố thống kê tĩnh tại ở một thời điểm, tách rời hiện tượng đó khỏi hoàn cảnh lịch sử và phủ nhận mâu thuẫn bên trong của nó. Cách nghiên cứu này mang đặc trưng của phương pháp tư duy nào?",
     "originalA": "Phương pháp siêu hình.",
     "originalOptions": {
@@ -1011,6 +7153,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 57,
+    "uid": "basic_57",
     "question": "Khi thu thập và phân tích tài liệu để viết báo cáo khoa học về sự biến đổi của triết học phương Tây thế kỷ XV - XVII, sinh viên cần vạch ra đặc trưng cốt lõi nào làm nền tảng cho sự chuyển biến tư tưởng ở thời kỳ này?",
     "originalA": "Sự ra đời và phát triển mạnh mẽ của khoa học thực nghiệm đã thúc đẩy chủ nghĩa duy vật đấu tranh chống lại chủ nghĩa duy tâm và tôn giáo.",
     "originalOptions": {
@@ -1029,6 +7172,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 58,
+    "uid": "basic_58",
     "question": "Khi làm việc nhóm để giải quyết một bài tập khoa học chuyên ngành, theo triết học Mác - Lênin, việc các thành viên trong nhóm (dù vô tình hay hữu ý) đều bị chi phối bởi một thế giới quan triết học nhất định được lý giải do đâu?",
     "originalA": "Vì tư duy triết học luôn ẩn giấu sâu trong mỗi suy nghĩ, hành vi, là chỗ dựa tiềm thức của kinh nghiệm cá nhân và là thành tố hữu cơ trong tri thức khoa học.",
     "originalOptions": {
@@ -1047,6 +7191,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 59,
+    "uid": "basic_59",
     "question": "Khi thảo luận nhóm để phân tích nguyên nhân thất bại của một phong trào xã hội, nếu một sinh viên chỉ liệt kê các dữ kiện tĩnh tại ở một thời điểm, tách rời phong trào đó khỏi hoàn cảnh lịch sử, sinh viên này cần phải điều chỉnh phương pháp tư duy nào để phù hợp với yêu cầu phân tích khoa học?",
     "originalA": "Từ bỏ phương pháp tư duy siêu hình để chuyển sang phương pháp tư duy biện chứng.",
     "originalOptions": {
@@ -1065,6 +7210,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 60,
+    "uid": "basic_60",
     "question": "Khi giải quyết mặt thứ hai của vấn đề cơ bản của triết học, học thuyết nào khẳng định về nguyên tắc con người có thể hiểu được bản chất của sự vật?",
     "originalA": "Thuyết khả tri (Thuyết có thể biết).",
     "originalOptions": {
@@ -1083,6 +7229,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 61,
+    "uid": "basic_61",
     "question": "Một nhóm sinh viên khi phân tích sự thất bại của một chính sách kinh tế đã chỉ ra rằng: Người ban hành chính sách chỉ mang nguyên lý chung áp dụng vào thực tế mà không tính đến \"kinh nghiệm cụ thể của lịch sử\" và hoàn cảnh thực tại. Theo triết học Mác - Lênin, người ban hành chính sách đã mắc phải sai lầm gì?",
     "originalA": "Vi phạm nguyên tắc lịch sử - cụ thể, sa vào chủ nghĩa giáo điều khi vận dụng lý luận.",
     "originalOptions": {
@@ -1101,6 +7248,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 62,
+    "uid": "basic_62",
     "question": "Khi các thế lực thù địch lợi dụng sự sụp đổ của mô hình chủ nghĩa xã hội ở Liên Xô và Đông Âu để rêu rao rằng \"Chủ nghĩa Mác - Lênin đã lỗi thời\", sinh viên cần vận dụng lập trường triết học nào để phản bác luận điệu này?",
     "originalA": "Khẳng định sự sụp đổ đó là do sai lầm chủ quan, giáo điều, xa rời lập trường Mác - Lênin trong quá trình lãnh đạo, chứ không phải do bản chất khoa học và cách mạng của chủ nghĩa Mác - Lênin đã lỗi thời.",
     "originalOptions": {
@@ -1119,6 +7267,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 63,
+    "uid": "basic_63",
     "question": "Một cán bộ quản lý cho rằng chỉ cần học thuộc lòng các nguyên lý triết học Mác - Lênin là có thể tự động giải quyết mọi vấn đề phức tạp tại địa phương mà không cần khảo sát thực tiễn. Theo phương pháp luận mácxít, cán bộ này đã mắc phải sai lầm gì?",
     "originalA": "Tuyệt đối hóa vai trò của triết học, sa vào chủ nghĩa giáo điều khi áp dụng máy móc các nguyên lý chung mà không tính đến “kinh nghiệm cụ thể của lịch sử”.,",
     "originalOptions": {
@@ -1137,6 +7286,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 64,
+    "uid": "basic_64",
     "question": "Vận dụng phương pháp luận của triết học Mác - Lênin vào thực tiễn Đổi mới, Đảng Cộng sản Việt Nam xác định mối quan hệ nào là cốt lõi, mang tính nền tảng cho việc giải quyết các mối quan hệ khác?",
     "originalA": "Mối quan hệ giữa đổi mới kinh tế và đổi mới chính trị.",
     "originalOptions": {
@@ -1155,6 +7305,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 65,
+    "uid": "basic_65",
     "question": "Nguyên lý cơ bản của phép biện chứng duy vật là nguyên lý nào?",
     "originalA": "Nguyên lý về mối liên hệ phổ biến và về sự phát triển",
     "originalOptions": {
@@ -1173,6 +7324,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 66,
+    "uid": "basic_66",
     "question": "Theo quan điểm của chủ nghĩa Mác-Lênin:",
     "originalA": "Vật chất quyết định nội dung, bản chất và sự vận động, phát triển của ý thức.",
     "originalOptions": {
@@ -1191,6 +7343,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 67,
+    "uid": "basic_67",
     "question": "Phạm trù nói lên bước ngoặt của sự thay đổi về lượng đưa đến sự thay đổi về chất là:",
     "originalA": "Bước nhảy.",
     "originalOptions": {
@@ -1209,6 +7362,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 68,
+    "uid": "basic_68",
     "question": "Quy luật vạch ra nguồn gốc của sự phát triển là:",
     "originalA": "Quy luật thống nhất và đấu tranh của các mặt đối lập.",
     "originalOptions": {
@@ -1227,6 +7381,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 69,
+    "uid": "basic_69",
     "question": "Tính quy định nói lên quy mô trình độ phát triển của sự vật được gọi là gì?",
     "originalA": "Lượng",
     "originalOptions": {
@@ -1245,6 +7400,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 70,
+    "uid": "basic_70",
     "question": "Yếu tố quan trọng nhất trong kết cấu của ý thức:",
     "originalA": "Tri thức.",
     "originalOptions": {
@@ -1263,6 +7419,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 71,
+    "uid": "basic_71",
     "question": "Lựa chọn câu đúng nhất theo quan điểm của chủ nghĩa duy vật biện chứng",
     "originalA": "Mối liên hệ của sự vật hiện tượng không chỉ diễn ra giữa các sự vật hiện tượng mà còn diễn ra ngay trong sự vật hiện tượng.",
     "originalOptions": {
@@ -1281,6 +7438,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 72,
+    "uid": "basic_72",
     "question": "Trong một doanh nghiệp đang gặp khủng hoảng tài chính, đâu là mâu thuẫn chủ yếu?",
     "originalA": "Giữa chi phí quá cao và doanh thu quá thấp.",
     "originalOptions": {
@@ -1299,6 +7457,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 73,
+    "uid": "basic_73",
     "question": "Tìm đáp án sai theo quan điểm của chủ nghĩa duy vật biện chứng:",
     "originalA": "Ý thức là thuộc tính của một dạng vật chất.",
     "originalOptions": {
@@ -1317,6 +7476,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 74,
+    "uid": "basic_74",
     "question": "Tìm đáp án sai theo quan điểm của chủ nghĩa duy vật biện chứng về vai trò của thực tiễn đối với nhận thức:",
     "originalA": "Nhận thức không cần có thực tiễn.",
     "originalOptions": {
@@ -1335,6 +7495,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 75,
+    "uid": "basic_75",
     "question": "Cơ sở lý luận của quan điểm toàn diện là:",
     "originalA": "Nguyên lý về mối liên hệ phổ biến.",
     "originalOptions": {
@@ -1353,6 +7514,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 76,
+    "uid": "basic_76",
     "question": "Trong hoạt động thực tiễn, sai lầm của sự chủ quan nóng vội là do không tôn trọng quy luật nào?",
     "originalA": "Quy luật lượng - chất",
     "originalOptions": {
@@ -1371,6 +7533,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 77,
+    "uid": "basic_77",
     "question": "Cơ sở lý luận của quan điểm phát triển là:",
     "originalA": "Nguyên lý về sự phát triển.",
     "originalOptions": {
@@ -1389,6 +7552,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 78,
+    "uid": "basic_78",
     "question": "Theo quan điểm của chủ nghĩa duy vật biện chứng, luận điểm nào sau đây là sai?",
     "originalA": "Chất đồng nhất với thuộc tính",
     "originalOptions": {
@@ -1407,6 +7571,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 79,
+    "uid": "basic_79",
     "question": "Trường phái triết học nào cho vận động là tuyệt đối, đứng im là tương đối?",
     "originalA": "Chủ nghĩa duy vật biện chứng",
     "originalOptions": {
@@ -1425,6 +7590,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 80,
+    "uid": "basic_80",
     "question": "Theo quan điểm của chủ nghĩa duy vật biện chứng, luận điểm nào sau đây là sai?",
     "originalA": "Chất tồn tại khách quan bên ngoài sự vật",
     "originalOptions": {
@@ -1443,6 +7609,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 81,
+    "uid": "basic_81",
     "question": "Phương thức sản xuất bao gồm những yếu tố nào?",
     "originalA": "Lực lượng sản xuất và quan hệ sản xuất.",
     "originalOptions": {
@@ -1461,6 +7628,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 82,
+    "uid": "basic_82",
     "question": "Phương diện nào trong phương thức sản xuất thể hiện mối quan hệ giữa con người với con người trong quá trình sản xuất vật chất?",
     "originalA": "Quan hệ sản xuất.",
     "originalOptions": {
@@ -1479,6 +7647,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 83,
+    "uid": "basic_83",
     "question": "Quan hệ sản xuất không bao gồm quan hệ nào dưới đây?",
     "originalA": "Quan hệ tình cảm giữa nhà tư bản và công nhân.",
     "originalOptions": {
@@ -1497,6 +7666,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 84,
+    "uid": "basic_84",
     "question": "Trong bối cảnh Cách mạng công nghiệp lần thứ tư, sự phát triển của trí tuệ nhân tạo (AI) có tác động như thế nào đối với hoạt động sản xuất của các doanh nghiệp Việt Nam?",
     "originalA": "AI làm thay đổi cách thức tổ chức, quản lý sản xuất.",
     "originalOptions": {
@@ -1515,6 +7685,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 85,
+    "uid": "basic_85",
     "question": "Chủ trương thực hiện nhất quán cơ cấu kinh tế nhiều thành phần ở nước ta hiện nay là:",
     "originalA": "Sự vận dụng đúng đắn quy luật về sự phù hợp của quan hệ sản xuất với trình độ của lực lượng sản xuất.",
     "originalOptions": {
@@ -1533,6 +7704,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 86,
+    "uid": "basic_86",
     "question": "Bộ phận có quyền lực mạnh nhất trong kiến trúc thượng tầng của xã hội có đối kháng giai cấp là bộ phận nào?",
     "originalA": "Nhà nước",
     "originalOptions": {
@@ -1551,6 +7723,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 87,
+    "uid": "basic_87",
     "question": "Thực chất của quan hệ biện chứng giữa cơ sở hạ tầng và kiến trúc thượng tầng là:",
     "originalA": "Quan hệ giữa kinh tế và chính trị.",
     "originalOptions": {
@@ -1569,6 +7742,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 88,
+    "uid": "basic_88",
     "question": "Yếu tố nào không thuộc kiến trúc thượng tầng của xã hội Việt Nam hiện nay?",
     "originalA": "Nền kinh tế thị trường định hướng xã hội chủ nghĩa Việt Nam.",
     "originalOptions": {
@@ -1587,6 +7761,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 89,
+    "uid": "basic_89",
     "question": "Bản chất chế độ sở hữu xã hội chủ nghĩa là:",
     "originalA": "Chế độ công hữu về tư liệu sản xuất.",
     "originalOptions": {
@@ -1605,6 +7780,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 90,
+    "uid": "basic_90",
     "question": "Căn cứ vào đâu để phân chia giai cấp thành giai cấp cơ bản và giai cấp không cơ bản ?",
     "originalA": "Vào phương thức sản xuất mà giai cấp đó đại diện.",
     "originalOptions": {
@@ -1623,6 +7799,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 91,
+    "uid": "basic_91",
     "question": "Sự phân chia giai cấp trong xã hội bắt đầu từ hình thái kinh tế - xã hội nào?",
     "originalA": "Chiếm hữu nô lệ.",
     "originalOptions": {
@@ -1641,6 +7818,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 92,
+    "uid": "basic_92",
     "question": "Trong quá trình lãnh đạo con thuyền cách mạng của dân tộc, Đảng Cộng sản Việt Nam luôn khẳng định “lực lượng đi đầu trong sự nghiệp công nghiệp hóa, hiện đại hóa và xây dựng chủ nghĩa xã hội” là:",
     "originalA": "Giai cấp công nhân.",
     "originalOptions": {
@@ -1659,6 +7837,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 93,
+    "uid": "basic_93",
     "question": "Hiện nay, Việt Nam tham gia nhiều hiệp ước và tổ chức kinh tế quốc tế lớn như WTO, APEC, ASEAN, CPTPP v.v... Theo quan điểm của chủ nghĩa duy vật lịch sử, hoạt động này phản ánh chức năng nào của nhà nước?",
     "originalA": "Chức năng đối ngoại.",
     "originalOptions": {
@@ -1677,6 +7856,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 94,
+    "uid": "basic_94",
     "question": "Việc các trường đại học đưa nội dung phòng chống tham nhũng, an ninh mạng vào chương trình đào tạo là sự vận dụng chủ yếu của hình thái ý thức xã hội nào?",
     "originalA": "Ý thức pháp quyền.",
     "originalOptions": {
@@ -1695,6 +7875,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 95,
+    "uid": "basic_95",
     "question": "Chủ trương bảo tồn di sản văn hóa ở Việt Nam hiện nay là sự vận dụng tính độc lập tương đối của ý thức xã hội ở phương diện nào?",
     "originalA": "Tính kế thừa.",
     "originalOptions": {
@@ -1713,6 +7894,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 96,
+    "uid": "basic_96",
     "question": "Quá trình chuyển đổi số và phát triển kinh tế số ở Việt Nam đã làm thay đổi phương thức sáng tạo, phổ biến và tiếp nhận các sản phẩm văn hóa. Đây là sự phản ánh của nội dung nào trong chủ nghĩa duy vật lịch sử?",
     "originalA": "Tồn tại xã hội quyết định ý thức xã hội.",
     "originalOptions": {
@@ -1731,6 +7913,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 97,
+    "uid": "basic_97",
     "question": "Nhóm sinh viên được giao chuẩn bị bài thuyết trình về tính độc lập tương đối của ý thức xã hội, một thành viên cho rằng: “ý thức xã hội phụ thuộc hoàn toàn vào tồn tại xã hội”. Để nhóm đạt kết quả tốt nhất, các thành viên nên làm gì?",
     "originalA": "Cùng phân tích tài liệu và thống nhất rằng ý thức xã hội vừa được quyết định bởi tồn tại xã hội, vừa có tính độc lập tương đối và có thể tác động trở lại tồn tại xã hội.",
     "originalOptions": {
@@ -1749,6 +7932,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 98,
+    "uid": "basic_98",
     "question": "Khi thuyết trình về nội dung ý thức thẩm mỹ, sinh viên chỉ nêu tên tác phẩm nghệ thuật mà không giải thích. Đây là biểu hiện hạn chế của kỹ năng nào trong thuyết trình?",
     "originalA": "Kỹ năng sử dụng dẫn chứng và minh họa.",
     "originalOptions": {
@@ -1767,6 +7951,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 99,
+    "uid": "basic_99",
     "question": "Để viết báo cáo nội dung tính lạc hậu của ý thức xã hội, nguồn minh chứng nào sau đây phù hợp nhất?",
     "originalA": "Tập quán, hủ tục còn tồn tại ở địa phương.",
     "originalOptions": {
@@ -1785,6 +7970,7 @@ const RAW_QUESTIONS = [
   },
   {
     "id": 100,
+    "uid": "basic_100",
     "question": "Theo quan điểm của chủ nghĩa duy vật lịch sử, con người là gì?",
     "originalA": "Là thực thể thống nhất giữa mặt sinh học và mặt xã hội.",
     "originalOptions": {
@@ -1802,3 +7988,8814 @@ const RAW_QUESTIONS = [
     ]
   }
 ];
+
+const ALL_QUESTIONS = [
+  {
+    "id": 1,
+    "rawId": 1,
+    "uid": "spkt_1",
+    "question": "Hãy sắp xếp theo trình tự xuất hiện từ sớm nhất đến muộn nhất các hình thức thế giới quan sau: Triết học, tôn giáo, thần thoại:",
+    "originalOptions": {
+      "A": "Tôn giáo - thần thoại - triết học",
+      "B": "Thần thoại - tôn giáo - triết học",
+      "C": "Triết học - tôn giáo - thần thoại",
+      "D": "Thần thoại - triết học - tôn giáo"
+    },
+    "originalAnswer": "Thần thoại - tôn giáo - triết học",
+    "originalLetter": "B",
+    "correctAnswer": "Thần thoại - tôn giáo - triết học",
+    "options": [
+      "Triết học - tôn giáo - thần thoại",
+      "Thần thoại - tôn giáo - triết học",
+      "Thần thoại - triết học - tôn giáo",
+      "Tôn giáo - thần thoại - triết học"
+    ],
+    "globalId": 1,
+    "set": "spkt_300"
+  },
+  {
+    "id": 2,
+    "rawId": 2,
+    "uid": "spkt_2",
+    "question": "Triết học ra đời vào thời gian nào?",
+    "originalOptions": {
+      "A": "Thiên niên kỷ II. TCN",
+      "B": "Thế kỷ VIII - thế kỷ VI trước CN",
+      "C": "Thế kỷ II sau CN"
+    },
+    "originalAnswer": "Thế kỷ VIII - thế kỷ VI trước CN",
+    "originalLetter": "B",
+    "correctAnswer": "Thế kỷ VIII - thế kỷ VI trước CN",
+    "options": [
+      "Thế kỷ VIII - thế kỷ VI trước CN",
+      "Thế kỷ II sau CN",
+      "Thiên niên kỷ II. TCN"
+    ],
+    "globalId": 2,
+    "set": "spkt_300"
+  },
+  {
+    "id": 3,
+    "rawId": 3,
+    "uid": "spkt_3",
+    "question": "Triết học ra đời sớm nhất ở đâu?",
+    "originalOptions": {
+      "A": "ấn Độ, Châu Phi , Nga",
+      "B": "ấn Độ, Trung Quốc , Hy Lạp",
+      "C": "Ai Cập, ấn Độ , Trung Quốc"
+    },
+    "originalAnswer": "ấn Độ, Trung Quốc , Hy Lạp",
+    "originalLetter": "B",
+    "correctAnswer": "ấn Độ, Trung Quốc , Hy Lạp",
+    "options": [
+      "ấn Độ, Trung Quốc , Hy Lạp",
+      "Ai Cập, ấn Độ , Trung Quốc",
+      "ấn Độ, Châu Phi , Nga"
+    ],
+    "globalId": 3,
+    "set": "spkt_300"
+  },
+  {
+    "id": 4,
+    "rawId": 4,
+    "uid": "spkt_4",
+    "question": "Triết học nghiên cứu thế giới như thế nào?",
+    "originalOptions": {
+      "A": "Như một đối tượng vật chất cụ thể",
+      "B": "Như một hệ đối tượng vật chất nhất định",
+      "C": "Như một chỉnh thể thống nhất"
+    },
+    "originalAnswer": "Như một chỉnh thể thống nhất",
+    "originalLetter": "C",
+    "correctAnswer": "Như một chỉnh thể thống nhất",
+    "options": [
+      "Như một hệ đối tượng vật chất nhất định",
+      "Như một đối tượng vật chất cụ thể",
+      "Như một chỉnh thể thống nhất"
+    ],
+    "globalId": 4,
+    "set": "spkt_300"
+  },
+  {
+    "id": 5,
+    "rawId": 5,
+    "uid": "spkt_5",
+    "question": "Triết học là gì?",
+    "originalOptions": {
+      "A": "Triết học là tri thức về thế giới tự nhiên",
+      "B": "Triết học là tri thức về tự nhiên và xã hội",
+      "C": "Triết học là tri thức lý luận của con người về thế giới",
+      "D": "Triết học là hệ thống tri thức lý luận chung nhất của con người về thế giới và vị trí của con người trong thế giới"
+    },
+    "originalAnswer": "Triết học là hệ thống tri thức lý luận chung nhất của con người về thế giới và vị trí của con người trong thế giới",
+    "originalLetter": "D",
+    "correctAnswer": "Triết học là hệ thống tri thức lý luận chung nhất của con người về thế giới và vị trí của con người trong thế giới",
+    "options": [
+      "Triết học là tri thức về tự nhiên và xã hội",
+      "Triết học là tri thức lý luận của con người về thế giới",
+      "Triết học là tri thức về thế giới tự nhiên",
+      "Triết học là hệ thống tri thức lý luận chung nhất của con người về thế giới và vị trí của con người trong thế giới"
+    ],
+    "globalId": 5,
+    "set": "spkt_300"
+  },
+  {
+    "id": 6,
+    "rawId": 6,
+    "uid": "spkt_6",
+    "question": "Triết học ra đời trong điều kiện nào?",
+    "originalOptions": {
+      "A": "Xã hội phân chia thành giai cấp",
+      "B": "Xuất hiện tầng lớp lao động trí óc",
+      "C": "Tư duy của con người đạt trình độ tư duy khái quát cao và xuất hiện tầng lớp lao động trí óc có khả năng hệ thống tri thức của con người"
+    },
+    "originalAnswer": "Tư duy của con người đạt trình độ tư duy khái quát cao và xuất hiện tầng lớp lao động trí óc có khả năng hệ thống tri thức của con người",
+    "originalLetter": "C",
+    "correctAnswer": "Tư duy của con người đạt trình độ tư duy khái quát cao và xuất hiện tầng lớp lao động trí óc có khả năng hệ thống tri thức của con người",
+    "options": [
+      "Xuất hiện tầng lớp lao động trí óc",
+      "Tư duy của con người đạt trình độ tư duy khái quát cao và xuất hiện tầng lớp lao động trí óc có khả năng hệ thống tri thức của con người",
+      "Xã hội phân chia thành giai cấp"
+    ],
+    "globalId": 6,
+    "set": "spkt_300"
+  },
+  {
+    "id": 7,
+    "rawId": 7,
+    "uid": "spkt_7",
+    "question": "Triết học ra đời từ đâu?",
+    "originalOptions": {
+      "A": "Từ thực tiễn, do nhu cầu của thực tiễn",
+      "B": "Từ sự suy tư của con người về bản thân mình",
+      "C": "Từ sự sáng tạo của nhà tư tưởng",
+      "D": "Từ sự vận động của ý muốn chủ quan của con người"
+    },
+    "originalAnswer": "Từ thực tiễn, do nhu cầu của thực tiễn",
+    "originalLetter": "A",
+    "correctAnswer": "Từ thực tiễn, do nhu cầu của thực tiễn",
+    "options": [
+      "Từ sự vận động của ý muốn chủ quan của con người",
+      "Từ thực tiễn, do nhu cầu của thực tiễn",
+      "Từ sự sáng tạo của nhà tư tưởng",
+      "Từ sự suy tư của con người về bản thân mình"
+    ],
+    "globalId": 7,
+    "set": "spkt_300"
+  },
+  {
+    "id": 8,
+    "rawId": 8,
+    "uid": "spkt_8",
+    "question": "Nguồn gốc nhận thức của triết học là gì?",
+    "originalOptions": {
+      "A": "Con người đã có một vốn hiểu biết phong phú nhất định và tư duy con người đã đạt tới trình độ trừu tượng hoá, khái quát hoá, hệ thống hoá để xây dựng nên các học thuyết, các lý luận.",
+      "B": "Xã hội phát triển đến mức có sự phân chia thành lao động trí óc và lao động chân tay.",
+      "C": "Xuất hiện sự suy tư và ý muốn chủ quan thuần túy của các nhà tư tưởng.",
+      "D": "Niềm tin tôn giáo và sự thần thánh hóa các hiện tượng tự nhiên."
+    },
+    "originalAnswer": "Con người đã có một vốn hiểu biết phong phú nhất định và tư duy con người đã đạt tới trình độ trừu tượng hoá, khái quát hoá, hệ thống hoá để xây dựng nên các học thuyết, các lý luận.",
+    "originalLetter": "A",
+    "correctAnswer": "Con người đã có một vốn hiểu biết phong phú nhất định và tư duy con người đã đạt tới trình độ trừu tượng hoá, khái quát hoá, hệ thống hoá để xây dựng nên các học thuyết, các lý luận.",
+    "options": [
+      "Con người đã có một vốn hiểu biết phong phú nhất định và tư duy con người đã đạt tới trình độ trừu tượng hoá, khái quát hoá, hệ thống hoá để xây dựng nên các học thuyết, các lý luận.",
+      "Niềm tin tôn giáo và sự thần thánh hóa các hiện tượng tự nhiên.",
+      "Xuất hiện sự suy tư và ý muốn chủ quan thuần túy của các nhà tư tưởng.",
+      "Xã hội phát triển đến mức có sự phân chia thành lao động trí óc và lao động chân tay."
+    ],
+    "globalId": 8,
+    "set": "spkt_300"
+  },
+  {
+    "id": 9,
+    "rawId": 9,
+    "uid": "spkt_9",
+    "question": "Nguồn gốc xã hội của triết học là gì?",
+    "originalOptions": {
+      "A": "Xã hội phát triển đến mức có sự phân chia thành lao động trí óc và lao động chân tay, chế độ công xã nguyên thuỷ đã được thay bằng chế độ chiếm hữu nô lệ - chế độ xã hội có giai cấp đầu tiên trong lịch sử.",
+      "B": "Tư duy con người đạt tới trình độ trừu tượng hoá, khái quát hoá các tri thức kinh nghiệm.",
+      "C": "Con người bắt đầu chế tạo ra công cụ lao động bằng kim loại.",
+      "D": "Sự xuất hiện của các nhà thông thái và tôn giáo lớn trên thế giới."
+    },
+    "originalAnswer": "Xã hội phát triển đến mức có sự phân chia thành lao động trí óc và lao động chân tay, chế độ công xã nguyên thuỷ đã được thay bằng chế độ chiếm hữu nô lệ - chế độ xã hội có giai cấp đầu tiên trong lịch sử.",
+    "originalLetter": "A",
+    "correctAnswer": "Xã hội phát triển đến mức có sự phân chia thành lao động trí óc và lao động chân tay, chế độ công xã nguyên thuỷ đã được thay bằng chế độ chiếm hữu nô lệ - chế độ xã hội có giai cấp đầu tiên trong lịch sử.",
+    "options": [
+      "Xã hội phát triển đến mức có sự phân chia thành lao động trí óc và lao động chân tay, chế độ công xã nguyên thuỷ đã được thay bằng chế độ chiếm hữu nô lệ - chế độ xã hội có giai cấp đầu tiên trong lịch sử.",
+      "Con người bắt đầu chế tạo ra công cụ lao động bằng kim loại.",
+      "Sự xuất hiện của các nhà thông thái và tôn giáo lớn trên thế giới.",
+      "Tư duy con người đạt tới trình độ trừu tượng hoá, khái quát hoá các tri thức kinh nghiệm."
+    ],
+    "globalId": 9,
+    "set": "spkt_300"
+  },
+  {
+    "id": 10,
+    "rawId": 10,
+    "uid": "spkt_10",
+    "question": "Đối tượng của triết học có thay đổi trong lịch sử không?",
+    "originalOptions": {
+      "A": "Không",
+      "B": "Có"
+    },
+    "originalAnswer": "Có",
+    "originalLetter": "B",
+    "correctAnswer": "Có",
+    "options": [
+      "Có",
+      "Không"
+    ],
+    "globalId": 10,
+    "set": "spkt_300"
+  },
+  {
+    "id": 11,
+    "rawId": 11,
+    "uid": "spkt_11",
+    "question": "Thời kỳ Phục Hưng ở Tây Âu là vào thế kỷ nào",
+    "originalOptions": {
+      "A": "Thế kỷ XIV - XV",
+      "B": "Thế kỷ XV - XVI",
+      "C": "Thế kỷ XVI - XVII",
+      "D": "Thế kỷ XVII - XVIII"
+    },
+    "originalAnswer": "Thế kỷ XV - XVI",
+    "originalLetter": "B",
+    "correctAnswer": "Thế kỷ XV - XVI",
+    "options": [
+      "Thế kỷ XIV - XV",
+      "Thế kỷ XVII - XVIII",
+      "Thế kỷ XVI - XVII",
+      "Thế kỷ XV - XVI"
+    ],
+    "globalId": 11,
+    "set": "spkt_300"
+  },
+  {
+    "id": 12,
+    "rawId": 12,
+    "uid": "spkt_12",
+    "question": "Tên gọi thời kỳ Phục Hưng ở Tây Âu có nghĩa là gì?",
+    "originalOptions": {
+      "A": "Khôi phục chủ nghĩa duy vật thời kỳ cổ đại",
+      "B": "Khôi phục triết học thời kỳ cổ đại.",
+      "C": "Khôi phục nền văn hoá cổ đại.",
+      "D": "Khôi phục phép biện chứng tự phát thời kỳ cổ đại"
+    },
+    "originalAnswer": "Khôi phục nền văn hoá cổ đại.",
+    "originalLetter": "C",
+    "correctAnswer": "Khôi phục nền văn hoá cổ đại.",
+    "options": [
+      "Khôi phục phép biện chứng tự phát thời kỳ cổ đại",
+      "Khôi phục chủ nghĩa duy vật thời kỳ cổ đại",
+      "Khôi phục triết học thời kỳ cổ đại.",
+      "Khôi phục nền văn hoá cổ đại."
+    ],
+    "globalId": 12,
+    "set": "spkt_300"
+  },
+  {
+    "id": 13,
+    "rawId": 13,
+    "uid": "spkt_13",
+    "question": "Thời kỳ Phục Hưng là thời kỳ quá độ từ hình thái kinh tế - xã hội nào sang hình thái kinh tế - xã hội nào?",
+    "originalOptions": {
+      "A": "Từ hình thái kinh tế - xã hội chiếm hữu nô lệ sang hình thái kinh tế - xã hội phong kiến.",
+      "B": "Từ hình thái kinh tế - xã hội phong kiến sang kình thái kinh tế - xã hội tư bản chủ nghĩa.",
+      "C": "Từ hình thái kinh tế - xã hội TBCN sang hình thái kinh tế - xã hội XHCN.",
+      "D": "Từ hình thái kinh tế xã hội cộng sản nguyên thuỷ sang hình thái kinh tế xã hội chiếm hữu nô lệ"
+    },
+    "originalAnswer": "Từ hình thái kinh tế - xã hội phong kiến sang kình thái kinh tế - xã hội tư bản chủ nghĩa.",
+    "originalLetter": "B",
+    "correctAnswer": "Từ hình thái kinh tế - xã hội phong kiến sang kình thái kinh tế - xã hội tư bản chủ nghĩa.",
+    "options": [
+      "Từ hình thái kinh tế - xã hội TBCN sang hình thái kinh tế - xã hội XHCN.",
+      "Từ hình thái kinh tế - xã hội chiếm hữu nô lệ sang hình thái kinh tế - xã hội phong kiến.",
+      "Từ hình thái kinh tế xã hội cộng sản nguyên thuỷ sang hình thái kinh tế xã hội chiếm hữu nô lệ",
+      "Từ hình thái kinh tế - xã hội phong kiến sang kình thái kinh tế - xã hội tư bản chủ nghĩa."
+    ],
+    "globalId": 13,
+    "set": "spkt_300"
+  },
+  {
+    "id": 14,
+    "rawId": 14,
+    "uid": "spkt_14",
+    "question": "Khoa học tự nhiên bắt đầu có sự phát triển mạnh mẽ vào thời kỳ nào?",
+    "originalOptions": {
+      "A": "Thời kỳ Phục Hưng",
+      "B": "Thời kỳ trung cổ",
+      "C": "Thời kỳ cổ đại",
+      "D": "Thời kỳ cận đại"
+    },
+    "originalAnswer": "Thời kỳ Phục Hưng",
+    "originalLetter": "A",
+    "correctAnswer": "Thời kỳ Phục Hưng",
+    "options": [
+      "Thời kỳ cổ đại",
+      "Thời kỳ cận đại",
+      "Thời kỳ trung cổ",
+      "Thời kỳ Phục Hưng"
+    ],
+    "globalId": 14,
+    "set": "spkt_300"
+  },
+  {
+    "id": 15,
+    "rawId": 15,
+    "uid": "spkt_15",
+    "question": "Quan hệ giữa khoa học tự nhiên với thần học ở thời kỳ Phục Hưng như thế nào?",
+    "originalOptions": {
+      "A": "Khoa học tự nhiên hoàn toàn phụ thuộc vào thần học và tôn giáo",
+      "B": "Khoa học tự nhiên hoàn toàn độc lập với thần học và tôn giáo.",
+      "C": "Khoa học tự nhiên dần dần độc lập với thần học và tôn giáo"
+    },
+    "originalAnswer": "Khoa học tự nhiên dần dần độc lập với thần học và tôn giáo",
+    "originalLetter": "C",
+    "correctAnswer": "Khoa học tự nhiên dần dần độc lập với thần học và tôn giáo",
+    "options": [
+      "Khoa học tự nhiên hoàn toàn phụ thuộc vào thần học và tôn giáo",
+      "Khoa học tự nhiên dần dần độc lập với thần học và tôn giáo",
+      "Khoa học tự nhiên hoàn toàn độc lập với thần học và tôn giáo."
+    ],
+    "globalId": 15,
+    "set": "spkt_300"
+  },
+  {
+    "id": 16,
+    "rawId": 16,
+    "uid": "spkt_16",
+    "question": "Về khách quan, sự phát triển khoa học tự nhiên và thế giới quan duy tâm tôn giáo quan hệ với nhau như thế nào?",
+    "originalOptions": {
+      "A": "Sự phát triển khoa học tự nhiên củng cố thế giới quan duy tâm tôn giáo.",
+      "B": "Sự phát triển KHTN không ảnh hưởng gì đến thế giới quan duy tâm tôn giáo.",
+      "C": "Sự phát triển KHTN trở thành vũ khí chống lại thế giới quan duy tâm tôn giáo"
+    },
+    "originalAnswer": "Sự phát triển KHTN trở thành vũ khí chống lại thế giới quan duy tâm tôn giáo",
+    "originalLetter": "C",
+    "correctAnswer": "Sự phát triển KHTN trở thành vũ khí chống lại thế giới quan duy tâm tôn giáo",
+    "options": [
+      "Sự phát triển khoa học tự nhiên củng cố thế giới quan duy tâm tôn giáo.",
+      "Sự phát triển KHTN không ảnh hưởng gì đến thế giới quan duy tâm tôn giáo.",
+      "Sự phát triển KHTN trở thành vũ khí chống lại thế giới quan duy tâm tôn giáo"
+    ],
+    "globalId": 16,
+    "set": "spkt_300"
+  },
+  {
+    "id": 17,
+    "rawId": 17,
+    "uid": "spkt_17",
+    "question": "Trong thời kỳ Phục Hưng giai cấp tư sản có vị trí như thế nào đối với sự phát triển xã hội?",
+    "originalOptions": {
+      "A": "Là giai cấp tiến bộ, cách mạng",
+      "B": "Là giai cấp thống trị xã hội.",
+      "C": "Là giai cấp bảo thủ lạc hậu."
+    },
+    "originalAnswer": "Là giai cấp tiến bộ, cách mạng",
+    "originalLetter": "A",
+    "correctAnswer": "Là giai cấp tiến bộ, cách mạng",
+    "options": [
+      "Là giai cấp bảo thủ lạc hậu.",
+      "Là giai cấp thống trị xã hội.",
+      "Là giai cấp tiến bộ, cách mạng"
+    ],
+    "globalId": 17,
+    "set": "spkt_300"
+  },
+  {
+    "id": 18,
+    "rawId": 18,
+    "uid": "spkt_18",
+    "question": "Những nhà khoa học và triết học: Côpécních, Brunô, thuộc thời kỳ nào?",
+    "originalOptions": {
+      "A": "Thời kỳ cổ đại.",
+      "B": "Thời kỳ trung cổ",
+      "C": "Thời kỳ Phục Hưng",
+      "D": "Thời kỳ cận đại."
+    },
+    "originalAnswer": "Thời kỳ Phục Hưng",
+    "originalLetter": "C",
+    "correctAnswer": "Thời kỳ Phục Hưng",
+    "options": [
+      "Thời kỳ Phục Hưng",
+      "Thời kỳ cận đại.",
+      "Thời kỳ trung cổ",
+      "Thời kỳ cổ đại."
+    ],
+    "globalId": 18,
+    "set": "spkt_300"
+  },
+  {
+    "id": 19,
+    "rawId": 19,
+    "uid": "spkt_19",
+    "question": "Nicôlai Côpécních là nhà khoa học của nước nào?",
+    "originalOptions": {
+      "A": "Italia",
+      "B": "Đức",
+      "C": "Balan",
+      "D": "Pháp"
+    },
+    "originalAnswer": "Balan",
+    "originalLetter": "C",
+    "correctAnswer": "Balan",
+    "options": [
+      "Italia",
+      "Đức",
+      "Pháp",
+      "Balan"
+    ],
+    "globalId": 19,
+    "set": "spkt_300"
+  },
+  {
+    "id": 20,
+    "rawId": 20,
+    "uid": "spkt_20",
+    "question": "Nicôlai Côpécních đã đưa ra học thuyết nào?",
+    "originalOptions": {
+      "A": "Thuyết trái đất là trung tâm của vũ trụ.",
+      "B": "Thuyết cấu tạo nguyên tử của vật chất.",
+      "C": "Thuyết ý niệm là nguồn gốc của thế giới.",
+      "D": "Thuyết mặt trời là trung tâm của vũ trụ."
+    },
+    "originalAnswer": "Thuyết mặt trời là trung tâm của vũ trụ.",
+    "originalLetter": "D",
+    "correctAnswer": "Thuyết mặt trời là trung tâm của vũ trụ.",
+    "options": [
+      "Thuyết mặt trời là trung tâm của vũ trụ.",
+      "Thuyết trái đất là trung tâm của vũ trụ.",
+      "Thuyết ý niệm là nguồn gốc của thế giới.",
+      "Thuyết cấu tạo nguyên tử của vật chất."
+    ],
+    "globalId": 20,
+    "set": "spkt_300"
+  },
+  {
+    "id": 21,
+    "rawId": 21,
+    "uid": "spkt_21",
+    "question": "Học thuyết về vũ trụ của Nicôlai Côpécních có ý nghĩa như thế nào đối với sự phát triển khoa học tự nhiên?",
+    "originalOptions": {
+      "A": "Đánh dấu sự ra đời của khoa học tự nhiên",
+      "B": "Đánh dấu bước chuyển từ khoa học tự nhiên thực nghiệm sang khoa học tự nhiên lý luận.",
+      "C": "Đánh dấu sự giải phóng khoa học tự nhiên khỏi thần học và tôn giáo"
+    },
+    "originalAnswer": "Đánh dấu sự giải phóng khoa học tự nhiên khỏi thần học và tôn giáo",
+    "originalLetter": "C",
+    "correctAnswer": "Đánh dấu sự giải phóng khoa học tự nhiên khỏi thần học và tôn giáo",
+    "options": [
+      "Đánh dấu bước chuyển từ khoa học tự nhiên thực nghiệm sang khoa học tự nhiên lý luận.",
+      "Đánh dấu sự giải phóng khoa học tự nhiên khỏi thần học và tôn giáo",
+      "Đánh dấu sự ra đời của khoa học tự nhiên"
+    ],
+    "globalId": 21,
+    "set": "spkt_300"
+  },
+  {
+    "id": 22,
+    "rawId": 22,
+    "uid": "spkt_22",
+    "question": "Đối với thế giới quan tôn giáo, phát minh của Côpécních có ý nghĩa gì?",
+    "originalOptions": {
+      "A": "Củng cố thế giới quan tôn giáo",
+      "B": "Không có ảnh hưởng gì đối với thế giới quan tôn giáo",
+      "C": "Bác bỏ nền tảng của thế giới quan tôn giáo",
+      "D": "Chứng minh tính hợp lý của kinh thánh"
+    },
+    "originalAnswer": "Bác bỏ nền tảng của thế giới quan tôn giáo",
+    "originalLetter": "C",
+    "correctAnswer": "Bác bỏ nền tảng của thế giới quan tôn giáo",
+    "options": [
+      "Không có ảnh hưởng gì đối với thế giới quan tôn giáo",
+      "Chứng minh tính hợp lý của kinh thánh",
+      "Củng cố thế giới quan tôn giáo",
+      "Bác bỏ nền tảng của thế giới quan tôn giáo"
+    ],
+    "globalId": 22,
+    "set": "spkt_300"
+  },
+  {
+    "id": 23,
+    "rawId": 23,
+    "uid": "spkt_23",
+    "question": "Brunô là nhà khoa học và triết học của nước nào?",
+    "originalOptions": {
+      "A": "Đức",
+      "B": "Pháp",
+      "C": "Balan",
+      "D": "Italia"
+    },
+    "originalAnswer": "Italia",
+    "originalLetter": "D",
+    "correctAnswer": "Italia",
+    "options": [
+      "Italia",
+      "Balan",
+      "Pháp",
+      "Đức"
+    ],
+    "globalId": 23,
+    "set": "spkt_300"
+  },
+  {
+    "id": 24,
+    "rawId": 24,
+    "uid": "spkt_24",
+    "question": "Brunô đồng ý với quan niệm của ai về vũ trụ?",
+    "originalOptions": {
+      "A": "Ptôlêmê",
+      "B": "Platôn",
+      "C": "Nicôlai Côpécních",
+      "D": "Hêraclit"
+    },
+    "originalAnswer": "Nicôlai Côpécních",
+    "originalLetter": "C",
+    "correctAnswer": "Nicôlai Côpécních",
+    "options": [
+      "Ptôlêmê",
+      "Platôn",
+      "Nicôlai Côpécních",
+      "Hêraclit"
+    ],
+    "globalId": 24,
+    "set": "spkt_300"
+  },
+  {
+    "id": 25,
+    "rawId": 25,
+    "uid": "spkt_25",
+    "question": "Brunô đã chứng minh về tính chất gì của thế giới (của vũ trụ)",
+    "originalOptions": {
+      "A": "Tính tồn tại thuần tuý của thế giới vật chất",
+      "B": "Tính thống nhất trên cơ sở tinh thần của vật chất.",
+      "C": "Tính thống nhất vật chất của thế giới (của vũ trụ)"
+    },
+    "originalAnswer": "Tính thống nhất vật chất của thế giới (của vũ trụ)",
+    "originalLetter": "C",
+    "correctAnswer": "Tính thống nhất vật chất của thế giới (của vũ trụ)",
+    "options": [
+      "Tính thống nhất vật chất của thế giới (của vũ trụ)",
+      "Tính thống nhất trên cơ sở tinh thần của vật chất.",
+      "Tính tồn tại thuần tuý của thế giới vật chất"
+    ],
+    "globalId": 25,
+    "set": "spkt_300"
+  },
+  {
+    "id": 26,
+    "rawId": 26,
+    "uid": "spkt_26",
+    "question": "Khi xây dựng phương pháp mới của khoa học, Brunô đòi hỏi khoa học tự nhiên phải dựa trên cái gì?",
+    "originalOptions": {
+      "A": "Dự trên những giáo điều tôn giáo",
+      "B": "Dựa trên ý muốn chủ quan",
+      "C": "Dựa trên tình cảm, khát vọng",
+      "D": "Dựa trên thực nghiệm"
+    },
+    "originalAnswer": "Dựa trên thực nghiệm",
+    "originalLetter": "D",
+    "correctAnswer": "Dựa trên thực nghiệm",
+    "options": [
+      "Dựa trên thực nghiệm",
+      "Dựa trên ý muốn chủ quan",
+      "Dự trên những giáo điều tôn giáo",
+      "Dựa trên tình cảm, khát vọng"
+    ],
+    "globalId": 26,
+    "set": "spkt_300"
+  },
+  {
+    "id": 27,
+    "rawId": 27,
+    "uid": "spkt_27",
+    "question": "Brunô bị toà án tôn giáo xử tội như thế nào?",
+    "originalOptions": {
+      "A": "Tù trung thân",
+      "C": "Tử hình (thiêu sống)",
+      "B": "Giam lỏng",
+      "D": "Tha bổng"
+    },
+    "originalAnswer": "Tử hình (thiêu sống)",
+    "originalLetter": "C",
+    "correctAnswer": "Tử hình (thiêu sống)",
+    "options": [
+      "Tử hình (thiêu sống)",
+      "Tha bổng",
+      "Giam lỏng",
+      "Tù trung thân"
+    ],
+    "globalId": 27,
+    "set": "spkt_300"
+  },
+  {
+    "id": 28,
+    "rawId": 28,
+    "uid": "spkt_28",
+    "question": "Triết học của các nhà tư tưởng thời kỳ Phục Hưng có đặc điểm gì?",
+    "originalOptions": {
+      "A": "Có tính chất duy vật tự phát",
+      "B": "Có tính duy tâm khách quan",
+      "C": "Có tính duy tâm chủ quan",
+      "D": "Còn pha trộn giữa các yếu tố duy vật và duy tâm, có tính chất phiếm thần luận"
+    },
+    "originalAnswer": "Còn pha trộn giữa các yếu tố duy vật và duy tâm, có tính chất phiếm thần luận",
+    "originalLetter": "D",
+    "correctAnswer": "Còn pha trộn giữa các yếu tố duy vật và duy tâm, có tính chất phiếm thần luận",
+    "options": [
+      "Có tính duy tâm chủ quan",
+      "Còn pha trộn giữa các yếu tố duy vật và duy tâm, có tính chất phiếm thần luận",
+      "Có tính chất duy vật tự phát",
+      "Có tính duy tâm khách quan"
+    ],
+    "globalId": 28,
+    "set": "spkt_300"
+  },
+  {
+    "id": 29,
+    "rawId": 29,
+    "uid": "spkt_29",
+    "question": "Quan điểm triết học cho rằng thượng đế và tự nhiên chỉ là một gọi là quan điểm có tính chất gì?",
+    "originalOptions": {
+      "A": "Có tính duy vật biện chứng",
+      "B": "Có tính duy tâm, siêu hình",
+      "C": "Có tính chất phiếm thần luận"
+    },
+    "originalAnswer": "Có tính chất phiếm thần luận",
+    "originalLetter": "C",
+    "correctAnswer": "Có tính chất phiếm thần luận",
+    "options": [
+      "Có tính duy vật biện chứng",
+      "Có tính chất phiếm thần luận",
+      "Có tính duy tâm, siêu hình"
+    ],
+    "globalId": 29,
+    "set": "spkt_300"
+  },
+  {
+    "id": 30,
+    "rawId": 30,
+    "uid": "spkt_30",
+    "question": "Quan điểm triết học tự nhiên có tính chất phiếm thần luận là đặc trưng của triết học thời kỳ nào?",
+    "originalOptions": {
+      "A": "Thời kỳ cổ đại",
+      "C": "Thời kỳ trung cổ",
+      "B": "Thời kỳ Phục Hưng",
+      "D": "Thời kỳ cận đại"
+    },
+    "originalAnswer": "Thời kỳ Phục Hưng",
+    "originalLetter": "B",
+    "correctAnswer": "Thời kỳ Phục Hưng",
+    "options": [
+      "Thời kỳ cổ đại",
+      "Thời kỳ cận đại",
+      "Thời kỳ Phục Hưng",
+      "Thời kỳ trung cổ"
+    ],
+    "globalId": 30,
+    "set": "spkt_300"
+  },
+  {
+    "id": 31,
+    "rawId": 31,
+    "uid": "spkt_31",
+    "question": "Những cuộc cách mạng nổ ra ở Hà Lan, Anh, Pháp... thời kỳ cận đại gọi là những cuộc cách mạng nào?",
+    "originalOptions": {
+      "A": "Cách mạng vô sản",
+      "B": "Cách mạng giải phóng dân tộc",
+      "C": "Khởi nghĩa của nông dân",
+      "D": "Cách mạng tư sản."
+    },
+    "originalAnswer": "Cách mạng tư sản.",
+    "originalLetter": "D",
+    "correctAnswer": "Cách mạng tư sản.",
+    "options": [
+      "Cách mạng giải phóng dân tộc",
+      "Khởi nghĩa của nông dân",
+      "Cách mạng tư sản.",
+      "Cách mạng vô sản"
+    ],
+    "globalId": 31,
+    "set": "spkt_300"
+  },
+  {
+    "id": 32,
+    "rawId": 32,
+    "uid": "spkt_32",
+    "question": "Những cuộc cách mạng thời kỳ cận đại ở Tây Âu do mâu thuẫn giữa lực lượng sản xuất với quan hệ sản xuất nào?",
+    "originalOptions": {
+      "A": "Quan hệ sản xuất phong kiến",
+      "B": "Quan hệ sản xuất tư bản chủ nghĩa",
+      "C": "Quan hệ sản xuất chiếm hữu nô lệ",
+      "D": "Quan hệ sản xuất cộng sản nguyên thuỷ"
+    },
+    "originalAnswer": "Quan hệ sản xuất phong kiến",
+    "originalLetter": "A",
+    "correctAnswer": "Quan hệ sản xuất phong kiến",
+    "options": [
+      "Quan hệ sản xuất phong kiến",
+      "Quan hệ sản xuất cộng sản nguyên thuỷ",
+      "Quan hệ sản xuất tư bản chủ nghĩa",
+      "Quan hệ sản xuất chiếm hữu nô lệ"
+    ],
+    "globalId": 32,
+    "set": "spkt_300"
+  },
+  {
+    "id": 33,
+    "rawId": 33,
+    "uid": "spkt_33",
+    "question": "Các cuộc cách mạng ở Tây Âu thời kỳ cận đại nổ ra do mâu thuẫn nào?",
+    "originalOptions": {
+      "A": "Mâu thuẫn giữa lực lượng sản xuất mới với QHSX phong kiến đã trở nên lỗi thời",
+      "B": "Mâu thuẫn giữa nông dân và địa chủ phong kiến",
+      "C": "Mâu thuẫn giữa nô lệ và chủ nô",
+      "D": "Mâu thuẫn giữa tư sản và vô sản"
+    },
+    "originalAnswer": "Mâu thuẫn giữa lực lượng sản xuất mới với QHSX phong kiến đã trở nên lỗi thời",
+    "originalLetter": "A",
+    "correctAnswer": "Mâu thuẫn giữa lực lượng sản xuất mới với QHSX phong kiến đã trở nên lỗi thời",
+    "options": [
+      "Mâu thuẫn giữa nô lệ và chủ nô",
+      "Mâu thuẫn giữa nông dân và địa chủ phong kiến",
+      "Mâu thuẫn giữa tư sản và vô sản",
+      "Mâu thuẫn giữa lực lượng sản xuất mới với QHSX phong kiến đã trở nên lỗi thời"
+    ],
+    "globalId": 33,
+    "set": "spkt_300"
+  },
+  {
+    "id": 34,
+    "rawId": 34,
+    "uid": "spkt_34",
+    "question": "Giai cấp nào lãnh đạo cuộc cách mạng thời kỳ cận đại ?",
+    "originalOptions": {
+      "A": "Giai cấp vô sản",
+      "B": "Giai cấp nông dân",
+      "C": "Giai cấp tư sản",
+      "D": "Giai cấp địa chủ phong kiến"
+    },
+    "originalAnswer": "Giai cấp tư sản",
+    "originalLetter": "C",
+    "correctAnswer": "Giai cấp tư sản",
+    "options": [
+      "Giai cấp vô sản",
+      "Giai cấp địa chủ phong kiến",
+      "Giai cấp tư sản",
+      "Giai cấp nông dân"
+    ],
+    "globalId": 34,
+    "set": "spkt_300"
+  },
+  {
+    "id": 35,
+    "rawId": 35,
+    "uid": "spkt_35",
+    "question": "Cuộc cách mạng nào ở Tây Âu thời kỳ cận đại được C. Mác gọi là cuộc cách mạng có quy mô toàn Châu Âu và có ý nghĩa lớn đối với sự ra đời trật tự xã hội mới.",
+    "originalOptions": {
+      "A": "Cuộc cách mạng ở Hà Lan và ý",
+      "B": "Cuộc cách mạng ở ý và ở áo",
+      "C": "Cuộc cách mạng ở Anh giữa thế kỷ XVII và cách mạng Pháp cuối thế kỷ XVIII."
+    },
+    "originalAnswer": "Cuộc cách mạng ở Anh giữa thế kỷ XVII và cách mạng Pháp cuối thế kỷ XVIII.",
+    "originalLetter": "C",
+    "correctAnswer": "Cuộc cách mạng ở Anh giữa thế kỷ XVII và cách mạng Pháp cuối thế kỷ XVIII.",
+    "options": [
+      "Cuộc cách mạng ở Hà Lan và ý",
+      "Cuộc cách mạng ở Anh giữa thế kỷ XVII và cách mạng Pháp cuối thế kỷ XVIII.",
+      "Cuộc cách mạng ở ý và ở áo"
+    ],
+    "globalId": 35,
+    "set": "spkt_300"
+  },
+  {
+    "id": 36,
+    "rawId": 26,
+    "uid": "spkt_36",
+    "question": "Cuộc cách mạng ở Anh giữa thế kỷ XVII và cuộc cách mạng ở Pháp cuối TK XVIII đánh dấu sự thay thế của trật tự xã hội nào cho xã hội nào?",
+    "originalOptions": {
+      "A": "Trật tự xã hội chiếm hữu nô lệ thay cho trật tự xã hội cộng sản nguyên thuỷ",
+      "B": "Trật tự xã hội phong kiến thay cho trật tự xã hội chiếm hữu nô lệ",
+      "C": "Trật tự xã hội tư sản thay cho trật tự xã hội phong kiến.",
+      "D": "Trật tự xã hội xã hội chủ nghĩa thay cho trật tự xã hội tư sản"
+    },
+    "originalAnswer": "Trật tự xã hội tư sản thay cho trật tự xã hội phong kiến.",
+    "originalLetter": "C",
+    "correctAnswer": "Trật tự xã hội tư sản thay cho trật tự xã hội phong kiến.",
+    "options": [
+      "Trật tự xã hội tư sản thay cho trật tự xã hội phong kiến.",
+      "Trật tự xã hội chiếm hữu nô lệ thay cho trật tự xã hội cộng sản nguyên thuỷ",
+      "Trật tự xã hội xã hội chủ nghĩa thay cho trật tự xã hội tư sản",
+      "Trật tự xã hội phong kiến thay cho trật tự xã hội chiếm hữu nô lệ"
+    ],
+    "globalId": 36,
+    "set": "spkt_300"
+  },
+  {
+    "id": 37,
+    "rawId": 37,
+    "uid": "spkt_37",
+    "question": "Ngành khoa học nào phát triển rực rỡ nhất và có ảnh hưởng lớn nhất đến phương pháp tư duy của thời kỳ cận đại?",
+    "originalOptions": {
+      "A": "Toán học",
+      "C": "Sinh học",
+      "B": "Hoá học",
+      "D": "Cơ học"
+    },
+    "originalAnswer": "Cơ học",
+    "originalLetter": "D",
+    "correctAnswer": "Cơ học",
+    "options": [
+      "Toán học",
+      "Cơ học",
+      "Hoá học",
+      "Sinh học"
+    ],
+    "globalId": 37,
+    "set": "spkt_300"
+  },
+  {
+    "id": 38,
+    "rawId": 38,
+    "uid": "spkt_38",
+    "question": "Ph.Bêcơn là nhà triết học của nước nào?",
+    "originalOptions": {
+      "A": "Nước Anh",
+      "C": "Nước Đức",
+      "B": "Nước Pháp",
+      "D": "Nước Ba lan"
+    },
+    "originalAnswer": "Nước Anh",
+    "originalLetter": "A",
+    "correctAnswer": "Nước Anh",
+    "options": [
+      "Nước Anh",
+      "Nước Đức",
+      "Nước Pháp",
+      "Nước Ba lan"
+    ],
+    "globalId": 38,
+    "set": "spkt_300"
+  },
+  {
+    "id": 39,
+    "rawId": 39,
+    "uid": "spkt_39",
+    "question": "Về lập trường chính trị, Ph.Bêcơn là nhà tư tưởng của giai cấp nào?",
+    "originalOptions": {
+      "A": "Giai cấp chủ nô",
+      "B": "Giai cấp địa chủ phong kiến",
+      "C": "Giai cấp nông dân",
+      "D": "Giai cấp tư sản và tầng lớp quý tộc mới."
+    },
+    "originalAnswer": "Giai cấp tư sản và tầng lớp quý tộc mới.",
+    "originalLetter": "D",
+    "correctAnswer": "Giai cấp tư sản và tầng lớp quý tộc mới.",
+    "options": [
+      "Giai cấp địa chủ phong kiến",
+      "Giai cấp tư sản và tầng lớp quý tộc mới.",
+      "Giai cấp chủ nô",
+      "Giai cấp nông dân"
+    ],
+    "globalId": 39,
+    "set": "spkt_300"
+  },
+  {
+    "id": 40,
+    "rawId": 40,
+    "uid": "spkt_40",
+    "question": "Theo Ph. Bêcơn con người muốn chiếm được của cải của giới tự nhiên thì cần phải có cái gì?",
+    "originalOptions": {
+      "A": "Có niềm tin vào thượng đế",
+      "B": "Có nhiệt tình làm việc",
+      "C": "Có tri thức về tự nhiên",
+      "D": "Có kinh nghiệm sống"
+    },
+    "originalAnswer": "Có tri thức về tự nhiên",
+    "originalLetter": "C",
+    "correctAnswer": "Có tri thức về tự nhiên",
+    "options": [
+      "Có nhiệt tình làm việc",
+      "Có tri thức về tự nhiên",
+      "Có niềm tin vào thượng đế",
+      "Có kinh nghiệm sống"
+    ],
+    "globalId": 40,
+    "set": "spkt_300"
+  },
+  {
+    "id": 41,
+    "rawId": 41,
+    "uid": "spkt_41",
+    "question": "Về phương pháp nhận thức Ph.Bêcơn phê phán phương pháp nào?",
+    "originalOptions": {
+      "A": "Phương pháp kinh nghiệm (phương pháp con kiến)",
+      "B": "Phương pháp kinh viện (phương pháp con nhện)",
+      "C": "Phương pháp phân tích thực nghiệm (phương pháp con ong)",
+      "D": "Phương pháp a và b"
+    },
+    "originalAnswer": "Phương pháp a và b",
+    "originalLetter": "D",
+    "correctAnswer": "Phương pháp a và b",
+    "options": [
+      "Phương pháp kinh viện (phương pháp con nhện)",
+      "Phương pháp phân tích thực nghiệm (phương pháp con ong)",
+      "Phương pháp a và b",
+      "Phương pháp kinh nghiệm (phương pháp con kiến)"
+    ],
+    "globalId": 41,
+    "set": "spkt_300"
+  },
+  {
+    "id": 42,
+    "rawId": 42,
+    "uid": "spkt_42",
+    "question": "Theo Ph. Bêcơn phương pháp nhận thức tốt nhất là phương pháp nào",
+    "originalOptions": {
+      "A": "Phương pháp diễn dịch",
+      "B": "Phương pháp quy nạp",
+      "C": "Phương pháp trừu tượng hoá",
+      "D": "Phương pháp mô hình hoá"
+    },
+    "originalAnswer": "Phương pháp quy nạp",
+    "originalLetter": "B",
+    "correctAnswer": "Phương pháp quy nạp",
+    "options": [
+      "Phương pháp quy nạp",
+      "Phương pháp diễn dịch",
+      "Phương pháp trừu tượng hoá",
+      "Phương pháp mô hình hoá"
+    ],
+    "globalId": 42,
+    "set": "spkt_300"
+  },
+  {
+    "id": 43,
+    "rawId": 43,
+    "uid": "spkt_43",
+    "question": "Ph.Bêcơn gọi phương pháp con nhện là phương pháp triết học của các nhà tư tưởng thời kỳ nào?",
+    "originalOptions": {
+      "A": "Thời kỳ trung cổ",
+      "B": "Thời kỳ cổ đại",
+      "C": "Thời kỳ cận đại",
+      "D": "Thời kỳ Phục hưng"
+    },
+    "originalAnswer": "Thời kỳ trung cổ",
+    "originalLetter": "A",
+    "correctAnswer": "Thời kỳ trung cổ",
+    "options": [
+      "Thời kỳ trung cổ",
+      "Thời kỳ cận đại",
+      "Thời kỳ cổ đại",
+      "Thời kỳ Phục hưng"
+    ],
+    "globalId": 43,
+    "set": "spkt_300"
+  },
+  {
+    "id": 44,
+    "rawId": 44,
+    "uid": "spkt_44",
+    "question": "Phương pháp \"con nhện\" theo Ph.Bêcơn là phương pháp của những nhà triết học theo khuynh hướng nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa kinh nghiệm",
+      "B": "Chủ nghĩa kinh viện",
+      "C": "Thuyết bất khả tri",
+      "D": "Chủ nghĩa duy vật"
+    },
+    "originalAnswer": "Chủ nghĩa kinh viện",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa kinh viện",
+    "options": [
+      "Chủ nghĩa kinh viện",
+      "Chủ nghĩa kinh nghiệm",
+      "Chủ nghĩa duy vật",
+      "Thuyết bất khả tri"
+    ],
+    "globalId": 44,
+    "set": "spkt_300"
+  },
+  {
+    "id": 45,
+    "rawId": 45,
+    "uid": "spkt_45",
+    "question": "Phương pháp rút ra kết quả riêng từ những kết luận chung, không tính đến sự tồn tại thực tế của sự vật, được gọi là phương pháp gì?",
+    "originalOptions": {
+      "A": "Phương pháp quy nạp",
+      "B": "Phương pháp diễn dịch",
+      "C": "Phương pháp kinh nghiệm",
+      "D": "Phương pháp kinh viện"
+    },
+    "originalAnswer": "Phương pháp kinh viện",
+    "originalLetter": "D",
+    "correctAnswer": "Phương pháp kinh viện",
+    "options": [
+      "Phương pháp kinh viện",
+      "Phương pháp diễn dịch",
+      "Phương pháp kinh nghiệm",
+      "Phương pháp quy nạp"
+    ],
+    "globalId": 45,
+    "set": "spkt_300"
+  },
+  {
+    "id": 46,
+    "rawId": 46,
+    "uid": "spkt_46",
+    "question": "Phương pháp \"con kiến\" theo Ph.Bêcơn là phương pháp của các nhà triết học theo khuynh hướng nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa chiết trung",
+      "B": "Chủ nghĩa kinh viện",
+      "C": "Chủ nghĩa bất khả tri",
+      "D": "Chủ nghĩa kinh nghiệm"
+    },
+    "originalAnswer": "Chủ nghĩa kinh nghiệm",
+    "originalLetter": "D",
+    "correctAnswer": "Chủ nghĩa kinh nghiệm",
+    "options": [
+      "Chủ nghĩa kinh nghiệm",
+      "Chủ nghĩa kinh viện",
+      "Chủ nghĩa chiết trung",
+      "Chủ nghĩa bất khả tri"
+    ],
+    "globalId": 46,
+    "set": "spkt_300"
+  },
+  {
+    "id": 47,
+    "rawId": 47,
+    "uid": "spkt_47",
+    "question": "Phương pháp nghiên cứu chỉ dựa vào kinh nghiệm thực tế, không có khái quát, theo Ph.Bêcơn được gọi là phương pháp gì?",
+    "originalOptions": {
+      "A": "Phương pháp \"con nhện\"",
+      "B": "Phương pháp \"con kiến\"",
+      "C": "Phương pháp \"con ong\"",
+      "D": "Phương pháp thực nghiệm"
+    },
+    "originalAnswer": "Phương pháp \"con kiến\"",
+    "originalLetter": "B",
+    "correctAnswer": "Phương pháp \"con kiến\"",
+    "options": [
+      "Phương pháp \"con ong\"",
+      "Phương pháp \"con kiến\"",
+      "Phương pháp \"con nhện\"",
+      "Phương pháp thực nghiệm"
+    ],
+    "globalId": 47,
+    "set": "spkt_300"
+  },
+  {
+    "id": 48,
+    "rawId": 48,
+    "uid": "spkt_48",
+    "question": "Theo Ph.Bêcơn phương pháp nghiên cứu khoa học chân chính phải là phương pháp nào?",
+    "originalOptions": {
+      "A": "Phương pháp \"con nhện\"",
+      "B": "Phương pháp \"con kiến\"",
+      "C": "Phương pháp \"con ong\"",
+      "D": "Phương pháp suy diễn"
+    },
+    "originalAnswer": "Phương pháp \"con ong\"",
+    "originalLetter": "C",
+    "correctAnswer": "Phương pháp \"con ong\"",
+    "options": [
+      "Phương pháp suy diễn",
+      "Phương pháp \"con kiến\"",
+      "Phương pháp \"con ong\"",
+      "Phương pháp \"con nhện\""
+    ],
+    "globalId": 48,
+    "set": "spkt_300"
+  },
+  {
+    "id": 49,
+    "rawId": 49,
+    "uid": "spkt_49",
+    "question": "Ph.Bêcơn là nhà triết học thuộc trường phái nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm chủ quan",
+      "B": "Chủ nghĩa duy tâm khách quan",
+      "C": "Chủ nghĩa duy vật siêu hình",
+      "D": "Chủ nghĩa duy vật biện chứng"
+    },
+    "originalAnswer": "Chủ nghĩa duy vật siêu hình",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy vật siêu hình",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng",
+      "Chủ nghĩa duy tâm chủ quan",
+      "Chủ nghĩa duy vật siêu hình",
+      "Chủ nghĩa duy tâm khách quan"
+    ],
+    "globalId": 49,
+    "set": "spkt_300"
+  },
+  {
+    "id": 50,
+    "rawId": 50,
+    "uid": "spkt_50",
+    "question": "Những trường phái triết học nào xem thường lý luận?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm khách quan",
+      "B": "Chủ nghĩa kinh viện",
+      "C": "Chủ nghĩa duy vật siêu hình",
+      "D": "Chủ nghĩa kinh nghiệm"
+    },
+    "originalAnswer": "Chủ nghĩa kinh nghiệm",
+    "originalLetter": "D",
+    "correctAnswer": "Chủ nghĩa kinh nghiệm",
+    "options": [
+      "Chủ nghĩa kinh viện",
+      "Chủ nghĩa duy tâm khách quan",
+      "Chủ nghĩa kinh nghiệm",
+      "Chủ nghĩa duy vật siêu hình"
+    ],
+    "globalId": 50,
+    "set": "spkt_300"
+  },
+  {
+    "id": 51,
+    "rawId": 51,
+    "uid": "spkt_51",
+    "question": "Những nhà triết học nào xem thường kinh nghiệm, xa rời cuộc sống?",
+    "originalOptions": {
+      "A": "Chủ nghĩa kinh nghiệm",
+      "B": "Chủ nghĩa duy vật biện chứng",
+      "C": "Chủ nghĩa kinh viện",
+      "D": "Chủ nghĩa duy vật siêu hình"
+    },
+    "originalAnswer": "Chủ nghĩa kinh viện",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa kinh viện",
+    "options": [
+      "Chủ nghĩa kinh viện",
+      "Chủ nghĩa kinh nghiệm",
+      "Chủ nghĩa duy vật siêu hình",
+      "Chủ nghĩa duy vật biện chứng"
+    ],
+    "globalId": 51,
+    "set": "spkt_300"
+  },
+  {
+    "id": 52,
+    "rawId": 52,
+    "uid": "spkt_52",
+    "question": "Nhận định nào sau đây là đúng?",
+    "originalOptions": {
+      "A": "Các nhà triết học duy vật đều thuộc chủ nghĩa kinh nghiệm và ngược lại",
+      "B": "Các nhà triết học duy tâm đều thuộc chủ nghĩa kinh viện và ngược lại",
+      "C": "Cả hai đều không đúng"
+    },
+    "originalAnswer": "Cả hai đều không đúng",
+    "originalLetter": "C",
+    "correctAnswer": "Cả hai đều không đúng",
+    "options": [
+      "Các nhà triết học duy tâm đều thuộc chủ nghĩa kinh viện và ngược lại",
+      "Các nhà triết học duy vật đều thuộc chủ nghĩa kinh nghiệm và ngược lại",
+      "Cả hai đều không đúng"
+    ],
+    "globalId": 52,
+    "set": "spkt_300"
+  },
+  {
+    "id": 53,
+    "rawId": 53,
+    "uid": "spkt_53",
+    "question": "Ph. Bêcơn sinh vào năm bao nhiêu và mất năm bao nhiêu?",
+    "originalOptions": {
+      "A": "1560 - 1625",
+      "B": "1561 - 1626",
+      "C": "1562 - 1627",
+      "D": "1563 - 1628"
+    },
+    "originalAnswer": "1561 - 1626",
+    "originalLetter": "B",
+    "correctAnswer": "1561 - 1626",
+    "options": [
+      "1563 - 1628",
+      "1560 - 1625",
+      "1561 - 1626",
+      "1562 - 1627"
+    ],
+    "globalId": 53,
+    "set": "spkt_300"
+  },
+  {
+    "id": 54,
+    "rawId": 54,
+    "uid": "spkt_54",
+    "question": "Tômat Hốpxơ sinh năm bao nhiêu và mất năm bao nhiêu?",
+    "originalOptions": {
+      "A": "1500 - 1570",
+      "B": "1550 - 1629",
+      "C": "1588 - 1679",
+      "D": "1587 - 1678"
+    },
+    "originalAnswer": "1588 - 1679",
+    "originalLetter": "C",
+    "correctAnswer": "1588 - 1679",
+    "options": [
+      "1587 - 1678",
+      "1588 - 1679",
+      "1550 - 1629",
+      "1500 - 1570"
+    ],
+    "globalId": 54,
+    "set": "spkt_300"
+  },
+  {
+    "id": 55,
+    "rawId": 55,
+    "uid": "spkt_55",
+    "question": "Ai là người sáng tạo ra hệ thống đầu tiên của chủ nghĩa duy vật siêu hình trong lịch sử triết học?",
+    "originalOptions": {
+      "A": "Ph. Bêcơn",
+      "B": "Tô mát Hốp Xơ",
+      "C": "Giôn Lốc Cơ",
+      "D": "Xpinôda"
+    },
+    "originalAnswer": "Tô mát Hốp Xơ",
+    "originalLetter": "B",
+    "correctAnswer": "Tô mát Hốp Xơ",
+    "options": [
+      "Xpinôda",
+      "Giôn Lốc Cơ",
+      "Ph. Bêcơn",
+      "Tô mát Hốp Xơ"
+    ],
+    "globalId": 55,
+    "set": "spkt_300"
+  },
+  {
+    "id": 56,
+    "rawId": 56,
+    "uid": "spkt_56",
+    "question": "Quan điểm của Tômát Hôpxơ về tự nhiên đứng trên lập trường triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật tự phát",
+      "B": "Chủ nghĩa duy tâm chủ quan",
+      "C": "Chủ nghĩa duy vật biện chứng",
+      "D": "Chủ nghĩa duy vật siêu hình"
+    },
+    "originalAnswer": "Chủ nghĩa duy vật siêu hình",
+    "originalLetter": "D",
+    "correctAnswer": "Chủ nghĩa duy vật siêu hình",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng",
+      "Chủ nghĩa duy tâm chủ quan",
+      "Chủ nghĩa duy vật siêu hình",
+      "Chủ nghĩa duy vật tự phát"
+    ],
+    "globalId": 56,
+    "set": "spkt_300"
+  },
+  {
+    "id": 57,
+    "rawId": 57,
+    "uid": "spkt_57",
+    "question": "Chủ nghĩa duy vật của Tômát Hốp-xơ thể hiện ở quan điểm nào sau đây?",
+    "originalOptions": {
+      "A": "Giới tự nhiên là tổng các vật tồn tại khách quan có quảng tính (độ dài) phân biệt nhau bởi đại lượng, hình khối, vị trí và vận động đổi vị trí trong không gian",
+      "B": "Tính phong phú về chất không phải là thuộc tính khách quan của giới tự nhiên",
+      "C": "Chất lượng của sự vật là hình thức tri giác chung"
+    },
+    "originalAnswer": "Giới tự nhiên là tổng các vật tồn tại khách quan có quảng tính (độ dài) phân biệt nhau bởi đại lượng, hình khối, vị trí và vận động đổi vị trí trong không gian",
+    "originalLetter": "A",
+    "correctAnswer": "Giới tự nhiên là tổng các vật tồn tại khách quan có quảng tính (độ dài) phân biệt nhau bởi đại lượng, hình khối, vị trí và vận động đổi vị trí trong không gian",
+    "options": [
+      "Tính phong phú về chất không phải là thuộc tính khách quan của giới tự nhiên",
+      "Chất lượng của sự vật là hình thức tri giác chung",
+      "Giới tự nhiên là tổng các vật tồn tại khách quan có quảng tính (độ dài) phân biệt nhau bởi đại lượng, hình khối, vị trí và vận động đổi vị trí trong không gian"
+    ],
+    "globalId": 57,
+    "set": "spkt_300"
+  },
+  {
+    "id": 58,
+    "rawId": 58,
+    "uid": "spkt_58",
+    "question": "Tômát Hôpxơ quan niệm về vận động như thế nào?",
+    "originalOptions": {
+      "A": "Vận động chỉ là vận động cơ giới",
+      "B": "Vận động bao gồm cả vận động hoá học và sinh học",
+      "C": "Vận động là sự biến đổi chung",
+      "D": "Vận động là phương thức tồn tại của sinh vật"
+    },
+    "originalAnswer": "Vận động chỉ là vận động cơ giới",
+    "originalLetter": "A",
+    "correctAnswer": "Vận động chỉ là vận động cơ giới",
+    "options": [
+      "Vận động chỉ là vận động cơ giới",
+      "Vận động là phương thức tồn tại của sinh vật",
+      "Vận động là sự biến đổi chung",
+      "Vận động bao gồm cả vận động hoá học và sinh học"
+    ],
+    "globalId": 58,
+    "set": "spkt_300"
+  },
+  {
+    "id": 59,
+    "rawId": 59,
+    "uid": "spkt_59",
+    "question": "Tính chất siêu hình trong quan niệm của Tômát Hốpxơ về tự nhiên thể hiện ở chỗ nào?",
+    "originalOptions": {
+      "A": "Giới tự nhiên tồn tại khách quan",
+      "B": "Giới tự nhiên là tổng số các vật có quảng tính (độ dài)",
+      "C": "Vận động cơ giới là thuộc tính của giới tự nhiên",
+      "D": "Vận động của giới tự nhiên là vận động cơ giới"
+    },
+    "originalAnswer": "Vận động của giới tự nhiên là vận động cơ giới",
+    "originalLetter": "D",
+    "correctAnswer": "Vận động của giới tự nhiên là vận động cơ giới",
+    "options": [
+      "Giới tự nhiên tồn tại khách quan",
+      "Vận động cơ giới là thuộc tính của giới tự nhiên",
+      "Vận động của giới tự nhiên là vận động cơ giới",
+      "Giới tự nhiên là tổng số các vật có quảng tính (độ dài)"
+    ],
+    "globalId": 59,
+    "set": "spkt_300"
+  },
+  {
+    "id": 60,
+    "rawId": 60,
+    "uid": "spkt_60",
+    "question": "Tính chất siêu hình trong quan niệm của Tômát Hốpxơ về con người thể hiện như thế nào?",
+    "originalOptions": {
+      "A": "Con người là một cơ thể sống phức tạp như động vật",
+      "B": "Con người là một bộ phận của tự nhiên",
+      "C": "Con người là một kết cấu vật chất",
+      "D": "Con người như một chiếc xe, mà tim là lò xo, khớp xương là cái bánh xe"
+    },
+    "originalAnswer": "Con người như một chiếc xe, mà tim là lò xo, khớp xương là cái bánh xe",
+    "originalLetter": "D",
+    "correctAnswer": "Con người như một chiếc xe, mà tim là lò xo, khớp xương là cái bánh xe",
+    "options": [
+      "Con người như một chiếc xe, mà tim là lò xo, khớp xương là cái bánh xe",
+      "Con người là một cơ thể sống phức tạp như động vật",
+      "Con người là một kết cấu vật chất",
+      "Con người là một bộ phận của tự nhiên"
+    ],
+    "globalId": 60,
+    "set": "spkt_300"
+  },
+  {
+    "id": 61,
+    "rawId": 61,
+    "uid": "spkt_61",
+    "question": "Về phương pháp nhận thức, Tômat Hốp-xơ hiểu theo quan điểm nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy lý",
+      "B": "Chủ nghĩa duy danh",
+      "C": "Nghệ thuật kết hợp giữa chủ nghĩa duy lý và chủ nghĩa duy danh"
+    },
+    "originalAnswer": "Nghệ thuật kết hợp giữa chủ nghĩa duy lý và chủ nghĩa duy danh",
+    "originalLetter": "C",
+    "correctAnswer": "Nghệ thuật kết hợp giữa chủ nghĩa duy lý và chủ nghĩa duy danh",
+    "options": [
+      "Chủ nghĩa duy lý",
+      "Chủ nghĩa duy danh",
+      "Nghệ thuật kết hợp giữa chủ nghĩa duy lý và chủ nghĩa duy danh"
+    ],
+    "globalId": 61,
+    "set": "spkt_300"
+  },
+  {
+    "id": 62,
+    "rawId": 62,
+    "uid": "spkt_62",
+    "question": "Tô mát Hốp-xơ hiểu bước chuyển từ cái riêng sang cái chung từ tri giác cảm tính đến khái niệm theo quan điểm nào?",
+    "originalOptions": {
+      "A": "Duy lý luận",
+      "B": "Duy danh luận",
+      "C": "Kinh nghiệm luận"
+    },
+    "originalAnswer": "Duy danh luận",
+    "originalLetter": "B",
+    "correctAnswer": "Duy danh luận",
+    "options": [
+      "Duy lý luận",
+      "Kinh nghiệm luận",
+      "Duy danh luận"
+    ],
+    "globalId": 62,
+    "set": "spkt_300"
+  },
+  {
+    "id": 63,
+    "rawId": 63,
+    "uid": "spkt_63",
+    "question": "Quan niệm về bản chất khái niệm của Tômát Hốp-xơ thuộc khuynh hướng triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy thực",
+      "B": "Chủ nghĩa duy tâm chủ quan",
+      "C": "Chủ nghĩa duy danh",
+      "D": "Chủ nghĩa duy vật tự phát"
+    },
+    "originalAnswer": "Chủ nghĩa duy danh",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy danh",
+    "options": [
+      "Chủ nghĩa duy thực",
+      "Chủ nghĩa duy tâm chủ quan",
+      "Chủ nghĩa duy danh",
+      "Chủ nghĩa duy vật tự phát"
+    ],
+    "globalId": 63,
+    "set": "spkt_300"
+  },
+  {
+    "id": 64,
+    "rawId": 64,
+    "uid": "spkt_64",
+    "question": "Theo quan điểm duy Danh, Tômát Hốp xơ coi khái niệm là gì?",
+    "originalOptions": {
+      "A": "Là những đặc điểm chung của các sự vật của giới tự nhiên",
+      "B": "Chỉ là tên của những cái tên.",
+      "C": "Khái niệm là thực thể tinh thần tồn tại trước & độc lập với sự vật",
+      "D": "Khái niệm là bản chất của sự vật"
+    },
+    "originalAnswer": "Chỉ là tên của những cái tên.",
+    "originalLetter": "B",
+    "correctAnswer": "Chỉ là tên của những cái tên.",
+    "options": [
+      "Chỉ là tên của những cái tên.",
+      "Khái niệm là thực thể tinh thần tồn tại trước & độc lập với sự vật",
+      "Khái niệm là bản chất của sự vật",
+      "Là những đặc điểm chung của các sự vật của giới tự nhiên"
+    ],
+    "globalId": 64,
+    "set": "spkt_300"
+  },
+  {
+    "id": 65,
+    "rawId": 65,
+    "uid": "spkt_65",
+    "question": "Mặt tiến bộ trong quan điểm về xã hội của Tômát Hốpxơ là ở chỗ nào?",
+    "originalOptions": {
+      "A": "Cho nguồn gốc của nhà nước không phải từ thần thánh mà là sự qui ước và thoả thuận giữa con người.",
+      "B": "Cho hình thức quân chủ là hình thức chính quyền lý tưởng.",
+      "C": "Tôn giáo và giáo hội vẫn có ích cho nhà nước.",
+      "D": "Coi quyền lực của giai cấp đại tư sản là vô hạn."
+    },
+    "originalAnswer": "Cho nguồn gốc của nhà nước không phải từ thần thánh mà là sự qui ước và thoả thuận giữa con người.",
+    "originalLetter": "A",
+    "correctAnswer": "Cho nguồn gốc của nhà nước không phải từ thần thánh mà là sự qui ước và thoả thuận giữa con người.",
+    "options": [
+      "Tôn giáo và giáo hội vẫn có ích cho nhà nước.",
+      "Coi quyền lực của giai cấp đại tư sản là vô hạn.",
+      "Cho hình thức quân chủ là hình thức chính quyền lý tưởng.",
+      "Cho nguồn gốc của nhà nước không phải từ thần thánh mà là sự qui ước và thoả thuận giữa con người."
+    ],
+    "globalId": 65,
+    "set": "spkt_300"
+  },
+  {
+    "id": 66,
+    "rawId": 66,
+    "uid": "spkt_66",
+    "question": "Tômát Hốp xơ cho nguồn gốc của nhà nước là gì?",
+    "originalOptions": {
+      "A": "Do thần thánh sáng tạo ra.",
+      "B": "Do ý chí của giai cấp thống trị",
+      "C": "Do sự quy ước, thoả thuận giữa con người nhằm tránh những cuộc chiến tranh tàn khốc.",
+      "D": "Do ý muốn chủ quan của cá nhân nhà tư tưởng."
+    },
+    "originalAnswer": "Do sự quy ước, thoả thuận giữa con người nhằm tránh những cuộc chiến tranh tàn khốc.",
+    "originalLetter": "C",
+    "correctAnswer": "Do sự quy ước, thoả thuận giữa con người nhằm tránh những cuộc chiến tranh tàn khốc.",
+    "options": [
+      "Do ý muốn chủ quan của cá nhân nhà tư tưởng.",
+      "Do thần thánh sáng tạo ra.",
+      "Do sự quy ước, thoả thuận giữa con người nhằm tránh những cuộc chiến tranh tàn khốc.",
+      "Do ý chí của giai cấp thống trị"
+    ],
+    "globalId": 66,
+    "set": "spkt_300"
+  },
+  {
+    "id": 67,
+    "rawId": 67,
+    "uid": "spkt_67",
+    "question": "Hãy đánh giá quan niệm của Tômát Hốp xơ về nhà nước cho rằng: nhà nước ra đời là do sự quy ước, thoả thuận giữa con người?",
+    "originalOptions": {
+      "A": "Không có gì tiến bộ, chỉ là quan điểm duy tâm tôn giáo",
+      "B": "Có giá trị, vì đã phát triển quan điểm duy vật, về xã hội.",
+      "C": "Có giá trị bác bỏ nguồn gốc thần thánh của nhà nước, đồng thời vẫn chứa đựng yếu tố duy tâm chủ nghĩa"
+    },
+    "originalAnswer": "Có giá trị bác bỏ nguồn gốc thần thánh của nhà nước, đồng thời vẫn chứa đựng yếu tố duy tâm chủ nghĩa",
+    "originalLetter": "C",
+    "correctAnswer": "Có giá trị bác bỏ nguồn gốc thần thánh của nhà nước, đồng thời vẫn chứa đựng yếu tố duy tâm chủ nghĩa",
+    "options": [
+      "Có giá trị, vì đã phát triển quan điểm duy vật, về xã hội.",
+      "Có giá trị bác bỏ nguồn gốc thần thánh của nhà nước, đồng thời vẫn chứa đựng yếu tố duy tâm chủ nghĩa",
+      "Không có gì tiến bộ, chỉ là quan điểm duy tâm tôn giáo"
+    ],
+    "globalId": 67,
+    "set": "spkt_300"
+  },
+  {
+    "id": 68,
+    "rawId": 68,
+    "uid": "spkt_68",
+    "question": "Đề-các-tơ là nhà triết học và khoa học của nước nào ?",
+    "originalOptions": {
+      "A": "Anh",
+      "B": "Bồ Đào Nha",
+      "C": "Mỹ",
+      "D": "Pháp"
+    },
+    "originalAnswer": "Pháp",
+    "originalLetter": "D",
+    "correctAnswer": "Pháp",
+    "options": [
+      "Bồ Đào Nha",
+      "Mỹ",
+      "Pháp",
+      "Anh"
+    ],
+    "globalId": 68,
+    "set": "spkt_300"
+  },
+  {
+    "id": 69,
+    "rawId": 69,
+    "uid": "spkt_69",
+    "question": "Đề-các-tơ sinh vào năm nào và mất vào năm nào?",
+    "originalOptions": {
+      "A": "1590 - 1650",
+      "B": "1596 - 1654",
+      "C": "1594 - 1654",
+      "D": "1596 - 1650"
+    },
+    "originalAnswer": "1596 - 1654",
+    "originalLetter": "B",
+    "correctAnswer": "1596 - 1654",
+    "options": [
+      "1594 - 1654",
+      "1596 - 1650",
+      "1596 - 1654",
+      "1590 - 1650"
+    ],
+    "globalId": 69,
+    "set": "spkt_300"
+  },
+  {
+    "id": 70,
+    "rawId": 70,
+    "uid": "spkt_70",
+    "question": "Khi giải quyết vấn đề cơ bản của triết học, Đềcáctơ đứng trên lập trường triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật",
+      "B": "Chủ nghĩa duy tâm khách quan",
+      "C": "Chủ nghĩa duy tâm chủ quan",
+      "D": "Thuyết nhị nguyên"
+    },
+    "originalAnswer": "Thuyết nhị nguyên",
+    "originalLetter": "D",
+    "correctAnswer": "Thuyết nhị nguyên",
+    "options": [
+      "Chủ nghĩa duy vật",
+      "Chủ nghĩa duy tâm chủ quan",
+      "Thuyết nhị nguyên",
+      "Chủ nghĩa duy tâm khách quan"
+    ],
+    "globalId": 70,
+    "set": "spkt_300"
+  },
+  {
+    "id": 71,
+    "rawId": 71,
+    "uid": "spkt_71",
+    "question": "Đềcáctơ giải quyết mối quan hệ giữa vật chất và ý thức như thế nào?",
+    "originalOptions": {
+      "A": "Thực thể vật chất độc lập và quyết định thực thể ý thức.",
+      "B": "Thực thể vật chất không tồn tại độc lập mà phụ thuộc vào thực thể ý thức",
+      "C": "Thực thể vật chất và thực thể ý thức độc lập nhau, song song cùng tồn tại.",
+      "D": "Thực thể ý thức phụ thuộc vào thực thể vật chất, nhưng có tính độc lập tương đối."
+    },
+    "originalAnswer": "Thực thể vật chất và thực thể ý thức độc lập nhau, song song cùng tồn tại.",
+    "originalLetter": "C",
+    "correctAnswer": "Thực thể vật chất và thực thể ý thức độc lập nhau, song song cùng tồn tại.",
+    "options": [
+      "Thực thể ý thức phụ thuộc vào thực thể vật chất, nhưng có tính độc lập tương đối.",
+      "Thực thể vật chất độc lập và quyết định thực thể ý thức.",
+      "Thực thể vật chất và thực thể ý thức độc lập nhau, song song cùng tồn tại.",
+      "Thực thể vật chất không tồn tại độc lập mà phụ thuộc vào thực thể ý thức"
+    ],
+    "globalId": 71,
+    "set": "spkt_300"
+  },
+  {
+    "id": 72,
+    "rawId": 72,
+    "uid": "spkt_72",
+    "question": "Quan điểm của Đềcáctơ về quan hệ giữa vật chất và ý thức cuối cùng lại rơi vào quan điểm nào? Vì sao?",
+    "originalOptions": {
+      "A": "Duy vật; vì coi vật chất độc lập với ý thức",
+      "B": "Duy vật không triệt để; vì không thừa nhận vật chất quyết định ý thức",
+      "C": "Nhị nguyên vì thừa nhận hai thực thể tạo thành hai thế giới",
+      "D": "Duy tâm; vì thừa nhận thực thể vật chất và tinh thần tuy độc lập nhưng đều phụ thuộc vào thực thể thứ ba đó là thượng đế."
+    },
+    "originalAnswer": "Duy tâm; vì thừa nhận thực thể vật chất và tinh thần tuy độc lập nhưng đều phụ thuộc vào thực thể thứ ba đó là thượng đế.",
+    "originalLetter": "D",
+    "correctAnswer": "Duy tâm; vì thừa nhận thực thể vật chất và tinh thần tuy độc lập nhưng đều phụ thuộc vào thực thể thứ ba đó là thượng đế.",
+    "options": [
+      "Nhị nguyên vì thừa nhận hai thực thể tạo thành hai thế giới",
+      "Duy vật không triệt để; vì không thừa nhận vật chất quyết định ý thức",
+      "Duy vật; vì coi vật chất độc lập với ý thức",
+      "Duy tâm; vì thừa nhận thực thể vật chất và tinh thần tuy độc lập nhưng đều phụ thuộc vào thực thể thứ ba đó là thượng đế."
+    ],
+    "globalId": 72,
+    "set": "spkt_300"
+  },
+  {
+    "id": 73,
+    "rawId": 73,
+    "uid": "spkt_73",
+    "question": "Đềcáctơ đứng trên quan điểm nào trong lĩnh vực vật lý?",
+    "originalOptions": {
+      "A": "Quan điểm duy tâm khách quan",
+      "B": "Quan điểm duy tâm chủ quan",
+      "C": "Quan điểm nhị nguyên",
+      "D": "Quan điểm duy vật"
+    },
+    "originalAnswer": "Quan điểm duy vật",
+    "originalLetter": "D",
+    "correctAnswer": "Quan điểm duy vật",
+    "options": [
+      "Quan điểm duy tâm chủ quan",
+      "Quan điểm nhị nguyên",
+      "Quan điểm duy tâm khách quan",
+      "Quan điểm duy vật"
+    ],
+    "globalId": 73,
+    "set": "spkt_300"
+  },
+  {
+    "id": 74,
+    "rawId": 74,
+    "uid": "spkt_74",
+    "question": "Trong lĩnh vực vật lý Đềcáctơ quan niệm về tự nhiên như thế nào?",
+    "originalOptions": {
+      "A": "Tự nhiên là tổng các vật có quán tính",
+      "B": "Tự nhiên và thượng đế là một.",
+      "C": "Tự nhiên là hiện thân của thượng đế",
+      "D": "Tự nhiên là một khối thống nhất gồm những hạt nhỏ vật chất có quán tính và vận động vĩnh viễn theo những quy luật cơ học"
+    },
+    "originalAnswer": "Tự nhiên là một khối thống nhất gồm những hạt nhỏ vật chất có quán tính và vận động vĩnh viễn theo những quy luật cơ học",
+    "originalLetter": "D",
+    "correctAnswer": "Tự nhiên là một khối thống nhất gồm những hạt nhỏ vật chất có quán tính và vận động vĩnh viễn theo những quy luật cơ học",
+    "options": [
+      "Tự nhiên là một khối thống nhất gồm những hạt nhỏ vật chất có quán tính và vận động vĩnh viễn theo những quy luật cơ học",
+      "Tự nhiên và thượng đế là một.",
+      "Tự nhiên là hiện thân của thượng đế",
+      "Tự nhiên là tổng các vật có quán tính"
+    ],
+    "globalId": 74,
+    "set": "spkt_300"
+  },
+  {
+    "id": 75,
+    "rawId": 75,
+    "uid": "spkt_75",
+    "question": "Điều khẳng định nào sau đây là đúng?",
+    "originalOptions": {
+      "A": "Đềcáctơ là nhà duy vật biện chứng vì coi vật chất tồn tại khách quan.",
+      "B": "Đềcáctơ là nhà duy vật vì phủ nhận uy quyền của nhà thờ và tôn giáo",
+      "C": "Đềcáctơ là nhà triết học duy tâm vì đề cao sức mạnh của lý tưởng con người",
+      "D": "Đềcáctơ đem tính khoa học thay cho niềm tin tôn giáo mù quáng chống lại uy quyền của tôn giáo."
+    },
+    "originalAnswer": "Đềcáctơ đem tính khoa học thay cho niềm tin tôn giáo mù quáng chống lại uy quyền của tôn giáo.",
+    "originalLetter": "D",
+    "correctAnswer": "Đềcáctơ đem tính khoa học thay cho niềm tin tôn giáo mù quáng chống lại uy quyền của tôn giáo.",
+    "options": [
+      "Đềcáctơ là nhà duy vật biện chứng vì coi vật chất tồn tại khách quan.",
+      "Đềcáctơ đem tính khoa học thay cho niềm tin tôn giáo mù quáng chống lại uy quyền của tôn giáo.",
+      "Đềcáctơ là nhà duy vật vì phủ nhận uy quyền của nhà thờ và tôn giáo",
+      "Đềcáctơ là nhà triết học duy tâm vì đề cao sức mạnh của lý tưởng con người"
+    ],
+    "globalId": 75,
+    "set": "spkt_300"
+  },
+  {
+    "id": 76,
+    "rawId": 76,
+    "uid": "spkt_76",
+    "question": "Điều nhận định nào sau đây là đúng?",
+    "originalOptions": {
+      "A": "Đềcáctơ nghi ngờ khả năng nhận thức của con người.",
+      "B": "Vì coi nghi ngờ là điểm xuất phát của nhận thức khoa học, nên Đềcáctơ phủ nhận khả năng nhận thức của con người.",
+      "C": "Quan điểm của Đềcáctơ và Hium là như nhau vì đều nghi ngờ nhận thức của con người",
+      "D": "Đềcáctơ coi nghi ngờ là điểm xuất phát của nghiên cứu khoa học để phủ nhận sự mê tín, phủ nhận niềm tin tôn giáo"
+    },
+    "originalAnswer": "Đềcáctơ coi nghi ngờ là điểm xuất phát của nghiên cứu khoa học để phủ nhận sự mê tín, phủ nhận niềm tin tôn giáo",
+    "originalLetter": "D",
+    "correctAnswer": "Đềcáctơ coi nghi ngờ là điểm xuất phát của nghiên cứu khoa học để phủ nhận sự mê tín, phủ nhận niềm tin tôn giáo",
+    "options": [
+      "Vì coi nghi ngờ là điểm xuất phát của nhận thức khoa học, nên Đềcáctơ phủ nhận khả năng nhận thức của con người.",
+      "Đềcáctơ nghi ngờ khả năng nhận thức của con người.",
+      "Quan điểm của Đềcáctơ và Hium là như nhau vì đều nghi ngờ nhận thức của con người",
+      "Đềcáctơ coi nghi ngờ là điểm xuất phát của nghiên cứu khoa học để phủ nhận sự mê tín, phủ nhận niềm tin tôn giáo"
+    ],
+    "globalId": 76,
+    "set": "spkt_300"
+  },
+  {
+    "id": 77,
+    "rawId": 77,
+    "uid": "spkt_77",
+    "question": "Luận điểm Đềcáctơ \"tôi tư duy vậy tôi tồn tại\" có ý nghĩa gì?",
+    "originalOptions": {
+      "A": "Nhấn mạnh vai trò của tư duy, duy lý",
+      "B": "Nhấn mạnh vai trò của cảm giác",
+      "C": "Phủ nhận vai trò của chủ thể",
+      "D": "Đề cao kinh nghiệm."
+    },
+    "originalAnswer": "Nhấn mạnh vai trò của tư duy, duy lý",
+    "originalLetter": "A",
+    "correctAnswer": "Nhấn mạnh vai trò của tư duy, duy lý",
+    "options": [
+      "Phủ nhận vai trò của chủ thể",
+      "Nhấn mạnh vai trò của cảm giác",
+      "Đề cao kinh nghiệm.",
+      "Nhấn mạnh vai trò của tư duy, duy lý"
+    ],
+    "globalId": 77,
+    "set": "spkt_300"
+  },
+  {
+    "id": 78,
+    "rawId": 78,
+    "uid": "spkt_78",
+    "question": "Theo Đềcáctơ tiêu chuẩn của chân lý là gì?",
+    "originalOptions": {
+      "A": "Là thực tiễn",
+      "B": "Là tư duy rõ ràng, mạch lạc",
+      "C": "Là cảm giác, kinh nghiệm về sự vật",
+      "D": "Là được nhiều người thừa nhận ."
+    },
+    "originalAnswer": "Là tư duy rõ ràng, mạch lạc",
+    "originalLetter": "B",
+    "correctAnswer": "Là tư duy rõ ràng, mạch lạc",
+    "options": [
+      "Là tư duy rõ ràng, mạch lạc",
+      "Là được nhiều người thừa nhận .",
+      "Là thực tiễn",
+      "Là cảm giác, kinh nghiệm về sự vật"
+    ],
+    "globalId": 78,
+    "set": "spkt_300"
+  },
+  {
+    "id": 79,
+    "rawId": 79,
+    "uid": "spkt_79",
+    "question": "Luận điểm của Đềcáctơ \"Tôi tư duy vậy tôi tồn tại\" thể hiện khuynh hướng triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm khách quan",
+      "B": "Chủ nghĩa duy vật tầm thường",
+      "C": "Thuyết hoài nghi",
+      "D": "Chủ nghĩa duy tâm chủ quan"
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm chủ quan",
+    "originalLetter": "D",
+    "correctAnswer": "Chủ nghĩa duy tâm chủ quan",
+    "options": [
+      "Thuyết hoài nghi",
+      "Chủ nghĩa duy tâm chủ quan",
+      "Chủ nghĩa duy tâm khách quan",
+      "Chủ nghĩa duy vật tầm thường"
+    ],
+    "globalId": 79,
+    "set": "spkt_300"
+  },
+  {
+    "id": 80,
+    "rawId": 80,
+    "uid": "spkt_80",
+    "question": "Xpinôda là nhà triết học nước nào?",
+    "originalOptions": {
+      "A": "Hà Lan",
+      "C": "Đức",
+      "B": "áo",
+      "D": "Pháp"
+    },
+    "originalAnswer": "Hà Lan",
+    "originalLetter": "A",
+    "correctAnswer": "Hà Lan",
+    "options": [
+      "áo",
+      "Hà Lan",
+      "Pháp",
+      "Đức"
+    ],
+    "globalId": 80,
+    "set": "spkt_300"
+  },
+  {
+    "id": 81,
+    "rawId": 81,
+    "uid": "spkt_81",
+    "question": "Xpinôda là nhà triết học thuộc trường phái nào?",
+    "originalOptions": {
+      "A": "Duy tâm chủ quan",
+      "B": "Duy vật biện chứng",
+      "C": "Duy tâm khách quan",
+      "D": "Duy vật và vô thần"
+    },
+    "originalAnswer": "Duy vật và vô thần",
+    "originalLetter": "D",
+    "correctAnswer": "Duy vật và vô thần",
+    "options": [
+      "Duy vật và vô thần",
+      "Duy tâm chủ quan",
+      "Duy vật biện chứng",
+      "Duy tâm khách quan"
+    ],
+    "globalId": 81,
+    "set": "spkt_300"
+  },
+  {
+    "id": 82,
+    "rawId": 82,
+    "uid": "spkt_82",
+    "question": "Nhận định nào sau đây là đúng",
+    "originalOptions": {
+      "A": "Xpinôda là nhà triết học nhị nguyên",
+      "B": "Xpinôda là nhà triết học duy tâm khách quan",
+      "C": "Xpinôda là nhà triết học duy vật biện chứng",
+      "D": "Xpinôda là nhà triết học nhất nguyên."
+    },
+    "originalAnswer": "Xpinôda là nhà triết học nhị nguyên",
+    "originalLetter": "A",
+    "correctAnswer": "Xpinôda là nhà triết học nhị nguyên",
+    "options": [
+      "Xpinôda là nhà triết học duy vật biện chứng",
+      "Xpinôda là nhà triết học nhất nguyên.",
+      "Xpinôda là nhà triết học duy tâm khách quan",
+      "Xpinôda là nhà triết học nhị nguyên"
+    ],
+    "globalId": 82,
+    "set": "spkt_300"
+  },
+  {
+    "id": 83,
+    "rawId": 83,
+    "uid": "spkt_83",
+    "question": "Điều khẳng định nào sau đây về Xpinôda là sai?",
+    "originalOptions": {
+      "A": "Xpinôda là nhà triết học duy vật và vô thần",
+      "B": "Xpinôda là nhà triết học nhất nguyên coi quảng tính và tư duy là thuộc tính của một thực thể",
+      "C": "Xpinôda chống lại quan điểm nhị nguyên của Đềcáctơ.",
+      "D": "Xpinôda là nhà triết học nhị nguyên"
+    },
+    "originalAnswer": "Xpinôda là nhà triết học nhị nguyên",
+    "originalLetter": "D",
+    "correctAnswer": "Xpinôda là nhà triết học nhị nguyên",
+    "options": [
+      "Xpinôda là nhà triết học nhất nguyên coi quảng tính và tư duy là thuộc tính của một thực thể",
+      "Xpinôda là nhà triết học nhị nguyên",
+      "Xpinôda chống lại quan điểm nhị nguyên của Đềcáctơ.",
+      "Xpinôda là nhà triết học duy vật và vô thần"
+    ],
+    "globalId": 83,
+    "set": "spkt_300"
+  },
+  {
+    "id": 84,
+    "rawId": 84,
+    "uid": "spkt_84",
+    "question": "Quan điểm duy vật của Xpinôda về thế giới là ở chỗ nào?",
+    "originalOptions": {
+      "A": "Thế giới là thế giới của các sự vật riêng lẻ",
+      "B": "Thế giới là phức hợp cảm giác",
+      "C": "Thế giới là sự tha hoá của ý niệm",
+      "D": "Thế giới là cái bóng của thế giới ý niệm"
+    },
+    "originalAnswer": "Thế giới là thế giới của các sự vật riêng lẻ",
+    "originalLetter": "A",
+    "correctAnswer": "Thế giới là thế giới của các sự vật riêng lẻ",
+    "options": [
+      "Thế giới là phức hợp cảm giác",
+      "Thế giới là sự tha hoá của ý niệm",
+      "Thế giới là cái bóng của thế giới ý niệm",
+      "Thế giới là thế giới của các sự vật riêng lẻ"
+    ],
+    "globalId": 84,
+    "set": "spkt_300"
+  },
+  {
+    "id": 85,
+    "rawId": 85,
+    "uid": "spkt_85",
+    "question": "Tại sao quan điểm của Xpinôda lại rơi vào quan điểm của thuyết định mệnh máy móc?",
+    "originalOptions": {
+      "A": "Coi thế gới gồm các sự vật riêng lẻ",
+      "B": "Coi các sự vật trong thế giới đều có nguyên nhân",
+      "C": "Đồng nhất nguyên nhân với tính tất yếu coi ngẫu nhiên chỉ là phạm trù chủ quan",
+      "D": "Khẳng định có thể nhận thức thế giới bằng phương pháp toán học."
+    },
+    "originalAnswer": "Đồng nhất nguyên nhân với tính tất yếu coi ngẫu nhiên chỉ là phạm trù chủ quan",
+    "originalLetter": "C",
+    "correctAnswer": "Đồng nhất nguyên nhân với tính tất yếu coi ngẫu nhiên chỉ là phạm trù chủ quan",
+    "options": [
+      "Coi thế gới gồm các sự vật riêng lẻ",
+      "Đồng nhất nguyên nhân với tính tất yếu coi ngẫu nhiên chỉ là phạm trù chủ quan",
+      "Coi các sự vật trong thế giới đều có nguyên nhân",
+      "Khẳng định có thể nhận thức thế giới bằng phương pháp toán học."
+    ],
+    "globalId": 85,
+    "set": "spkt_300"
+  },
+  {
+    "id": 86,
+    "rawId": 86,
+    "uid": "spkt_86",
+    "question": "Quan niệm về ý thức của Xpinôda chịu ảnh hưởng của ai, và quan niệm đó như thế nào?",
+    "originalOptions": {
+      "A": "Chịu ảnh hưởng của thuyết bất khả tri, không thừa nhận con người có khả năng nhận thức được thế giới.",
+      "B": "Chịu ảnh hưởng của những người theo vật hoạt luận, thừa nhận mọi vật đều có ý thức.",
+      "C": "Chịu ảnh hưởng của chủ nghĩa duy lý cho chỉ có con người mới có ý thức.",
+      "D": "Chịu ảnh hưởng của tôn giáo, cho ý thức có nguồn góc từ thần thánh."
+    },
+    "originalAnswer": "Chịu ảnh hưởng của những người theo vật hoạt luận, thừa nhận mọi vật đều có ý thức.",
+    "originalLetter": "B",
+    "correctAnswer": "Chịu ảnh hưởng của những người theo vật hoạt luận, thừa nhận mọi vật đều có ý thức.",
+    "options": [
+      "Chịu ảnh hưởng của chủ nghĩa duy lý cho chỉ có con người mới có ý thức.",
+      "Chịu ảnh hưởng của thuyết bất khả tri, không thừa nhận con người có khả năng nhận thức được thế giới.",
+      "Chịu ảnh hưởng của tôn giáo, cho ý thức có nguồn góc từ thần thánh.",
+      "Chịu ảnh hưởng của những người theo vật hoạt luận, thừa nhận mọi vật đều có ý thức."
+    ],
+    "globalId": 86,
+    "set": "spkt_300"
+  },
+  {
+    "id": 87,
+    "rawId": 87,
+    "uid": "spkt_87",
+    "question": "Quan niệm về ý thức của Xpinôda thuộc loại nào?",
+    "originalOptions": {
+      "A": "Duy vật biện chứng",
+      "B": "Duy tâm chủ quan",
+      "C": "Duy tâm khách quan",
+      "D": "Vật hoạt luận"
+    },
+    "originalAnswer": "Vật hoạt luận",
+    "originalLetter": "D",
+    "correctAnswer": "Vật hoạt luận",
+    "options": [
+      "Duy tâm khách quan",
+      "Duy vật biện chứng",
+      "Vật hoạt luận",
+      "Duy tâm chủ quan"
+    ],
+    "globalId": 87,
+    "set": "spkt_300"
+  },
+  {
+    "id": 88,
+    "rawId": 88,
+    "uid": "spkt_88",
+    "question": "Quan niệm về con người của Xpinôda đứng trên lập trường nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm chủ quan",
+      "B": "Chủ nghĩa duy tâm khách quan",
+      "C": "Thuyết nhị nguyên",
+      "D": "Chủ nghĩa tự nhiên"
+    },
+    "originalAnswer": "Chủ nghĩa tự nhiên",
+    "originalLetter": "D",
+    "correctAnswer": "Chủ nghĩa tự nhiên",
+    "options": [
+      "Chủ nghĩa duy tâm chủ quan",
+      "Thuyết nhị nguyên",
+      "Chủ nghĩa duy tâm khách quan",
+      "Chủ nghĩa tự nhiên"
+    ],
+    "globalId": 88,
+    "set": "spkt_300"
+  },
+  {
+    "id": 89,
+    "rawId": 89,
+    "uid": "spkt_89",
+    "question": "Về nhận thức luận, Xpinôda theo chủ nghĩa nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy cảm",
+      "B": "Chủ nghĩa duy lý.",
+      "C": "Chủ nghĩa kinh nghiệm.",
+      "D": "Chủ nghĩa duy vật biện chứng"
+    },
+    "originalAnswer": "Chủ nghĩa duy lý.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy lý.",
+    "options": [
+      "Chủ nghĩa duy cảm",
+      "Chủ nghĩa duy vật biện chứng",
+      "Chủ nghĩa duy lý.",
+      "Chủ nghĩa kinh nghiệm."
+    ],
+    "globalId": 89,
+    "set": "spkt_300"
+  },
+  {
+    "id": 90,
+    "rawId": 90,
+    "uid": "spkt_90",
+    "question": "Theo Xpinôda chân lý đáng tin cậy đạt được ở giai đoạn nhận thức nào?",
+    "originalOptions": {
+      "A": "Giai đoạn nhận thức lý tính",
+      "B": "Giai đoạn nhận thức cảm tính",
+      "C": "Cả hai giai đoạn",
+      "D": "Không đạt được ở giai đoạn nào"
+    },
+    "originalAnswer": "Giai đoạn nhận thức lý tính",
+    "originalLetter": "A",
+    "correctAnswer": "Giai đoạn nhận thức lý tính",
+    "options": [
+      "Cả hai giai đoạn",
+      "Không đạt được ở giai đoạn nào",
+      "Giai đoạn nhận thức lý tính",
+      "Giai đoạn nhận thức cảm tính"
+    ],
+    "globalId": 90,
+    "set": "spkt_300"
+  },
+  {
+    "id": 91,
+    "rawId": 91,
+    "uid": "spkt_91",
+    "question": "Xpinôda quan niệm về nhận thức trực giác như thế nào?",
+    "originalOptions": {
+      "A": "Là \"ánh sáng nội tâm\" giúp con người liên hệ trực tiếp với thượng đế",
+      "B": "Là trí tuệ anh minh như nền tảng của mọi tri thức",
+      "C": "Một năng lực trí tuệ của phép nhận thức sự vật",
+      "D": "Cả ba nội dung trên"
+    },
+    "originalAnswer": "Cả ba nội dung trên",
+    "originalLetter": "D",
+    "correctAnswer": "Cả ba nội dung trên",
+    "options": [
+      "Cả ba nội dung trên",
+      "Một năng lực trí tuệ của phép nhận thức sự vật",
+      "Là \"ánh sáng nội tâm\" giúp con người liên hệ trực tiếp với thượng đế",
+      "Là trí tuệ anh minh như nền tảng của mọi tri thức"
+    ],
+    "globalId": 91,
+    "set": "spkt_300"
+  },
+  {
+    "id": 92,
+    "rawId": 92,
+    "uid": "spkt_92",
+    "question": "Khái niệm đạo đức của Xpinôda gắn với khái niệm \"con người tự do\" không? nếu có thì như thế nào?",
+    "originalOptions": {
+      "A": "Không",
+      "B": "Có, con người tự do hành động theo ý muốn của mình",
+      "C": "Có, con người chỉ có thể trở thành tự do khi được chỉ đạo bởi lý tính",
+      "D": "Không. Vì trong tự nhiên chỉ có cái tất yếu"
+    },
+    "originalAnswer": "Có, con người chỉ có thể trở thành tự do khi được chỉ đạo bởi lý tính",
+    "originalLetter": "C",
+    "correctAnswer": "Có, con người chỉ có thể trở thành tự do khi được chỉ đạo bởi lý tính",
+    "options": [
+      "Có, con người tự do hành động theo ý muốn của mình",
+      "Không. Vì trong tự nhiên chỉ có cái tất yếu",
+      "Không",
+      "Có, con người chỉ có thể trở thành tự do khi được chỉ đạo bởi lý tính"
+    ],
+    "globalId": 92,
+    "set": "spkt_300"
+  },
+  {
+    "id": 93,
+    "rawId": 93,
+    "uid": "spkt_93",
+    "question": "Quan niệm của Xpinôda về pháp quyền và xã hội được xây dựng trên lập trường nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa tự nhiên",
+      "B": "Chủ nghĩa duy vật biện chứng",
+      "C": "Chủ nghĩa duy tâm khách quan",
+      "D": "Chủ nghĩa tự do tư sản"
+    },
+    "originalAnswer": "Chủ nghĩa tự nhiên",
+    "originalLetter": "A",
+    "correctAnswer": "Chủ nghĩa tự nhiên",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng",
+      "Chủ nghĩa tự nhiên",
+      "Chủ nghĩa duy tâm khách quan",
+      "Chủ nghĩa tự do tư sản"
+    ],
+    "globalId": 93,
+    "set": "spkt_300"
+  },
+  {
+    "id": 94,
+    "rawId": 94,
+    "uid": "spkt_94",
+    "question": "Xpinôda quan niệm về nguồn gốc tôn giáo từ đâu?",
+    "originalOptions": {
+      "A": "Sự tin tưởng vào ánh sáng nội tâm",
+      "B": "Sự bất lực trước các lực lượng xã hội",
+      "C": "Sự sợ hãi",
+      "D": "Sự không hiểu biết về tự nhiên"
+    },
+    "originalAnswer": "Sự sợ hãi",
+    "originalLetter": "C",
+    "correctAnswer": "Sự sợ hãi",
+    "options": [
+      "Sự bất lực trước các lực lượng xã hội",
+      "Sự không hiểu biết về tự nhiên",
+      "Sự sợ hãi",
+      "Sự tin tưởng vào ánh sáng nội tâm"
+    ],
+    "globalId": 94,
+    "set": "spkt_300"
+  },
+  {
+    "id": 95,
+    "rawId": 95,
+    "uid": "spkt_95",
+    "question": "Trong nhận thức luận của mình, Giôn Lốccơ phê phán Đềcáctơ về cái gì?",
+    "originalOptions": {
+      "A": "Về thuyết nhị nguyên",
+      "B": "Về quan niệm máy móc đối với con người",
+      "C": "Về thuyết thừa nhận tồn tại tư tưởng bẩm sinh",
+      "D": "Về quan niệm duy vật trong lĩnh vực vật lý"
+    },
+    "originalAnswer": "Về thuyết thừa nhận tồn tại tư tưởng bẩm sinh",
+    "originalLetter": "C",
+    "correctAnswer": "Về thuyết thừa nhận tồn tại tư tưởng bẩm sinh",
+    "options": [
+      "Về quan niệm duy vật trong lĩnh vực vật lý",
+      "Về thuyết thừa nhận tồn tại tư tưởng bẩm sinh",
+      "Về thuyết nhị nguyên",
+      "Về quan niệm máy móc đối với con người"
+    ],
+    "globalId": 95,
+    "set": "spkt_300"
+  },
+  {
+    "id": 96,
+    "rawId": 96,
+    "uid": "spkt_96",
+    "question": "Theo quan niệm của G.Lốccơ tri thức, chân lý do đâu mà có?",
+    "originalOptions": {
+      "A": "Do ý niệm bẩm sinh",
+      "B": "Do kết quả của quá trình nhận thức",
+      "C": "Do thượng đế ban tặng",
+      "D": "Do hoạt động thực tiễn"
+    },
+    "originalAnswer": "Do kết quả của quá trình nhận thức",
+    "originalLetter": "B",
+    "correctAnswer": "Do kết quả của quá trình nhận thức",
+    "options": [
+      "Do thượng đế ban tặng",
+      "Do ý niệm bẩm sinh",
+      "Do hoạt động thực tiễn",
+      "Do kết quả của quá trình nhận thức"
+    ],
+    "globalId": 96,
+    "set": "spkt_300"
+  },
+  {
+    "id": 97,
+    "rawId": 97,
+    "uid": "spkt_97",
+    "question": "Giôn Lốccơ là nhà triết học nước nào?",
+    "originalOptions": {
+      "A": "Pháp",
+      "C": "ý",
+      "B": "Anh",
+      "D": "Mỹ"
+    },
+    "originalAnswer": "Anh",
+    "originalLetter": "B",
+    "correctAnswer": "Anh",
+    "options": [
+      "Mỹ",
+      "Pháp",
+      "Anh",
+      "ý"
+    ],
+    "globalId": 97,
+    "set": "spkt_300"
+  },
+  {
+    "id": 98,
+    "rawId": 98,
+    "uid": "spkt_98",
+    "question": "Về nhận thức luận ai là người nêu ra nguyên lý tabula rasa (tấm bảng sạch)",
+    "originalOptions": {
+      "A": "Xpinôda",
+      "C": "Đềcáctơ",
+      "B": "Platôn",
+      "D": "Giôn Lốccơ"
+    },
+    "originalAnswer": "Giôn Lốccơ",
+    "originalLetter": "D",
+    "correctAnswer": "Giôn Lốccơ",
+    "options": [
+      "Giôn Lốccơ",
+      "Platôn",
+      "Đềcáctơ",
+      "Xpinôda"
+    ],
+    "globalId": 98,
+    "set": "spkt_300"
+  },
+  {
+    "id": 99,
+    "rawId": 99,
+    "uid": "spkt_99",
+    "question": "Nguyên lý tabula rasa (tấm bảng sạch) theo cách hiểu của người đề xuất khẳng định những nội dung gì?",
+    "originalOptions": {
+      "A": "Mọi tri thức không phải là bẩm sinh, mà là kết quả nhận thức",
+      "B": "Mọi quá trình nhận thức đều phải xuất phát từ cơ quan cảm giác",
+      "C": "Linh hồn con người có vai trò tích cực nhất định",
+      "D": "Cả ba nội dung trên"
+    },
+    "originalAnswer": "Cả ba nội dung trên",
+    "originalLetter": "D",
+    "correctAnswer": "Cả ba nội dung trên",
+    "options": [
+      "Cả ba nội dung trên",
+      "Mọi quá trình nhận thức đều phải xuất phát từ cơ quan cảm giác",
+      "Mọi tri thức không phải là bẩm sinh, mà là kết quả nhận thức",
+      "Linh hồn con người có vai trò tích cực nhất định"
+    ],
+    "globalId": 99,
+    "set": "spkt_300"
+  },
+  {
+    "id": 100,
+    "rawId": 100,
+    "uid": "spkt_100",
+    "question": "Nội dung thuyết tabula rasa (tấm bảng sạch) đứng trên lập trường triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm khách quan",
+      "B": "Chủ nghĩa duy tâm chủ quan",
+      "C": "Chủ nghĩa duy vật",
+      "D": "Thuyết bất khả tri"
+    },
+    "originalAnswer": "Chủ nghĩa duy vật",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy vật",
+    "options": [
+      "Chủ nghĩa duy tâm khách quan",
+      "Chủ nghĩa duy vật",
+      "Thuyết bất khả tri",
+      "Chủ nghĩa duy tâm chủ quan"
+    ],
+    "globalId": 100,
+    "set": "spkt_300"
+  },
+  {
+    "id": 101,
+    "rawId": 101,
+    "uid": "spkt_101",
+    "question": "Hạn chế của thuyết tabula rasa (tấm bảng sạch) là ở chỗ nào?",
+    "originalOptions": {
+      "A": "Đề cao vai trò nhận thức lý tính",
+      "B": "Phủ nhận nhận thức cảm tính",
+      "C": "Đề cao nhận thức cảm tính một cách tuyệt đối",
+      "D": "Chưa thấy vai trò của kinh nghiệm"
+    },
+    "originalAnswer": "Đề cao nhận thức cảm tính một cách tuyệt đối",
+    "originalLetter": "C",
+    "correctAnswer": "Đề cao nhận thức cảm tính một cách tuyệt đối",
+    "options": [
+      "Đề cao vai trò nhận thức lý tính",
+      "Chưa thấy vai trò của kinh nghiệm",
+      "Đề cao nhận thức cảm tính một cách tuyệt đối",
+      "Phủ nhận nhận thức cảm tính"
+    ],
+    "globalId": 101,
+    "set": "spkt_300"
+  },
+  {
+    "id": 102,
+    "rawId": 102,
+    "uid": "spkt_102",
+    "question": "Trong quan niệm về kinh nghiệm. Giôn Lốccơ đứng trên lập trường nào?",
+    "originalOptions": {
+      "A": "Lập trường của chủ nghĩa duy lý",
+      "B": "Lập trường của chủ nghĩa duy cảm",
+      "C": "Lập trường của thuyết nhị nguyên",
+      "D": "Lập trường của thuyết bất khả tri"
+    },
+    "originalAnswer": "Lập trường của chủ nghĩa duy cảm",
+    "originalLetter": "B",
+    "correctAnswer": "Lập trường của chủ nghĩa duy cảm",
+    "options": [
+      "Lập trường của thuyết nhị nguyên",
+      "Lập trường của chủ nghĩa duy lý",
+      "Lập trường của chủ nghĩa duy cảm",
+      "Lập trường của thuyết bất khả tri"
+    ],
+    "globalId": 102,
+    "set": "spkt_300"
+  },
+  {
+    "id": 103,
+    "rawId": 103,
+    "uid": "spkt_103",
+    "question": "Giôn Lốccơ coi lý tính là gì?",
+    "originalOptions": {
+      "A": "Là ý niệm bẩm sinh",
+      "B": "Là hoạt động của linh hồn",
+      "C": "Là kinh nghiệm bên trong",
+      "D": "Là giai đoạn phản ánh khái quát sự vật"
+    },
+    "originalAnswer": "Là kinh nghiệm bên trong",
+    "originalLetter": "C",
+    "correctAnswer": "Là kinh nghiệm bên trong",
+    "options": [
+      "Là kinh nghiệm bên trong",
+      "Là giai đoạn phản ánh khái quát sự vật",
+      "Là hoạt động của linh hồn",
+      "Là ý niệm bẩm sinh"
+    ],
+    "globalId": 103,
+    "set": "spkt_300"
+  },
+  {
+    "id": 104,
+    "rawId": 104,
+    "uid": "spkt_104",
+    "question": "Luận điểm nào thể hiện lập trường duy cảm của Giôn Lốccơ?",
+    "originalOptions": {
+      "A": "Tôi tư duy vậy tôi tồn tại",
+      "B": "Mọi nhận thức đều xuất phát từ kinh nghiệm",
+      "C": "Kinh nghiệm là nguồn gốc của nhận thức",
+      "D": "Không có cái gì trong lý tính mà trước đó lại không có trong cảm tính."
+    },
+    "originalAnswer": "Không có cái gì trong lý tính mà trước đó lại không có trong cảm tính.",
+    "originalLetter": "D",
+    "correctAnswer": "Không có cái gì trong lý tính mà trước đó lại không có trong cảm tính.",
+    "options": [
+      "Mọi nhận thức đều xuất phát từ kinh nghiệm",
+      "Không có cái gì trong lý tính mà trước đó lại không có trong cảm tính.",
+      "Kinh nghiệm là nguồn gốc của nhận thức",
+      "Tôi tư duy vậy tôi tồn tại"
+    ],
+    "globalId": 104,
+    "set": "spkt_300"
+  },
+  {
+    "id": 105,
+    "rawId": 105,
+    "uid": "spkt_105",
+    "question": "Giôn Lốccơ quan niệm về \"ý niệm phức tạp\" như thế nào?",
+    "originalOptions": {
+      "A": "ý niệm phức tạp là kết quả phản ánh trực tiếp nhiều đặc tính của sự vật",
+      "B": "ý niệm phức tạp là kết quả của phản ánh khái quát đặc tính nào đó của sự vật",
+      "C": "ý niệm phức tạp là tổng hợp \"ý niệm đơn giản\"",
+      "D": "\"ý niệm phức tạp\" là kết quả của hoạt động của riêng lý tính hoàn toàn chủ quan của con người"
+    },
+    "originalAnswer": "\"ý niệm phức tạp\" là kết quả của hoạt động của riêng lý tính hoàn toàn chủ quan của con người",
+    "originalLetter": "D",
+    "correctAnswer": "\"ý niệm phức tạp\" là kết quả của hoạt động của riêng lý tính hoàn toàn chủ quan của con người",
+    "options": [
+      "\"ý niệm phức tạp\" là kết quả của hoạt động của riêng lý tính hoàn toàn chủ quan của con người",
+      "ý niệm phức tạp là kết quả của phản ánh khái quát đặc tính nào đó của sự vật",
+      "ý niệm phức tạp là kết quả phản ánh trực tiếp nhiều đặc tính của sự vật",
+      "ý niệm phức tạp là tổng hợp \"ý niệm đơn giản\""
+    ],
+    "globalId": 105,
+    "set": "spkt_300"
+  },
+  {
+    "id": 106,
+    "rawId": 96,
+    "uid": "spkt_106",
+    "question": "Quan niệm về \"ý niệm phức tạp\" của Giôn Lốccơ có quan hệ với lập trường nào về thế giới?",
+    "originalOptions": {
+      "A": "Lập trường duy Thực về thế giới",
+      "B": "Lập trường duy Danh về thế giới",
+      "C": "Lập trường nhị nguyên về thế giới",
+      "D": "Lập trường duy vật biện chứng về thế giới"
+    },
+    "originalAnswer": "Lập trường duy Danh về thế giới",
+    "originalLetter": "B",
+    "correctAnswer": "Lập trường duy Danh về thế giới",
+    "options": [
+      "Lập trường nhị nguyên về thế giới",
+      "Lập trường duy Danh về thế giới",
+      "Lập trường duy vật biện chứng về thế giới",
+      "Lập trường duy Thực về thế giới"
+    ],
+    "globalId": 106,
+    "set": "spkt_300"
+  },
+  {
+    "id": 107,
+    "rawId": 107,
+    "uid": "spkt_107",
+    "question": "Ai là người đã phân chia tính chất của sự vật ra thành \"chất có trước\" và \"chất có sau\"",
+    "originalOptions": {
+      "A": "Xpinôdza",
+      "C": "Ph. Bêcơn",
+      "B": "Đềcáctơ",
+      "D": "Giôn Lốccơ"
+    },
+    "originalAnswer": "Giôn Lốccơ",
+    "originalLetter": "D",
+    "correctAnswer": "Giôn Lốccơ",
+    "options": [
+      "Giôn Lốccơ",
+      "Ph. Bêcơn",
+      "Xpinôdza",
+      "Đềcáctơ"
+    ],
+    "globalId": 107,
+    "set": "spkt_300"
+  },
+  {
+    "id": 108,
+    "rawId": 108,
+    "uid": "spkt_108",
+    "question": "Quan niệm về \"chất có sau\" của tác giả là thế nào?",
+    "originalOptions": {
+      "A": "\" Chất có sau\" có được nhờ sự tác động của các sự vật khách quan vào giác quan con người.",
+      "B": "\" Chất có sau\" hoàn toàn là sản phẩm của con người",
+      "C": "\" Chất có sau\" khi thì là khi thì là , không nhất quán",
+      "D": "\" Chất có sau\" là ảo giác không có thật"
+    },
+    "originalAnswer": "\" Chất có sau\" khi thì là khi thì là , không nhất quán",
+    "originalLetter": "C",
+    "correctAnswer": "\" Chất có sau\" khi thì là khi thì là , không nhất quán",
+    "options": [
+      "\" Chất có sau\" hoàn toàn là sản phẩm của con người",
+      "\" Chất có sau\" có được nhờ sự tác động của các sự vật khách quan vào giác quan con người.",
+      "\" Chất có sau\" là ảo giác không có thật",
+      "\" Chất có sau\" khi thì là khi thì là , không nhất quán"
+    ],
+    "globalId": 108,
+    "set": "spkt_300"
+  },
+  {
+    "id": 109,
+    "rawId": 109,
+    "uid": "spkt_109",
+    "question": "Gioócgiơ Béccơli là nhà triết học của nước nào?",
+    "originalOptions": {
+      "A": "Anh",
+      "C": "Pháp",
+      "B": "Hà Lan",
+      "D": "Đức"
+    },
+    "originalAnswer": "Anh",
+    "originalLetter": "A",
+    "correctAnswer": "Anh",
+    "options": [
+      "Pháp",
+      "Anh",
+      "Đức",
+      "Hà Lan"
+    ],
+    "globalId": 109,
+    "set": "spkt_300"
+  },
+  {
+    "id": 110,
+    "rawId": 110,
+    "uid": "spkt_110",
+    "question": "Gioócgiơ Béccơli là nhà triết học theo khuynh hướng nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật siêu hình",
+      "B": "Chủ nghĩa duy vật biện chứng",
+      "C": "Chủ nghĩa duy tâm chủ quan",
+      "D": "Chủ nghĩa duy tâm khách quan"
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm chủ quan",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy tâm chủ quan",
+    "options": [
+      "Chủ nghĩa duy tâm chủ quan",
+      "Chủ nghĩa duy vật siêu hình",
+      "Chủ nghĩa duy tâm khách quan",
+      "Chủ nghĩa duy vật biện chứng"
+    ],
+    "globalId": 110,
+    "set": "spkt_300"
+  },
+  {
+    "id": 111,
+    "rawId": 111,
+    "uid": "spkt_111",
+    "question": "Câu 111 Theo quan niệm của Béccơli sự tồn tại các sự vật cụ thể trong thế giới do cái gì quyết định?",
+    "originalOptions": {
+      "A": "Mọi vật do nguyên tử tạo nên",
+      "B": "Vật tồn tại không phụ thuộc vào cảm giác",
+      "C": "Vật do thượng đế tạo ra",
+      "D": "Vật do phức hợp các cảm giác"
+    },
+    "originalAnswer": "Vật do phức hợp các cảm giác",
+    "originalLetter": "D",
+    "correctAnswer": "Vật do phức hợp các cảm giác",
+    "options": [
+      "Vật tồn tại không phụ thuộc vào cảm giác",
+      "Vật do phức hợp các cảm giác",
+      "Vật do thượng đế tạo ra",
+      "Mọi vật do nguyên tử tạo nên"
+    ],
+    "globalId": 111,
+    "set": "spkt_300"
+  },
+  {
+    "id": 112,
+    "rawId": 112,
+    "uid": "spkt_112",
+    "question": "Triết học của Béccơli cuối cùng chuyển sang triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật tầm thường",
+      "B": "Chủ nghĩa duy tâm khách quan",
+      "C": "Chủ nghĩa duy vật biện chứng",
+      "D": "Thuyết bất khả tri"
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm khách quan",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy tâm khách quan",
+    "options": [
+      "Thuyết bất khả tri",
+      "Chủ nghĩa duy vật tầm thường",
+      "Chủ nghĩa duy tâm khách quan",
+      "Chủ nghĩa duy vật biện chứng"
+    ],
+    "globalId": 112,
+    "set": "spkt_300"
+  },
+  {
+    "id": 113,
+    "rawId": 113,
+    "uid": "spkt_113",
+    "question": "Về bản chất triết học của Béccơli phản ánh hệ tư tưởng của giai cấp nào?",
+    "originalOptions": {
+      "A": "Giai cấp địa chủ phong kiến",
+      "B": "Giai cấp chủ nô",
+      "C": "Giai cấp tư sản đã giành được chính quyền",
+      "D": "Giai cấp tư sản chưa giành được chính quyền"
+    },
+    "originalAnswer": "Giai cấp tư sản đã giành được chính quyền",
+    "originalLetter": "C",
+    "correctAnswer": "Giai cấp tư sản đã giành được chính quyền",
+    "options": [
+      "Giai cấp tư sản chưa giành được chính quyền",
+      "Giai cấp chủ nô",
+      "Giai cấp địa chủ phong kiến",
+      "Giai cấp tư sản đã giành được chính quyền"
+    ],
+    "globalId": 113,
+    "set": "spkt_300"
+  },
+  {
+    "id": 114,
+    "rawId": 114,
+    "uid": "spkt_114",
+    "question": "Davít Hium là nhà triết học nước nào?",
+    "originalOptions": {
+      "A": "Pháp",
+      "C": "áo",
+      "B": "Anh",
+      "D": "Hà Lan"
+    },
+    "originalAnswer": "Anh",
+    "originalLetter": "B",
+    "correctAnswer": "Anh",
+    "options": [
+      "Anh",
+      "Pháp",
+      "áo",
+      "Hà Lan"
+    ],
+    "globalId": 114,
+    "set": "spkt_300"
+  },
+  {
+    "id": 115,
+    "rawId": 115,
+    "uid": "spkt_115",
+    "question": "Davít Hium sống vào thời gian nào?",
+    "originalOptions": {
+      "A": "1700 - 1760",
+      "B": "1710 - 1765",
+      "C": "1711 - 1766",
+      "D": "1712 - 1767"
+    },
+    "originalAnswer": "1711 - 1766",
+    "originalLetter": "C",
+    "correctAnswer": "1711 - 1766",
+    "options": [
+      "1712 - 1767",
+      "1710 - 1765",
+      "1711 - 1766",
+      "1700 - 1760"
+    ],
+    "globalId": 115,
+    "set": "spkt_300"
+  },
+  {
+    "id": 116,
+    "rawId": 116,
+    "uid": "spkt_116",
+    "question": "Về lý luận nhận thức, Đavít Hium đứng trên lập trường nào?",
+    "originalOptions": {
+      "A": "Thuyết khả tri duy vật siêu hình",
+      "B": "Thuyết khả tri duy tâm",
+      "C": "Thuyết bất khả tri và hiện tượng luận",
+      "D": "Thuyết khả tri duy vật biện chứng"
+    },
+    "originalAnswer": "Thuyết bất khả tri và hiện tượng luận",
+    "originalLetter": "C",
+    "correctAnswer": "Thuyết bất khả tri và hiện tượng luận",
+    "options": [
+      "Thuyết khả tri duy tâm",
+      "Thuyết khả tri duy vật biện chứng",
+      "Thuyết khả tri duy vật siêu hình",
+      "Thuyết bất khả tri và hiện tượng luận"
+    ],
+    "globalId": 116,
+    "set": "spkt_300"
+  },
+  {
+    "id": 117,
+    "rawId": 117,
+    "uid": "spkt_117",
+    "question": "Quan niệm của Đavít Hium về tính nhân quả như thế nào?",
+    "originalOptions": {
+      "A": "Kết quả chứa đựng trong nguyên nhân",
+      "B": "Nguyên nhân có trước và sinh ra kết quả",
+      "C": "Kết quả được rút ra từ nguyên nhân",
+      "D": "Không thể chứng minh kết quả được rút ra từ nguyên nhân trong khoa học tự nhiên"
+    },
+    "originalAnswer": "Không thể chứng minh kết quả được rút ra từ nguyên nhân trong khoa học tự nhiên",
+    "originalLetter": "D",
+    "correctAnswer": "Không thể chứng minh kết quả được rút ra từ nguyên nhân trong khoa học tự nhiên",
+    "options": [
+      "Không thể chứng minh kết quả được rút ra từ nguyên nhân trong khoa học tự nhiên",
+      "Nguyên nhân có trước và sinh ra kết quả",
+      "Kết quả chứa đựng trong nguyên nhân",
+      "Kết quả được rút ra từ nguyên nhân"
+    ],
+    "globalId": 117,
+    "set": "spkt_300"
+  },
+  {
+    "id": 118,
+    "rawId": 118,
+    "uid": "spkt_118",
+    "question": "Hium quan niệm về sự tồn tại của quan hệ nhân quả như thế nào?",
+    "originalOptions": {
+      "A": "Tồn tại khách quan và là quy luật của tự nhiên",
+      "B": "Tính nhân quả không tồn tại ở đâu cả chỉ là sự bịa đặt của con người",
+      "C": "Tính nhân quả không phải là quy luật, mà do thói quen của con người quy định."
+    },
+    "originalAnswer": "Tính nhân quả không phải là quy luật, mà do thói quen của con người quy định.",
+    "originalLetter": "C",
+    "correctAnswer": "Tính nhân quả không phải là quy luật, mà do thói quen của con người quy định.",
+    "options": [
+      "Tính nhân quả không phải là quy luật, mà do thói quen của con người quy định.",
+      "Tính nhân quả không tồn tại ở đâu cả chỉ là sự bịa đặt của con người",
+      "Tồn tại khách quan và là quy luật của tự nhiên"
+    ],
+    "globalId": 118,
+    "set": "spkt_300"
+  },
+  {
+    "id": 119,
+    "rawId": 119,
+    "uid": "spkt_119",
+    "question": "Theo Đavít Hium cần giáo dục cho con người cái gì?",
+    "originalOptions": {
+      "A": "Thói quen",
+      "B": "Các tri thức khoa học tự nhiên",
+      "C": "Kiến thức triết học",
+      "D": "Thẩm mỹ học"
+    },
+    "originalAnswer": "Thói quen",
+    "originalLetter": "A",
+    "correctAnswer": "Thói quen",
+    "options": [
+      "Các tri thức khoa học tự nhiên",
+      "Thói quen",
+      "Kiến thức triết học",
+      "Thẩm mỹ học"
+    ],
+    "globalId": 119,
+    "set": "spkt_300"
+  },
+  {
+    "id": 120,
+    "rawId": 120,
+    "uid": "spkt_120",
+    "question": "Triết học ánh sáng xuất hiện trong thời gian nào và ở đâu?",
+    "originalOptions": {
+      "A": "Thế kỷ XVI - XVII, ở Italia",
+      "B": "Thế kỷ XVII - XVIII, ở Anh",
+      "C": "Nửa cuối thế kỷ XVIII, ở Đức",
+      "D": "Nửa cuối thế kỷ XVIII ở Pháp"
+    },
+    "originalAnswer": "Nửa cuối thế kỷ XVIII ở Pháp",
+    "originalLetter": "D",
+    "correctAnswer": "Nửa cuối thế kỷ XVIII ở Pháp",
+    "options": [
+      "Thế kỷ XVII - XVIII, ở Anh",
+      "Nửa cuối thế kỷ XVIII, ở Đức",
+      "Nửa cuối thế kỷ XVIII ở Pháp",
+      "Thế kỷ XVI - XVII, ở Italia"
+    ],
+    "globalId": 120,
+    "set": "spkt_300"
+  },
+  {
+    "id": 121,
+    "rawId": 121,
+    "uid": "spkt_121",
+    "question": "Những nhà triết học khai sáng Pháp chuẩn bị về mặt tư tưởng cho cuộc cách mạng nào?",
+    "originalOptions": {
+      "A": "Cách mạng vô sản",
+      "B": "Cách mạng tư sản",
+      "C": "Cách mạng dân tộc, dân chủ",
+      "D": "Cách mạng nông dân chống phong kiến"
+    },
+    "originalAnswer": "Cách mạng tư sản",
+    "originalLetter": "B",
+    "correctAnswer": "Cách mạng tư sản",
+    "options": [
+      "Cách mạng dân tộc, dân chủ",
+      "Cách mạng nông dân chống phong kiến",
+      "Cách mạng tư sản",
+      "Cách mạng vô sản"
+    ],
+    "globalId": 121,
+    "set": "spkt_300"
+  },
+  {
+    "id": 122,
+    "rawId": 122,
+    "uid": "spkt_122",
+    "question": "La Mettri (1709 - 1751) là nhà triết học nước nào?",
+    "originalOptions": {
+      "A": "Nga",
+      "C": "Pháp",
+      "B": "Italia",
+      "D": "Đức"
+    },
+    "originalAnswer": "Pháp",
+    "originalLetter": "C",
+    "correctAnswer": "Pháp",
+    "options": [
+      "Pháp",
+      "Italia",
+      "Nga",
+      "Đức"
+    ],
+    "globalId": 122,
+    "set": "spkt_300"
+  },
+  {
+    "id": 123,
+    "rawId": 123,
+    "uid": "spkt_123",
+    "question": "Quan niệm cho thực thể vật chất là thống nhất ba hình thức của nó trong giới tự nhiên, giới vô cơ, thực vật, động vật (bao gồm con người) là của nhà triết học nào?",
+    "originalOptions": {
+      "A": "Xpinôda",
+      "C": "Ph. Bêcơn",
+      "B": "La Mettri",
+      "D": "Điđrô"
+    },
+    "originalAnswer": "La Mettri",
+    "originalLetter": "B",
+    "correctAnswer": "La Mettri",
+    "options": [
+      "Điđrô",
+      "Xpinôda",
+      "Ph. Bêcơn",
+      "La Mettri"
+    ],
+    "globalId": 123,
+    "set": "spkt_300"
+  },
+  {
+    "id": 124,
+    "rawId": 124,
+    "uid": "spkt_124",
+    "question": "La Mettri coi đặc tính cơ bản của vật chất là gì?",
+    "originalOptions": {
+      "A": "Quảng tính, vận động và cảm thụ",
+      "B": "Quảng tính, khối lượng và vận động",
+      "C": "Quảng tính, vận động"
+    },
+    "originalAnswer": "Quảng tính, vận động và cảm thụ",
+    "originalLetter": "A",
+    "correctAnswer": "Quảng tính, vận động và cảm thụ",
+    "options": [
+      "Quảng tính, vận động",
+      "Quảng tính, vận động và cảm thụ",
+      "Quảng tính, khối lượng và vận động"
+    ],
+    "globalId": 124,
+    "set": "spkt_300"
+  },
+  {
+    "id": 125,
+    "rawId": 125,
+    "uid": "spkt_125",
+    "question": "Về thế giới quan La Mettri là nhà triết học thuộc trào lưu nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm khách quan",
+      "B": "Chủ nghĩa duy tâm chủ quan",
+      "C": "Chủ nghĩa duy vật",
+      "D": "Chủ nghĩa kinh nghiệm phê phán"
+    },
+    "originalAnswer": "Chủ nghĩa duy vật",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy vật",
+    "options": [
+      "Chủ nghĩa kinh nghiệm phê phán",
+      "Chủ nghĩa duy tâm khách quan",
+      "Chủ nghĩa duy vật",
+      "Chủ nghĩa duy tâm chủ quan"
+    ],
+    "globalId": 125,
+    "set": "spkt_300"
+  },
+  {
+    "id": 126,
+    "rawId": 126,
+    "uid": "spkt_126",
+    "question": "Trong vấn đề nhận thức luận, khi La Mettri nói: nhờ cơ quan cảm giác mà người ta suy nghĩ, giác quan là kẻ đáng tin cậy trong đời sống hàng ngày, La Mettri đứng trên quan điểm nào?",
+    "originalOptions": {
+      "A": "Duy lý",
+      "B": "Duy vật biện chứng",
+      "C": "Duy giác luận",
+      "D": "Bất khả tri"
+    },
+    "originalAnswer": "Duy giác luận",
+    "originalLetter": "C",
+    "correctAnswer": "Duy giác luận",
+    "options": [
+      "Duy lý",
+      "Duy vật biện chứng",
+      "Bất khả tri",
+      "Duy giác luận"
+    ],
+    "globalId": 126,
+    "set": "spkt_300"
+  },
+  {
+    "id": 127,
+    "rawId": 127,
+    "uid": "spkt_127",
+    "question": "Điều khẳng định nào sau đây là sai:",
+    "originalOptions": {
+      "A": "La Mettri bác bỏ thuyết nhị nguyên của Đềcáctơ",
+      "B": "La Mettri bảo vệ thuyết nhị nguyên của Đềcáctơ",
+      "C": "La Mettri xem con người như một cái máy",
+      "D": "La Mettri giải thích các hiện tượng sinh lý theo quy luật cơ học"
+    },
+    "originalAnswer": "La Mettri bảo vệ thuyết nhị nguyên của Đềcáctơ",
+    "originalLetter": "B",
+    "correctAnswer": "La Mettri bảo vệ thuyết nhị nguyên của Đềcáctơ",
+    "options": [
+      "La Mettri giải thích các hiện tượng sinh lý theo quy luật cơ học",
+      "La Mettri xem con người như một cái máy",
+      "La Mettri bác bỏ thuyết nhị nguyên của Đềcáctơ",
+      "La Mettri bảo vệ thuyết nhị nguyên của Đềcáctơ"
+    ],
+    "globalId": 127,
+    "set": "spkt_300"
+  },
+  {
+    "id": 128,
+    "rawId": 128,
+    "uid": "spkt_128",
+    "question": "Điều khẳng định nào sau đây là sai?",
+    "originalOptions": {
+      "A": "Điđrô thừa nhận vật chất tồn tại vĩnh viễn",
+      "B": "Điđrô thừa nhận vật chất tồn tại khách quan ngoài ý thức của con người",
+      "C": "Điđrô cho vật chất là một thực thể duy nhất, nguyên nhân tồn tại của nó nằm ngay trong bản thân nó.",
+      "D": "Điđrô không thừa nhận nguyên nhân tồn tại của vật chất nằm ngay trong bản thân nó."
+    },
+    "originalAnswer": "Điđrô không thừa nhận nguyên nhân tồn tại của vật chất nằm ngay trong bản thân nó.",
+    "originalLetter": "D",
+    "correctAnswer": "Điđrô không thừa nhận nguyên nhân tồn tại của vật chất nằm ngay trong bản thân nó.",
+    "options": [
+      "Điđrô cho vật chất là một thực thể duy nhất, nguyên nhân tồn tại của nó nằm ngay trong bản thân nó.",
+      "Điđrô thừa nhận vật chất tồn tại vĩnh viễn",
+      "Điđrô không thừa nhận nguyên nhân tồn tại của vật chất nằm ngay trong bản thân nó.",
+      "Điđrô thừa nhận vật chất tồn tại khách quan ngoài ý thức của con người"
+    ],
+    "globalId": 128,
+    "set": "spkt_300"
+  },
+  {
+    "id": 129,
+    "rawId": 129,
+    "uid": "spkt_129",
+    "question": "Điều khẳng định nào sau đây là đúng?",
+    "originalOptions": {
+      "A": "Điđrô cho vận động và vật chất là thống nhất chặt chẽ",
+      "B": "Điđrô không thừa nhận vận động và vật chất là thống nhất",
+      "C": "Điđrô thừa nhận có trạng thái đứng im tuyệt đối",
+      "D": "Điđrô phủ nhận vận động của vật thể là qúa trình phát triển, biến đổi không ngừng."
+    },
+    "originalAnswer": "Điđrô cho vận động và vật chất là thống nhất chặt chẽ",
+    "originalLetter": "A",
+    "correctAnswer": "Điđrô cho vận động và vật chất là thống nhất chặt chẽ",
+    "options": [
+      "Điđrô cho vận động và vật chất là thống nhất chặt chẽ",
+      "Điđrô phủ nhận vận động của vật thể là qúa trình phát triển, biến đổi không ngừng.",
+      "Điđrô thừa nhận có trạng thái đứng im tuyệt đối",
+      "Điđrô không thừa nhận vận động và vật chất là thống nhất"
+    ],
+    "globalId": 129,
+    "set": "spkt_300"
+  },
+  {
+    "id": 130,
+    "rawId": 130,
+    "uid": "spkt_130",
+    "question": "Điều khẳng định nào sau đây là sai?",
+    "originalOptions": {
+      "A": "Điđrô thể hiện quan niệm vô thần thông qua tư tưởng biện chứng về vận động",
+      "B": "Điđrô chưa tiếp cận tư tưởng về tự thân vận động của vật chất",
+      "C": "Điđrô cho rằng mỗi phân tử có một nguồn vận động bên trong, mà ông gọi là lực nội tâm.",
+      "D": "Điđrô chống lại sự tồn tại của thượng đế"
+    },
+    "originalAnswer": "Điđrô chưa tiếp cận tư tưởng về tự thân vận động của vật chất",
+    "originalLetter": "B",
+    "correctAnswer": "Điđrô chưa tiếp cận tư tưởng về tự thân vận động của vật chất",
+    "options": [
+      "Điđrô chưa tiếp cận tư tưởng về tự thân vận động của vật chất",
+      "Điđrô thể hiện quan niệm vô thần thông qua tư tưởng biện chứng về vận động",
+      "Điđrô cho rằng mỗi phân tử có một nguồn vận động bên trong, mà ông gọi là lực nội tâm.",
+      "Điđrô chống lại sự tồn tại của thượng đế"
+    ],
+    "globalId": 130,
+    "set": "spkt_300"
+  },
+  {
+    "id": 131,
+    "rawId": 131,
+    "uid": "spkt_131",
+    "question": "Khi khẳng định vật chất là nguyên nhân của cảm giác, Điđrô đã đứng trên quan điểm triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm",
+      "B": "Thuyết nhị nguyên",
+      "C": "Chủ nghĩa duy vật",
+      "D": "Chủ nghĩa kinh nghiệm phê phán"
+    },
+    "originalAnswer": "Chủ nghĩa duy vật",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy vật",
+    "options": [
+      "Thuyết nhị nguyên",
+      "Chủ nghĩa kinh nghiệm phê phán",
+      "Chủ nghĩa duy tâm",
+      "Chủ nghĩa duy vật"
+    ],
+    "globalId": 131,
+    "set": "spkt_300"
+  },
+  {
+    "id": 132,
+    "rawId": 132,
+    "uid": "spkt_132",
+    "question": "Tư tưởng biện chứng của Điđrô về vận động thể hiện ở chỗ nào?",
+    "originalOptions": {
+      "A": "Giải thích vận động là sự thay đổi vị trí trong không gian",
+      "B": "Cho nguyên nhân vận động là do lực tác động",
+      "C": "Giải thích tự thân vận động của vật chất bằng mâu thuẫn nội tại của sự vật và tính đa dạng của nó."
+    },
+    "originalAnswer": "Giải thích tự thân vận động của vật chất bằng mâu thuẫn nội tại của sự vật và tính đa dạng của nó.",
+    "originalLetter": "C",
+    "correctAnswer": "Giải thích tự thân vận động của vật chất bằng mâu thuẫn nội tại của sự vật và tính đa dạng của nó.",
+    "options": [
+      "Giải thích tự thân vận động của vật chất bằng mâu thuẫn nội tại của sự vật và tính đa dạng của nó.",
+      "Giải thích vận động là sự thay đổi vị trí trong không gian",
+      "Cho nguyên nhân vận động là do lực tác động"
+    ],
+    "globalId": 132,
+    "set": "spkt_300"
+  },
+  {
+    "id": 133,
+    "rawId": 133,
+    "uid": "spkt_133",
+    "question": "Quan niệm của Điđrô về nguồn gốc của ý thức con người như thế nào?",
+    "originalOptions": {
+      "A": "ý thức có nguồn gốc từ thần thánh",
+      "B": "ý thức là thuộc tính của mọi dạng vật chất",
+      "C": "ý thức là thuộc tính của vật chất có tổ chức cao xuất hiện do sự phức tạp hoá của vật chất hữu cơ.",
+      "D": "ý thức con người vốn có trong bộ não."
+    },
+    "originalAnswer": "ý thức là thuộc tính của vật chất có tổ chức cao xuất hiện do sự phức tạp hoá của vật chất hữu cơ.",
+    "originalLetter": "C",
+    "correctAnswer": "ý thức là thuộc tính của vật chất có tổ chức cao xuất hiện do sự phức tạp hoá của vật chất hữu cơ.",
+    "options": [
+      "ý thức là thuộc tính của mọi dạng vật chất",
+      "ý thức là thuộc tính của vật chất có tổ chức cao xuất hiện do sự phức tạp hoá của vật chất hữu cơ.",
+      "ý thức có nguồn gốc từ thần thánh",
+      "ý thức con người vốn có trong bộ não."
+    ],
+    "globalId": 133,
+    "set": "spkt_300"
+  },
+  {
+    "id": 134,
+    "rawId": 134,
+    "uid": "spkt_134",
+    "question": "Khẳng định nào sau đây là đúng",
+    "originalOptions": {
+      "A": "Điđrô cho rằng vật chất là nguyên nhân của cảm giác",
+      "B": "Điđrô cho rằng vật chất là phức hợp của cảm giác",
+      "C": "Điđrô cho rằng sự vật là phản ánh của thế giới ý niệm",
+      "D": "Điđrô phủ nhận khả năng nhận thức thế giới của con người."
+    },
+    "originalAnswer": "Điđrô cho rằng vật chất là nguyên nhân của cảm giác",
+    "originalLetter": "A",
+    "correctAnswer": "Điđrô cho rằng vật chất là nguyên nhân của cảm giác",
+    "options": [
+      "Điđrô cho rằng vật chất là nguyên nhân của cảm giác",
+      "Điđrô cho rằng sự vật là phản ánh của thế giới ý niệm",
+      "Điđrô cho rằng vật chất là phức hợp của cảm giác",
+      "Điđrô phủ nhận khả năng nhận thức thế giới của con người."
+    ],
+    "globalId": 134,
+    "set": "spkt_300"
+  },
+  {
+    "id": 135,
+    "rawId": 135,
+    "uid": "spkt_135",
+    "question": "Trong lĩnh vực xã hội Điđrô đứng trên quan điểm triết học nào?",
+    "originalOptions": {
+      "A": "Duy vật siêu hình",
+      "B": "Duy vật biện chứng",
+      "C": "Duy tâm"
+    },
+    "originalAnswer": "Duy tâm",
+    "originalLetter": "C",
+    "correctAnswer": "Duy tâm",
+    "options": [
+      "Duy vật biện chứng",
+      "Duy tâm",
+      "Duy vật siêu hình"
+    ],
+    "globalId": 135,
+    "set": "spkt_300"
+  },
+  {
+    "id": 136,
+    "rawId": 136,
+    "uid": "spkt_136",
+    "question": "Những luận điểm nào sau đây là đúng?",
+    "originalOptions": {
+      "A": "Điđrô khẳng định nguồn gốc thần thánh của vua chúa.",
+      "B": "Điđrô phủ nhận nguồn gốc thần thánh của vua chúa.",
+      "C": "Điđrô tán thành chế độ chuyên chế.",
+      "D": "Điđrô chống lại chế độ quân chủ lập hiến."
+    },
+    "originalAnswer": "Điđrô khẳng định nguồn gốc thần thánh của vua chúa.",
+    "originalLetter": "A",
+    "correctAnswer": "Điđrô khẳng định nguồn gốc thần thánh của vua chúa.",
+    "options": [
+      "Điđrô phủ nhận nguồn gốc thần thánh của vua chúa.",
+      "Điđrô chống lại chế độ quân chủ lập hiến.",
+      "Điđrô tán thành chế độ chuyên chế.",
+      "Điđrô khẳng định nguồn gốc thần thánh của vua chúa."
+    ],
+    "globalId": 136,
+    "set": "spkt_300"
+  },
+  {
+    "id": 137,
+    "rawId": 137,
+    "uid": "spkt_137",
+    "question": "Triết học cổ điển Đức bảo vệ về mặt tư tưởng chế độ nhà nước nào?",
+    "originalOptions": {
+      "A": "Nhà nước dân chủ chủ nô",
+      "B": "Nhà nước dân chủ tư sản",
+      "C": "Nhà nước chuyên chế Phổ.",
+      "D": "Nhà nước chuyên chế chủ nô"
+    },
+    "originalAnswer": "Nhà nước chuyên chế Phổ.",
+    "originalLetter": "C",
+    "correctAnswer": "Nhà nước chuyên chế Phổ.",
+    "options": [
+      "Nhà nước dân chủ chủ nô",
+      "Nhà nước chuyên chế Phổ.",
+      "Nhà nước dân chủ tư sản",
+      "Nhà nước chuyên chế chủ nô"
+    ],
+    "globalId": 137,
+    "set": "spkt_300"
+  },
+  {
+    "id": 138,
+    "rawId": 138,
+    "uid": "spkt_138",
+    "question": "Sắp xếp theo thứ tự năm sinh trước - sau của các nhà triết học sau",
+    "originalOptions": {
+      "A": "Cantơ - Phoi-ơ-bắc - Hêghen",
+      "B": "Cantơ - Hêghen - Phoi-ơ-bắc",
+      "C": "Hêghen - Cantơ - Phoi-ơ-bắc",
+      "D": "Phoi-ơ-bắc - Cantơ - Hêghen"
+    },
+    "originalAnswer": "Cantơ - Hêghen - Phoi-ơ-bắc",
+    "originalLetter": "B",
+    "correctAnswer": "Cantơ - Hêghen - Phoi-ơ-bắc",
+    "options": [
+      "Phoi-ơ-bắc - Cantơ - Hêghen",
+      "Hêghen - Cantơ - Phoi-ơ-bắc",
+      "Cantơ - Hêghen - Phoi-ơ-bắc",
+      "Cantơ - Phoi-ơ-bắc - Hêghen"
+    ],
+    "globalId": 138,
+    "set": "spkt_300"
+  },
+  {
+    "id": 139,
+    "rawId": 139,
+    "uid": "spkt_139",
+    "question": "Khi đưa ra quan niệm về \"vật tự nó\" ở ngoài con người, Cantơ là nhà triết học thuộc khuynh hướng nào?",
+    "originalOptions": {
+      "A": "Duy tâm chủ quan",
+      "B": "Duy tâm khách quan",
+      "C": "Duy vật",
+      "D": "Nhị nguyên"
+    },
+    "originalAnswer": "Duy vật",
+    "originalLetter": "C",
+    "correctAnswer": "Duy vật",
+    "options": [
+      "Duy tâm chủ quan",
+      "Duy tâm khách quan",
+      "Duy vật",
+      "Nhị nguyên"
+    ],
+    "globalId": 139,
+    "set": "spkt_300"
+  },
+  {
+    "id": 140,
+    "rawId": 140,
+    "uid": "spkt_140",
+    "question": "Khi cho rằng các vật thể quanh ta không liên quan đến thế giới \"vật tự nó\", mà chỉ là \"các hiện tượng phù hợp với cảm giác và tri thức do lý tính chúng ta tạo ra\", Cantơ là nhà triết học thuộc khuynh hướng nào?",
+    "originalOptions": {
+      "A": "Duy vật biện chứng.",
+      "B": "Duy vật siêu hình",
+      "C": "Duy tâm chủ quan",
+      "D": "Duy tâm khách quan"
+    },
+    "originalAnswer": "Duy tâm chủ quan",
+    "originalLetter": "C",
+    "correctAnswer": "Duy tâm chủ quan",
+    "options": [
+      "Duy tâm chủ quan",
+      "Duy vật siêu hình",
+      "Duy tâm khách quan",
+      "Duy vật biện chứng."
+    ],
+    "globalId": 140,
+    "set": "spkt_300"
+  },
+  {
+    "id": 141,
+    "rawId": 141,
+    "uid": "spkt_141",
+    "question": "Khi cho không gian, thời gian, tính nhân quả không thuộc bản thân thế giới tự nhiên, Cantơ đứng trên quan điểm triết học nào?",
+    "originalOptions": {
+      "A": "Duy vật biện chứng.",
+      "B": "Duy tâm.",
+      "C": "Duy vật siêu hình"
+    },
+    "originalAnswer": "Duy tâm.",
+    "originalLetter": "B",
+    "correctAnswer": "Duy tâm.",
+    "options": [
+      "Duy vật siêu hình",
+      "Duy tâm.",
+      "Duy vật biện chứng."
+    ],
+    "globalId": 141,
+    "set": "spkt_300"
+  },
+  {
+    "id": 142,
+    "rawId": 142,
+    "uid": "spkt_142",
+    "question": "Trong lĩnh vực nhận thức luận, Cantơ là nhà triết học theo khuynh hướng nào?",
+    "originalOptions": {
+      "A": "Khả tri luận có tính chất duy vật.",
+      "B": "Khả tri luận có tính chất duy tâm khách quan.",
+      "C": "Bất khả tri luận có tính chất duy tâm chủ quan."
+    },
+    "originalAnswer": "Bất khả tri luận có tính chất duy tâm chủ quan.",
+    "originalLetter": "C",
+    "correctAnswer": "Bất khả tri luận có tính chất duy tâm chủ quan.",
+    "options": [
+      "Khả tri luận có tính chất duy tâm khách quan.",
+      "Bất khả tri luận có tính chất duy tâm chủ quan.",
+      "Khả tri luận có tính chất duy vật."
+    ],
+    "globalId": 142,
+    "set": "spkt_300"
+  },
+  {
+    "id": 143,
+    "rawId": 143,
+    "uid": "spkt_143",
+    "question": "Khẳng định nào sau đây là đúng",
+    "originalOptions": {
+      "A": "Phép biện chứng của Hêghen là phép biện chứng duy vật",
+      "B": "Phép biện chứng của Hêghen là phép biện chứng tự phát.",
+      "C": "Phép biện chứng của Hêghen là phép biện chứng duy tâm khách quan",
+      "D": "Phép biện chứng của Hêghen là phép biện chứng tiên nghiệm chủ quan."
+    },
+    "originalAnswer": "Phép biện chứng của Hêghen là phép biện chứng duy tâm khách quan",
+    "originalLetter": "C",
+    "correctAnswer": "Phép biện chứng của Hêghen là phép biện chứng duy tâm khách quan",
+    "options": [
+      "Phép biện chứng của Hêghen là phép biện chứng duy vật",
+      "Phép biện chứng của Hêghen là phép biện chứng duy tâm khách quan",
+      "Phép biện chứng của Hêghen là phép biện chứng tự phát.",
+      "Phép biện chứng của Hêghen là phép biện chứng tiên nghiệm chủ quan."
+    ],
+    "globalId": 143,
+    "set": "spkt_300"
+  },
+  {
+    "id": 144,
+    "rawId": 144,
+    "uid": "spkt_144",
+    "question": "Theo Hêghen khởi nguyên của thế giới là gì?",
+    "originalOptions": {
+      "A": "Nguyên tử.",
+      "B": "Không khí.",
+      "C": "ý niệm tuyệt đối",
+      "D": "Vật chất không xác định"
+    },
+    "originalAnswer": "ý niệm tuyệt đối",
+    "originalLetter": "C",
+    "correctAnswer": "ý niệm tuyệt đối",
+    "options": [
+      "Không khí.",
+      "Nguyên tử.",
+      "ý niệm tuyệt đối",
+      "Vật chất không xác định"
+    ],
+    "globalId": 144,
+    "set": "spkt_300"
+  },
+  {
+    "id": 145,
+    "rawId": 145,
+    "uid": "spkt_145",
+    "question": "Trong triết học của Hêghen giữa tinh thần và tự nhiên quan hệ với nhau như thế nào?",
+    "originalOptions": {
+      "A": "Tinh thần là kết quả phát triển của tự nhiên.",
+      "B": "Tinh thần là thuộc tính của tự nhiên",
+      "C": "Tự nhiên là sản phẩm của tinh thần, là một tồn tại khác của tinh thần.",
+      "D": "Tự nhiên là nguồn gốc của tinh thần."
+    },
+    "originalAnswer": "Tự nhiên là sản phẩm của tinh thần, là một tồn tại khác của tinh thần.",
+    "originalLetter": "C",
+    "correctAnswer": "Tự nhiên là sản phẩm của tinh thần, là một tồn tại khác của tinh thần.",
+    "options": [
+      "Tinh thần là thuộc tính của tự nhiên",
+      "Tinh thần là kết quả phát triển của tự nhiên.",
+      "Tự nhiên là sản phẩm của tinh thần, là một tồn tại khác của tinh thần.",
+      "Tự nhiên là nguồn gốc của tinh thần."
+    ],
+    "globalId": 145,
+    "set": "spkt_300"
+  },
+  {
+    "id": 146,
+    "rawId": 146,
+    "uid": "spkt_146",
+    "question": "Khẳng định nào sau đây là sai?",
+    "originalOptions": {
+      "A": "Hêghen cho rằng \"ý niệm tuyệt đối\" tồn tại vĩnh viễn.",
+      "B": "Hêghen cho rằng \"ý niệm tuyệt đối\" vận động trong sự phụ thuộc vào giới tự nhiên và xã hội.",
+      "C": "Hêghen cho rằng \"ý niệm tuyệt đối\" là tính thứ nhất, tự nhiên là tính thứ hai."
+    },
+    "originalAnswer": "Hêghen cho rằng \"ý niệm tuyệt đối\" vận động trong sự phụ thuộc vào giới tự nhiên và xã hội.",
+    "originalLetter": "B",
+    "correctAnswer": "Hêghen cho rằng \"ý niệm tuyệt đối\" vận động trong sự phụ thuộc vào giới tự nhiên và xã hội.",
+    "options": [
+      "Hêghen cho rằng \"ý niệm tuyệt đối\" là tính thứ nhất, tự nhiên là tính thứ hai.",
+      "Hêghen cho rằng \"ý niệm tuyệt đối\" tồn tại vĩnh viễn.",
+      "Hêghen cho rằng \"ý niệm tuyệt đối\" vận động trong sự phụ thuộc vào giới tự nhiên và xã hội."
+    ],
+    "globalId": 146,
+    "set": "spkt_300"
+  },
+  {
+    "id": 147,
+    "rawId": 147,
+    "uid": "spkt_147",
+    "question": "Trong số những nhà triết học sau đây, ai là người trình bầy toàn bộ giới tự nhiên, lịch sử, và tư duy trong sự vận động, biến đổi và phát triển?",
+    "originalOptions": {
+      "A": "Đềcáctơ",
+      "C": "Cantơ",
+      "B": "Hêghen",
+      "D": "Phoi-ơ-bắc."
+    },
+    "originalAnswer": "Hêghen",
+    "originalLetter": "B",
+    "correctAnswer": "Hêghen",
+    "options": [
+      "Cantơ",
+      "Hêghen",
+      "Đềcáctơ",
+      "Phoi-ơ-bắc."
+    ],
+    "globalId": 147,
+    "set": "spkt_300"
+  },
+  {
+    "id": 148,
+    "rawId": 148,
+    "uid": "spkt_148",
+    "question": "Hãy chỉ ra đâu là quan điểm của Hêghen?",
+    "originalOptions": {
+      "A": "Quy luật của phép biện chứng được rút ra từ tự nhiên.",
+      "B": "Quy luật của phép biện chứng được hoàn thành trong tư duy và được ứng dụng vào tự nhiên và xã hôị.",
+      "C": "Quy luật của phép biện chứng do ý thức chủ quan con người tạo ra."
+    },
+    "originalAnswer": "Quy luật của phép biện chứng được hoàn thành trong tư duy và được ứng dụng vào tự nhiên và xã hôị.",
+    "originalLetter": "B",
+    "correctAnswer": "Quy luật của phép biện chứng được hoàn thành trong tư duy và được ứng dụng vào tự nhiên và xã hôị.",
+    "options": [
+      "Quy luật của phép biện chứng được rút ra từ tự nhiên.",
+      "Quy luật của phép biện chứng do ý thức chủ quan con người tạo ra.",
+      "Quy luật của phép biện chứng được hoàn thành trong tư duy và được ứng dụng vào tự nhiên và xã hôị."
+    ],
+    "globalId": 148,
+    "set": "spkt_300"
+  },
+  {
+    "id": 149,
+    "rawId": 149,
+    "uid": "spkt_149",
+    "question": "Luận điểm sau đây là của ai: Cái gì tồn tại thì hợp lý, cái gì hợp lý thì tồn tại.",
+    "originalOptions": {
+      "A": "Arixtốt",
+      "C": "Hêghen",
+      "B": "Cantơ",
+      "D": "Phoi-ơ-bắc"
+    },
+    "originalAnswer": "Hêghen",
+    "originalLetter": "C",
+    "correctAnswer": "Hêghen",
+    "options": [
+      "Phoi-ơ-bắc",
+      "Hêghen",
+      "Cantơ",
+      "Arixtốt"
+    ],
+    "globalId": 149,
+    "set": "spkt_300"
+  },
+  {
+    "id": 150,
+    "rawId": 150,
+    "uid": "spkt_150",
+    "question": "Hãy chỉ ra đâu là quan điểm của Hêghen?",
+    "originalOptions": {
+      "A": "Nhà nước hiện thực chỉ là tồn tại khác của khái niệm nhà nước.",
+      "B": "Khái niệm nhà nước là sự phản ánh nhà nước hiện thực.",
+      "C": "Khái niệm nhà nước và nhà nước hiện thực là hai thực thể độc lập với nhau."
+    },
+    "originalAnswer": "Nhà nước hiện thực chỉ là tồn tại khác của khái niệm nhà nước.",
+    "originalLetter": "A",
+    "correctAnswer": "Nhà nước hiện thực chỉ là tồn tại khác của khái niệm nhà nước.",
+    "options": [
+      "Nhà nước hiện thực chỉ là tồn tại khác của khái niệm nhà nước.",
+      "Khái niệm nhà nước là sự phản ánh nhà nước hiện thực.",
+      "Khái niệm nhà nước và nhà nước hiện thực là hai thực thể độc lập với nhau."
+    ],
+    "globalId": 150,
+    "set": "spkt_300"
+  },
+  {
+    "id": 151,
+    "rawId": 151,
+    "uid": "spkt_151",
+    "question": "Hệ thống triết học của Hêghen gồm những bộ phận chính nào?",
+    "originalOptions": {
+      "A": "Lôgic học; triết học về tự nhiên; triết học về lịch sử; triết học về tinh thần.",
+      "B": "Triết học về tự nhiên; triết học về tinh thần.",
+      "C": "Triết học về tự nhiên; triết học về xã hội; triết học về tinh thần",
+      "D": "Lôgic học; triết học về tự nhiên; triết học về tinh thần"
+    },
+    "originalAnswer": "Lôgic học; triết học về tự nhiên; triết học về tinh thần",
+    "originalLetter": "D",
+    "correctAnswer": "Lôgic học; triết học về tự nhiên; triết học về tinh thần",
+    "options": [
+      "Lôgic học; triết học về tự nhiên; triết học về tinh thần",
+      "Triết học về tự nhiên; triết học về tinh thần.",
+      "Triết học về tự nhiên; triết học về xã hội; triết học về tinh thần",
+      "Lôgic học; triết học về tự nhiên; triết học về lịch sử; triết học về tinh thần."
+    ],
+    "globalId": 151,
+    "set": "spkt_300"
+  },
+  {
+    "id": 152,
+    "rawId": 152,
+    "uid": "spkt_152",
+    "question": "Mâu thuẫn sau đây là mâu thuẫn trong hệ thống triết học của nhà triết học nào: \"Mâu thuẫn giữa phương pháp cách mạng với hệ thống bảo thủ\"",
+    "originalOptions": {
+      "A": "Platôn",
+      "C": "Hêghen",
+      "B": "Arixtốt",
+      "D": "Cantơ"
+    },
+    "originalAnswer": "Hêghen",
+    "originalLetter": "C",
+    "correctAnswer": "Hêghen",
+    "options": [
+      "Platôn",
+      "Hêghen",
+      "Cantơ",
+      "Arixtốt"
+    ],
+    "globalId": 152,
+    "set": "spkt_300"
+  },
+  {
+    "id": 153,
+    "rawId": 153,
+    "uid": "spkt_153",
+    "question": "Thêm cụm từ vào câu sau cho thích hợp: Mâu thuẫn giữa ..(1).. của phép biện chứng với .....(2).....của hệ thống triết học của Hêghen.",
+    "originalOptions": {
+      "A": "1- Tính vận động; 2- tính đứng im",
+      "B": "1- Tính bảo thủ; 2- tính cách mạng.",
+      "C": "1- Tính cách mạng; 2- tính bảo thủ",
+      "D": "1-Tính biện chứng; 2- tính siêu hình"
+    },
+    "originalAnswer": "1- Tính cách mạng; 2- tính bảo thủ",
+    "originalLetter": "C",
+    "correctAnswer": "1- Tính cách mạng; 2- tính bảo thủ",
+    "options": [
+      "1- Tính vận động; 2- tính đứng im",
+      "1-Tính biện chứng; 2- tính siêu hình",
+      "1- Tính bảo thủ; 2- tính cách mạng.",
+      "1- Tính cách mạng; 2- tính bảo thủ"
+    ],
+    "globalId": 153,
+    "set": "spkt_300"
+  },
+  {
+    "id": 154,
+    "rawId": 154,
+    "uid": "spkt_154",
+    "question": "Mác chỉ ra đâu là hạt nhân hợp lý trong triết học của Hêghen",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật",
+      "B": "Chủ nghĩa duy tâm",
+      "C": "Phép biện chứng như lý luận về sự phát triển",
+      "D": "Tư tưởng về vận động"
+    },
+    "originalAnswer": "Phép biện chứng như lý luận về sự phát triển",
+    "originalLetter": "C",
+    "correctAnswer": "Phép biện chứng như lý luận về sự phát triển",
+    "options": [
+      "Phép biện chứng như lý luận về sự phát triển",
+      "Tư tưởng về vận động",
+      "Chủ nghĩa duy vật",
+      "Chủ nghĩa duy tâm"
+    ],
+    "globalId": 154,
+    "set": "spkt_300"
+  },
+  {
+    "id": 155,
+    "rawId": 155,
+    "uid": "spkt_155",
+    "question": "Phoi-ơ-bắc là nhà triết học theo trường phái nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm khách quan.",
+      "B": "Chủ nghĩa duy tâm chủ quan",
+      "C": "Chủ nghĩa duy vật biện chứng",
+      "D": "Chủ nghĩa duy vật siêu hình."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật siêu hình.",
+    "originalLetter": "D",
+    "correctAnswer": "Chủ nghĩa duy vật siêu hình.",
+    "options": [
+      "Chủ nghĩa duy tâm chủ quan",
+      "Chủ nghĩa duy tâm khách quan.",
+      "Chủ nghĩa duy vật biện chứng",
+      "Chủ nghĩa duy vật siêu hình."
+    ],
+    "globalId": 155,
+    "set": "spkt_300"
+  },
+  {
+    "id": 156,
+    "rawId": 156,
+    "uid": "spkt_156",
+    "question": "Xét về nội dung tư tưởng của học thuyết, Phoi-ơ-bắc là nhà tư tưởng của giai cấp nào?",
+    "originalOptions": {
+      "A": "Giai cấp địa chủ quý tộc Đức.",
+      "B": "Giai cấp vô sản Đức.",
+      "C": "Giai cấp tư sản dân chủ Đức"
+    },
+    "originalAnswer": "Giai cấp tư sản dân chủ Đức",
+    "originalLetter": "C",
+    "correctAnswer": "Giai cấp tư sản dân chủ Đức",
+    "options": [
+      "Giai cấp địa chủ quý tộc Đức.",
+      "Giai cấp vô sản Đức.",
+      "Giai cấp tư sản dân chủ Đức"
+    ],
+    "globalId": 156,
+    "set": "spkt_300"
+  },
+  {
+    "id": 157,
+    "rawId": 157,
+    "uid": "spkt_157",
+    "question": "Triết học của nhà triết học nào mang tính chất nhân bản",
+    "originalOptions": {
+      "A": "Điđrô.",
+      "C": "Phoi-ơ-bắc",
+      "B": "Cantơ",
+      "D": "Hêghen"
+    },
+    "originalAnswer": "Phoi-ơ-bắc",
+    "originalLetter": "C",
+    "correctAnswer": "Phoi-ơ-bắc",
+    "options": [
+      "Phoi-ơ-bắc",
+      "Điđrô.",
+      "Cantơ",
+      "Hêghen"
+    ],
+    "globalId": 157,
+    "set": "spkt_300"
+  },
+  {
+    "id": 158,
+    "rawId": 158,
+    "uid": "spkt_158",
+    "question": "Khẳng định nào sau đây là đúng của Phoi-ơ-bắc.",
+    "originalOptions": {
+      "A": "Phoi-ơ-bắc cho tự nhiên là \"tồn tại khác\" của tinh thần.",
+      "B": "Phoi-ơ-bắc cho tự nhiên tồn tại độc lập với ý thức của con người, vận động nhờ những cơ sở bên trong nó",
+      "C": "Phoi-ơ-bắc cho tinh thần và thể xác tồn tại tách rời nhau."
+    },
+    "originalAnswer": "Phoi-ơ-bắc cho tự nhiên tồn tại độc lập với ý thức của con người, vận động nhờ những cơ sở bên trong nó",
+    "originalLetter": "B",
+    "correctAnswer": "Phoi-ơ-bắc cho tự nhiên tồn tại độc lập với ý thức của con người, vận động nhờ những cơ sở bên trong nó",
+    "options": [
+      "Phoi-ơ-bắc cho tự nhiên là \"tồn tại khác\" của tinh thần.",
+      "Phoi-ơ-bắc cho tinh thần và thể xác tồn tại tách rời nhau.",
+      "Phoi-ơ-bắc cho tự nhiên tồn tại độc lập với ý thức của con người, vận động nhờ những cơ sở bên trong nó"
+    ],
+    "globalId": 158,
+    "set": "spkt_300"
+  },
+  {
+    "id": 159,
+    "rawId": 159,
+    "uid": "spkt_159",
+    "question": "Triết học nhân bản của Phoi-ơ-bắc có ưu điểm gì?",
+    "originalOptions": {
+      "A": "Chống lại quan niệm nhị nguyên luận về sự tách rời tinh thần khỏi thể xác.",
+      "B": "Chống lại chủ nghĩa duy vật tầm thường cho ý thức do óc tiết ra",
+      "C": "Chống lại quan niệm của đạo Thiên chúa về thượng đế",
+      "D": "Cả 3 điểm a,b,c",
+      "E": "Hai điểm a & b."
+    },
+    "originalAnswer": "Cả 3 điểm a,b,c",
+    "originalLetter": "D",
+    "correctAnswer": "Cả 3 điểm a,b,c",
+    "options": [
+      "Chống lại quan niệm nhị nguyên luận về sự tách rời tinh thần khỏi thể xác.",
+      "Hai điểm a & b.",
+      "Chống lại quan niệm của đạo Thiên chúa về thượng đế",
+      "Cả 3 điểm a,b,c",
+      "Chống lại chủ nghĩa duy vật tầm thường cho ý thức do óc tiết ra"
+    ],
+    "globalId": 159,
+    "set": "spkt_300"
+  },
+  {
+    "id": 160,
+    "rawId": 160,
+    "uid": "spkt_160",
+    "question": "Triết học nhân bản của Phoi-ơ-bắc có hạn chế gì?",
+    "originalOptions": {
+      "A": "Đồng nhất ý thức với một dạng vật chất.",
+      "B": "Cho con người sáng tạo ra thượng đế",
+      "C": "Cho con người chỉ mang những thuộc tính sinh học bẩm sinh",
+      "D": "Cả 3 điểm a, b, c."
+    },
+    "originalAnswer": "Cho con người chỉ mang những thuộc tính sinh học bẩm sinh",
+    "originalLetter": "C",
+    "correctAnswer": "Cho con người chỉ mang những thuộc tính sinh học bẩm sinh",
+    "options": [
+      "Đồng nhất ý thức với một dạng vật chất.",
+      "Cho con người chỉ mang những thuộc tính sinh học bẩm sinh",
+      "Cho con người sáng tạo ra thượng đế",
+      "Cả 3 điểm a, b, c."
+    ],
+    "globalId": 160,
+    "set": "spkt_300"
+  },
+  {
+    "id": 161,
+    "rawId": 161,
+    "uid": "spkt_161",
+    "question": "Ông cho rằng: con người sáng tạo ra thượng đế, bản tính con người là tình yêu, tôn giáo cũng là một tình yêu. Ông là ai?",
+    "originalOptions": {
+      "A": "Cantơ",
+      "C": "Phoi-ơ-bắc.",
+      "B": "Hêghen",
+      "D": "Điđrô"
+    },
+    "originalAnswer": "Phoi-ơ-bắc.",
+    "originalLetter": "C",
+    "correctAnswer": "Phoi-ơ-bắc.",
+    "options": [
+      "Cantơ",
+      "Điđrô",
+      "Hêghen",
+      "Phoi-ơ-bắc."
+    ],
+    "globalId": 161,
+    "set": "spkt_300"
+  },
+  {
+    "id": 162,
+    "rawId": 162,
+    "uid": "spkt_162",
+    "question": "Phoi-ơ-bắc có nói đến sự \"tha hoá\" không. Nếu có thì quan niệm của ông thế nào?",
+    "originalOptions": {
+      "A": "Không.",
+      "B": "Có, đó là tha hoá của ý niệm",
+      "C": "Có, đó là tha hoá của lao động.",
+      "D": "Có, đó là tha hoá bản chất con người về thượng đế."
+    },
+    "originalAnswer": "Có, đó là tha hoá bản chất con người về thượng đế.",
+    "originalLetter": "D",
+    "correctAnswer": "Có, đó là tha hoá bản chất con người về thượng đế.",
+    "options": [
+      "Có, đó là tha hoá bản chất con người về thượng đế.",
+      "Không.",
+      "Có, đó là tha hoá của lao động.",
+      "Có, đó là tha hoá của ý niệm"
+    ],
+    "globalId": 162,
+    "set": "spkt_300"
+  },
+  {
+    "id": 163,
+    "rawId": 163,
+    "uid": "spkt_163",
+    "question": "Ưu điểm lớn nhất của triết học cổ điển Đức là gì?",
+    "originalOptions": {
+      "A": "Phát triển tư tưởng duy vật về thế giới của thế kỷ XVII - XVIII.",
+      "B": "Khắc phục triệt để quan điểm siêu hình của chủ nghĩa duy vật cũ.",
+      "C": "Phát triển tư tưởng biện chứng đạt trình độ một hệ thống lý luận.",
+      "D": "Phê phán quan điểm tôn giáo về thế giới."
+    },
+    "originalAnswer": "Phát triển tư tưởng biện chứng đạt trình độ một hệ thống lý luận.",
+    "originalLetter": "C",
+    "correctAnswer": "Phát triển tư tưởng biện chứng đạt trình độ một hệ thống lý luận.",
+    "options": [
+      "Phát triển tư tưởng duy vật về thế giới của thế kỷ XVII - XVIII.",
+      "Khắc phục triệt để quan điểm siêu hình của chủ nghĩa duy vật cũ.",
+      "Phê phán quan điểm tôn giáo về thế giới.",
+      "Phát triển tư tưởng biện chứng đạt trình độ một hệ thống lý luận."
+    ],
+    "globalId": 163,
+    "set": "spkt_300"
+  },
+  {
+    "id": 164,
+    "rawId": 164,
+    "uid": "spkt_164",
+    "question": "Hạn chế lớn nhất của triết học cổ điển Đức là ở chỗ nào?",
+    "originalOptions": {
+      "A": "Chưa khắc phục được quan điểm siêu hình trong triết học duy vật cũ.",
+      "B": "Chưa có quan điểm duy vật về lịch sử xã hội.",
+      "C": "Có tính chất duy tâm khách quan (đặc biệt triết học của Hêghen)."
+    },
+    "originalAnswer": "Có tính chất duy tâm khách quan (đặc biệt triết học của Hêghen).",
+    "originalLetter": "C",
+    "correctAnswer": "Có tính chất duy tâm khách quan (đặc biệt triết học của Hêghen).",
+    "options": [
+      "Chưa có quan điểm duy vật về lịch sử xã hội.",
+      "Có tính chất duy tâm khách quan (đặc biệt triết học của Hêghen).",
+      "Chưa khắc phục được quan điểm siêu hình trong triết học duy vật cũ."
+    ],
+    "globalId": 164,
+    "set": "spkt_300"
+  },
+  {
+    "id": 165,
+    "rawId": 165,
+    "uid": "spkt_165",
+    "question": "Xét về bản chất chủ nghĩa duy vật của Phoi-ơ-bắc là:",
+    "originalOptions": {
+      "A": "Cao hơn chủ nghĩa duy vật thế kỷ XVII - XVIII ở Tây Âu",
+      "B": "Thấp hơn chủ nghĩa duy vật thế kỷ XVII - XVII ở Tây Âu",
+      "C": "Không vượt quá trình độ chủ nghĩa duy vật thế kỷ XVII - XVIII ở Tây Âu."
+    },
+    "originalAnswer": "Không vượt quá trình độ chủ nghĩa duy vật thế kỷ XVII - XVIII ở Tây Âu.",
+    "originalLetter": "C",
+    "correctAnswer": "Không vượt quá trình độ chủ nghĩa duy vật thế kỷ XVII - XVIII ở Tây Âu.",
+    "options": [
+      "Cao hơn chủ nghĩa duy vật thế kỷ XVII - XVIII ở Tây Âu",
+      "Thấp hơn chủ nghĩa duy vật thế kỷ XVII - XVII ở Tây Âu",
+      "Không vượt quá trình độ chủ nghĩa duy vật thế kỷ XVII - XVIII ở Tây Âu."
+    ],
+    "globalId": 165,
+    "set": "spkt_300"
+  },
+  {
+    "id": 166,
+    "rawId": 166,
+    "uid": "spkt_166",
+    "question": "Triết học Mác ra đời vào thời gian nào?",
+    "originalOptions": {
+      "A": "Những năm 20 của thế kỷ XIX",
+      "B": "Những năm 30 của thế kỷ XIX.",
+      "C": "Những năm 40 của thế kỷ XIX.",
+      "D": "Những năm 50 của thế kỷ XIX."
+    },
+    "originalAnswer": "Những năm 40 của thế kỷ XIX.",
+    "originalLetter": "C",
+    "correctAnswer": "Những năm 40 của thế kỷ XIX.",
+    "options": [
+      "Những năm 50 của thế kỷ XIX.",
+      "Những năm 40 của thế kỷ XIX.",
+      "Những năm 20 của thế kỷ XIX",
+      "Những năm 30 của thế kỷ XIX."
+    ],
+    "globalId": 166,
+    "set": "spkt_300"
+  },
+  {
+    "id": 167,
+    "rawId": 167,
+    "uid": "spkt_167",
+    "question": "Triết học Mác - Lênin do ai sáng lập và phát triển?",
+    "originalOptions": {
+      "A": "C. Mác, Ph. Ăngghen; V.I. Lênin.",
+      "B": "C. Mác và Ph. Ăngghen.",
+      "C": "V.I. Lênin",
+      "D": "Ph. Ăngghen."
+    },
+    "originalAnswer": "C. Mác, Ph. Ăngghen; V.I. Lênin.",
+    "originalLetter": "A",
+    "correctAnswer": "C. Mác, Ph. Ăngghen; V.I. Lênin.",
+    "options": [
+      "C. Mác và Ph. Ăngghen.",
+      "V.I. Lênin",
+      "Ph. Ăngghen.",
+      "C. Mác, Ph. Ăngghen; V.I. Lênin."
+    ],
+    "globalId": 167,
+    "set": "spkt_300"
+  },
+  {
+    "id": 168,
+    "rawId": 168,
+    "uid": "spkt_168",
+    "question": "Điều kiện kinh tế xã hội cho sự ra đời của triết học Mác - Lênin?",
+    "originalOptions": {
+      "A": "Phương thức sản xuất tư bản chủ nghĩa được củng cố và phát triển.",
+      "B": "Giai cấp vô sản ra đời và trở thành lực lượng chính trị - xã hội độc lập",
+      "C": "Giai cấp tư sản đã trở nên bảo thủ.",
+      "D": "cả a, b, c.",
+      "G": "Điểm a và b."
+    },
+    "originalAnswer": "Điểm a và b.",
+    "originalLetter": "G",
+    "correctAnswer": "Điểm a và b.",
+    "options": [
+      "Điểm a và b.",
+      "Giai cấp tư sản đã trở nên bảo thủ.",
+      "Giai cấp vô sản ra đời và trở thành lực lượng chính trị - xã hội độc lập",
+      "Phương thức sản xuất tư bản chủ nghĩa được củng cố và phát triển.",
+      "cả a, b, c."
+    ],
+    "globalId": 168,
+    "set": "spkt_300"
+  },
+  {
+    "id": 169,
+    "rawId": 169,
+    "uid": "spkt_169",
+    "question": "Triết học Mác ra đời trong điều kiện kinh tế - xã hội nào?",
+    "originalOptions": {
+      "A": "Phương thức sản xuất tư bản chủ nghĩa đã trở thành phương thức sản xuất thống trị.",
+      "B": "Phương thức sản xuất tư bản chủ nghĩa mới xuất hiện.",
+      "C": "Chủ nghĩa tư bản đã trở thành chủ nghĩa đế quốc.",
+      "D": "Cả a, b, c"
+    },
+    "originalAnswer": "Phương thức sản xuất tư bản chủ nghĩa đã trở thành phương thức sản xuất thống trị.",
+    "originalLetter": "A",
+    "correctAnswer": "Phương thức sản xuất tư bản chủ nghĩa đã trở thành phương thức sản xuất thống trị.",
+    "options": [
+      "Phương thức sản xuất tư bản chủ nghĩa đã trở thành phương thức sản xuất thống trị.",
+      "Cả a, b, c",
+      "Chủ nghĩa tư bản đã trở thành chủ nghĩa đế quốc.",
+      "Phương thức sản xuất tư bản chủ nghĩa mới xuất hiện."
+    ],
+    "globalId": 169,
+    "set": "spkt_300"
+  },
+  {
+    "id": 170,
+    "rawId": 170,
+    "uid": "spkt_170",
+    "question": "Nguồn gốc lý luận của chủ nghĩa Mác là gì?",
+    "originalOptions": {
+      "A": "Triết học khai sáng Pháp thế kỷ XVIII.",
+      "B": "Triết học cổ điển Đức.",
+      "C": "Kinh tế chính trị học cổ điển Anh",
+      "D": "Chủ nghĩa xã hội không tưởng Pháp và Anh.",
+      "G": "Cả a, b, c và d.",
+      "E": "Gồm b, c và d. Chú ý bản in Ngân hàng bị thiếu và d ở cả g và e"
+    },
+    "originalAnswer": "Gồm b, c và d. Chú ý bản in Ngân hàng bị thiếu và d ở cả g và e",
+    "originalLetter": "E",
+    "correctAnswer": "Gồm b, c và d. Chú ý bản in Ngân hàng bị thiếu và d ở cả g và e",
+    "options": [
+      "Cả a, b, c và d.",
+      "Kinh tế chính trị học cổ điển Anh",
+      "Triết học khai sáng Pháp thế kỷ XVIII.",
+      "Triết học cổ điển Đức.",
+      "Gồm b, c và d. Chú ý bản in Ngân hàng bị thiếu và d ở cả g và e",
+      "Chủ nghĩa xã hội không tưởng Pháp và Anh."
+    ],
+    "globalId": 170,
+    "set": "spkt_300"
+  },
+  {
+    "id": 171,
+    "rawId": 171,
+    "uid": "spkt_171",
+    "question": "Nguồn gốc lý luận trực tiếp của triết học Mác là gì?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật Khai sáng Pháp",
+      "B": "Triết học cổ điển Đức",
+      "C": "Kinh tế chính trị cổ điển Anh",
+      "D": "Chủ nghĩa xã hội không tưởng Pháp và Anh"
+    },
+    "originalAnswer": "Triết học cổ điển Đức",
+    "originalLetter": "B",
+    "correctAnswer": "Triết học cổ điển Đức",
+    "options": [
+      "Kinh tế chính trị cổ điển Anh",
+      "Chủ nghĩa xã hội không tưởng Pháp và Anh",
+      "Triết học cổ điển Đức",
+      "Chủ nghĩa duy vật Khai sáng Pháp"
+    ],
+    "globalId": 171,
+    "set": "spkt_300"
+  },
+  {
+    "id": 172,
+    "rawId": 172,
+    "uid": "spkt_172",
+    "question": "Khẳng định nào sau đây là sai?",
+    "originalOptions": {
+      "A": "Triết học Mác là sự kết hợp phép biện chứng của Hêghen và chủ nghĩa duy vật của Phoi-ơ- bắc",
+      "B": "Triết học Mác có sự thống nhất giữa phương pháp biện chứng và thế giới quan duy vật.",
+      "C": "Triết học Mác kế thừa và cải tạo phép biện chứng của Hêghen trên cơ sở duy vật."
+    },
+    "originalAnswer": "Triết học Mác là sự kết hợp phép biện chứng của Hêghen và chủ nghĩa duy vật của Phoi-ơ- bắc",
+    "originalLetter": "A",
+    "correctAnswer": "Triết học Mác là sự kết hợp phép biện chứng của Hêghen và chủ nghĩa duy vật của Phoi-ơ- bắc",
+    "options": [
+      "Triết học Mác kế thừa và cải tạo phép biện chứng của Hêghen trên cơ sở duy vật.",
+      "Triết học Mác có sự thống nhất giữa phương pháp biện chứng và thế giới quan duy vật.",
+      "Triết học Mác là sự kết hợp phép biện chứng của Hêghen và chủ nghĩa duy vật của Phoi-ơ- bắc"
+    ],
+    "globalId": 172,
+    "set": "spkt_300"
+  },
+  {
+    "id": 173,
+    "rawId": 173,
+    "uid": "spkt_173",
+    "question": "Khẳng định nào sau đây là đúng?",
+    "originalOptions": {
+      "A": "Trong triết học Mác, phép biện chứng và chủ nghĩa duy vật thống nhất với nhau.",
+      "B": "Triết học Mác là sự kết hợp phép biện chứng của Hêghen với chủ nghĩa duy vật của Phoi-ơ- bắc",
+      "C": "Trong triết học Mác, phép biện chứng tách rời với chủ nghĩa duy vật."
+    },
+    "originalAnswer": "Trong triết học Mác, phép biện chứng và chủ nghĩa duy vật thống nhất với nhau.",
+    "originalLetter": "A",
+    "correctAnswer": "Trong triết học Mác, phép biện chứng và chủ nghĩa duy vật thống nhất với nhau.",
+    "options": [
+      "Triết học Mác là sự kết hợp phép biện chứng của Hêghen với chủ nghĩa duy vật của Phoi-ơ- bắc",
+      "Trong triết học Mác, phép biện chứng tách rời với chủ nghĩa duy vật.",
+      "Trong triết học Mác, phép biện chứng và chủ nghĩa duy vật thống nhất với nhau."
+    ],
+    "globalId": 173,
+    "set": "spkt_300"
+  },
+  {
+    "id": 174,
+    "rawId": 174,
+    "uid": "spkt_174",
+    "question": "Đâu là nguồn gốc lý luận của chủ nghĩa Mác?",
+    "originalOptions": {
+      "A": "Kinh tế chính trị cổ điển Anh",
+      "B": "Kinh tế chính trị cổ điển Đức",
+      "C": "Chủ nghĩa duy vật tự phát thời kỳ cổ đại",
+      "D": "Khoa học tự nhiên thế kỷ XVII - XVIII."
+    },
+    "originalAnswer": "Kinh tế chính trị cổ điển Anh",
+    "originalLetter": "A",
+    "correctAnswer": "Kinh tế chính trị cổ điển Anh",
+    "options": [
+      "Chủ nghĩa duy vật tự phát thời kỳ cổ đại",
+      "Khoa học tự nhiên thế kỷ XVII - XVIII.",
+      "Kinh tế chính trị cổ điển Đức",
+      "Kinh tế chính trị cổ điển Anh"
+    ],
+    "globalId": 174,
+    "set": "spkt_300"
+  },
+  {
+    "id": 175,
+    "rawId": 175,
+    "uid": "spkt_175",
+    "question": "Đâu là nguồn gốc lý luận của chủ nghĩa Mác?",
+    "originalOptions": {
+      "A": "Tư tưởng xã hội phương Đông cổ đại",
+      "B": "Chủ nghĩa xã hội không tưởng Pháp và Anh",
+      "C": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII ở Tây Âu.",
+      "D": "Phép biện chứng tự phát trong triết học Hy Lạp cổ đại."
+    },
+    "originalAnswer": "Chủ nghĩa xã hội không tưởng Pháp và Anh",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa xã hội không tưởng Pháp và Anh",
+    "options": [
+      "Tư tưởng xã hội phương Đông cổ đại",
+      "Chủ nghĩa xã hội không tưởng Pháp và Anh",
+      "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII ở Tây Âu.",
+      "Phép biện chứng tự phát trong triết học Hy Lạp cổ đại."
+    ],
+    "globalId": 175,
+    "set": "spkt_300"
+  },
+  {
+    "id": 176,
+    "rawId": 176,
+    "uid": "spkt_176",
+    "question": "Theo quan điểm của chủ nghĩa duy vật biện chứng về tác động của khoa học tự nhiên nửa đầu thế kỷ XIX đối với phương pháp tư duy siêu hình, luận điểm nào sau đây là đúng.",
+    "originalOptions": {
+      "A": "Khoa học tự nhiên nửa đầu thế kỷ XIX phù hợp với phương pháp tư duy siêu hình.",
+      "B": "Khoa học tự nhiên nửa đầu thế kỷ XIX làm bộc lộ tính hạn chế và sự bất lực của phương pháp tư duy siêu hình trong việc nhận thức thế giới",
+      "C": "KHTN khẳng định vai trò tích cực của phương pháp tư duy siêu hình"
+    },
+    "originalAnswer": "Khoa học tự nhiên nửa đầu thế kỷ XIX làm bộc lộ tính hạn chế và sự bất lực của phương pháp tư duy siêu hình trong việc nhận thức thế giới",
+    "originalLetter": "B",
+    "correctAnswer": "Khoa học tự nhiên nửa đầu thế kỷ XIX làm bộc lộ tính hạn chế và sự bất lực của phương pháp tư duy siêu hình trong việc nhận thức thế giới",
+    "options": [
+      "Khoa học tự nhiên nửa đầu thế kỷ XIX phù hợp với phương pháp tư duy siêu hình.",
+      "KHTN khẳng định vai trò tích cực của phương pháp tư duy siêu hình",
+      "Khoa học tự nhiên nửa đầu thế kỷ XIX làm bộc lộ tính hạn chế và sự bất lực của phương pháp tư duy siêu hình trong việc nhận thức thế giới"
+    ],
+    "globalId": 176,
+    "set": "spkt_300"
+  },
+  {
+    "id": 177,
+    "rawId": 177,
+    "uid": "spkt_177",
+    "question": "Những phát minh của khoa học tự nhiên nửa đầu thế kỷ XIX đã cung cấp cơ sở tri thức khoa học cho sự phát triển cái gì?",
+    "originalOptions": {
+      "A": "Phát triển phương pháp tư duy siêu hình",
+      "B": "Phát triển phép biện chứng tự phát",
+      "C": "Phát triển tính thần bí của phép biện chứng duy tâm",
+      "D": "Phát triển tư duy biện chứng thoát khỏi tính tự phát thời kỳ cổ đại và thoát khỏi cái vỏ thần bí của phép biện chứng duy tâm."
+    },
+    "originalAnswer": "Phát triển tư duy biện chứng thoát khỏi tính tự phát thời kỳ cổ đại và thoát khỏi cái vỏ thần bí của phép biện chứng duy tâm.",
+    "originalLetter": "D",
+    "correctAnswer": "Phát triển tư duy biện chứng thoát khỏi tính tự phát thời kỳ cổ đại và thoát khỏi cái vỏ thần bí của phép biện chứng duy tâm.",
+    "options": [
+      "Phát triển tính thần bí của phép biện chứng duy tâm",
+      "Phát triển phép biện chứng tự phát",
+      "Phát triển phương pháp tư duy siêu hình",
+      "Phát triển tư duy biện chứng thoát khỏi tính tự phát thời kỳ cổ đại và thoát khỏi cái vỏ thần bí của phép biện chứng duy tâm."
+    ],
+    "globalId": 177,
+    "set": "spkt_300"
+  },
+  {
+    "id": 178,
+    "rawId": 178,
+    "uid": "spkt_178",
+    "question": "Ba phát minh lớn nhất của khoa học tự nhiên làm cơ sở khoa học tự nhiên cho sự ra đời tư duy biện chứng duy vật đầu thế kỷ XIX là những phát minh nào?",
+    "originalOptions": {
+      "A": "1) Thuyết mặt trời làm trung tâm vũ trụ của Côpécních, 2) định luật bảo toàn khối lượng của Lômônôxốp, 3) học thuyết tế bào.",
+      "B": "1) Định luật bảo toàn và chuyển hoá năng lượng, 2) học thuyết tế bào, 3) học thuyết tiến hoá của Đácuyn.",
+      "C": "1) Phát hiện ra nguyên tử, 2) phát hiện ra điện tử, 3) định luật bảo toàn và chuyển hoá năng lượng."
+    },
+    "originalAnswer": "1) Định luật bảo toàn và chuyển hoá năng lượng, 2) học thuyết tế bào, 3) học thuyết tiến hoá của Đácuyn.",
+    "originalLetter": "B",
+    "correctAnswer": "1) Định luật bảo toàn và chuyển hoá năng lượng, 2) học thuyết tế bào, 3) học thuyết tiến hoá của Đácuyn.",
+    "options": [
+      "1) Thuyết mặt trời làm trung tâm vũ trụ của Côpécních, 2) định luật bảo toàn khối lượng của Lômônôxốp, 3) học thuyết tế bào.",
+      "1) Phát hiện ra nguyên tử, 2) phát hiện ra điện tử, 3) định luật bảo toàn và chuyển hoá năng lượng.",
+      "1) Định luật bảo toàn và chuyển hoá năng lượng, 2) học thuyết tế bào, 3) học thuyết tiến hoá của Đácuyn."
+    ],
+    "globalId": 178,
+    "set": "spkt_300"
+  },
+  {
+    "id": 179,
+    "rawId": 179,
+    "uid": "spkt_179",
+    "question": "Về mặt triết học, định luật bảo toàn và chuyển hoá năng lượng chứng minh cho quan điểm nào?",
+    "originalOptions": {
+      "A": "Quan điểm siêu hình phủ nhận sự vận động.",
+      "B": "Quan điểm duy tâm phủ nhận sự vận động là khách quan.",
+      "C": "Quan điểm biện chứng duy vật thừa nhận sự chuyển hoá lẫn nhau của giới tự nhiên vô cơ."
+    },
+    "originalAnswer": "Quan điểm biện chứng duy vật thừa nhận sự chuyển hoá lẫn nhau của giới tự nhiên vô cơ.",
+    "originalLetter": "C",
+    "correctAnswer": "Quan điểm biện chứng duy vật thừa nhận sự chuyển hoá lẫn nhau của giới tự nhiên vô cơ.",
+    "options": [
+      "Quan điểm biện chứng duy vật thừa nhận sự chuyển hoá lẫn nhau của giới tự nhiên vô cơ.",
+      "Quan điểm duy tâm phủ nhận sự vận động là khách quan.",
+      "Quan điểm siêu hình phủ nhận sự vận động."
+    ],
+    "globalId": 179,
+    "set": "spkt_300"
+  },
+  {
+    "id": 180,
+    "rawId": 180,
+    "uid": "spkt_180",
+    "question": "Ba phát minh trong khoa học tự nhiên: định luật bảo toàn và chuyển hoá năng lượng, học thuyết tế bào, học thuyết tiến hoá chứng minh thế giới vật chất có tính chất gì?",
+    "originalOptions": {
+      "A": "Tính chất tách rời tĩnh tại của thế giới vật chất.",
+      "B": "Tính chất biện chứng của sự vận động và phát triển của thế giới vật chất.",
+      "C": "Tính chất không tồn tại thực của thế giới vật chất."
+    },
+    "originalAnswer": "Tính chất biện chứng của sự vận động và phát triển của thế giới vật chất.",
+    "originalLetter": "B",
+    "correctAnswer": "Tính chất biện chứng của sự vận động và phát triển của thế giới vật chất.",
+    "options": [
+      "Tính chất tách rời tĩnh tại của thế giới vật chất.",
+      "Tính chất biện chứng của sự vận động và phát triển của thế giới vật chất.",
+      "Tính chất không tồn tại thực của thế giới vật chất."
+    ],
+    "globalId": 180,
+    "set": "spkt_300"
+  },
+  {
+    "id": 181,
+    "rawId": 181,
+    "uid": "spkt_181",
+    "question": "Phát minh nào trong khoa học tự nhiên nửa đầu thế kỷ XIX vạch ra nguồn gốc tự nhiên của con ngươì, chống lại quan điểm tôn giáo?",
+    "originalOptions": {
+      "A": "Học thuyết tế bào.",
+      "B": "Học thuyết tiến hóa.",
+      "C": "Định luật bảo toàn và chuyển hoá năng lượng."
+    },
+    "originalAnswer": "Học thuyết tiến hóa.",
+    "originalLetter": "B",
+    "correctAnswer": "Học thuyết tiến hóa.",
+    "options": [
+      "Học thuyết tiến hóa.",
+      "Học thuyết tế bào.",
+      "Định luật bảo toàn và chuyển hoá năng lượng."
+    ],
+    "globalId": 181,
+    "set": "spkt_300"
+  },
+  {
+    "id": 182,
+    "rawId": 182,
+    "uid": "spkt_182",
+    "question": "Phát minh nào trong khoa học tự nhiên nửa đầu thế kỷ XIX vạch ra sự thống nhất giữa thế giới động vật và thực vật?",
+    "originalOptions": {
+      "A": "Học thuyết tế bào.",
+      "B": "Học thuyết tiến hoá.",
+      "C": "Định luật bảo toàn và chuyển hoá năng lượng."
+    },
+    "originalAnswer": "Học thuyết tế bào.",
+    "originalLetter": "A",
+    "correctAnswer": "Học thuyết tế bào.",
+    "options": [
+      "Học thuyết tế bào.",
+      "Định luật bảo toàn và chuyển hoá năng lượng.",
+      "Học thuyết tiến hoá."
+    ],
+    "globalId": 182,
+    "set": "spkt_300"
+  },
+  {
+    "id": 183,
+    "rawId": 183,
+    "uid": "spkt_183",
+    "question": "Khẳng định nào sau đây là đúng",
+    "originalOptions": {
+      "A": "Triết học Mác ra đời vào giữa thế kỷ XIX là một tất yếu lịch sử.",
+      "B": "Triết học Mác ra đời do thiên tài của Mác và Ăngghen.",
+      "C": "Triết học Mác ra đời hoàn toàn ngẫu nhiên.",
+      "D": "Triết học Mác ra đời thực hiện mục đích đã được định trước."
+    },
+    "originalAnswer": "Triết học Mác ra đời vào giữa thế kỷ XIX là một tất yếu lịch sử.",
+    "originalLetter": "A",
+    "correctAnswer": "Triết học Mác ra đời vào giữa thế kỷ XIX là một tất yếu lịch sử.",
+    "options": [
+      "Triết học Mác ra đời thực hiện mục đích đã được định trước.",
+      "Triết học Mác ra đời do thiên tài của Mác và Ăngghen.",
+      "Triết học Mác ra đời hoàn toàn ngẫu nhiên.",
+      "Triết học Mác ra đời vào giữa thế kỷ XIX là một tất yếu lịch sử."
+    ],
+    "globalId": 183,
+    "set": "spkt_300"
+  },
+  {
+    "id": 184,
+    "rawId": 184,
+    "uid": "spkt_184",
+    "question": "Cho biết năm sinh, năm mất và nơi sinh của Mác",
+    "originalOptions": {
+      "A": "1818 - 1883, ở Béc-linh",
+      "B": "1818 - 1884, ở thành phố Tơ-re-vơ tỉnh Ranh",
+      "C": "1817 - 1883, ở thành phố Tơ-re-vơ, tỉnh Ranh",
+      "D": "1818 - 1883, ở thành phố Tơ-re-vơ, tỉnh Ranh"
+    },
+    "originalAnswer": "1818 - 1883, ở thành phố Tơ-re-vơ, tỉnh Ranh",
+    "originalLetter": "D",
+    "correctAnswer": "1818 - 1883, ở thành phố Tơ-re-vơ, tỉnh Ranh",
+    "options": [
+      "1818 - 1883, ở Béc-linh",
+      "1817 - 1883, ở thành phố Tơ-re-vơ, tỉnh Ranh",
+      "1818 - 1883, ở thành phố Tơ-re-vơ, tỉnh Ranh",
+      "1818 - 1884, ở thành phố Tơ-re-vơ tỉnh Ranh"
+    ],
+    "globalId": 184,
+    "set": "spkt_300"
+  },
+  {
+    "id": 185,
+    "rawId": 185,
+    "uid": "spkt_185",
+    "question": "Khi học ở Béc-linh về triết học, Mác đứmg trên quan điểm nào?",
+    "originalOptions": {
+      "A": "Triết học duy vật biện chứng",
+      "B": "Triết học duy vật siêu hình",
+      "C": "Triết học duy tâm của Hêghen",
+      "D": "Triết học kinh viện của tôn giáo"
+    },
+    "originalAnswer": "Triết học duy tâm của Hêghen",
+    "originalLetter": "C",
+    "correctAnswer": "Triết học duy tâm của Hêghen",
+    "options": [
+      "Triết học duy vật siêu hình",
+      "Triết học duy vật biện chứng",
+      "Triết học kinh viện của tôn giáo",
+      "Triết học duy tâm của Hêghen"
+    ],
+    "globalId": 185,
+    "set": "spkt_300"
+  },
+  {
+    "id": 186,
+    "rawId": 186,
+    "uid": "spkt_186",
+    "question": "Khi học ở Béc-linh, Mác tham gia hoạt động trong trào lưu triết học nào?",
+    "originalOptions": {
+      "A": "Phái Hêghen già (phái bảo thủ)",
+      "B": "Phái Hêghen trẻ (phái cấp tiến)",
+      "C": "Không tham gia vào phái nào."
+    },
+    "originalAnswer": "Phái Hêghen trẻ (phái cấp tiến)",
+    "originalLetter": "B",
+    "correctAnswer": "Phái Hêghen trẻ (phái cấp tiến)",
+    "options": [
+      "Phái Hêghen trẻ (phái cấp tiến)",
+      "Không tham gia vào phái nào.",
+      "Phái Hêghen già (phái bảo thủ)"
+    ],
+    "globalId": 186,
+    "set": "spkt_300"
+  },
+  {
+    "id": 187,
+    "rawId": 187,
+    "uid": "spkt_187",
+    "question": "Vào năm 1841, Mác coi nhiệm vụ của triết học phải phục vụ cái gì?",
+    "originalOptions": {
+      "A": "Phục vụ cuộc đấu tranh của giai cấp vô sản.",
+      "B": "Phục vụ chế độ xã hội hiện tại",
+      "C": "Phục vụ cuộc đấu tranh cho sự nghiệp giải phóng con người."
+    },
+    "originalAnswer": "Phục vụ cuộc đấu tranh cho sự nghiệp giải phóng con người.",
+    "originalLetter": "C",
+    "correctAnswer": "Phục vụ cuộc đấu tranh cho sự nghiệp giải phóng con người.",
+    "options": [
+      "Phục vụ cuộc đấu tranh cho sự nghiệp giải phóng con người.",
+      "Phục vụ chế độ xã hội hiện tại",
+      "Phục vụ cuộc đấu tranh của giai cấp vô sản."
+    ],
+    "globalId": 187,
+    "set": "spkt_300"
+  },
+  {
+    "id": 188,
+    "rawId": 188,
+    "uid": "spkt_188",
+    "question": "Vào năm 1841, trong tư tưởng của Mác có mâu thuẫn gì?",
+    "originalOptions": {
+      "A": "Mâu thuẫn giữa chủ nghĩa duy tâm triết học với tinh thần dân chủ cách mạng và vô thần.",
+      "B": "Mâu thuẫn giữa chủ nghĩa duy tâm triết học với tinh thần cách mạng vô sản",
+      "C": "Cả a và b."
+    },
+    "originalAnswer": "Mâu thuẫn giữa chủ nghĩa duy tâm triết học với tinh thần dân chủ cách mạng và vô thần.",
+    "originalLetter": "A",
+    "correctAnswer": "Mâu thuẫn giữa chủ nghĩa duy tâm triết học với tinh thần dân chủ cách mạng và vô thần.",
+    "options": [
+      "Mâu thuẫn giữa chủ nghĩa duy tâm triết học với tinh thần cách mạng vô sản",
+      "Mâu thuẫn giữa chủ nghĩa duy tâm triết học với tinh thần dân chủ cách mạng và vô thần.",
+      "Cả a và b."
+    ],
+    "globalId": 188,
+    "set": "spkt_300"
+  },
+  {
+    "id": 189,
+    "rawId": 189,
+    "uid": "spkt_189",
+    "question": "Ph. Ăngghen sinh năm nào, ở đâu và mất năm nào?",
+    "originalOptions": {
+      "A": "1819 - 1895, ở thành phố Bác-men",
+      "B": "1820 - 1895, ở thành Béc-linh",
+      "C": "1820 - 1895, ở thành phố Bác-men.",
+      "D": "1821 - 1895, ở thành phố Bác-men."
+    },
+    "originalAnswer": "1820 - 1895, ở thành phố Bác-men.",
+    "originalLetter": "C",
+    "correctAnswer": "1820 - 1895, ở thành phố Bác-men.",
+    "options": [
+      "1820 - 1895, ở thành phố Bác-men.",
+      "1821 - 1895, ở thành phố Bác-men.",
+      "1819 - 1895, ở thành phố Bác-men",
+      "1820 - 1895, ở thành Béc-linh"
+    ],
+    "globalId": 189,
+    "set": "spkt_300"
+  },
+  {
+    "id": 190,
+    "rawId": 190,
+    "uid": "spkt_190",
+    "question": "Vào những năm 30 của thế kỷ XIX Ph. Ăngghen đã tham gia vào nhóm triết học nào, ở đâu?",
+    "originalOptions": {
+      "A": "Phái Hêghen già, ở Béc-linh.",
+      "B": "Phái Hêghen trẻ, ở Béc-linh.",
+      "C": "Hêghen già, ở Bác-men.",
+      "D": "Hêghen trẻ, ở Bác-men."
+    },
+    "originalAnswer": "Phái Hêghen trẻ, ở Béc-linh.",
+    "originalLetter": "B",
+    "correctAnswer": "Phái Hêghen trẻ, ở Béc-linh.",
+    "options": [
+      "Phái Hêghen già, ở Béc-linh.",
+      "Hêghen già, ở Bác-men.",
+      "Phái Hêghen trẻ, ở Béc-linh.",
+      "Hêghen trẻ, ở Bác-men."
+    ],
+    "globalId": 190,
+    "set": "spkt_300"
+  },
+  {
+    "id": 191,
+    "rawId": 191,
+    "uid": "spkt_191",
+    "question": "Vào năm 1841 - 1842, về mặt triết học Ph. Ăngghen đứng trên lập trường triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật.",
+      "B": "Chủ nghĩa duy tâm chủ quan.",
+      "C": "Chủ nghĩa duy tâm khách quan."
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm khách quan.",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy tâm khách quan.",
+    "options": [
+      "Chủ nghĩa duy tâm khách quan.",
+      "Chủ nghĩa duy vật.",
+      "Chủ nghĩa duy tâm chủ quan."
+    ],
+    "globalId": 191,
+    "set": "spkt_300"
+  },
+  {
+    "id": 192,
+    "rawId": 192,
+    "uid": "spkt_192",
+    "question": "Vào năm 1841 - 1842, Ph. Ăngghen đã nhận thấy mâu thuẫn gì trong triết học của Hêghen?",
+    "originalOptions": {
+      "A": "Mâu thuẫn giữa phương pháp biện chứng và hệ thống duy tâm.",
+      "B": "Mâu thuẫn giữa tính cách mạng và tính bảo thủ trong triết học Hêghen.",
+      "C": "Mâu thuẫn giữa phương pháp siêu hình và hệ thống duy tâm."
+    },
+    "originalAnswer": "Mâu thuẫn giữa tính cách mạng và tính bảo thủ trong triết học Hêghen.",
+    "originalLetter": "B",
+    "correctAnswer": "Mâu thuẫn giữa tính cách mạng và tính bảo thủ trong triết học Hêghen.",
+    "options": [
+      "Mâu thuẫn giữa phương pháp siêu hình và hệ thống duy tâm.",
+      "Mâu thuẫn giữa tính cách mạng và tính bảo thủ trong triết học Hêghen.",
+      "Mâu thuẫn giữa phương pháp biện chứng và hệ thống duy tâm."
+    ],
+    "globalId": 192,
+    "set": "spkt_300"
+  },
+  {
+    "id": 193,
+    "rawId": 193,
+    "uid": "spkt_193",
+    "question": "Tác phẩm nào đánh dấu việc hoàn thành bước chuyển từ lập trường triết học duy tâm sang lập trường triết học duy vật của Mác?",
+    "originalOptions": {
+      "A": "Nhận xét bản chỉ thị mới nhất về chế độ kiểm duyệt của Phổ.",
+      "B": "Góp phần phê phán triết học pháp quyền của Hêghen.",
+      "C": "Góp phần phê phán triết học pháp quyền của Hêghen. Lời nói đầu."
+    },
+    "originalAnswer": "Góp phần phê phán triết học pháp quyền của Hêghen. Lời nói đầu.",
+    "originalLetter": "C",
+    "correctAnswer": "Góp phần phê phán triết học pháp quyền của Hêghen. Lời nói đầu.",
+    "options": [
+      "Góp phần phê phán triết học pháp quyền của Hêghen. Lời nói đầu.",
+      "Nhận xét bản chỉ thị mới nhất về chế độ kiểm duyệt của Phổ.",
+      "Góp phần phê phán triết học pháp quyền của Hêghen."
+    ],
+    "globalId": 193,
+    "set": "spkt_300"
+  },
+  {
+    "id": 194,
+    "rawId": 194,
+    "uid": "spkt_194",
+    "question": "Tác phẩm nào của Mác và Ăngghen đánh dấu sự hoàn thành về cơ bản triết học Mác nói riêng và chủ nghĩa Mác nói chung?",
+    "originalOptions": {
+      "A": "Hệ tư tưởng Đức",
+      "B": "Tuyên ngôn của Đảng cộng sản.",
+      "C": "Sự khốn cùng của triết học",
+      "D": "Luận cương về Phoi-ơ-bắc."
+    },
+    "originalAnswer": "Tuyên ngôn của Đảng cộng sản.",
+    "originalLetter": "B",
+    "correctAnswer": "Tuyên ngôn của Đảng cộng sản.",
+    "options": [
+      "Sự khốn cùng của triết học",
+      "Hệ tư tưởng Đức",
+      "Tuyên ngôn của Đảng cộng sản.",
+      "Luận cương về Phoi-ơ-bắc."
+    ],
+    "globalId": 194,
+    "set": "spkt_300"
+  },
+  {
+    "id": 195,
+    "rawId": 195,
+    "uid": "spkt_195",
+    "question": "Tác phẩm \"Tư bản\" do ai viết?",
+    "originalOptions": {
+      "A": "C. Mác.",
+      "B": "Ph. Ăngghen",
+      "C": "C. Mác và Ph. Ăngghen"
+    },
+    "originalAnswer": "C. Mác.",
+    "originalLetter": "A",
+    "correctAnswer": "C. Mác.",
+    "options": [
+      "C. Mác.",
+      "C. Mác và Ph. Ăngghen",
+      "Ph. Ăngghen"
+    ],
+    "globalId": 195,
+    "set": "spkt_300"
+  },
+  {
+    "id": 196,
+    "rawId": 196,
+    "uid": "spkt_196",
+    "question": "Tác phẩm \"Chống Đuyrinh\" là của tác giả nào và viết vào năm nào?",
+    "originalOptions": {
+      "A": "C. Mác, vào 1876 - 1878",
+      "B": "Ph. Ăngghen, vào 1876 - 1878.",
+      "C": "C. Mác và Ph. Ăngghen, vào 1877 - 1878.",
+      "D": "Ph. Ăngghen, vào 1877 - 1878"
+    },
+    "originalAnswer": "Ph. Ăngghen, vào 1876 - 1878.",
+    "originalLetter": "B",
+    "correctAnswer": "Ph. Ăngghen, vào 1876 - 1878.",
+    "options": [
+      "C. Mác và Ph. Ăngghen, vào 1877 - 1878.",
+      "C. Mác, vào 1876 - 1878",
+      "Ph. Ăngghen, vào 1876 - 1878.",
+      "Ph. Ăngghen, vào 1877 - 1878"
+    ],
+    "globalId": 196,
+    "set": "spkt_300"
+  },
+  {
+    "id": 197,
+    "rawId": 197,
+    "uid": "spkt_197",
+    "question": "Luận điểm sau là của ai và trong tác phẩm nào: \"Các nhà triết học đã chỉ giải thích thế giới bằng nhiều cách khác nhau, song vấn đề là cải tạo thế giới\"",
+    "originalOptions": {
+      "A": "Của Ph. Ăngghen, trong tác phẩm \"Biện chứng của tự nhiên\".",
+      "B": "Của C. Mác, trong tác phẩm \"Luận cương về Phoi-ơ-bắc\".",
+      "C": "Của Lênin, trong tác phẩm \"Bút ký triết học\"."
+    },
+    "originalAnswer": "Của C. Mác, trong tác phẩm \"Luận cương về Phoi-ơ-bắc\".",
+    "originalLetter": "B",
+    "correctAnswer": "Của C. Mác, trong tác phẩm \"Luận cương về Phoi-ơ-bắc\".",
+    "options": [
+      "Của Lênin, trong tác phẩm \"Bút ký triết học\".",
+      "Của Ph. Ăngghen, trong tác phẩm \"Biện chứng của tự nhiên\".",
+      "Của C. Mác, trong tác phẩm \"Luận cương về Phoi-ơ-bắc\"."
+    ],
+    "globalId": 197,
+    "set": "spkt_300"
+  },
+  {
+    "id": 198,
+    "rawId": 198,
+    "uid": "spkt_198",
+    "question": "Thực chất bước chuyển cách mạng trong triết học do Mác và Ăngghen thực hiện là nội dung nào sau đây?",
+    "originalOptions": {
+      "A": "Thống nhất giữa thế giới quan duy vật và phép biện chứng trong một hệ thống triết học.",
+      "B": "Thống nhất giữa triết học của Hêghen và triết học của Phoi-ơ-bắc.",
+      "C": "Phê phán chủ nghĩa duy vật siêu hình của Phoi-ơ-bắc",
+      "D": "Phê phán triết học duy tâm của Hêghen."
+    },
+    "originalAnswer": "Thống nhất giữa thế giới quan duy vật và phép biện chứng trong một hệ thống triết học.",
+    "originalLetter": "A",
+    "correctAnswer": "Thống nhất giữa thế giới quan duy vật và phép biện chứng trong một hệ thống triết học.",
+    "options": [
+      "Thống nhất giữa thế giới quan duy vật và phép biện chứng trong một hệ thống triết học.",
+      "Phê phán triết học duy tâm của Hêghen.",
+      "Thống nhất giữa triết học của Hêghen và triết học của Phoi-ơ-bắc.",
+      "Phê phán chủ nghĩa duy vật siêu hình của Phoi-ơ-bắc"
+    ],
+    "globalId": 198,
+    "set": "spkt_300"
+  },
+  {
+    "id": 199,
+    "rawId": 199,
+    "uid": "spkt_199",
+    "question": "Thực chất bước chuyển cách mạng trong triết học do Mác và Ăngghen thực hiện là nội dung nào sau đây?",
+    "originalOptions": {
+      "A": "Xây dựng được quan điểm duy vật biện chứng về lịch sử xã hội.",
+      "B": "Xây dựng được quan điểm duy vật về tự nhiên.",
+      "C": "Xây dựng được quan điểm biện chứng về tự nhiên."
+    },
+    "originalAnswer": "Xây dựng được quan điểm duy vật biện chứng về lịch sử xã hội.",
+    "originalLetter": "A",
+    "correctAnswer": "Xây dựng được quan điểm duy vật biện chứng về lịch sử xã hội.",
+    "options": [
+      "Xây dựng được quan điểm biện chứng về tự nhiên.",
+      "Xây dựng được quan điểm duy vật về tự nhiên.",
+      "Xây dựng được quan điểm duy vật biện chứng về lịch sử xã hội."
+    ],
+    "globalId": 199,
+    "set": "spkt_300"
+  },
+  {
+    "id": 200,
+    "rawId": 200,
+    "uid": "spkt_200",
+    "question": "Thực chất bước chuyển cách mạng trong triết học do Mác và Ăngghen thực hiện là nội dung nào sau đây?",
+    "originalOptions": {
+      "A": "Thống nhất phép biện chứng và thế giới quan duy vật trong một hệ thống triết học",
+      "B": "Xây dựng được chủ nghĩa duy vật lịch sử",
+      "C": "Xác định đối tượng triết học và khoa học tự nhiên, chấm dứt quan niệm sai lầm cho triết học là khoa học của mọi khoa học.",
+      "D": "Gồm cả a, b và c."
+    },
+    "originalAnswer": "Gồm cả a, b và c.",
+    "originalLetter": "D",
+    "correctAnswer": "Gồm cả a, b và c.",
+    "options": [
+      "Thống nhất phép biện chứng và thế giới quan duy vật trong một hệ thống triết học",
+      "Xây dựng được chủ nghĩa duy vật lịch sử",
+      "Gồm cả a, b và c.",
+      "Xác định đối tượng triết học và khoa học tự nhiên, chấm dứt quan niệm sai lầm cho triết học là khoa học của mọi khoa học."
+    ],
+    "globalId": 200,
+    "set": "spkt_300"
+  },
+  {
+    "id": 201,
+    "rawId": 201,
+    "uid": "spkt_201",
+    "question": "Khẳng định nào sau đây là sai",
+    "originalOptions": {
+      "A": "Triết học Mác cho triết học là khoa học của mọi khoa học.",
+      "B": "Theo quan điểm của triết học Mác triết học không thay thế được các khoa học cụ thể.",
+      "C": "Theo quan điểm của triết học Mác sự phát triển của triết học quan hệ chặt chẽ với sự phát triển của khoa học tự nhiên."
+    },
+    "originalAnswer": "Triết học Mác cho triết học là khoa học của mọi khoa học.",
+    "originalLetter": "A",
+    "correctAnswer": "Triết học Mác cho triết học là khoa học của mọi khoa học.",
+    "options": [
+      "Theo quan điểm của triết học Mác triết học không thay thế được các khoa học cụ thể.",
+      "Triết học Mác cho triết học là khoa học của mọi khoa học.",
+      "Theo quan điểm của triết học Mác sự phát triển của triết học quan hệ chặt chẽ với sự phát triển của khoa học tự nhiên."
+    ],
+    "globalId": 201,
+    "set": "spkt_300"
+  },
+  {
+    "id": 202,
+    "rawId": 202,
+    "uid": "spkt_202",
+    "question": "V.I. Lênin bổ sung và phát triển triết học Mác trong hoàn cảnh nào",
+    "originalOptions": {
+      "A": "Chủ nghĩa tư bản thế giới chưa ra đời.",
+      "B": "Chủ nghĩa tư bản độc quyền ra đời.",
+      "C": "Chủ nghĩa tư bản ở giai đoạn tự do cạnh tranh."
+    },
+    "originalAnswer": "Chủ nghĩa tư bản độc quyền ra đời.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa tư bản độc quyền ra đời.",
+    "options": [
+      "Chủ nghĩa tư bản ở giai đoạn tự do cạnh tranh.",
+      "Chủ nghĩa tư bản thế giới chưa ra đời.",
+      "Chủ nghĩa tư bản độc quyền ra đời."
+    ],
+    "globalId": 202,
+    "set": "spkt_300"
+  },
+  {
+    "id": 203,
+    "rawId": 203,
+    "uid": "spkt_203",
+    "question": "Tác phẩm \"Chủ nghĩa duy vật và chủ nghĩa kinh nghiệm phê phán\" là của tác giả nào và được xuất bản năm nào?",
+    "originalOptions": {
+      "A": "Tác giả Plê-kha-nốp, xuất bản 1909",
+      "B": "Tác giả V.I. Lênin, xuất bản 1909.",
+      "C": "Tác giả Ph. Ăngghen, xuất bản 1910.",
+      "D": "Tác giả V.I. Lênin, xuất bản 1908"
+    },
+    "originalAnswer": "Tác giả V.I. Lênin, xuất bản 1909.",
+    "originalLetter": "B",
+    "correctAnswer": "Tác giả V.I. Lênin, xuất bản 1909.",
+    "options": [
+      "Tác giả Ph. Ăngghen, xuất bản 1910.",
+      "Tác giả V.I. Lênin, xuất bản 1908",
+      "Tác giả V.I. Lênin, xuất bản 1909.",
+      "Tác giả Plê-kha-nốp, xuất bản 1909"
+    ],
+    "globalId": 203,
+    "set": "spkt_300"
+  },
+  {
+    "id": 204,
+    "rawId": 204,
+    "uid": "spkt_204",
+    "question": "Tác phẩm \"Bút ký triết học\" là của tác giả nào?",
+    "originalOptions": {
+      "A": "C. Mác.",
+      "C": "V.I. Lênin",
+      "B": "Ph. Ăngghen.",
+      "D": "Hêghen"
+    },
+    "originalAnswer": "V.I. Lênin",
+    "originalLetter": "C",
+    "correctAnswer": "V.I. Lênin",
+    "options": [
+      "Hêghen",
+      "V.I. Lênin",
+      "Ph. Ăngghen.",
+      "C. Mác."
+    ],
+    "globalId": 204,
+    "set": "spkt_300"
+  },
+  {
+    "id": 205,
+    "rawId": 205,
+    "uid": "spkt_205",
+    "question": "Lênin phê phán chủ nghĩa dân tuý trong tác phẩm nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật và chủ nghĩa kinh nghiệm phê phán",
+      "B": "Những người bạn dân là thế nào và họ đấu tranh chống những người dân chủ ra sao.",
+      "C": "Nhà nước và cách mạng",
+      "D": "Bút ký triết học"
+    },
+    "originalAnswer": "Những người bạn dân là thế nào và họ đấu tranh chống những người dân chủ ra sao.",
+    "originalLetter": "B",
+    "correctAnswer": "Những người bạn dân là thế nào và họ đấu tranh chống những người dân chủ ra sao.",
+    "options": [
+      "Nhà nước và cách mạng",
+      "Chủ nghĩa duy vật và chủ nghĩa kinh nghiệm phê phán",
+      "Bút ký triết học",
+      "Những người bạn dân là thế nào và họ đấu tranh chống những người dân chủ ra sao."
+    ],
+    "globalId": 205,
+    "set": "spkt_300"
+  },
+  {
+    "id": 206,
+    "rawId": 206,
+    "uid": "spkt_206",
+    "question": "Đâu là lập trường triết học của chủ nghĩa dân tuý?",
+    "originalOptions": {
+      "A": "Duy tâm chủ quan về lịch sử.",
+      "B": "Duy tâm khách quan về lịch sử.",
+      "C": "Duy vật siêu hình về lịch sử."
+    },
+    "originalAnswer": "Duy tâm chủ quan về lịch sử.",
+    "originalLetter": "A",
+    "correctAnswer": "Duy tâm chủ quan về lịch sử.",
+    "options": [
+      "Duy vật siêu hình về lịch sử.",
+      "Duy tâm khách quan về lịch sử.",
+      "Duy tâm chủ quan về lịch sử."
+    ],
+    "globalId": 206,
+    "set": "spkt_300"
+  },
+  {
+    "id": 207,
+    "rawId": 207,
+    "uid": "spkt_207",
+    "question": "Về triết học quan điểm của chủ nghĩa kinh nghiệm phê phán theo lập trường nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm khách quan.",
+      "B": "Chủ nghĩa duy tâm chủ quan.",
+      "C": "Chủ nghĩa duy vật siêu hình.",
+      "D": "Chủ nghĩa duy vật biện chứng."
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm chủ quan.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy tâm chủ quan.",
+    "options": [
+      "Chủ nghĩa duy vật siêu hình.",
+      "Chủ nghĩa duy tâm khách quan.",
+      "Chủ nghĩa duy tâm chủ quan.",
+      "Chủ nghĩa duy vật biện chứng."
+    ],
+    "globalId": 207,
+    "set": "spkt_300"
+  },
+  {
+    "id": 208,
+    "rawId": 208,
+    "uid": "spkt_208",
+    "question": "Luận điểm về khả năng thắng lợi của cách mạng vô sản ở khâu yếu nhất của hệ thống tư bản chủ nghĩa thế giới là của ai?",
+    "originalOptions": {
+      "A": "C. Mác.",
+      "C": "V.I. Lênin.",
+      "B": "Ph. Ăngghen.",
+      "D": "Hồ Chí Minh"
+    },
+    "originalAnswer": "V.I. Lênin.",
+    "originalLetter": "C",
+    "correctAnswer": "V.I. Lênin.",
+    "options": [
+      "C. Mác.",
+      "Ph. Ăngghen.",
+      "V.I. Lênin.",
+      "Hồ Chí Minh"
+    ],
+    "globalId": 208,
+    "set": "spkt_300"
+  },
+  {
+    "id": 209,
+    "rawId": 209,
+    "uid": "spkt_209",
+    "question": "Chính sách kinh tế mới ở Nga đầu thế kỷ XX do ai đề xuất?",
+    "originalOptions": {
+      "A": "Plê-kha-nốp",
+      "C": "Sít-ta-lin.",
+      "B": "V.I. Lênin."
+    },
+    "originalAnswer": "V.I. Lênin.",
+    "originalLetter": "B",
+    "correctAnswer": "V.I. Lênin.",
+    "options": [
+      "Plê-kha-nốp",
+      "V.I. Lênin.",
+      "Sít-ta-lin."
+    ],
+    "globalId": 209,
+    "set": "spkt_300"
+  },
+  {
+    "id": 210,
+    "rawId": 210,
+    "uid": "spkt_210",
+    "question": "Một học thuyết triết học chỉ mang tính nhất nguyên khi nào?",
+    "originalOptions": {
+      "A": "Khi thừa nhận tính thống nhất của thế giới.",
+      "B": "Khi không thừa nhận sự thống nhất của thế giới.",
+      "C": "Khi thừa nhận ý thức và vật chất độc lập với nhau"
+    },
+    "originalAnswer": "Khi thừa nhận tính thống nhất của thế giới.",
+    "originalLetter": "A",
+    "correctAnswer": "Khi thừa nhận tính thống nhất của thế giới.",
+    "options": [
+      "Khi thừa nhận tính thống nhất của thế giới.",
+      "Khi thừa nhận ý thức và vật chất độc lập với nhau",
+      "Khi không thừa nhận sự thống nhất của thế giới."
+    ],
+    "globalId": 210,
+    "set": "spkt_300"
+  },
+  {
+    "id": 211,
+    "rawId": 211,
+    "uid": "spkt_211",
+    "question": "Quan điểm triết học nào cho rằng sự thống nhất của thế giới không phải ở tính tồn tại của nó mà ở tính vật chất của nó?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm",
+      "B": "Chủ nghĩa duy vật siêu hình.",
+      "C": "Chủ nghĩa duy vật biện chứng."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy vật siêu hình.",
+      "Chủ nghĩa duy tâm"
+    ],
+    "globalId": 211,
+    "set": "spkt_300"
+  },
+  {
+    "id": 212,
+    "rawId": 212,
+    "uid": "spkt_212",
+    "question": "Sự khác nhau căn bản giữa chủ nghĩa duy vật và chủ nghĩa duy tâm về sự thống nhất của thế giới là ở cái gì?",
+    "originalOptions": {
+      "A": "Thừa nhận tính tồn tại của thế giới.",
+      "B": "Thừa nhận tính vật chất của thế giới.",
+      "C": "Không thừa nhận tính tồn tại của thế giới."
+    },
+    "originalAnswer": "Thừa nhận tính vật chất của thế giới.",
+    "originalLetter": "B",
+    "correctAnswer": "Thừa nhận tính vật chất của thế giới.",
+    "options": [
+      "Thừa nhận tính vật chất của thế giới.",
+      "Không thừa nhận tính tồn tại của thế giới.",
+      "Thừa nhận tính tồn tại của thế giới."
+    ],
+    "globalId": 212,
+    "set": "spkt_300"
+  },
+  {
+    "id": 213,
+    "rawId": 213,
+    "uid": "spkt_213",
+    "question": "Chủ nghĩa duy tâm tìm nguồn gốc của sự thống nhất của thế giới ở cái gì?",
+    "originalOptions": {
+      "A": "ở tính vật chất của thế giới.",
+      "B": "ở ý niệm tuyệt đối hoặc ở ý thức của con người.",
+      "C": "ở sự vận động và chuyển hoá lẫn nhau của thế giới."
+    },
+    "originalAnswer": "ở ý niệm tuyệt đối hoặc ở ý thức của con người.",
+    "originalLetter": "B",
+    "correctAnswer": "ở ý niệm tuyệt đối hoặc ở ý thức của con người.",
+    "options": [
+      "ở sự vận động và chuyển hoá lẫn nhau của thế giới.",
+      "ở tính vật chất của thế giới.",
+      "ở ý niệm tuyệt đối hoặc ở ý thức của con người."
+    ],
+    "globalId": 213,
+    "set": "spkt_300"
+  },
+  {
+    "id": 214,
+    "rawId": 214,
+    "uid": "spkt_214",
+    "question": "Quan điểm triết học nào cho rằng thế giới thống nhất vì được con người nghĩ về nó như một cái thống nhất",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm khách quan.",
+      "B": "Chủ nghĩa duy tâm chủ quan.",
+      "C": "Chủ nghĩa duy vật biện chứng.",
+      "D": "Chủ nghĩa duy vật siêu hình."
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm chủ quan.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy tâm chủ quan.",
+    "options": [
+      "Chủ nghĩa duy tâm chủ quan.",
+      "Chủ nghĩa duy vật siêu hình.",
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy tâm khách quan."
+    ],
+    "globalId": 214,
+    "set": "spkt_300"
+  },
+  {
+    "id": 215,
+    "rawId": 215,
+    "uid": "spkt_215",
+    "question": "Quan điểm triết học nào tìm nguồn gốc của sự thống nhất của thế giới ở bản nguyên đầu tiên (ở thực thể đầu tiên duy nhất)?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật biện chứng.",
+      "B": "Chủ nghĩa duy vật siêu hình trước Mác.",
+      "C": "Chủ nghĩa duy tâm"
+    },
+    "originalAnswer": "Chủ nghĩa duy vật siêu hình trước Mác.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy vật siêu hình trước Mác.",
+    "options": [
+      "Chủ nghĩa duy vật siêu hình trước Mác.",
+      "Chủ nghĩa duy tâm",
+      "Chủ nghĩa duy vật biện chứng."
+    ],
+    "globalId": 215,
+    "set": "spkt_300"
+  },
+  {
+    "id": 216,
+    "rawId": 216,
+    "uid": "spkt_216",
+    "question": "Đâu không phải là câu trả lời của chủ nghĩa duy vật biện chứng về tính thống nhất vật chất của thế giới",
+    "originalOptions": {
+      "A": "Chỉ có một thế giới duy nhất là thế giới vật chất.",
+      "B": "Mọi bộ phận của thế giới vật chất đều liên hệ chuyển hoá lẫn nhau.",
+      "C": "Thế giới vật chất tồn tại khách quan, vĩnh viễn, vô hạn, vô tận, không do ai sinh ra và không mất đi.",
+      "D": "Thế giới vật chất bao gồm những bộ phận riêng biệt nhau."
+    },
+    "originalAnswer": "Thế giới vật chất bao gồm những bộ phận riêng biệt nhau.",
+    "originalLetter": "D",
+    "correctAnswer": "Thế giới vật chất bao gồm những bộ phận riêng biệt nhau.",
+    "options": [
+      "Thế giới vật chất bao gồm những bộ phận riêng biệt nhau.",
+      "Thế giới vật chất tồn tại khách quan, vĩnh viễn, vô hạn, vô tận, không do ai sinh ra và không mất đi.",
+      "Chỉ có một thế giới duy nhất là thế giới vật chất.",
+      "Mọi bộ phận của thế giới vật chất đều liên hệ chuyển hoá lẫn nhau."
+    ],
+    "globalId": 216,
+    "set": "spkt_300"
+  },
+  {
+    "id": 217,
+    "rawId": 217,
+    "uid": "spkt_217",
+    "question": "Trường phái triết học phủ nhận sự tồn tại một thế giới duy nhất là thế giới vật chất?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật biện chứng.",
+      "B": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+      "C": "Chủ nghĩa duy tâm."
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm.",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy tâm.",
+    "options": [
+      "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+      "Chủ nghĩa duy tâm.",
+      "Chủ nghĩa duy vật biện chứng."
+    ],
+    "globalId": 217,
+    "set": "spkt_300"
+  },
+  {
+    "id": 218,
+    "rawId": 218,
+    "uid": "spkt_218",
+    "question": "Điều khẳng định sau đây là đúng hay sai: Chỉ có chủ nghĩa duy vật biện chứng mới cho rằng mọi bộ phận của thế giới vật chất đều có mối liên hệ chuyển hoá lẫn nhau một cách khách quan.",
+    "originalOptions": {
+      "A": "Đúng",
+      "B": "Sai",
+      "C": "Không xác định"
+    },
+    "originalAnswer": "Đúng",
+    "originalLetter": "A",
+    "correctAnswer": "Đúng",
+    "options": [
+      "Không xác định",
+      "Đúng",
+      "Sai"
+    ],
+    "globalId": 218,
+    "set": "spkt_300"
+  },
+  {
+    "id": 219,
+    "rawId": 219,
+    "uid": "spkt_219",
+    "question": "Không thừa nhận tính vô hạn và vô tận của thế giới vật chất có chứng minh được tính thống nhất vật chất của thế giới không?",
+    "originalOptions": {
+      "A": "Có thể",
+      "B": "Không thể"
+    },
+    "originalAnswer": "Không thể",
+    "originalLetter": "B",
+    "correctAnswer": "Không thể",
+    "options": [
+      "Không thể",
+      "Có thể"
+    ],
+    "globalId": 219,
+    "set": "spkt_300"
+  },
+  {
+    "id": 220,
+    "rawId": 220,
+    "uid": "spkt_220",
+    "question": "Cho rằng có thế giới tinh thần tồn tại độc lập bên cạnh thế giới vật chất sẽ rơi vào quan điểm triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm.",
+      "B": "Chủ nghĩa duy vật biện chứng .",
+      "C": "Chủ nghĩa duy vật siêu hình.",
+      "D": "có thể a hoặc b."
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm.",
+    "originalLetter": "A",
+    "correctAnswer": "Chủ nghĩa duy tâm.",
+    "options": [
+      "Chủ nghĩa duy tâm.",
+      "Chủ nghĩa duy vật biện chứng .",
+      "Chủ nghĩa duy vật siêu hình.",
+      "có thể a hoặc b."
+    ],
+    "globalId": 220,
+    "set": "spkt_300"
+  },
+  {
+    "id": 221,
+    "rawId": 221,
+    "uid": "spkt_221",
+    "question": "Nhà triết học nào coi sự vật cảm tính là cái bóng của ý niệm?",
+    "originalOptions": {
+      "A": "Đê-mô-crít",
+      "C": "Pla-tôn.",
+      "B": "A-ri-xtốt.",
+      "D": "Hêghen."
+    },
+    "originalAnswer": "Pla-tôn.",
+    "originalLetter": "C",
+    "correctAnswer": "Pla-tôn.",
+    "options": [
+      "Pla-tôn.",
+      "Hêghen.",
+      "Đê-mô-crít",
+      "A-ri-xtốt."
+    ],
+    "globalId": 221,
+    "set": "spkt_300"
+  },
+  {
+    "id": 222,
+    "rawId": 222,
+    "uid": "spkt_222",
+    "question": "Coi sự vật cảm tính là cái bóng của ý niệm. Đó là quan điểm của trường phái triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm chủ quan",
+      "B": "Chủ nghĩa duy tâm khách quan.",
+      "C": "Chủ nghĩa duy vật siêu hình."
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm khách quan.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy tâm khách quan.",
+    "options": [
+      "Chủ nghĩa duy vật siêu hình.",
+      "Chủ nghĩa duy tâm khách quan.",
+      "Chủ nghĩa duy tâm chủ quan"
+    ],
+    "globalId": 222,
+    "set": "spkt_300"
+  },
+  {
+    "id": 223,
+    "rawId": 223,
+    "uid": "spkt_223",
+    "question": "Coi thế giới vật chất là kết quả của quá trình phát triển của ý niệm tuyệt đối là quan điểm cuả trường phái triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm chủ quan.",
+      "B": "Chủ nghĩa duy tâm khách quan.",
+      "C": "Chủ nghĩa duy vật siêu hình.",
+      "D": "Chủ nghĩa duy vật biện chứng."
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm khách quan.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy tâm khách quan.",
+    "options": [
+      "Chủ nghĩa duy tâm khách quan.",
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy vật siêu hình.",
+      "Chủ nghĩa duy tâm chủ quan."
+    ],
+    "globalId": 223,
+    "set": "spkt_300"
+  },
+  {
+    "id": 224,
+    "rawId": 224,
+    "uid": "spkt_224",
+    "question": "Luận điểm cho: \"tồn tại tức là được cảm giác\" là của ai và thuộc lập trường triết học nào?",
+    "originalOptions": {
+      "A": "Của Hêghen, thuộc lập trường của chủ nghĩa duy tâm khách quan.",
+      "B": "Của Béc-cơ-li, thuộc lập trường chủ nghĩa duy tâm chủ quan.",
+      "C": "Của Pla-tôn, thuộc lập trường chủ nghĩa duy tâm khách quan.",
+      "D": "Của A-ri-xtốt, thuộc lập trường chủ nghĩa duy vật."
+    },
+    "originalAnswer": "Của Béc-cơ-li, thuộc lập trường chủ nghĩa duy tâm chủ quan.",
+    "originalLetter": "B",
+    "correctAnswer": "Của Béc-cơ-li, thuộc lập trường chủ nghĩa duy tâm chủ quan.",
+    "options": [
+      "Của Hêghen, thuộc lập trường của chủ nghĩa duy tâm khách quan.",
+      "Của Béc-cơ-li, thuộc lập trường chủ nghĩa duy tâm chủ quan.",
+      "Của A-ri-xtốt, thuộc lập trường chủ nghĩa duy vật.",
+      "Của Pla-tôn, thuộc lập trường chủ nghĩa duy tâm khách quan."
+    ],
+    "globalId": 224,
+    "set": "spkt_300"
+  },
+  {
+    "id": 225,
+    "rawId": 225,
+    "uid": "spkt_225",
+    "question": "Nhà triết học nào cho nước là thực thể đầu tiên của thế giới và quan điểm đó thuộc lập trường triết học nào?",
+    "originalOptions": {
+      "A": "Talét - chủ nghĩa duy vật tự phát.",
+      "B": "Điđrô - Chủ nghĩa duy vật biện chứng",
+      "C": "Béc-cơ-li, - chủ nghĩa duy tâm chủ quan",
+      "D": "Pla-tôn, - chủ nghĩa duy tâm khách quan."
+    },
+    "originalAnswer": "Talét - chủ nghĩa duy vật tự phát.",
+    "originalLetter": "A",
+    "correctAnswer": "Talét - chủ nghĩa duy vật tự phát.",
+    "options": [
+      "Điđrô - Chủ nghĩa duy vật biện chứng",
+      "Talét - chủ nghĩa duy vật tự phát.",
+      "Béc-cơ-li, - chủ nghĩa duy tâm chủ quan",
+      "Pla-tôn, - chủ nghĩa duy tâm khách quan."
+    ],
+    "globalId": 225,
+    "set": "spkt_300"
+  },
+  {
+    "id": 226,
+    "rawId": 226,
+    "uid": "spkt_226",
+    "question": "Nhà triết học nào coi lửa là thực thể đầu tiên của thế giới và đó là lập trường triết học nào?",
+    "originalOptions": {
+      "A": "Đê-mô-crít, - chủ nghĩa duy vật tự phát",
+      "B": "Hê-ra-clít, - chủ nghĩa duy vật tự phát.",
+      "C": "Hê-ra-clít, - chủ nghĩa duy tâm khách quan.",
+      "D": "Ana-ximen, - chủ ngiã duy vật tự phát."
+    },
+    "originalAnswer": "Hê-ra-clít, - chủ nghĩa duy vật tự phát.",
+    "originalLetter": "B",
+    "correctAnswer": "Hê-ra-clít, - chủ nghĩa duy vật tự phát.",
+    "options": [
+      "Hê-ra-clít, - chủ nghĩa duy vật tự phát.",
+      "Ana-ximen, - chủ ngiã duy vật tự phát.",
+      "Hê-ra-clít, - chủ nghĩa duy tâm khách quan.",
+      "Đê-mô-crít, - chủ nghĩa duy vật tự phát"
+    ],
+    "globalId": 226,
+    "set": "spkt_300"
+  },
+  {
+    "id": 227,
+    "rawId": 227,
+    "uid": "spkt_227",
+    "question": "Nhà triết học nào cho nguyên tử và khoảng không là thực thể đầu tiên của thế giới và đó là lập trường triết học nào?",
+    "originalOptions": {
+      "A": "Đê-mô-rít, chủ nghĩa duy vật tự phát.",
+      "B": "Hê-ra-clít, - chủ nghĩa duy vật tự phát",
+      "C": "Đê-mô-crít, chủ nghĩa duy tâm khách quan.",
+      "D": "A-ri-xtốt, - chủ nghĩa duy vật tự phát."
+    },
+    "originalAnswer": "Đê-mô-rít, chủ nghĩa duy vật tự phát.",
+    "originalLetter": "A",
+    "correctAnswer": "Đê-mô-rít, chủ nghĩa duy vật tự phát.",
+    "options": [
+      "A-ri-xtốt, - chủ nghĩa duy vật tự phát.",
+      "Hê-ra-clít, - chủ nghĩa duy vật tự phát",
+      "Đê-mô-crít, chủ nghĩa duy tâm khách quan.",
+      "Đê-mô-rít, chủ nghĩa duy vật tự phát."
+    ],
+    "globalId": 227,
+    "set": "spkt_300"
+  },
+  {
+    "id": 228,
+    "rawId": 228,
+    "uid": "spkt_228",
+    "question": "Đồng nhất vật chất nói chung với một vật thể hữu hình cảm tính đang tồn tại trong thế giới bên ngoài là quan điểm của trường phái triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm.",
+      "B": "Chủ nghĩa duy vật tự phát.",
+      "C": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+      "D": "Chủ nghĩa duy vật biện chứng."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật tự phát.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy vật tự phát.",
+    "options": [
+      "Chủ nghĩa duy vật tự phát.",
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+      "Chủ nghĩa duy tâm."
+    ],
+    "globalId": 228,
+    "set": "spkt_300"
+  },
+  {
+    "id": 229,
+    "rawId": 229,
+    "uid": "spkt_229",
+    "question": "Đồng nhất vật chất nói chung với nguyên tử - một phần tử vật chất nhỏ nhất, đó là quan điểm của trường phái triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+      "B": "Chủ nghĩa duy vật tự phát.",
+      "C": "Chủ nghĩa duy vật biện chứng."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật tự phát.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy vật tự phát.",
+    "options": [
+      "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy vật tự phát."
+    ],
+    "globalId": 229,
+    "set": "spkt_300"
+  },
+  {
+    "id": 230,
+    "rawId": 230,
+    "uid": "spkt_230",
+    "question": "Đặc điểm chung của quan niệm duy vật về vật chất ở thời kỳ cổ đại là gì?",
+    "originalOptions": {
+      "A": "Đồng nhất vật chất nói chung với nguyên tử.",
+      "B": "Đồng nhất vật chất nói chung với một dạng cụ thể hữu hình, cảm tính của vật chất.",
+      "C": "Đồng nhất vật chất với khối lượng.",
+      "D": "Đồng nhất vật chất với ý thức."
+    },
+    "originalAnswer": "Đồng nhất vật chất nói chung với một dạng cụ thể hữu hình, cảm tính của vật chất.",
+    "originalLetter": "B",
+    "correctAnswer": "Đồng nhất vật chất nói chung với một dạng cụ thể hữu hình, cảm tính của vật chất.",
+    "options": [
+      "Đồng nhất vật chất với ý thức.",
+      "Đồng nhất vật chất nói chung với một dạng cụ thể hữu hình, cảm tính của vật chất.",
+      "Đồng nhất vật chất nói chung với nguyên tử.",
+      "Đồng nhất vật chất với khối lượng."
+    ],
+    "globalId": 230,
+    "set": "spkt_300"
+  },
+  {
+    "id": 231,
+    "rawId": 131,
+    "uid": "spkt_231",
+    "question": "Hạn chế chung của quan niệm duy vật về vật chất ở thời kỳ cổ đại.",
+    "originalOptions": {
+      "A": "Có tính chất duy tâm chủ quan.",
+      "B": "Có tính chất duy vật tự phát, là những phỏng đoán dựa trên những tài liệu cảm tính là chủ yếu, chưa có cơ sở khoa học.",
+      "C": "Có tính chất duy vật máy móc siêu hình."
+    },
+    "originalAnswer": "Có tính chất duy vật tự phát, là những phỏng đoán dựa trên những tài liệu cảm tính là chủ yếu, chưa có cơ sở khoa học.",
+    "originalLetter": "B",
+    "correctAnswer": "Có tính chất duy vật tự phát, là những phỏng đoán dựa trên những tài liệu cảm tính là chủ yếu, chưa có cơ sở khoa học.",
+    "options": [
+      "Có tính chất duy vật máy móc siêu hình.",
+      "Có tính chất duy vật tự phát, là những phỏng đoán dựa trên những tài liệu cảm tính là chủ yếu, chưa có cơ sở khoa học.",
+      "Có tính chất duy tâm chủ quan."
+    ],
+    "globalId": 231,
+    "set": "spkt_300"
+  },
+  {
+    "id": 232,
+    "rawId": 232,
+    "uid": "spkt_232",
+    "question": "Đâu là mặt tích cực trong quan niệm duy vật về vật chất ở thời kỳ cổ đại?",
+    "originalOptions": {
+      "A": "Chống quan niệm máy móc siêu hình.",
+      "B": "Chống quan niệm duy tâm tôn giáo",
+      "C": "Thúc đẩy sự phát triển tư tưởng khoa học về thế giới.",
+      "D": "Gồm b và c.",
+      "G": "Gồm cả a,b và c"
+    },
+    "originalAnswer": "Gồm b và c.",
+    "originalLetter": "D",
+    "correctAnswer": "Gồm b và c.",
+    "options": [
+      "Gồm cả a,b và c",
+      "Thúc đẩy sự phát triển tư tưởng khoa học về thế giới.",
+      "Chống quan niệm duy tâm tôn giáo",
+      "Chống quan niệm máy móc siêu hình.",
+      "Gồm b và c."
+    ],
+    "globalId": 232,
+    "set": "spkt_300"
+  },
+  {
+    "id": 233,
+    "rawId": 233,
+    "uid": "spkt_233",
+    "question": "Đỉnh cao nhất của tư tưởng duy vật cổ đại về vật chất là ở chỗ nào?",
+    "originalOptions": {
+      "A": "ở quan niệm về lửa là bản nguyên của thế giới",
+      "B": "ở thuyết nguyên tử của Lơ-xíp và Đê-mô-crít.",
+      "C": "ở quan niệm về con số là bản nguyên của thế giới."
+    },
+    "originalAnswer": "ở thuyết nguyên tử của Lơ-xíp và Đê-mô-crít.",
+    "originalLetter": "B",
+    "correctAnswer": "ở thuyết nguyên tử của Lơ-xíp và Đê-mô-crít.",
+    "options": [
+      "ở quan niệm về lửa là bản nguyên của thế giới",
+      "ở thuyết nguyên tử của Lơ-xíp và Đê-mô-crít.",
+      "ở quan niệm về con số là bản nguyên của thế giới."
+    ],
+    "globalId": 233,
+    "set": "spkt_300"
+  },
+  {
+    "id": 234,
+    "rawId": 234,
+    "uid": "spkt_234",
+    "question": "Quan niệm duy vật về vật chất ở thế kỷ XVII - XVIII có tiến bộ hơn so với thời kỳ cổ đại không? nếu có thì tiến bộ ở chỗ nào?",
+    "originalOptions": {
+      "A": "Không tiến bộ hơn.",
+      "B": "Có tiến bộ hơn ở chỗ không đồng nhất vật chất với dạng cụ thể của vật chất.",
+      "C": "Có tiến bộ ở chỗ coi vật chất và vận động không tách rời nhau, vật chất và vận động có nguyên nhân tự thân."
+    },
+    "originalAnswer": "Có tiến bộ ở chỗ coi vật chất và vận động không tách rời nhau, vật chất và vận động có nguyên nhân tự thân.",
+    "originalLetter": "C",
+    "correctAnswer": "Có tiến bộ ở chỗ coi vật chất và vận động không tách rời nhau, vật chất và vận động có nguyên nhân tự thân.",
+    "options": [
+      "Có tiến bộ hơn ở chỗ không đồng nhất vật chất với dạng cụ thể của vật chất.",
+      "Không tiến bộ hơn.",
+      "Có tiến bộ ở chỗ coi vật chất và vận động không tách rời nhau, vật chất và vận động có nguyên nhân tự thân."
+    ],
+    "globalId": 234,
+    "set": "spkt_300"
+  },
+  {
+    "id": 235,
+    "rawId": 235,
+    "uid": "spkt_235",
+    "question": "Đâu là quan niệm về vật chất của chủ nghĩa duy vật thế kỷ XVII - XVIII.",
+    "originalOptions": {
+      "A": "Đồng nhất vật chất nói chung với một dạng cụ thể hữu hình có tính chất cảm tính của vật chất.",
+      "B": "Đồng nhất vật chất nói chung với một dạng cụ thể, đồng thời trong quan niệm về vật chất có nhiều yếu tố biện chứng.",
+      "C": "Không đồng nhất vật chất nói chung với một dạng cụ thể của vật chất"
+    },
+    "originalAnswer": "Đồng nhất vật chất nói chung với một dạng cụ thể, đồng thời trong quan niệm về vật chất có nhiều yếu tố biện chứng.",
+    "originalLetter": "B",
+    "correctAnswer": "Đồng nhất vật chất nói chung với một dạng cụ thể, đồng thời trong quan niệm về vật chất có nhiều yếu tố biện chứng.",
+    "options": [
+      "Không đồng nhất vật chất nói chung với một dạng cụ thể của vật chất",
+      "Đồng nhất vật chất nói chung với một dạng cụ thể hữu hình có tính chất cảm tính của vật chất.",
+      "Đồng nhất vật chất nói chung với một dạng cụ thể, đồng thời trong quan niệm về vật chất có nhiều yếu tố biện chứng."
+    ],
+    "globalId": 235,
+    "set": "spkt_300"
+  },
+  {
+    "id": 236,
+    "rawId": 236,
+    "uid": "spkt_236",
+    "question": "Phương pháp tư duy nào chi phối những hiểu biết triết học duy vật về vật chất ở thế kỷ XVII - XVIII?",
+    "originalOptions": {
+      "A": "Phương pháp biện chứng duy tâm",
+      "B": "Phương pháp biện chứng duy vật.",
+      "C": "Phương pháp siêu hình máy móc."
+    },
+    "originalAnswer": "Phương pháp siêu hình máy móc.",
+    "originalLetter": "C",
+    "correctAnswer": "Phương pháp siêu hình máy móc.",
+    "options": [
+      "Phương pháp biện chứng duy tâm",
+      "Phương pháp biện chứng duy vật.",
+      "Phương pháp siêu hình máy móc."
+    ],
+    "globalId": 236,
+    "set": "spkt_300"
+  },
+  {
+    "id": 237,
+    "rawId": 237,
+    "uid": "spkt_237",
+    "question": "Thuộc lập trường triết học nào khi giải thích mọi hiện tượng của tự nhiên bằng sự tác động qua lại của lực đẩy và lực hút của vật thể?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật tự phát thời kỳ cổ đại",
+      "B": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+      "C": "Chủ nghĩa duy vật biện chứng.",
+      "D": "Chủ nghĩa duy tâm."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+    "options": [
+      "Chủ nghĩa duy vật tự phát thời kỳ cổ đại",
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+      "Chủ nghĩa duy tâm."
+    ],
+    "globalId": 237,
+    "set": "spkt_300"
+  },
+  {
+    "id": 238,
+    "rawId": 238,
+    "uid": "spkt_238",
+    "question": "Quan niệm về vật chất của chủ nghĩa duy vật thời kỳ nào đã quy giản sự khác nhau về chất giữa các vật về sự khác nhau về lượng?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật biện chứng thời kỳ hiện đại",
+      "B": "Chủ nghĩa duy vật tự phát thời kỳ cổ đại",
+      "C": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII"
+    },
+    "originalAnswer": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng thời kỳ hiện đại",
+      "Chủ nghĩa duy vật tự phát thời kỳ cổ đại",
+      "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII"
+    ],
+    "globalId": 238,
+    "set": "spkt_300"
+  },
+  {
+    "id": 239,
+    "rawId": 239,
+    "uid": "spkt_239",
+    "question": "Đồng nhất vật chất với khối lượng đó là quan niệm về vật chất của ai và ở thời kỳ nào?",
+    "originalOptions": {
+      "A": "Các nhà triết học duy vật thời kỳ cổ đại.",
+      "B": "Các nhà triết học thời kỳ Phục hưng.",
+      "C": "Các nhà khoa học tự nhiên thế kỷ XVII - XVIII.",
+      "D": "Các nhà triết học duy vật biện chứng thời kỳ cổ đại."
+    },
+    "originalAnswer": "Các nhà khoa học tự nhiên thế kỷ XVII - XVIII.",
+    "originalLetter": "C",
+    "correctAnswer": "Các nhà khoa học tự nhiên thế kỷ XVII - XVIII.",
+    "options": [
+      "Các nhà triết học thời kỳ Phục hưng.",
+      "Các nhà triết học duy vật biện chứng thời kỳ cổ đại.",
+      "Các nhà triết học duy vật thời kỳ cổ đại.",
+      "Các nhà khoa học tự nhiên thế kỷ XVII - XVIII."
+    ],
+    "globalId": 239,
+    "set": "spkt_300"
+  },
+  {
+    "id": 240,
+    "rawId": 240,
+    "uid": "spkt_240",
+    "question": "Coi vận động của vật chất chỉ là biểu hiện của vận động cơ học, đó là quan điểm về vận động và vật chất của ai?",
+    "originalOptions": {
+      "A": "Các nhà triết học duy vật thời kỳ cổ đại.",
+      "B": "Các nhà khoa học tự nhiên và triết học thế kỷ XVII - XVIII.",
+      "C": "Các nhà triết học duy vật biện chứng hiện đại.",
+      "D": "Các nhà triết học duy tâm thế kỷ XVII - XVIII."
+    },
+    "originalAnswer": "Các nhà khoa học tự nhiên và triết học thế kỷ XVII - XVIII.",
+    "originalLetter": "B",
+    "correctAnswer": "Các nhà khoa học tự nhiên và triết học thế kỷ XVII - XVIII.",
+    "options": [
+      "Các nhà triết học duy tâm thế kỷ XVII - XVIII.",
+      "Các nhà triết học duy vật thời kỳ cổ đại.",
+      "Các nhà khoa học tự nhiên và triết học thế kỷ XVII - XVIII.",
+      "Các nhà triết học duy vật biện chứng hiện đại."
+    ],
+    "globalId": 240,
+    "set": "spkt_300"
+  },
+  {
+    "id": 241,
+    "rawId": 241,
+    "uid": "spkt_241",
+    "question": "Những tài liệu nào ảnh hưởng trực tiếp đến quan niệm triết học về vật chất ở thế kỷ XVII - XVIII?",
+    "originalOptions": {
+      "A": "Quan sát trực tiếp",
+      "B": "Khoa học tự nhiên ở trình độ lý luận.",
+      "C": "Khoa học tự nhiên thực nghiệm nhất là cơ học.",
+      "D": "Khoa học xã hội ."
+    },
+    "originalAnswer": "Khoa học tự nhiên thực nghiệm nhất là cơ học.",
+    "originalLetter": "C",
+    "correctAnswer": "Khoa học tự nhiên thực nghiệm nhất là cơ học.",
+    "options": [
+      "Quan sát trực tiếp",
+      "Khoa học tự nhiên ở trình độ lý luận.",
+      "Khoa học tự nhiên thực nghiệm nhất là cơ học.",
+      "Khoa học xã hội ."
+    ],
+    "globalId": 241,
+    "set": "spkt_300"
+  },
+  {
+    "id": 242,
+    "rawId": 242,
+    "uid": "spkt_242",
+    "question": "Đồng nhất vật chất nói chung với một dạng cụ thể hoặc một thuộc tính cụ thể của vật chất, coi vật chất có giới hạn tột cùng, đó là đặc điểm chung của hệ thống triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật biện chứng.",
+      "B": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+      "C": "Chủ nghĩa duy vật trước Mác.",
+      "D": "Chủ nghĩa duy vật tự phát thời kỳ cổ đại."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật trước Mác.",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy vật trước Mác.",
+    "options": [
+      "Chủ nghĩa duy vật tự phát thời kỳ cổ đại.",
+      "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy vật trước Mác."
+    ],
+    "globalId": 242,
+    "set": "spkt_300"
+  },
+  {
+    "id": 243,
+    "rawId": 243,
+    "uid": "spkt_243",
+    "question": "Quan điểm của trường phái triết học nào coi khối lượng chỉ là thuộc tính của vật chất, gắn liền với vật chất?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm.",
+      "B": "Chủ nghĩa duy vật siêu hình.",
+      "C": "Chủ nghĩa duy vật biện chứng."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy tâm.",
+      "Chủ nghĩa duy vật siêu hình."
+    ],
+    "globalId": 243,
+    "set": "spkt_300"
+  },
+  {
+    "id": 244,
+    "rawId": 244,
+    "uid": "spkt_244",
+    "question": "Khẳng định nào sau đây là đúng?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật tự phát cổ đại đồng nhất vật chất nói chung với khối lượng.",
+      "B": "Chủ nghĩa duy vật nói chung đồng nhất vật chất với khối lượng.",
+      "C": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII đồng nhất vật chất nói chung với khối lượng."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII đồng nhất vật chất nói chung với khối lượng.",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII đồng nhất vật chất nói chung với khối lượng.",
+    "options": [
+      "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII đồng nhất vật chất nói chung với khối lượng.",
+      "Chủ nghĩa duy vật tự phát cổ đại đồng nhất vật chất nói chung với khối lượng.",
+      "Chủ nghĩa duy vật nói chung đồng nhất vật chất với khối lượng."
+    ],
+    "globalId": 244,
+    "set": "spkt_300"
+  },
+  {
+    "id": 245,
+    "rawId": 245,
+    "uid": "spkt_245",
+    "question": "Hiện tượng phóng xạ mà khoa học tự nhiên phát hiện ra chứng minh điều gì?",
+    "originalOptions": {
+      "A": "Vật chất nói chung là bất biến.",
+      "B": "Nguyên tử là bất biến.",
+      "C": "Nguyên tử là không bất biến."
+    },
+    "originalAnswer": "Nguyên tử là không bất biến.",
+    "originalLetter": "C",
+    "correctAnswer": "Nguyên tử là không bất biến.",
+    "options": [
+      "Vật chất nói chung là bất biến.",
+      "Nguyên tử là không bất biến.",
+      "Nguyên tử là bất biến."
+    ],
+    "globalId": 245,
+    "set": "spkt_300"
+  },
+  {
+    "id": 246,
+    "rawId": 246,
+    "uid": "spkt_246",
+    "question": "Phát minh ra hiện tượng phóng xạ và điện tử bác bỏ quan niệm triết học nào về vật chất",
+    "originalOptions": {
+      "A": "Quan niệm duy vật siêu hình về vật chất.",
+      "B": "Quan niệm duy tâm về vật chất cho nguyên tử không tồn tại.",
+      "C": "Quan niệm duy vật biện chứng về vật chất."
+    },
+    "originalAnswer": "Quan niệm duy vật siêu hình về vật chất.",
+    "originalLetter": "A",
+    "correctAnswer": "Quan niệm duy vật siêu hình về vật chất.",
+    "options": [
+      "Quan niệm duy vật siêu hình về vật chất.",
+      "Quan niệm duy vật biện chứng về vật chất.",
+      "Quan niệm duy tâm về vật chất cho nguyên tử không tồn tại."
+    ],
+    "globalId": 246,
+    "set": "spkt_300"
+  },
+  {
+    "id": 247,
+    "rawId": 247,
+    "uid": "spkt_247",
+    "question": "Chủ nghĩa duy tâm đã lợi dụng những phát minh của khoa học tự nhiên về hiện tượng phóng xạ và điện tử để chứng minh cái gì?",
+    "originalOptions": {
+      "A": "Chứng minh nguyên tử không phải là bất biến.",
+      "B": "Chứng minh nguyên tử biến đổi đồng nhất với vật chất mất đi.",
+      "C": "Chứng minh nguyên tử biến đổi nhưng vật chất nói chung không mất đi."
+    },
+    "originalAnswer": "Chứng minh nguyên tử biến đổi đồng nhất với vật chất mất đi.",
+    "originalLetter": "B",
+    "correctAnswer": "Chứng minh nguyên tử biến đổi đồng nhất với vật chất mất đi.",
+    "options": [
+      "Chứng minh nguyên tử không phải là bất biến.",
+      "Chứng minh nguyên tử biến đổi đồng nhất với vật chất mất đi.",
+      "Chứng minh nguyên tử biến đổi nhưng vật chất nói chung không mất đi."
+    ],
+    "globalId": 247,
+    "set": "spkt_300"
+  },
+  {
+    "id": 248,
+    "rawId": 248,
+    "uid": "spkt_248",
+    "question": "Quan niệm coi điện tử là phi vật chất thuộc lập trường triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật siêu hình.",
+      "B": "Chủ nghĩa duy tâm.",
+      "C": "Chủ nghĩa duy vật biện chứng."
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy tâm.",
+    "options": [
+      "Chủ nghĩa duy tâm.",
+      "Chủ nghĩa duy vật siêu hình.",
+      "Chủ nghĩa duy vật biện chứng."
+    ],
+    "globalId": 248,
+    "set": "spkt_300"
+  },
+  {
+    "id": 249,
+    "rawId": 249,
+    "uid": "spkt_249",
+    "question": "Đồng nhất sự biến đổi của nguyên tử và khối lượng với sự biến mất của vật chất sẽ rơi vào quan điểm triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật biện chứng.",
+      "B": "Chủ nghĩa duy vật siêu hình.",
+      "C": "Chủ nghĩa duy tâm."
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm.",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy tâm.",
+    "options": [
+      "Chủ nghĩa duy vật siêu hình.",
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy tâm."
+    ],
+    "globalId": 249,
+    "set": "spkt_300"
+  },
+  {
+    "id": 250,
+    "rawId": 250,
+    "uid": "spkt_250",
+    "question": "Quan điểm của chủ nghĩa duy vật biện chứng về hiện tượng phóng xạ như thế nào?",
+    "originalOptions": {
+      "A": "Chứng minh nguyên tử không bất biến, nhưng không chứng minh vật chất biến mất. b. Chứng minh nguyên tử biến mất và vật chất cũng biến mất.",
+      "C": "Chứng minh cơ sở vật chất của chủ nghĩa duy vật không còn."
+    },
+    "originalAnswer": "Chứng minh nguyên tử không bất biến, nhưng không chứng minh vật chất biến mất. b. Chứng minh nguyên tử biến mất và vật chất cũng biến mất.",
+    "originalLetter": "A",
+    "correctAnswer": "Chứng minh nguyên tử không bất biến, nhưng không chứng minh vật chất biến mất. b. Chứng minh nguyên tử biến mất và vật chất cũng biến mất.",
+    "options": [
+      "Chứng minh cơ sở vật chất của chủ nghĩa duy vật không còn.",
+      "Chứng minh nguyên tử không bất biến, nhưng không chứng minh vật chất biến mất. b. Chứng minh nguyên tử biến mất và vật chất cũng biến mất."
+    ],
+    "globalId": 250,
+    "set": "spkt_300"
+  },
+  {
+    "id": 251,
+    "rawId": 251,
+    "uid": "spkt_251",
+    "question": "Theo Lênin những phát minh của khoa học tự nhiên cuối thế kỷ XIX đầu thế kỷ XX đã làm tiêu tan cái gì?",
+    "originalOptions": {
+      "A": "Tiêu tan vật chất nói chung.",
+      "B": "Tiêu tan dạng tồn tại cụ thể của vật chất.",
+      "C": "Tiêu tan giới hạn hiểu biết trước đây về vật chất, quan điểm siêu hình về vật chất."
+    },
+    "originalAnswer": "Tiêu tan giới hạn hiểu biết trước đây về vật chất, quan điểm siêu hình về vật chất.",
+    "originalLetter": "C",
+    "correctAnswer": "Tiêu tan giới hạn hiểu biết trước đây về vật chất, quan điểm siêu hình về vật chất.",
+    "options": [
+      "Tiêu tan giới hạn hiểu biết trước đây về vật chất, quan điểm siêu hình về vật chất.",
+      "Tiêu tan dạng tồn tại cụ thể của vật chất.",
+      "Tiêu tan vật chất nói chung."
+    ],
+    "globalId": 251,
+    "set": "spkt_300"
+  },
+  {
+    "id": 252,
+    "rawId": 252,
+    "uid": "spkt_252",
+    "question": "Luận điểm cho rằng: \"Điện tử cũng vô cùng vô tận, tự nhiên là vô tận\" do ai nêu ra và trong tác phẩm nào?",
+    "originalOptions": {
+      "A": "Ăngghen nêu, trong tác phẩm \"Chống Đuyrinh\".",
+      "B": "Mác nêu trong tác phẩm \"Tư bản\"",
+      "C": "Lênin nêu trong tác phẩm \"Chủ nghĩa duy vật và chủ nghĩa kinh nghiệm phê phán\".",
+      "D": "Lênin nêu trong tác phẩm \"Bút ký triết học\"."
+    },
+    "originalAnswer": "Lênin nêu trong tác phẩm \"Chủ nghĩa duy vật và chủ nghĩa kinh nghiệm phê phán\".",
+    "originalLetter": "C",
+    "correctAnswer": "Lênin nêu trong tác phẩm \"Chủ nghĩa duy vật và chủ nghĩa kinh nghiệm phê phán\".",
+    "options": [
+      "Mác nêu trong tác phẩm \"Tư bản\"",
+      "Ăngghen nêu, trong tác phẩm \"Chống Đuyrinh\".",
+      "Lênin nêu trong tác phẩm \"Chủ nghĩa duy vật và chủ nghĩa kinh nghiệm phê phán\".",
+      "Lênin nêu trong tác phẩm \"Bút ký triết học\"."
+    ],
+    "globalId": 252,
+    "set": "spkt_300"
+  },
+  {
+    "id": 253,
+    "rawId": 253,
+    "uid": "spkt_253",
+    "question": "Quan điểm cho rằng: nhận thức mới về nguyên tử - phát hiện ra điện tử - làm cho nguyên tử không tồn tại, thuộc lập trường triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật siêu hình.",
+      "B": "Chủ nghĩa duy tâm chủ quan.",
+      "C": "Chủ nghĩa duy vật biện chứng",
+      "D": "Chủ nghĩa duy tâm khách quan."
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm chủ quan.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy tâm chủ quan.",
+    "options": [
+      "Chủ nghĩa duy vật siêu hình.",
+      "Chủ nghĩa duy tâm chủ quan.",
+      "Chủ nghĩa duy vật biện chứng",
+      "Chủ nghĩa duy tâm khách quan."
+    ],
+    "globalId": 253,
+    "set": "spkt_300"
+  },
+  {
+    "id": 254,
+    "rawId": 254,
+    "uid": "spkt_254",
+    "question": "Quan điểm triết học nào cho rằng, nhận thức mới về nguyên tử chỉ bác bỏ quan niệm cũ về vật chất, không bác bỏ sự tồn tại vật chất nói chung?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật trước Mác.",
+      "B": "Chủ nghĩa duy tâm.",
+      "C": "Chủ nghĩa duy vật biện chứng."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy vật trước Mác.",
+      "Chủ nghĩa duy tâm."
+    ],
+    "globalId": 254,
+    "set": "spkt_300"
+  },
+  {
+    "id": 255,
+    "rawId": 255,
+    "uid": "spkt_255",
+    "question": "Định nghĩa về vật chất của Lênin được nêu trong tác phẩm nào?",
+    "originalOptions": {
+      "A": "Biện chứng của tự nhiên",
+      "B": "Chủ nghĩa duy vật và chủ nghĩa kinh nghiệm phê phán.",
+      "C": "Bút ký triết học",
+      "D": "Nhà nước và cách mạng."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật và chủ nghĩa kinh nghiệm phê phán.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy vật và chủ nghĩa kinh nghiệm phê phán.",
+    "options": [
+      "Bút ký triết học",
+      "Nhà nước và cách mạng.",
+      "Chủ nghĩa duy vật và chủ nghĩa kinh nghiệm phê phán.",
+      "Biện chứng của tự nhiên"
+    ],
+    "globalId": 255,
+    "set": "spkt_300"
+  },
+  {
+    "id": 256,
+    "rawId": 256,
+    "uid": "spkt_256",
+    "question": "Đâu là quan niệm về vật chất của triết học Mác - Lênin?",
+    "originalOptions": {
+      "A": "Đồng nhất vật chất nói chung với một dạng cụ thẻ của vật chất.",
+      "B": "Không đồng nhất vật chất nói chung với dạng cụ thể của vật chất.",
+      "C": "Coi có vật chất chung tồn tại tách rời các dạng cụ thể của vật chất."
+    },
+    "originalAnswer": "Không đồng nhất vật chất nói chung với dạng cụ thể của vật chất.",
+    "originalLetter": "B",
+    "correctAnswer": "Không đồng nhất vật chất nói chung với dạng cụ thể của vật chất.",
+    "options": [
+      "Coi có vật chất chung tồn tại tách rời các dạng cụ thể của vật chất.",
+      "Đồng nhất vật chất nói chung với một dạng cụ thẻ của vật chất.",
+      "Không đồng nhất vật chất nói chung với dạng cụ thể của vật chất."
+    ],
+    "globalId": 256,
+    "set": "spkt_300"
+  },
+  {
+    "id": 257,
+    "rawId": 257,
+    "uid": "spkt_257",
+    "question": "Thêm cụm từ thích hợp vào câu sau để được định nghĩa về vật chất của Lênin: Vật chất là ......(1) dùng để chỉ .......(2).. được đem lại cho con người trong cảm giác, được cảm giác của chúng ta chép lại, chụp lại, phản ảnh và tồn tại không lệ thuộc vào cảm giác.",
+    "originalOptions": {
+      "A": "1- Vật thể, 2- hoạt động",
+      "B": "1- Phạm trù triết học, 2- Thực tại khách quan.",
+      "C": "1- Phạm trù triết học, 2- Một vật thể"
+    },
+    "originalAnswer": "1- Phạm trù triết học, 2- Thực tại khách quan.",
+    "originalLetter": "B",
+    "correctAnswer": "1- Phạm trù triết học, 2- Thực tại khách quan.",
+    "options": [
+      "1- Vật thể, 2- hoạt động",
+      "1- Phạm trù triết học, 2- Một vật thể",
+      "1- Phạm trù triết học, 2- Thực tại khách quan."
+    ],
+    "globalId": 257,
+    "set": "spkt_300"
+  },
+  {
+    "id": 258,
+    "rawId": 258,
+    "uid": "spkt_258",
+    "question": "Định nghĩa về vật chất của Lênin bao quát đặc tính quan trọng nhất của mọi dạng vật chất để phân biệt với ý thức, đó là đặc tính gì?",
+    "originalOptions": {
+      "A": "Thực tại khách quan độc lập với ý thức của con người.",
+      "B": "Vận động và biến đổi.",
+      "C": "Có khối lượng và quảng tính."
+    },
+    "originalAnswer": "Thực tại khách quan độc lập với ý thức của con người.",
+    "originalLetter": "A",
+    "correctAnswer": "Thực tại khách quan độc lập với ý thức của con người.",
+    "options": [
+      "Thực tại khách quan độc lập với ý thức của con người.",
+      "Có khối lượng và quảng tính.",
+      "Vận động và biến đổi."
+    ],
+    "globalId": 258,
+    "set": "spkt_300"
+  },
+  {
+    "id": 259,
+    "rawId": 259,
+    "uid": "spkt_259",
+    "question": "Theo quan điểm của chủ nghĩa duy vật biện chứng, vật chất với tư cách là phạm trù triết học có đặc tính gì?",
+    "originalOptions": {
+      "A": "Vô hạn, vô tận, vĩnh viễn tồn tại, độc lập với ý thức.",
+      "B": "Có giới hạn, có sinh ra và có mất đi.",
+      "C": "Vô hạn, vô tận, vĩnh viễn tồn tại."
+    },
+    "originalAnswer": "Vô hạn, vô tận, vĩnh viễn tồn tại, độc lập với ý thức.",
+    "originalLetter": "A",
+    "correctAnswer": "Vô hạn, vô tận, vĩnh viễn tồn tại, độc lập với ý thức.",
+    "options": [
+      "Vô hạn, vô tận, vĩnh viễn tồn tại, độc lập với ý thức.",
+      "Vô hạn, vô tận, vĩnh viễn tồn tại.",
+      "Có giới hạn, có sinh ra và có mất đi."
+    ],
+    "globalId": 259,
+    "set": "spkt_300"
+  },
+  {
+    "id": 260,
+    "rawId": 260,
+    "uid": "spkt_260",
+    "question": "Theo quan niệm của chủ nghĩa duy vật biện chứng về vật chất, chân không có vật chất tồn tại không?",
+    "originalOptions": {
+      "A": "Có.",
+      "B": "Không có",
+      "C": "Vừa có, vừa không có."
+    },
+    "originalAnswer": "Có.",
+    "originalLetter": "A",
+    "correctAnswer": "Có.",
+    "options": [
+      "Có.",
+      "Vừa có, vừa không có.",
+      "Không có"
+    ],
+    "globalId": 260,
+    "set": "spkt_300"
+  },
+  {
+    "id": 261,
+    "rawId": 261,
+    "uid": "spkt_261",
+    "question": "Khẳng định sau đây là đúng hay sai: chủ nghĩa duy vật biện chứng không thừa nhận cái gì con người biết được mới là vật chất.",
+    "originalOptions": {
+      "A": "Đúng",
+      "C": "Vừa đúng, vừa sai",
+      "B": "Sai."
+    },
+    "originalAnswer": "Đúng",
+    "originalLetter": "A",
+    "correctAnswer": "Đúng",
+    "options": [
+      "Đúng",
+      "Sai.",
+      "Vừa đúng, vừa sai"
+    ],
+    "globalId": 261,
+    "set": "spkt_300"
+  },
+  {
+    "id": 262,
+    "rawId": 262,
+    "uid": "spkt_262",
+    "question": "Đâu là quan niệm về vật chất của chủ nghĩa duy vật biện chứng",
+    "originalOptions": {
+      "A": "Vật chất là cái gây nên cảm giác cho chúng ta.",
+      "B": "Cái gì không gây nên cảm giác ở chúng ta thì không phải là vật chất",
+      "C": "Cái không cảm giác được thì không phải là vật chất."
+    },
+    "originalAnswer": "Vật chất là cái gây nên cảm giác cho chúng ta.",
+    "originalLetter": "A",
+    "correctAnswer": "Vật chất là cái gây nên cảm giác cho chúng ta.",
+    "options": [
+      "Cái không cảm giác được thì không phải là vật chất.",
+      "Vật chất là cái gây nên cảm giác cho chúng ta.",
+      "Cái gì không gây nên cảm giác ở chúng ta thì không phải là vật chất"
+    ],
+    "globalId": 262,
+    "set": "spkt_300"
+  },
+  {
+    "id": 263,
+    "rawId": 263,
+    "uid": "spkt_263",
+    "question": "Quan điểm sau đây thuộc trường phái triết học nào: cái gì cảm giác được là vật chất.",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật siêu hình.",
+      "B": "Chủ nghĩa duy vật biện chứng.",
+      "C": "Chủ nghĩa duy tâm khách quan",
+      "D": "Chủ nghĩa duy tâm chủ quan."
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm chủ quan.",
+    "originalLetter": "D",
+    "correctAnswer": "Chủ nghĩa duy tâm chủ quan.",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy tâm chủ quan.",
+      "Chủ nghĩa duy tâm khách quan",
+      "Chủ nghĩa duy vật siêu hình."
+    ],
+    "globalId": 263,
+    "set": "spkt_300"
+  },
+  {
+    "id": 264,
+    "rawId": 264,
+    "uid": "spkt_264",
+    "question": "Khẳng định nào sau đây là đúng?",
+    "originalOptions": {
+      "A": "Định nghĩa về vật chất của Lênin thừa nhận vật chất tồn tại khách quan ngoài ý thức con người, thông qua các dạng cụ thể.",
+      "B": "Định nghĩa về vật chất của Lênin thừa nhận vật chất nói chung tồn tại vĩnh viễn, tách rời các dạng cụ thể của vật chất",
+      "C": "Định nghĩa về vật chất của Lênin đồng nhất vật chất nói chung với một dạng cụ thể của vật chất.",
+      "D": "Cả a, b, c, đều đúng"
+    },
+    "originalAnswer": "Định nghĩa về vật chất của Lênin thừa nhận vật chất tồn tại khách quan ngoài ý thức con người, thông qua các dạng cụ thể.",
+    "originalLetter": "A",
+    "correctAnswer": "Định nghĩa về vật chất của Lênin thừa nhận vật chất tồn tại khách quan ngoài ý thức con người, thông qua các dạng cụ thể.",
+    "options": [
+      "Định nghĩa về vật chất của Lênin thừa nhận vật chất nói chung tồn tại vĩnh viễn, tách rời các dạng cụ thể của vật chất",
+      "Cả a, b, c, đều đúng",
+      "Định nghĩa về vật chất của Lênin thừa nhận vật chất tồn tại khách quan ngoài ý thức con người, thông qua các dạng cụ thể.",
+      "Định nghĩa về vật chất của Lênin đồng nhất vật chất nói chung với một dạng cụ thể của vật chất."
+    ],
+    "globalId": 264,
+    "set": "spkt_300"
+  },
+  {
+    "id": 265,
+    "rawId": 265,
+    "uid": "spkt_265",
+    "question": "Khi nói vật chất là cái được cảm giác của chúng ta chép lại, phản ánh lại, về mặt nhận thức luận Lênin muốn khẳng định điều gì?",
+    "originalOptions": {
+      "A": "Cảm giác, ý thức của chúng ta có khả năng phản ánh đúng thế giới khách quan.",
+      "B": "Cám giác ý thức của chúng ta không thể phản ánh đúng thế giới vật chất.",
+      "C": "Cảm giác, ý thức phụ thuộc thụ động vào thế giới vật chất."
+    },
+    "originalAnswer": "Cảm giác, ý thức của chúng ta có khả năng phản ánh đúng thế giới khách quan.",
+    "originalLetter": "A",
+    "correctAnswer": "Cảm giác, ý thức của chúng ta có khả năng phản ánh đúng thế giới khách quan.",
+    "options": [
+      "Cám giác ý thức của chúng ta không thể phản ánh đúng thế giới vật chất.",
+      "Cảm giác, ý thức phụ thuộc thụ động vào thế giới vật chất.",
+      "Cảm giác, ý thức của chúng ta có khả năng phản ánh đúng thế giới khách quan."
+    ],
+    "globalId": 265,
+    "set": "spkt_300"
+  },
+  {
+    "id": 266,
+    "rawId": 266,
+    "uid": "spkt_266",
+    "question": "Đâu là quan điểm của chủ nghĩa duy vật biện chứng về vật chất?",
+    "originalOptions": {
+      "A": "Vật chất là vật thể",
+      "B": "Vật chất không loại trừ cái không là vật thể.",
+      "C": "Không là vật thể thì không phải là vật chất."
+    },
+    "originalAnswer": "Vật chất không loại trừ cái không là vật thể.",
+    "originalLetter": "B",
+    "correctAnswer": "Vật chất không loại trừ cái không là vật thể.",
+    "options": [
+      "Vật chất là vật thể",
+      "Vật chất không loại trừ cái không là vật thể.",
+      "Không là vật thể thì không phải là vật chất."
+    ],
+    "globalId": 266,
+    "set": "spkt_300"
+  },
+  {
+    "id": 267,
+    "rawId": 267,
+    "uid": "spkt_267",
+    "question": "Quan điểm triết học nào tách rời vật chất với vận động",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm.",
+      "B": "Chủ nghĩa duy vật siêu hình.",
+      "C": "Chủ nghĩa duy vật biện chứng."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật siêu hình.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy vật siêu hình.",
+    "options": [
+      "Chủ nghĩa duy tâm.",
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy vật siêu hình."
+    ],
+    "globalId": 267,
+    "set": "spkt_300"
+  },
+  {
+    "id": 268,
+    "rawId": 268,
+    "uid": "spkt_268",
+    "question": "Trường phái triết học nào cho vận động bao gồm mọi sự biến đổi của vật chất, là phương thức tồn tại của vật chất.",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật siêu hình.",
+      "B": "Chủ nghĩa duy vật biện chứng.",
+      "C": "Chủ nghĩa duy tâm chủ quan.",
+      "D": "Chủ nghĩa duy tâm khách quan."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "options": [
+      "Chủ nghĩa duy tâm chủ quan.",
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy tâm khách quan.",
+      "Chủ nghĩa duy vật siêu hình."
+    ],
+    "globalId": 268,
+    "set": "spkt_300"
+  },
+  {
+    "id": 269,
+    "rawId": 269,
+    "uid": "spkt_269",
+    "question": "Nếu cho rằng có vật chất không vận động và có vận động thuần tuý ngoài vật chất sẽ rơi vào lập trường triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật tự phát thời kỳ cổ đại.",
+      "B": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+      "C": "Chủ nghĩa duy vật biện chứng."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+      "Chủ nghĩa duy vật tự phát thời kỳ cổ đại."
+    ],
+    "globalId": 269,
+    "set": "spkt_300"
+  },
+  {
+    "id": 270,
+    "rawId": 270,
+    "uid": "spkt_270",
+    "question": "Trường phái triết học nào cho không thể có vật chất không vận động và không thể có vận động ngoài vật chất.",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật tự phát thời kỳ cổ đại.",
+      "B": "Chủ nghĩa duy vật siêu hình",
+      "C": "Chủ nghĩa duy vật biện chứng."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy vật siêu hình",
+      "Chủ nghĩa duy vật tự phát thời kỳ cổ đại."
+    ],
+    "globalId": 270,
+    "set": "spkt_300"
+  },
+  {
+    "id": 271,
+    "rawId": 271,
+    "uid": "spkt_271",
+    "question": "Đâu là quan niệm của chủ nghĩa duy vật biện chứng về vận động.",
+    "originalOptions": {
+      "A": "Có vật chất không vận động.",
+      "B": "Có vận động thuần tuý ngoài vật chất.",
+      "C": "Không có vận động thuần tuý ngoài vật chất."
+    },
+    "originalAnswer": "Không có vận động thuần tuý ngoài vật chất.",
+    "originalLetter": "C",
+    "correctAnswer": "Không có vận động thuần tuý ngoài vật chất.",
+    "options": [
+      "Có vận động thuần tuý ngoài vật chất.",
+      "Không có vận động thuần tuý ngoài vật chất.",
+      "Có vật chất không vận động."
+    ],
+    "globalId": 271,
+    "set": "spkt_300"
+  },
+  {
+    "id": 272,
+    "rawId": 272,
+    "uid": "spkt_272",
+    "question": "Đâu là quan điểm của chủ nghĩa duy vật biện chứng về vận động?",
+    "originalOptions": {
+      "A": "Vận động là sự tự thân vận động của vật chất, không được sáng tạo ra và không mất đi.",
+      "B": "Vận động là sự đẩy và hút của vật thể.",
+      "C": "Vận động được sáng tạo ra và có thể mất đi."
+    },
+    "originalAnswer": "Vận động là sự tự thân vận động của vật chất, không được sáng tạo ra và không mất đi.",
+    "originalLetter": "A",
+    "correctAnswer": "Vận động là sự tự thân vận động của vật chất, không được sáng tạo ra và không mất đi.",
+    "options": [
+      "Vận động được sáng tạo ra và có thể mất đi.",
+      "Vận động là sự tự thân vận động của vật chất, không được sáng tạo ra và không mất đi.",
+      "Vận động là sự đẩy và hút của vật thể."
+    ],
+    "globalId": 272,
+    "set": "spkt_300"
+  },
+  {
+    "id": 273,
+    "rawId": 273,
+    "uid": "spkt_273",
+    "question": "Ph. Ăngghen đã chia vận động làm mấy hình thức cơ bản:",
+    "originalOptions": {
+      "A": "4 hình thức",
+      "C": "5 hình thức cơ bản.",
+      "B": "3 hình thức"
+    },
+    "originalAnswer": "5 hình thức cơ bản.",
+    "originalLetter": "C",
+    "correctAnswer": "5 hình thức cơ bản.",
+    "options": [
+      "3 hình thức",
+      "5 hình thức cơ bản.",
+      "4 hình thức"
+    ],
+    "globalId": 273,
+    "set": "spkt_300"
+  },
+  {
+    "id": 274,
+    "rawId": 274,
+    "uid": "spkt_274",
+    "question": "Theo cách phân chia các hình thức vận động của Ăngghen, hình thức nào là thấp nhất?",
+    "originalOptions": {
+      "A": "Cơ học",
+      "C": "Hoá học",
+      "B": "Vật lý"
+    },
+    "originalAnswer": "Cơ học",
+    "originalLetter": "A",
+    "correctAnswer": "Cơ học",
+    "options": [
+      "Hoá học",
+      "Cơ học",
+      "Vật lý"
+    ],
+    "globalId": 274,
+    "set": "spkt_300"
+  },
+  {
+    "id": 275,
+    "rawId": 275,
+    "uid": "spkt_275",
+    "question": "Theo cách phân chia các hình thức vận động của Ăngghen, hình thức nào là cao nhất và phức tạp nhất?",
+    "originalOptions": {
+      "A": "Sinh học.",
+      "C": "Vận động xã hội.",
+      "B": "Hoá học."
+    },
+    "originalAnswer": "Vận động xã hội.",
+    "originalLetter": "C",
+    "correctAnswer": "Vận động xã hội.",
+    "options": [
+      "Sinh học.",
+      "Vận động xã hội.",
+      "Hoá học."
+    ],
+    "globalId": 275,
+    "set": "spkt_300"
+  },
+  {
+    "id": 276,
+    "rawId": 276,
+    "uid": "spkt_276",
+    "question": "Trường phái triết học nào cho vận động và đứng im không tách rời nhau?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật tự phát.",
+      "B": "Chủ nghĩa duy vật biện chứng.",
+      "C": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+      "Chủ nghĩa duy vật tự phát."
+    ],
+    "globalId": 276,
+    "set": "spkt_300"
+  },
+  {
+    "id": 277,
+    "rawId": 277,
+    "uid": "spkt_277",
+    "question": "Trường phái triết học nào cho vận động là tuyệt đối, đứng im là tương đối?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật tự phát.",
+      "B": "Chủ nghĩa duy vật biện chứng.",
+      "C": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "options": [
+      "Chủ nghĩa duy vật tự phát.",
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII."
+    ],
+    "globalId": 277,
+    "set": "spkt_300"
+  },
+  {
+    "id": 278,
+    "rawId": 278,
+    "uid": "spkt_278",
+    "question": "Đâu là quan điểm của chủ nghĩa duy vật biện chứng?",
+    "originalOptions": {
+      "A": "Không gian và thời gian là hình thức tồn tại của vật chất, không tách rời vật chất.",
+      "B": "Không gian và thời gian phụ thuộc vào cảm giác của con người",
+      "C": "Tồn tại không gian và thời gian thuần tuý ngoài vật chất."
+    },
+    "originalAnswer": "Không gian và thời gian là hình thức tồn tại của vật chất, không tách rời vật chất.",
+    "originalLetter": "A",
+    "correctAnswer": "Không gian và thời gian là hình thức tồn tại của vật chất, không tách rời vật chất.",
+    "options": [
+      "Không gian và thời gian là hình thức tồn tại của vật chất, không tách rời vật chất.",
+      "Tồn tại không gian và thời gian thuần tuý ngoài vật chất.",
+      "Không gian và thời gian phụ thuộc vào cảm giác của con người"
+    ],
+    "globalId": 278,
+    "set": "spkt_300"
+  },
+  {
+    "id": 279,
+    "rawId": 279,
+    "uid": "spkt_279",
+    "question": "Trường phái triết học nào cho không gian và thời gian là do thói quen của con người quy định",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật siêu hình",
+      "B": "Chủ nghĩa duy tâm chủ quan.",
+      "C": "Chủ nghĩa duy vật biện chứng",
+      "D": "Chủ nghĩa duy tâm khách quan."
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm chủ quan.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy tâm chủ quan.",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng",
+      "Chủ nghĩa duy vật siêu hình",
+      "Chủ nghĩa duy tâm chủ quan.",
+      "Chủ nghĩa duy tâm khách quan."
+    ],
+    "globalId": 279,
+    "set": "spkt_300"
+  },
+  {
+    "id": 280,
+    "rawId": 280,
+    "uid": "spkt_280",
+    "question": "Khẳng định sau đây đúng hay sai: Quan điểm siêu hình cho có không gian thuần tuý tồn ngoài vật chất.",
+    "originalOptions": {
+      "A": "Sai",
+      "B": "Đúng."
+    },
+    "originalAnswer": "Đúng.",
+    "originalLetter": "B",
+    "correctAnswer": "Đúng.",
+    "options": [
+      "Đúng.",
+      "Sai"
+    ],
+    "globalId": 280,
+    "set": "spkt_300"
+  },
+  {
+    "id": 281,
+    "rawId": 281,
+    "uid": "spkt_281",
+    "question": "Khẳng định sau đây đúng hay sai: Chủ nghĩa duy vật biện chứng cho không có không gian và thời gian thuần tuý ngoài vật chất.",
+    "originalOptions": {
+      "A": "Đúng",
+      "B": "Sai."
+    },
+    "originalAnswer": "Đúng",
+    "originalLetter": "A",
+    "correctAnswer": "Đúng",
+    "options": [
+      "Đúng",
+      "Sai."
+    ],
+    "globalId": 281,
+    "set": "spkt_300"
+  },
+  {
+    "id": 282,
+    "rawId": 282,
+    "uid": "spkt_282",
+    "question": "Luận điểm nào sau đây là đúng?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm thừa nhận tính khách quan, vô tận và vĩnh cửu của không gian và thời gian",
+      "B": "Chủ nghĩa duy vật siêu hình thừa nhận tính khách quan, vô tận, gắn liền với vật chất của không gian và thời gian.",
+      "C": "Chủ nghĩa duy vật biện chứng thừa nhận không gian, thời gian là hình thức tồn tại của vật chất, có tính khách quan, vô tận và vĩnh cửu."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật biện chứng thừa nhận không gian, thời gian là hình thức tồn tại của vật chất, có tính khách quan, vô tận và vĩnh cửu.",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy vật biện chứng thừa nhận không gian, thời gian là hình thức tồn tại của vật chất, có tính khách quan, vô tận và vĩnh cửu.",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng thừa nhận không gian, thời gian là hình thức tồn tại của vật chất, có tính khách quan, vô tận và vĩnh cửu.",
+      "Chủ nghĩa duy tâm thừa nhận tính khách quan, vô tận và vĩnh cửu của không gian và thời gian",
+      "Chủ nghĩa duy vật siêu hình thừa nhận tính khách quan, vô tận, gắn liền với vật chất của không gian và thời gian."
+    ],
+    "globalId": 282,
+    "set": "spkt_300"
+  },
+  {
+    "id": 283,
+    "rawId": 283,
+    "uid": "spkt_283",
+    "question": "Quan điểm của chủ nghĩa duy tâm về nguồn gốc của ý thức?",
+    "originalOptions": {
+      "A": "Là sự phản ánh của hiện thực khách quan.",
+      "B": "Là thuộc tính của bộ não người, do não người tiết ra.",
+      "C": "Phủ nhận nguồn gốc vật chất của ý thức."
+    },
+    "originalAnswer": "Phủ nhận nguồn gốc vật chất của ý thức.",
+    "originalLetter": "C",
+    "correctAnswer": "Phủ nhận nguồn gốc vật chất của ý thức.",
+    "options": [
+      "Phủ nhận nguồn gốc vật chất của ý thức.",
+      "Là thuộc tính của bộ não người, do não người tiết ra.",
+      "Là sự phản ánh của hiện thực khách quan."
+    ],
+    "globalId": 283,
+    "set": "spkt_300"
+  },
+  {
+    "id": 284,
+    "rawId": 284,
+    "uid": "spkt_284",
+    "question": "Đâu là quan điểm của chủ nghĩa duy vật biện chứng về phản ánh?",
+    "originalOptions": {
+      "A": "Phản ánh là thuộc tính của mọi dạng vật chất là cái vốn có của mọi dạng vật chất.",
+      "B": "Phản ánh chỉ là đặc tính của một số vật thể.",
+      "C": "Phản ánh không phải là cái vốn có của thế giới vật chất, chỉ là ý thức con người tưởng tượng ra."
+    },
+    "originalAnswer": "Phản ánh là thuộc tính của mọi dạng vật chất là cái vốn có của mọi dạng vật chất.",
+    "originalLetter": "A",
+    "correctAnswer": "Phản ánh là thuộc tính của mọi dạng vật chất là cái vốn có của mọi dạng vật chất.",
+    "options": [
+      "Phản ánh không phải là cái vốn có của thế giới vật chất, chỉ là ý thức con người tưởng tượng ra.",
+      "Phản ánh là thuộc tính của mọi dạng vật chất là cái vốn có của mọi dạng vật chất.",
+      "Phản ánh chỉ là đặc tính của một số vật thể."
+    ],
+    "globalId": 284,
+    "set": "spkt_300"
+  },
+  {
+    "id": 285,
+    "rawId": 285,
+    "uid": "spkt_285",
+    "question": "Đồng nhất ý thức với phản ánh vật lý, đó là quan điểm của trường phái triết học nào?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm khách quan.",
+      "B": "Chủ nghĩa duy vật biện chứng",
+      "C": "Chủ nghĩa duy vật siêu hình trước Mác.",
+      "D": "Chủ nghĩa duy tâm chủ quan."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật siêu hình trước Mác.",
+    "originalLetter": "C",
+    "correctAnswer": "Chủ nghĩa duy vật siêu hình trước Mác.",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng",
+      "Chủ nghĩa duy vật siêu hình trước Mác.",
+      "Chủ nghĩa duy tâm chủ quan.",
+      "Chủ nghĩa duy tâm khách quan."
+    ],
+    "globalId": 285,
+    "set": "spkt_300"
+  },
+  {
+    "id": 286,
+    "rawId": 286,
+    "uid": "spkt_286",
+    "question": "Trường phái triết học nào đồng nhất ý thức với một dạng vật chất?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật biện chứng.",
+      "B": "Chủ nghĩa duy vật tầm thường.",
+      "C": "Chủ nghĩa duy tâm."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật tầm thường.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy vật tầm thường.",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy vật tầm thường.",
+      "Chủ nghĩa duy tâm."
+    ],
+    "globalId": 286,
+    "set": "spkt_300"
+  },
+  {
+    "id": 287,
+    "rawId": 287,
+    "uid": "spkt_287",
+    "question": "Trường phái triết học nào cho ý thức không phải là chức năng của não",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật biện chứng.",
+      "B": "Chủ nghĩa duy tâm khách quan.",
+      "C": "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII."
+    },
+    "originalAnswer": "Chủ nghĩa duy tâm khách quan.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy tâm khách quan.",
+    "options": [
+      "Chủ nghĩa duy tâm khách quan.",
+      "Chủ nghĩa duy vật siêu hình thế kỷ XVII - XVIII.",
+      "Chủ nghĩa duy vật biện chứng."
+    ],
+    "globalId": 287,
+    "set": "spkt_300"
+  },
+  {
+    "id": 288,
+    "rawId": 288,
+    "uid": "spkt_288",
+    "question": "Trường phái triết học nào cho quá trình ý thức không tách rời đồng thời không đồng nhất với quá trình sinh lý thần kinh của não người?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật biện chứng.",
+      "B": "Chủ nghĩa duy vật siêu hình",
+      "C": "Chủ nghĩa duy tâm chủ quan."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "originalLetter": "A",
+    "correctAnswer": "Chủ nghĩa duy vật biện chứng.",
+    "options": [
+      "Chủ nghĩa duy tâm chủ quan.",
+      "Chủ nghĩa duy vật siêu hình",
+      "Chủ nghĩa duy vật biện chứng."
+    ],
+    "globalId": 288,
+    "set": "spkt_300"
+  },
+  {
+    "id": 289,
+    "rawId": 289,
+    "uid": "spkt_289",
+    "question": "Đâu là quan niệm của chủ nghĩa duy vật biện chứng về nguồn gốc tự nhiên của ý thức?",
+    "originalOptions": {
+      "A": "ý thức tồn tại trên cơ sở quá trình sinh lý của não người.",
+      "B": "ý thức không đồng nhất với quá trình sinh lý của não người.",
+      "C": "ý thức đồng nhất với quá trình sinh lý của não người.",
+      "D": "Gồm a và b."
+    },
+    "originalAnswer": "Gồm a và b.",
+    "originalLetter": "D",
+    "correctAnswer": "Gồm a và b.",
+    "options": [
+      "ý thức tồn tại trên cơ sở quá trình sinh lý của não người.",
+      "Gồm a và b.",
+      "ý thức đồng nhất với quá trình sinh lý của não người.",
+      "ý thức không đồng nhất với quá trình sinh lý của não người."
+    ],
+    "globalId": 289,
+    "set": "spkt_300"
+  },
+  {
+    "id": 290,
+    "rawId": 290,
+    "uid": "spkt_290",
+    "question": "Theo quan điểm của chủ nghĩa duy vật biện chứng thiếu sự tác động của thế giới khách quan vào não người, có hình thành và phát triển được ý thức không?",
+    "originalOptions": {
+      "A": "Không",
+      "B": "có thể hình thành được",
+      "C": "Vừa có thể, vừa không thể"
+    },
+    "originalAnswer": "Không",
+    "originalLetter": "A",
+    "correctAnswer": "Không",
+    "options": [
+      "Không",
+      "Vừa có thể, vừa không thể",
+      "có thể hình thành được"
+    ],
+    "globalId": 290,
+    "set": "spkt_300"
+  },
+  {
+    "id": 291,
+    "rawId": 291,
+    "uid": "spkt_291",
+    "question": "Luận điểm nào sau đây là của chủ nghĩa duy vật biện chứng về nguồn gốc của ý thức?",
+    "originalOptions": {
+      "A": "Có não người, có sự tác động của thế giới vào não người là có sự hình thành và phát triển ý thức.",
+      "B": "Không cần sự tác động của thế giới vật chất vào não người vẫn hình thành được ý thức.",
+      "C": "Có não người, có sự tác động của thế giới bên ngoài vẫn chưa đủ điều kiện để hình thành và phát triển ý thức."
+    },
+    "originalAnswer": "Có não người, có sự tác động của thế giới bên ngoài vẫn chưa đủ điều kiện để hình thành và phát triển ý thức.",
+    "originalLetter": "C",
+    "correctAnswer": "Có não người, có sự tác động của thế giới bên ngoài vẫn chưa đủ điều kiện để hình thành và phát triển ý thức.",
+    "options": [
+      "Có não người, có sự tác động của thế giới vào não người là có sự hình thành và phát triển ý thức.",
+      "Có não người, có sự tác động của thế giới bên ngoài vẫn chưa đủ điều kiện để hình thành và phát triển ý thức.",
+      "Không cần sự tác động của thế giới vật chất vào não người vẫn hình thành được ý thức."
+    ],
+    "globalId": 291,
+    "set": "spkt_300"
+  },
+  {
+    "id": 292,
+    "rawId": 292,
+    "uid": "spkt_292",
+    "question": "Theo quan điểm của chủ nghĩa duy vật biện chứng ở động vật bậc cao có thể đạt đến hình thức phản ánh nào?",
+    "originalOptions": {
+      "A": "Phản ánh ý thức.",
+      "B": "Phản ánh tâm lý động vật.",
+      "C": "Tính kích thích."
+    },
+    "originalAnswer": "Phản ánh tâm lý động vật.",
+    "originalLetter": "B",
+    "correctAnswer": "Phản ánh tâm lý động vật.",
+    "options": [
+      "Tính kích thích.",
+      "Phản ánh ý thức.",
+      "Phản ánh tâm lý động vật."
+    ],
+    "globalId": 292,
+    "set": "spkt_300"
+  },
+  {
+    "id": 293,
+    "rawId": 293,
+    "uid": "spkt_293",
+    "question": "Điều khẳng định nào sau đây là sai?",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật biện chứng cho rằng động vật bậc cao chưa có ý thức.",
+      "B": "Chủ nghĩa duy vật biện chứng cho rằng động vật bậc cao cũng có ý thức.",
+      "C": "Chủ nghĩa duy vật biện chứng cho rằng chỉ có con người mới có ý thức",
+      "D": "Chủ nghĩa duy vật đều cho ý thức là sự phản ánh hiện thực khách quan vào óc con người."
+    },
+    "originalAnswer": "Chủ nghĩa duy vật biện chứng cho rằng động vật bậc cao cũng có ý thức.",
+    "originalLetter": "B",
+    "correctAnswer": "Chủ nghĩa duy vật biện chứng cho rằng động vật bậc cao cũng có ý thức.",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng cho rằng động vật bậc cao cũng có ý thức.",
+      "Chủ nghĩa duy vật biện chứng cho rằng chỉ có con người mới có ý thức",
+      "Chủ nghĩa duy vật đều cho ý thức là sự phản ánh hiện thực khách quan vào óc con người.",
+      "Chủ nghĩa duy vật biện chứng cho rằng động vật bậc cao chưa có ý thức."
+    ],
+    "globalId": 293,
+    "set": "spkt_300"
+  },
+  {
+    "id": 294,
+    "rawId": 294,
+    "uid": "spkt_294",
+    "question": "Hình thức phản ánh đặc trưng của của thế giới vô cơ là gì?",
+    "originalOptions": {
+      "A": "Phản ánh vật lý hoá học.",
+      "B": "Phản ánh sinh học.",
+      "C": "Phản ánh ý thức."
+    },
+    "originalAnswer": "Phản ánh vật lý hoá học.",
+    "originalLetter": "A",
+    "correctAnswer": "Phản ánh vật lý hoá học.",
+    "options": [
+      "Phản ánh ý thức.",
+      "Phản ánh vật lý hoá học.",
+      "Phản ánh sinh học."
+    ],
+    "globalId": 294,
+    "set": "spkt_300"
+  },
+  {
+    "id": 295,
+    "rawId": 295,
+    "uid": "spkt_295",
+    "question": "Hình thức phản ánh đặc trưng của thế giới thực vật và động vật chưa có hệ thần kinh là gì?",
+    "originalOptions": {
+      "A": "Phản ánh vật lý, hoá học.",
+      "B": "Tính kích thích.",
+      "C": "Tính cảm ứng",
+      "D": "Tâm lý động vật."
+    },
+    "originalAnswer": "Tính kích thích.",
+    "originalLetter": "B",
+    "correctAnswer": "Tính kích thích.",
+    "options": [
+      "Tâm lý động vật.",
+      "Tính cảm ứng",
+      "Phản ánh vật lý, hoá học.",
+      "Tính kích thích."
+    ],
+    "globalId": 295,
+    "set": "spkt_300"
+  },
+  {
+    "id": 296,
+    "rawId": 296,
+    "uid": "spkt_296",
+    "question": "Hình thức phản ánh đặc trưng của động vật có hệ thần kinh là gì?",
+    "originalOptions": {
+      "A": "Tính kích thích.",
+      "B": "Tâm lý động vật.",
+      "C": "Tính cảm ứng.",
+      "D": "các phản xạ."
+    },
+    "originalAnswer": "các phản xạ.",
+    "originalLetter": "D",
+    "correctAnswer": "các phản xạ.",
+    "options": [
+      "Tâm lý động vật.",
+      "Tính cảm ứng.",
+      "các phản xạ.",
+      "Tính kích thích."
+    ],
+    "globalId": 296,
+    "set": "spkt_300"
+  },
+  {
+    "id": 297,
+    "rawId": 297,
+    "uid": "spkt_297",
+    "question": "Đâu là quan điểm của chủ nghĩa duy vật biện chứng vê nguồn gốc của ý thức?",
+    "originalOptions": {
+      "A": "ý thức ra đời là kết quả quá trình phát triển lâu dài thuộc tính phản ánh của thế giới vật chất.",
+      "B": "ý thức ra đời là kết quả sự tác động lẫn nhau giữa các sự vật vật chất.",
+      "C": "ý thức ra đời là kết quả quá trình tiến hoá của hệ thần kinh."
+    },
+    "originalAnswer": "ý thức ra đời là kết quả quá trình phát triển lâu dài thuộc tính phản ánh của thế giới vật chất.",
+    "originalLetter": "A",
+    "correctAnswer": "ý thức ra đời là kết quả quá trình phát triển lâu dài thuộc tính phản ánh của thế giới vật chất.",
+    "options": [
+      "ý thức ra đời là kết quả quá trình phát triển lâu dài thuộc tính phản ánh của thế giới vật chất.",
+      "ý thức ra đời là kết quả quá trình tiến hoá của hệ thần kinh.",
+      "ý thức ra đời là kết quả sự tác động lẫn nhau giữa các sự vật vật chất."
+    ],
+    "globalId": 297,
+    "set": "spkt_300"
+  },
+  {
+    "id": 298,
+    "rawId": 298,
+    "uid": "spkt_298",
+    "question": "Theo quan điểm của chủ nghĩa duy vật biện chứng nguồn gốc tự nhiên của ý thức gồm những yếu tố nào?",
+    "originalOptions": {
+      "A": "Bộ óc con người.",
+      "D": "Gồm a và b.",
+      "B": "Thế giới bên ngoài tác động vào bộ óc.",
+      "G": "Gồm cả a, b, và c.",
+      "C": "Lao động của con người"
+    },
+    "originalAnswer": "Gồm a và b.",
+    "originalLetter": "D",
+    "correctAnswer": "Gồm a và b.",
+    "options": [
+      "Thế giới bên ngoài tác động vào bộ óc.",
+      "Bộ óc con người.",
+      "Gồm a và b.",
+      "Gồm cả a, b, và c.",
+      "Lao động của con người"
+    ],
+    "globalId": 298,
+    "set": "spkt_300"
+  },
+  {
+    "id": 299,
+    "rawId": 299,
+    "uid": "spkt_299",
+    "question": "Theo quan điểm của chủ nghĩa duy vật biện chứng điều kiện cần và đủ cho sự ra đời và phát triển ý thức là những điều kiện nào?",
+    "originalOptions": {
+      "A": "Bộ óc con người và thế giới bên ngoài tác động vào bộ óc người",
+      "B": "Lao động của con người và ngôn ngữ.",
+      "C": "Gồm cả a, và b."
+    },
+    "originalAnswer": "Gồm cả a, và b.",
+    "originalLetter": "C",
+    "correctAnswer": "Gồm cả a, và b.",
+    "options": [
+      "Gồm cả a, và b.",
+      "Lao động của con người và ngôn ngữ.",
+      "Bộ óc con người và thế giới bên ngoài tác động vào bộ óc người"
+    ],
+    "globalId": 299,
+    "set": "spkt_300"
+  },
+  {
+    "id": 300,
+    "rawId": 300,
+    "uid": "spkt_300",
+    "question": "Nguồn gốc xã hội của ý thức là yếu tố nào?",
+    "originalOptions": {
+      "A": "Bộ óc con người.",
+      "B": "Sự tác động của thế giới bên ngoài vào bộ óc con người.",
+      "C": "Lao động và ngôn ngữ của con người."
+    },
+    "originalAnswer": "Lao động và ngôn ngữ của con người.",
+    "originalLetter": "C",
+    "correctAnswer": "Lao động và ngôn ngữ của con người.",
+    "options": [
+      "Bộ óc con người.",
+      "Sự tác động của thế giới bên ngoài vào bộ óc con người.",
+      "Lao động và ngôn ngữ của con người."
+    ],
+    "globalId": 300,
+    "set": "spkt_300"
+  },
+  {
+    "id": 1,
+    "uid": "basic_1",
+    "question": "Theo quan điểm của triết học Mác - Lênin, với tư cách là một hình thái ý thức xã hội, triết học ra đời dựa trên những nguồn gốc cơ bản nào?",
+    "originalA": "Nguồn gốc nhận thức và nguồn gốc xã hội.",
+    "originalOptions": {
+      "A": "Nguồn gốc nhận thức và nguồn gốc xã hội.",
+      "B": "Nguồn gốc tự nhiên và nguồn gốc xã hội.",
+      "C": "Nguồn gốc tư duy và nguồn gốc thực tiễn.",
+      "D": "Nguồn gốc con người và nguồn gốc tự nhiên."
+    },
+    "correctAnswer": "Nguồn gốc nhận thức và nguồn gốc xã hội.",
+    "options": [
+      "Nguồn gốc tư duy và nguồn gốc thực tiễn.",
+      "Nguồn gốc con người và nguồn gốc tự nhiên.",
+      "Nguồn gốc tự nhiên và nguồn gốc xã hội.",
+      "Nguồn gốc nhận thức và nguồn gốc xã hội."
+    ],
+    "globalId": 301,
+    "set": "basic_100"
+  },
+  {
+    "id": 2,
+    "uid": "basic_2",
+    "question": "Ph. Ăngghen đã chỉ rõ: \"Vấn đề cơ bản lớn của mọi triết học, đặc biệt là của triết học hiện đại, là vấn đề...\" gì?",
+    "originalA": "Quan hệ giữa tư duy với tồn tại.",
+    "originalOptions": {
+      "A": "Quan hệ giữa tư duy với tồn tại.",
+      "B": "Quan hệ giữa con người với giới tự nhiên.",
+      "C": "Quan hệ giữa lý luận với thực tiễn.",
+      "D": "Quan hệ giữa vật chất với sự vận động."
+    },
+    "correctAnswer": "Quan hệ giữa tư duy với tồn tại.",
+    "options": [
+      "Quan hệ giữa tư duy với tồn tại.",
+      "Quan hệ giữa vật chất với sự vận động.",
+      "Quan hệ giữa lý luận với thực tiễn.",
+      "Quan hệ giữa con người với giới tự nhiên."
+    ],
+    "globalId": 302,
+    "set": "basic_100"
+  },
+  {
+    "id": 3,
+    "uid": "basic_3",
+    "question": "Loại hình thế giới quan nào được coi là đỉnh cao của các loại thế giới quan trong lịch sử vì đòi hỏi thế giới phải được xem xét dựa trên nguyên lý về mối liên hệ phổ biến và sự phát triển?",
+    "originalA": "Thế giới quan duy vật biện chứng.",
+    "originalOptions": {
+      "A": "Thế giới quan duy vật biện chứng.",
+      "B": "Thế giới quan tôn giáo.",
+      "C": "Thế giới quan huyền thoại.",
+      "D": "Thế giới quan thông thường."
+    },
+    "correctAnswer": "Thế giới quan duy vật biện chứng.",
+    "options": [
+      "Thế giới quan duy vật biện chứng.",
+      "Thế giới quan tôn giáo.",
+      "Thế giới quan huyền thoại.",
+      "Thế giới quan thông thường."
+    ],
+    "globalId": 303,
+    "set": "basic_100"
+  },
+  {
+    "id": 4,
+    "uid": "basic_4",
+    "question": "Phương pháp tư duy nào đòi hỏi phải nhận thức đối tượng ở trạng thái luôn vận động biến đổi, nằm trong khuynh hướng phổ quát là phát triển và nguồn gốc của sự biến đổi là do mâu thuẫn nội tại?",
+    "originalA": "Phương pháp biện chứng.",
+    "originalOptions": {
+      "A": "Phương pháp biện chứng.",
+      "B": "Phương pháp siêu hình.",
+      "C": "Phương pháp duy tâm chủ quan.",
+      "D": "Phương pháp chiết trung, ngụy biện."
+    },
+    "correctAnswer": "Phương pháp biện chứng.",
+    "options": [
+      "Phương pháp chiết trung, ngụy biện.",
+      "Phương pháp duy tâm chủ quan.",
+      "Phương pháp biện chứng.",
+      "Phương pháp siêu hình."
+    ],
+    "globalId": 304,
+    "set": "basic_100"
+  },
+  {
+    "id": 5,
+    "uid": "basic_5",
+    "question": "Sự khác biệt cơ bản giữa chủ nghĩa duy tâm chủ quan và chủ nghĩa duy tâm khách quan là gì?",
+    "originalA": "Chủ nghĩa duy tâm chủ quan thừa nhận tính thứ nhất của ý thức con người; còn chủ nghĩa duy tâm khách quan coi ý thức là thứ tinh thần khách quan có trước và tồn tại độc lập với con người.",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm chủ quan thừa nhận tính thứ nhất của ý thức con người; còn chủ nghĩa duy tâm khách quan coi ý thức là thứ tinh thần khách quan có trước và tồn tại độc lập với con người.",
+      "B": "Chủ nghĩa duy tâm chủ quan phủ nhận khả năng nhận thức thế giới; còn chủ nghĩa duy tâm khách quan khẳng định khả năng nhận thức của con người.",
+      "C": "Chủ nghĩa duy tâm chủ quan lấy tự nhiên để giải thích tự nhiên; còn chủ nghĩa duy tâm khách quan lấy ý niệm để giải thích giới tự nhiên.",
+      "D": "Chủ nghĩa duy tâm chủ quan thừa nhận sự tồn tại của vật chất; còn chủ nghĩa duy tâm khách quan hoàn toàn phủ nhận sự tồn tại của vật chất."
+    },
+    "correctAnswer": "Chủ nghĩa duy tâm chủ quan thừa nhận tính thứ nhất của ý thức con người; còn chủ nghĩa duy tâm khách quan coi ý thức là thứ tinh thần khách quan có trước và tồn tại độc lập với con người.",
+    "options": [
+      "Chủ nghĩa duy tâm chủ quan lấy tự nhiên để giải thích tự nhiên; còn chủ nghĩa duy tâm khách quan lấy ý niệm để giải thích giới tự nhiên.",
+      "Chủ nghĩa duy tâm chủ quan thừa nhận sự tồn tại của vật chất; còn chủ nghĩa duy tâm khách quan hoàn toàn phủ nhận sự tồn tại của vật chất.",
+      "Chủ nghĩa duy tâm chủ quan phủ nhận khả năng nhận thức thế giới; còn chủ nghĩa duy tâm khách quan khẳng định khả năng nhận thức của con người.",
+      "Chủ nghĩa duy tâm chủ quan thừa nhận tính thứ nhất của ý thức con người; còn chủ nghĩa duy tâm khách quan coi ý thức là thứ tinh thần khách quan có trước và tồn tại độc lập với con người."
+    ],
+    "globalId": 305,
+    "set": "basic_100"
+  },
+  {
+    "id": 6,
+    "uid": "basic_6",
+    "question": "Hình thức triết học nào thừa nhận tính thứ nhất của ý thức con người, khẳng định mọi sự vật, hiện tượng chỉ là phức hợp của những cảm giác?",
+    "originalA": "Chủ nghĩa duy tâm chủ quan.",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm chủ quan.",
+      "B": "Chủ nghĩa duy tâm khách quan.",
+      "C": "Chủ nghĩa duy vật chất phác.",
+      "D": "Thuyết bất khả tri."
+    },
+    "correctAnswer": "Chủ nghĩa duy tâm chủ quan.",
+    "options": [
+      "Chủ nghĩa duy vật chất phác.",
+      "Chủ nghĩa duy tâm khách quan.",
+      "Chủ nghĩa duy tâm chủ quan.",
+      "Thuyết bất khả tri."
+    ],
+    "globalId": 306,
+    "set": "basic_100"
+  },
+  {
+    "id": 7,
+    "uid": "basic_7",
+    "question": "Chọn phát biểu KHÔNG ĐÚNG về đặc trưng của phương pháp tư duy biện chứng?",
+    "originalA": "Coi nguyên nhân của sự biến đổi của đối tượng nằm ở các lực lượng siêu nhiên bên ngoài đối tượng.",
+    "originalOptions": {
+      "A": "Coi nguyên nhân của sự biến đổi của đối tượng nằm ở các lực lượng siêu nhiên bên ngoài đối tượng.",
+      "B": "Nhận thức đối tượng trong các mối liên hệ phổ biến vốn có của nó.",
+      "C": "Nhận thức đối tượng ở trạng thái luôn vận động biến đổi, nằm trong khuynh hướng phổ quát là phát triển.",
+      "D": "Khẳng định nguồn gốc của sự biến đổi là do sự đấu tranh giữa các mặt đối lập của mâu thuẫn nội tại."
+    },
+    "correctAnswer": "Coi nguyên nhân của sự biến đổi của đối tượng nằm ở các lực lượng siêu nhiên bên ngoài đối tượng.",
+    "options": [
+      "Khẳng định nguồn gốc của sự biến đổi là do sự đấu tranh giữa các mặt đối lập của mâu thuẫn nội tại.",
+      "Nhận thức đối tượng trong các mối liên hệ phổ biến vốn có của nó.",
+      "Coi nguyên nhân của sự biến đổi của đối tượng nằm ở các lực lượng siêu nhiên bên ngoài đối tượng.",
+      "Nhận thức đối tượng ở trạng thái luôn vận động biến đổi, nằm trong khuynh hướng phổ quát là phát triển."
+    ],
+    "globalId": 307,
+    "set": "basic_100"
+  },
+  {
+    "id": 8,
+    "uid": "basic_8",
+    "question": "C. Mác và Ph. Ăngghen đã kế thừa và cải tạo những yếu tố nào trong triết học cổ điển Đức để xây dựng nên triết học duy vật biện chứng?",
+    "originalA": "Kế thừa \"hạt nhân hợp lý\" trong phép biện chứng của Hegel và quan điểm duy vật trong triết học của Feuerbach.",
+    "originalOptions": {
+      "A": "Kế thừa \"hạt nhân hợp lý\" trong phép biện chứng của Hegel và quan điểm duy vật trong triết học của Feuerbach.",
+      "B": "Kế thừa nguyên si hệ thống triết học duy tâm khách quan của Hegel và phép siêu hình của Feuerbach.",
+      "C": "Kế thừa quan điểm triết học nhân bản của Feuerbach và phương pháp tư duy siêu hình của Hegel.",
+      "D": "Kế thừa chủ nghĩa duy vật máy móc của Feuerbach và quan niệm duy tâm về lịch sử xã hội của Hegel."
+    },
+    "correctAnswer": "Kế thừa \"hạt nhân hợp lý\" trong phép biện chứng của Hegel và quan điểm duy vật trong triết học của Feuerbach.",
+    "options": [
+      "Kế thừa \"hạt nhân hợp lý\" trong phép biện chứng của Hegel và quan điểm duy vật trong triết học của Feuerbach.",
+      "Kế thừa chủ nghĩa duy vật máy móc của Feuerbach và quan niệm duy tâm về lịch sử xã hội của Hegel.",
+      "Kế thừa nguyên si hệ thống triết học duy tâm khách quan của Hegel và phép siêu hình của Feuerbach.",
+      "Kế thừa quan điểm triết học nhân bản của Feuerbach và phương pháp tư duy siêu hình của Hegel."
+    ],
+    "globalId": 308,
+    "set": "basic_100"
+  },
+  {
+    "id": 9,
+    "uid": "basic_9",
+    "question": "Trong quá trình lãnh đạo cách mạng, Đảng Cộng sản Việt Nam đã đóng góp quan trọng vào sự phát triển kho tàng triết học Mác - Lênin thông qua việc hoạch định đường lối thực hiện đồng thời hai nhiệm vụ chiến lược nào sau năm 1954?",
+    "originalA": "Xây dựng chủ nghĩa xã hội ở miền Bắc; đấu tranh giải phóng dân tộc, thống nhất Tổ quốc ở miền Nam.",
+    "originalOptions": {
+      "A": "Xây dựng chủ nghĩa xã hội ở miền Bắc; đấu tranh giải phóng dân tộc, thống nhất Tổ quốc ở miền Nam.",
+      "B": "Xây dựng nền tảng công nghiệp nặng ở miền Bắc và phát triển nông nghiệp toàn diện ở miền Nam.",
+      "C": "Đẩy mạnh hội nhập quốc tế ở miền Bắc và đấu tranh chính trị - ngoại giao ở miền Nam.",
+      "D": "Tiến hành cách mạng tư sản dân quyền ở miền Bắc và cách mạng ruộng đất ở miền Nam."
+    },
+    "correctAnswer": "Xây dựng chủ nghĩa xã hội ở miền Bắc; đấu tranh giải phóng dân tộc, thống nhất Tổ quốc ở miền Nam.",
+    "options": [
+      "Xây dựng nền tảng công nghiệp nặng ở miền Bắc và phát triển nông nghiệp toàn diện ở miền Nam.",
+      "Xây dựng chủ nghĩa xã hội ở miền Bắc; đấu tranh giải phóng dân tộc, thống nhất Tổ quốc ở miền Nam.",
+      "Đẩy mạnh hội nhập quốc tế ở miền Bắc và đấu tranh chính trị - ngoại giao ở miền Nam.",
+      "Tiến hành cách mạng tư sản dân quyền ở miền Bắc và cách mạng ruộng đất ở miền Nam."
+    ],
+    "globalId": 309,
+    "set": "basic_100"
+  },
+  {
+    "id": 10,
+    "uid": "basic_10",
+    "question": "Khi làm việc nhóm để giải quyết một đề tài nghiên cứu về nguyên nhân sụp đổ của mô hình chủ nghĩa xã hội ở Liên Xô và Đông Âu, sinh viên cần vận dụng phương pháp luận triết học Mác - Lênin như thế nào để có cách phân tích khoa học nhất?",
+    "originalA": "Phân tích sự việc một cách toàn diện, lịch sử - cụ thể, tìm ra nguyên nhân từ những sai lầm chủ quan, giáo điều, xa rời lập trường Mác - Lênin chứ không phải do bản chất của chủ nghĩa xã hội.",
+    "originalOptions": {
+      "A": "Phân tích sự việc một cách toàn diện, lịch sử - cụ thể, tìm ra nguyên nhân từ những sai lầm chủ quan, giáo điều, xa rời lập trường Mác - Lênin chứ không phải do bản chất của chủ nghĩa xã hội.",
+      "B": "Chỉ tập trung phân tích các số liệu thống kê kinh tế tại thời điểm sụp đổ mà bỏ qua yếu tố chính trị, tư tưởng và sự chống phá của các thế lực thù địch.",
+      "C": "Khẳng định sự sụp đổ đó là định mệnh tất yếu do phương thức sản xuất xã hội chủ nghĩa không thể tồn tại trong thực tế khách quan.",
+      "D": "Dựa hoàn toàn vào các nhận định trên báo chí phương Tây để kết luận rằng chủ nghĩa Mác - Lênin đã lỗi thời."
+    },
+    "correctAnswer": "Phân tích sự việc một cách toàn diện, lịch sử - cụ thể, tìm ra nguyên nhân từ những sai lầm chủ quan, giáo điều, xa rời lập trường Mác - Lênin chứ không phải do bản chất của chủ nghĩa xã hội.",
+    "options": [
+      "Dựa hoàn toàn vào các nhận định trên báo chí phương Tây để kết luận rằng chủ nghĩa Mác - Lênin đã lỗi thời.",
+      "Chỉ tập trung phân tích các số liệu thống kê kinh tế tại thời điểm sụp đổ mà bỏ qua yếu tố chính trị, tư tưởng và sự chống phá của các thế lực thù địch.",
+      "Phân tích sự việc một cách toàn diện, lịch sử - cụ thể, tìm ra nguyên nhân từ những sai lầm chủ quan, giáo điều, xa rời lập trường Mác - Lênin chứ không phải do bản chất của chủ nghĩa xã hội.",
+      "Khẳng định sự sụp đổ đó là định mệnh tất yếu do phương thức sản xuất xã hội chủ nghĩa không thể tồn tại trong thực tế khách quan."
+    ],
+    "globalId": 310,
+    "set": "basic_100"
+  },
+  {
+    "id": 11,
+    "uid": "basic_11",
+    "question": "Bản chất của ý thức là:",
+    "originalA": "Là sự phản ánh hiện thực khách quan vào đầu óc con người một cách năng động và sáng tạo.",
+    "originalOptions": {
+      "A": "Là sự phản ánh hiện thực khách quan vào đầu óc con người một cách năng động và sáng tạo.",
+      "B": "Là sự hồi tưởng lại kiếp trước.",
+      "C": "Là sự mách bảo của thượng đế.",
+      "D": "Là sự phản ánh nguyên vẹn cái bên ngoài."
+    },
+    "correctAnswer": "Là sự phản ánh hiện thực khách quan vào đầu óc con người một cách năng động và sáng tạo.",
+    "options": [
+      "Là sự phản ánh nguyên vẹn cái bên ngoài.",
+      "Là sự phản ánh hiện thực khách quan vào đầu óc con người một cách năng động và sáng tạo.",
+      "Là sự hồi tưởng lại kiếp trước.",
+      "Là sự mách bảo của thượng đế."
+    ],
+    "globalId": 311,
+    "set": "basic_100"
+  },
+  {
+    "id": 12,
+    "uid": "basic_12",
+    "question": "Thực tiễn là:",
+    "originalA": "Hoạt động vật chất của con người nhằm cải tạo tự nhiên và xã hội theo nhu cầu của con người ở mỗi giai đoạn lịch sử.",
+    "originalOptions": {
+      "A": "Hoạt động vật chất của con người nhằm cải tạo tự nhiên và xã hội theo nhu cầu của con người ở mỗi giai đoạn lịch sử.",
+      "B": "Hoạt động của con người nhằm cải tạo tự nhiên và xã hội theo nhu cầu của con người ở mỗi giai đoạn lịch sử.",
+      "C": "Hoạt động vật chất của con người nhằm cải tạo thế giới",
+      "D": "Hoạt động vật chất."
+    },
+    "correctAnswer": "Hoạt động vật chất của con người nhằm cải tạo tự nhiên và xã hội theo nhu cầu của con người ở mỗi giai đoạn lịch sử.",
+    "options": [
+      "Hoạt động vật chất.",
+      "Hoạt động của con người nhằm cải tạo tự nhiên và xã hội theo nhu cầu của con người ở mỗi giai đoạn lịch sử.",
+      "Hoạt động vật chất của con người nhằm cải tạo tự nhiên và xã hội theo nhu cầu của con người ở mỗi giai đoạn lịch sử.",
+      "Hoạt động vật chất của con người nhằm cải tạo thế giới"
+    ],
+    "globalId": 312,
+    "set": "basic_100"
+  },
+  {
+    "id": 13,
+    "uid": "basic_13",
+    "question": "Con đường phát triển của sự vật mà quy luật phủ định của phủ định vạch ra là con đường nào?",
+    "originalA": "Đường xoáy ốc đi lên",
+    "originalOptions": {
+      "A": "Đường xoáy ốc đi lên",
+      "B": "Đường thẳng đi lên",
+      "C": "Đường tròn khép kín",
+      "D": "Đường mòn"
+    },
+    "correctAnswer": "Đường xoáy ốc đi lên",
+    "options": [
+      "Đường xoáy ốc đi lên",
+      "Đường mòn",
+      "Đường thẳng đi lên",
+      "Đường tròn khép kín"
+    ],
+    "globalId": 313,
+    "set": "basic_100"
+  },
+  {
+    "id": 14,
+    "uid": "basic_14",
+    "question": "Phạm trù triết học nào dùng để chỉ tổng hợp tất cả những mặt, những yếu tố, những quá trình tạo nên sự vật?",
+    "originalA": "Nội dung",
+    "originalOptions": {
+      "A": "Nội dung",
+      "B": "Bản chất",
+      "C": "Hiện thực",
+      "D": "Mục đích"
+    },
+    "correctAnswer": "Nội dung",
+    "options": [
+      "Mục đích",
+      "Hiện thực",
+      "Bản chất",
+      "Nội dung"
+    ],
+    "globalId": 314,
+    "set": "basic_100"
+  },
+  {
+    "id": 15,
+    "uid": "basic_15",
+    "question": "Thống nhất của hai mặt đối lập là:",
+    "originalA": "Sự nương tựa lẫn nhau, tồn tại không tách rời nhau, mặt này lấy mặt kia làm tiền đề cho sự tồn tại của mình và ngược lại.",
+    "originalOptions": {
+      "A": "Sự nương tựa lẫn nhau, tồn tại không tách rời nhau, mặt này lấy mặt kia làm tiền đề cho sự tồn tại của mình và ngược lại.",
+      "B": "Sự bài trừ, gạt bỏ lẫn nhau giữa hai mặt đối lập",
+      "C": "Hai mặt đối lập có tính chất, đặc điểm, khuynh hướng phát triển trái ngược nhau",
+      "D": "Quá trình cái mới ra đời thay thế cái cũ"
+    },
+    "correctAnswer": "Sự nương tựa lẫn nhau, tồn tại không tách rời nhau, mặt này lấy mặt kia làm tiền đề cho sự tồn tại của mình và ngược lại.",
+    "options": [
+      "Quá trình cái mới ra đời thay thế cái cũ",
+      "Hai mặt đối lập có tính chất, đặc điểm, khuynh hướng phát triển trái ngược nhau",
+      "Sự bài trừ, gạt bỏ lẫn nhau giữa hai mặt đối lập",
+      "Sự nương tựa lẫn nhau, tồn tại không tách rời nhau, mặt này lấy mặt kia làm tiền đề cho sự tồn tại của mình và ngược lại."
+    ],
+    "globalId": 315,
+    "set": "basic_100"
+  },
+  {
+    "id": 16,
+    "uid": "basic_16",
+    "question": "Giai đoạn mà con người sử dụng các giác quan để tác động trực tiếp vào các sự vật nhằm nắm bắt các sự vật ấy được gọi là:",
+    "originalA": "Nhận thức cảm tính",
+    "originalOptions": {
+      "A": "Nhận thức cảm tính",
+      "B": "Nhận thức thông thường",
+      "C": "Nhận thức lý tính",
+      "D": "Nhận thức gián tiếp"
+    },
+    "correctAnswer": "Nhận thức cảm tính",
+    "options": [
+      "Nhận thức cảm tính",
+      "Nhận thức thông thường",
+      "Nhận thức lý tính",
+      "Nhận thức gián tiếp"
+    ],
+    "globalId": 316,
+    "set": "basic_100"
+  },
+  {
+    "id": 17,
+    "uid": "basic_17",
+    "question": "Theo quan điểm của chủ nghĩa duy vật biện chứng luận điểm nào sau đây là sai?",
+    "originalA": "Phủ định biện chứng phụ thuộc vào ý thức của con người",
+    "originalOptions": {
+      "A": "Phủ định biện chứng phụ thuộc vào ý thức của con người",
+      "B": "Phủ định biện chứng có tính khách quan",
+      "C": "Phủ định biện chứng là kết quả giải quyết những mâu thuẫn bên trong sự vật",
+      "D": "Phủ định biện chứng có tính đa dạng, phong phú"
+    },
+    "correctAnswer": "Phủ định biện chứng phụ thuộc vào ý thức của con người",
+    "options": [
+      "Phủ định biện chứng phụ thuộc vào ý thức của con người",
+      "Phủ định biện chứng có tính khách quan",
+      "Phủ định biện chứng là kết quả giải quyết những mâu thuẫn bên trong sự vật",
+      "Phủ định biện chứng có tính đa dạng, phong phú"
+    ],
+    "globalId": 317,
+    "set": "basic_100"
+  },
+  {
+    "id": 18,
+    "uid": "basic_18",
+    "question": "Chọn câu trả lời đúng theo quan điểm của triết học Mác-Lênin:",
+    "originalA": "Ý thức được hình thành trực tiếp từ lao động.",
+    "originalOptions": {
+      "A": "Ý thức được hình thành trực tiếp từ lao động.",
+      "B": "Ý thức có nguồn gốc từ một ý niệm",
+      "C": "Ý thức là hiện tượng bẩm sinh ở con người.",
+      "D": "Ý thức là quá trình tiến hóa cao của giới tự nhiên."
+    },
+    "correctAnswer": "Ý thức được hình thành trực tiếp từ lao động.",
+    "options": [
+      "Ý thức có nguồn gốc từ một ý niệm",
+      "Ý thức là quá trình tiến hóa cao của giới tự nhiên.",
+      "Ý thức là hiện tượng bẩm sinh ở con người.",
+      "Ý thức được hình thành trực tiếp từ lao động."
+    ],
+    "globalId": 318,
+    "set": "basic_100"
+  },
+  {
+    "id": 19,
+    "uid": "basic_19",
+    "question": "Ph.Ăngghen viết: “...... là điều kiện cơ bản đầu tiên của toàn bộ đời sống loài người, và như thế đến một mức mà trên một ý nghĩa nào đó, chúng ta phải nói: ....... đã sáng tạo ra bản thân con người”. Hãy điền một từ vào chỗ trống để hoàn thiện câu trên.",
+    "originalA": "Lao động",
+    "originalOptions": {
+      "A": "Lao động",
+      "B": "Vật chất",
+      "C": "Tự nhiên",
+      "D": "Sản xuất"
+    },
+    "correctAnswer": "Lao động",
+    "options": [
+      "Sản xuất",
+      "Tự nhiên",
+      "Lao động",
+      "Vật chất"
+    ],
+    "globalId": 319,
+    "set": "basic_100"
+  },
+  {
+    "id": 20,
+    "uid": "basic_20",
+    "question": "Phép biện chứng duy vật là:",
+    "originalA": "Phép biện chứng được xác lập trên lập trường của chủ nghĩa duy vật.",
+    "originalOptions": {
+      "A": "Phép biện chứng được xác lập trên lập trường của chủ nghĩa duy vật.",
+      "B": "Phép biện chứng của ý niệm tuyệt đối.",
+      "C": "Phép biện chứng do Ăngghen sáng lập.",
+      "D": "Phép biện chứng do V.I. Lênin sáng lập."
+    },
+    "correctAnswer": "Phép biện chứng được xác lập trên lập trường của chủ nghĩa duy vật.",
+    "options": [
+      "Phép biện chứng do Ăngghen sáng lập.",
+      "Phép biện chứng được xác lập trên lập trường của chủ nghĩa duy vật.",
+      "Phép biện chứng của ý niệm tuyệt đối.",
+      "Phép biện chứng do V.I. Lênin sáng lập."
+    ],
+    "globalId": 320,
+    "set": "basic_100"
+  },
+  {
+    "id": 21,
+    "uid": "basic_21",
+    "question": "Khả năng được hình thành do quy luật vận động nội tại của sự vật quy định thì được gọi là:",
+    "originalA": "Khả năng tất nhiên.",
+    "originalOptions": {
+      "A": "Khả năng tất nhiên.",
+      "B": "Khả năng thực tế.",
+      "C": "Khả năng ngẫu nhiên.",
+      "D": "Khả năng nội tại."
+    },
+    "correctAnswer": "Khả năng tất nhiên.",
+    "options": [
+      "Khả năng thực tế.",
+      "Khả năng ngẫu nhiên.",
+      "Khả năng tất nhiên.",
+      "Khả năng nội tại."
+    ],
+    "globalId": 321,
+    "set": "basic_100"
+  },
+  {
+    "id": 22,
+    "uid": "basic_22",
+    "question": "Quy luật được coi là hạt nhân của phép biện chứng duy vật là:",
+    "originalA": "Quy luật thống nhất và đấu tranh của các mặt đối lập",
+    "originalOptions": {
+      "A": "Quy luật thống nhất và đấu tranh của các mặt đối lập",
+      "B": "Quy luật từ những thay đổi về lượng dẫn đến những thay đổi về chất và ngược lại",
+      "C": "Quy luật phủ định của phủ định",
+      "D": "Quy luật tự nhiên"
+    },
+    "correctAnswer": "Quy luật thống nhất và đấu tranh của các mặt đối lập",
+    "options": [
+      "Quy luật thống nhất và đấu tranh của các mặt đối lập",
+      "Quy luật từ những thay đổi về lượng dẫn đến những thay đổi về chất và ngược lại",
+      "Quy luật phủ định của phủ định",
+      "Quy luật tự nhiên"
+    ],
+    "globalId": 322,
+    "set": "basic_100"
+  },
+  {
+    "id": 23,
+    "uid": "basic_23",
+    "question": "Thuộc tính đặc trưng của vật chất theo quan niệm của triết học Mác - Lênin là:",
+    "originalA": "Là tồn tại khách quan, độc lập với ý thức con người.",
+    "originalOptions": {
+      "A": "Là tồn tại khách quan, độc lập với ý thức con người.",
+      "B": "Là phạm trù triết học.",
+      "C": "Là tất cả những gì đem lại cho con người cảm giác.",
+      "D": "Là toàn bộ thế giới khách quan."
+    },
+    "correctAnswer": "Là tồn tại khách quan, độc lập với ý thức con người.",
+    "options": [
+      "Là tồn tại khách quan, độc lập với ý thức con người.",
+      "Là phạm trù triết học.",
+      "Là toàn bộ thế giới khách quan.",
+      "Là tất cả những gì đem lại cho con người cảm giác."
+    ],
+    "globalId": 323,
+    "set": "basic_100"
+  },
+  {
+    "id": 24,
+    "uid": "basic_24",
+    "question": "Quy luật vạch ra cách thức của sự phát triển là:",
+    "originalA": "Quy luật từ những sự thay đổi về lượng thành những sự thay đổi về chất và ngược lại.",
+    "originalOptions": {
+      "A": "Quy luật từ những sự thay đổi về lượng thành những sự thay đổi về chất và ngược lại.",
+      "B": "Quy luật thống nhất và đấu tranh của các mặt đối lập.",
+      "C": "Quy luật phủ định của phủ định.",
+      "D": "Quy luật quan hệ sản xuất phù hợp với trình độ phát triển của lực lượng sản xuất."
+    },
+    "correctAnswer": "Quy luật từ những sự thay đổi về lượng thành những sự thay đổi về chất và ngược lại.",
+    "options": [
+      "Quy luật từ những sự thay đổi về lượng thành những sự thay đổi về chất và ngược lại.",
+      "Quy luật thống nhất và đấu tranh của các mặt đối lập.",
+      "Quy luật quan hệ sản xuất phù hợp với trình độ phát triển của lực lượng sản xuất.",
+      "Quy luật phủ định của phủ định."
+    ],
+    "globalId": 324,
+    "set": "basic_100"
+  },
+  {
+    "id": 25,
+    "uid": "basic_25",
+    "question": "Theo quan điểm của chủ nghĩa duy vật biện chứng, luận điểm nào sau đây là đúng?",
+    "originalA": "Trong hoạt động thực tiễn phải dựa vào hiện thực, đồng thời phải tính đến khả năng",
+    "originalOptions": {
+      "A": "Trong hoạt động thực tiễn phải dựa vào hiện thực, đồng thời phải tính đến khả năng",
+      "B": "Trong hoạt động thực tiễn phải dựa vào khả năng",
+      "C": "Trong hoạt động thực tiễn phải dựa vào hiện thực, không cần tính đến khả năng",
+      "D": "Hoạt động thực tiễn không bao hàm hoạt động sáng tạo"
+    },
+    "correctAnswer": "Trong hoạt động thực tiễn phải dựa vào hiện thực, đồng thời phải tính đến khả năng",
+    "options": [
+      "Trong hoạt động thực tiễn phải dựa vào hiện thực, không cần tính đến khả năng",
+      "Trong hoạt động thực tiễn phải dựa vào hiện thực, đồng thời phải tính đến khả năng",
+      "Trong hoạt động thực tiễn phải dựa vào khả năng",
+      "Hoạt động thực tiễn không bao hàm hoạt động sáng tạo"
+    ],
+    "globalId": 325,
+    "set": "basic_100"
+  },
+  {
+    "id": 26,
+    "uid": "basic_26",
+    "question": "“Trong quá trình xây dựng đại học số, cần kế thừa những giá trị của giáo dục truyền thống nhưng phải đổi mới phương pháp dạy học, ứng dụng công nghệ và phát triển năng lực người học”. Đây là quan điểm:",
+    "originalA": "Phát triển",
+    "originalOptions": {
+      "A": "Phát triển",
+      "B": "Bảo thủ",
+      "C": "Định kiến",
+      "D": "Truyền thống"
+    },
+    "correctAnswer": "Phát triển",
+    "options": [
+      "Truyền thống",
+      "Phát triển",
+      "Bảo thủ",
+      "Định kiến"
+    ],
+    "globalId": 326,
+    "set": "basic_100"
+  },
+  {
+    "id": 27,
+    "uid": "basic_27",
+    "question": "Quan điểm cho rằng: “Phụ nữ chỉ nên làm công việc nội trợ, không phù hợp với các vị trí lãnh đạo”. Đây là quan điểm:",
+    "originalA": "Định kiến",
+    "originalOptions": {
+      "A": "Định kiến",
+      "B": "Phát triển",
+      "C": "Biện chứng",
+      "D": "Hợp khoa học."
+    },
+    "correctAnswer": "Định kiến",
+    "options": [
+      "Biện chứng",
+      "Phát triển",
+      "Hợp khoa học.",
+      "Định kiến"
+    ],
+    "globalId": 327,
+    "set": "basic_100"
+  },
+  {
+    "id": 28,
+    "uid": "basic_28",
+    "question": "Trong xã hội sự phát triển biểu hiện ra như thế nào?",
+    "originalA": "Sự thay thế chế độ xã hội này bằng một chế độ xã hội khác cao hơn dân chủ, văn minh hơn",
+    "originalOptions": {
+      "A": "Sự thay thế chế độ xã hội này bằng một chế độ xã hội khác cao hơn dân chủ, văn minh hơn",
+      "B": "Sự xuất hiện các hợp chất mới",
+      "C": "Sự xuất hiện các giống loài động vật, thực vật mới thích ứng tốt hơn với môi trường",
+      "D": "Sự thay thế cấu trúc xã hội"
+    },
+    "correctAnswer": "Sự thay thế chế độ xã hội này bằng một chế độ xã hội khác cao hơn dân chủ, văn minh hơn",
+    "options": [
+      "Sự xuất hiện các giống loài động vật, thực vật mới thích ứng tốt hơn với môi trường",
+      "Sự thay thế chế độ xã hội này bằng một chế độ xã hội khác cao hơn dân chủ, văn minh hơn",
+      "Sự xuất hiện các hợp chất mới",
+      "Sự thay thế cấu trúc xã hội"
+    ],
+    "globalId": 328,
+    "set": "basic_100"
+  },
+  {
+    "id": 29,
+    "uid": "basic_29",
+    "question": "Cơ sở lý luận của quan điểm lịch sử - cụ thể là:",
+    "originalA": "Nguyên lý về mối liên hệ phổ biến.",
+    "originalOptions": {
+      "A": "Nguyên lý về mối liên hệ phổ biến.",
+      "B": "Nguyên lý về sự phát triển.",
+      "C": "Nguyên lý về sự tồn tại khách quan của thế giới vật chất.",
+      "D": "Nguyên lý về tính đa dạng, phong phú của thế giới vật chất."
+    },
+    "correctAnswer": "Nguyên lý về mối liên hệ phổ biến.",
+    "options": [
+      "Nguyên lý về mối liên hệ phổ biến.",
+      "Nguyên lý về sự phát triển.",
+      "Nguyên lý về tính đa dạng, phong phú của thế giới vật chất.",
+      "Nguyên lý về sự tồn tại khách quan của thế giới vật chất."
+    ],
+    "globalId": 329,
+    "set": "basic_100"
+  },
+  {
+    "id": 30,
+    "uid": "basic_30",
+    "question": "Trong hoạt động thực tiễn sai lầm của trì trệ bảo thủ là do không tôn trọng quy luật nào của phép biện chứng duy vật?",
+    "originalA": "Quy luật lượng - chất",
+    "originalOptions": {
+      "A": "Quy luật lượng - chất",
+      "B": "Quy luật phủ định của phủ định",
+      "C": "Quy luật mâu thuẫn",
+      "D": "Quy luật tự nhiên"
+    },
+    "correctAnswer": "Quy luật lượng - chất",
+    "options": [
+      "Quy luật lượng - chất",
+      "Quy luật phủ định của phủ định",
+      "Quy luật mâu thuẫn",
+      "Quy luật tự nhiên"
+    ],
+    "globalId": 330,
+    "set": "basic_100"
+  },
+  {
+    "id": 31,
+    "uid": "basic_31",
+    "question": "Theo quan điểm của chủ nghĩa duy vật biện chứng, luận điểm nào sau đây là sai?",
+    "originalA": "Trong giới hạn của độ sự thay đổi của lượng đều đưa đến sự thay đổi về chất của sự vật",
+    "originalOptions": {
+      "A": "Trong giới hạn của độ sự thay đổi của lượng đều đưa đến sự thay đổi về chất của sự vật",
+      "B": "Trong giới hạn của độ sự thay đổi của lượng chưa làm cho chất của sự vật biến đổi",
+      "C": "Chỉ khi lượng đạt đến giới hạn của độ mới làm cho chất của sự vật thay đổi",
+      "D": "Khi bước nhảy được thực hiện thì sự vật chuyển hóa"
+    },
+    "correctAnswer": "Trong giới hạn của độ sự thay đổi của lượng đều đưa đến sự thay đổi về chất của sự vật",
+    "options": [
+      "Trong giới hạn của độ sự thay đổi của lượng chưa làm cho chất của sự vật biến đổi",
+      "Trong giới hạn của độ sự thay đổi của lượng đều đưa đến sự thay đổi về chất của sự vật",
+      "Chỉ khi lượng đạt đến giới hạn của độ mới làm cho chất của sự vật thay đổi",
+      "Khi bước nhảy được thực hiện thì sự vật chuyển hóa"
+    ],
+    "globalId": 331,
+    "set": "basic_100"
+  },
+  {
+    "id": 32,
+    "uid": "basic_32",
+    "question": "Trong sản xuất xã hội, loại hình sản xuất nào là cơ bản nhất?",
+    "originalA": "Sản xuất vật chất.",
+    "originalOptions": {
+      "A": "Sản xuất vật chất.",
+      "B": "Sản xuất tinh thần.",
+      "C": "Sản xuất ra bản thân con người.",
+      "D": "Các loại hình sản xuất có vai trò ngang nhau."
+    },
+    "correctAnswer": "Sản xuất vật chất.",
+    "options": [
+      "Sản xuất vật chất.",
+      "Các loại hình sản xuất có vai trò ngang nhau.",
+      "Sản xuất tinh thần.",
+      "Sản xuất ra bản thân con người."
+    ],
+    "globalId": 332,
+    "set": "basic_100"
+  },
+  {
+    "id": 33,
+    "uid": "basic_33",
+    "question": "Phương diện nào trong phương thức sản xuất thể hiện mối quan hệ giữa con người với tự nhiên trong quá trình sản xuất vật chất?",
+    "originalA": "Lực lượng sản xuất.",
+    "originalOptions": {
+      "A": "Lực lượng sản xuất.",
+      "B": "Quan hệ sản xuất.",
+      "C": "Đối tượng lao động.",
+      "D": "Tư liệu lao động."
+    },
+    "correctAnswer": "Lực lượng sản xuất.",
+    "options": [
+      "Tư liệu lao động.",
+      "Đối tượng lao động.",
+      "Quan hệ sản xuất.",
+      "Lực lượng sản xuất."
+    ],
+    "globalId": 333,
+    "set": "basic_100"
+  },
+  {
+    "id": 34,
+    "uid": "basic_34",
+    "question": "Mặt nào sau đây trong quan hệ sản xuất giữ vai trò quyết định?",
+    "originalA": "Quan hệ sở hữu đối với tư liệu sản xuất.",
+    "originalOptions": {
+      "A": "Quan hệ sở hữu đối với tư liệu sản xuất.",
+      "B": "Không có mặt nào quyết định.",
+      "C": "Quan hệ về tổ chức – quản lý quá trình sản xuất.",
+      "D": "Quan hệ về phân phối kết quả của quá trình sản xuất."
+    },
+    "correctAnswer": "Quan hệ sở hữu đối với tư liệu sản xuất.",
+    "options": [
+      "Quan hệ về tổ chức – quản lý quá trình sản xuất.",
+      "Không có mặt nào quyết định.",
+      "Quan hệ sở hữu đối với tư liệu sản xuất.",
+      "Quan hệ về phân phối kết quả của quá trình sản xuất."
+    ],
+    "globalId": 334,
+    "set": "basic_100"
+  },
+  {
+    "id": 35,
+    "uid": "basic_35",
+    "question": "Trong bối cảnh hội nhập quốc tế và chuyển đổi số của Việt Nam hiện nay, yêu cầu quan trọng nhất đối với người lao động là gì?",
+    "originalA": "Có chuyên môn, kỹ năng nghề nghiệp vững vàng; chủ động rèn luyện sức khỏe và học tập suốt đời, nâng cao năng lực số, tác phong công nghiệp, kỷ luật lao động và tuân thủ pháp luật.",
+    "originalOptions": {
+      "A": "Có chuyên môn, kỹ năng nghề nghiệp vững vàng; chủ động rèn luyện sức khỏe và học tập suốt đời, nâng cao năng lực số, tác phong công nghiệp, kỷ luật lao động và tuân thủ pháp luật.",
+      "B": "Chỉ cần có trình độ chuyên môn cao, không cần thường xuyên cập nhật kiến thức và kỹ năng.",
+      "C": "Chỉ tập trung nâng cao năng suất lao động, không cần quan tâm đến đạo đức nghề nghiệp và trách nhiệm xã hội.",
+      "D": "Chỉ cần thành thạo ngoại ngữ để đáp ứng yêu cầu của thị trường lao động quốc tế."
+    },
+    "correctAnswer": "Có chuyên môn, kỹ năng nghề nghiệp vững vàng; chủ động rèn luyện sức khỏe và học tập suốt đời, nâng cao năng lực số, tác phong công nghiệp, kỷ luật lao động và tuân thủ pháp luật.",
+    "options": [
+      "Chỉ tập trung nâng cao năng suất lao động, không cần quan tâm đến đạo đức nghề nghiệp và trách nhiệm xã hội.",
+      "Chỉ cần có trình độ chuyên môn cao, không cần thường xuyên cập nhật kiến thức và kỹ năng.",
+      "Có chuyên môn, kỹ năng nghề nghiệp vững vàng; chủ động rèn luyện sức khỏe và học tập suốt đời, nâng cao năng lực số, tác phong công nghiệp, kỷ luật lao động và tuân thủ pháp luật.",
+      "Chỉ cần thành thạo ngoại ngữ để đáp ứng yêu cầu của thị trường lao động quốc tế."
+    ],
+    "globalId": 335,
+    "set": "basic_100"
+  },
+  {
+    "id": 36,
+    "uid": "basic_36",
+    "question": "Một doanh nghiệp tại Việt Nam đầu tư dây chuyền sản xuất tự động nhằm nâng cao năng lực sản xuất, đồng thời thực hiện đầy đủ các quy định pháp luật về lao động và bảo vệ môi trường. Tình huống trên là biểu hiện phương diện nào của nền sản xuất xã hội",
+    "originalA": "Phát triển lực lượng sản xuất.",
+    "originalOptions": {
+      "A": "Phát triển lực lượng sản xuất.",
+      "B": "Duy trì quan hệ sản xuất.",
+      "C": "Bảo vệ cơ sở hạ tầng.",
+      "D": "Tất cả các câu trả lời đều đúng."
+    },
+    "correctAnswer": "Phát triển lực lượng sản xuất.",
+    "options": [
+      "Bảo vệ cơ sở hạ tầng.",
+      "Phát triển lực lượng sản xuất.",
+      "Duy trì quan hệ sản xuất.",
+      "Tất cả các câu trả lời đều đúng."
+    ],
+    "globalId": 336,
+    "set": "basic_100"
+  },
+  {
+    "id": 37,
+    "uid": "basic_37",
+    "question": "Theo quan điểm của chủ nghĩa duy vật lịch sử, trong bối cảnh Cách mạng công nghiệp lần thứ tư hiện nay, nhận định nào sau đây không đúng về sự phát triển của trí tuệ nhân tạo (AI)?",
+    "originalA": "AI không làm thay đổi quan hệ sản xuất của xã hội.",
+    "originalOptions": {
+      "A": "AI không làm thay đổi quan hệ sản xuất của xã hội.",
+      "B": "AI biến khoa học thành lực lượng sản xuất trực tiếp.",
+      "C": "AI nâng cấp chất lượng công cụ lao động.",
+      "D": "AI làm thay đổi vị trí, vai trò của người lao động."
+    },
+    "correctAnswer": "AI không làm thay đổi quan hệ sản xuất của xã hội.",
+    "options": [
+      "AI không làm thay đổi quan hệ sản xuất của xã hội.",
+      "AI làm thay đổi vị trí, vai trò của người lao động.",
+      "AI nâng cấp chất lượng công cụ lao động.",
+      "AI biến khoa học thành lực lượng sản xuất trực tiếp."
+    ],
+    "globalId": 337,
+    "set": "basic_100"
+  },
+  {
+    "id": 38,
+    "uid": "basic_38",
+    "question": "Thực chất của quan hệ biện chứng giữa cơ sở hạ tầng và kiến trúc thượng tầng là:",
+    "originalA": "Quan hệ giữa kinh tế và chính trị.",
+    "originalOptions": {
+      "A": "Quan hệ giữa kinh tế và chính trị.",
+      "B": "Quan hệ giữa vật chất và tinh thần.",
+      "C": "Quan hệ giữa xã hội và chính trị.",
+      "D": "Quan hệ giữa xã hội và sản xuất."
+    },
+    "correctAnswer": "Quan hệ giữa kinh tế và chính trị.",
+    "options": [
+      "Quan hệ giữa xã hội và chính trị.",
+      "Quan hệ giữa kinh tế và chính trị.",
+      "Quan hệ giữa xã hội và sản xuất.",
+      "Quan hệ giữa vật chất và tinh thần."
+    ],
+    "globalId": 338,
+    "set": "basic_100"
+  },
+  {
+    "id": 39,
+    "uid": "basic_39",
+    "question": "Căn cứ vào đâu để phân chia giai cấp thành giai cấp cơ bản và giai cấp không cơ bản ?",
+    "originalA": "Vào phương thức sản xuất mà giai cấp đó đại diện.",
+    "originalOptions": {
+      "A": "Vào phương thức sản xuất mà giai cấp đó đại diện.",
+      "B": "Vào hệ tư tưởng của giai cấp đó.",
+      "C": "Vào số lượng.",
+      "D": "Vào cương lĩnh chính trị, đường lối của giai cấp đó."
+    },
+    "correctAnswer": "Vào phương thức sản xuất mà giai cấp đó đại diện.",
+    "options": [
+      "Vào số lượng.",
+      "Vào hệ tư tưởng của giai cấp đó.",
+      "Vào cương lĩnh chính trị, đường lối của giai cấp đó.",
+      "Vào phương thức sản xuất mà giai cấp đó đại diện."
+    ],
+    "globalId": 339,
+    "set": "basic_100"
+  },
+  {
+    "id": 40,
+    "uid": "basic_40",
+    "question": "Nghị quyết số 57-NQ/TW về đột phá, phát triển khoa học, công nghệ, đổi mới sáng tạo và chuyển đổi số quốc gia của Bộ Chính trị ban hành năm 2024 phản ánh sự vận dụng nội dung nào trong học thuyết hình thái kinh tế - xã hội?",
+    "originalA": "Quy luật về sự phù hợp của quan hệ sản xuất với trình độ của lực lượng sản xuất.",
+    "originalOptions": {
+      "A": "Quy luật về sự phù hợp của quan hệ sản xuất với trình độ của lực lượng sản xuất.",
+      "B": "Quy luật về mối quan hệ biện chứng giữa cơ sở hạ tầng và kiến trúc thượng tầng.",
+      "C": "Quy luật tồn tại xã hội quyết định ý thức xã hội.",
+      "D": "Quy luật về sự phát triển của cách mạng xã hội."
+    },
+    "correctAnswer": "Quy luật về sự phù hợp của quan hệ sản xuất với trình độ của lực lượng sản xuất.",
+    "options": [
+      "Quy luật về mối quan hệ biện chứng giữa cơ sở hạ tầng và kiến trúc thượng tầng.",
+      "Quy luật về sự phát triển của cách mạng xã hội.",
+      "Quy luật tồn tại xã hội quyết định ý thức xã hội.",
+      "Quy luật về sự phù hợp của quan hệ sản xuất với trình độ của lực lượng sản xuất."
+    ],
+    "globalId": 340,
+    "set": "basic_100"
+  },
+  {
+    "id": 41,
+    "uid": "basic_41",
+    "question": "Yếu tố cơ bản nhất trong kiến trúc thượng tầng của xã hội có giai cấp là: …",
+    "originalA": "Chính trị và nhà nước",
+    "originalOptions": {
+      "A": "Chính trị và nhà nước",
+      "B": "Giai cấp và nhà nước.",
+      "C": "Đảng phái và nhà nước",
+      "D": "Pháp luật và nhà nước"
+    },
+    "correctAnswer": "Chính trị và nhà nước",
+    "options": [
+      "Pháp luật và nhà nước",
+      "Đảng phái và nhà nước",
+      "Chính trị và nhà nước",
+      "Giai cấp và nhà nước."
+    ],
+    "globalId": 341,
+    "set": "basic_100"
+  },
+  {
+    "id": 42,
+    "uid": "basic_42",
+    "question": "Mối quan hệ giữa lĩnh vực kinh tế và lĩnh vực chính trị của xã hội được khái quát trong quy luật nào?",
+    "originalA": "Quy luật về mối quan hệ biện chứng giữa cơ sở hạ tầng và kiến trúc thượng tầng.",
+    "originalOptions": {
+      "A": "Quy luật về mối quan hệ biện chứng giữa cơ sở hạ tầng và kiến trúc thượng tầng.",
+      "B": "Quy luật tồn tại xã hội quyết định ý thức xã hội.",
+      "C": "Quy luật đấu tranh giai cấp.",
+      "D": "Tất cả các câu trả lời đều đúng."
+    },
+    "correctAnswer": "Quy luật về mối quan hệ biện chứng giữa cơ sở hạ tầng và kiến trúc thượng tầng.",
+    "options": [
+      "Quy luật về mối quan hệ biện chứng giữa cơ sở hạ tầng và kiến trúc thượng tầng.",
+      "Quy luật tồn tại xã hội quyết định ý thức xã hội.",
+      "Tất cả các câu trả lời đều đúng.",
+      "Quy luật đấu tranh giai cấp."
+    ],
+    "globalId": 342,
+    "set": "basic_100"
+  },
+  {
+    "id": 43,
+    "uid": "basic_43",
+    "question": "Trong bối cảnh chuyển đổi số ở Việt Nam hiện nay, việc xây dựng Chính phủ số phản ánh yếu tố nào trong kiến trúc thượng tầng?",
+    "originalA": "Chính trị và pháp quyền.",
+    "originalOptions": {
+      "A": "Chính trị và pháp quyền.",
+      "B": "Khoa học và giáo dục.",
+      "C": "Văn hóa và xã hội.",
+      "D": "Sản xuất và kinh tế."
+    },
+    "correctAnswer": "Chính trị và pháp quyền.",
+    "options": [
+      "Văn hóa và xã hội.",
+      "Sản xuất và kinh tế.",
+      "Chính trị và pháp quyền.",
+      "Khoa học và giáo dục."
+    ],
+    "globalId": 343,
+    "set": "basic_100"
+  },
+  {
+    "id": 44,
+    "uid": "basic_44",
+    "question": "Việc các trường đại học đưa nội dung phòng chống tham nhũng, an ninh mạng vào chương trình đào tạo là sự vận dụng chủ yếu của hình thái ý thức xã hội nào?",
+    "originalA": "Ý thức pháp quyền.",
+    "originalOptions": {
+      "A": "Ý thức pháp quyền.",
+      "B": "Ý thức đạo đức.",
+      "C": "Ý thức khoa học.",
+      "D": "Ý thức chính trị."
+    },
+    "correctAnswer": "Ý thức pháp quyền.",
+    "options": [
+      "Ý thức đạo đức.",
+      "Ý thức pháp quyền.",
+      "Ý thức khoa học.",
+      "Ý thức chính trị."
+    ],
+    "globalId": 344,
+    "set": "basic_100"
+  },
+  {
+    "id": 45,
+    "uid": "basic_45",
+    "question": "Bài học kinh nghiệm mà Đảng cộng sản Việt Nam rút ra trong công cuộc đổi mới là gì?",
+    "originalA": "Kết hợp đổi mới kinh tế và đổi mới chính trị.",
+    "originalOptions": {
+      "A": "Kết hợp đổi mới kinh tế và đổi mới chính trị.",
+      "B": "Đổi mới kinh tế trước, đổi mới chính trị sau.",
+      "C": "Đổi mới chính trị trước, đổi mới kinh tế sau.",
+      "D": "Chỉ đổi mới chính trị, không đổi mới kinh tế."
+    },
+    "correctAnswer": "Kết hợp đổi mới kinh tế và đổi mới chính trị.",
+    "options": [
+      "Đổi mới chính trị trước, đổi mới kinh tế sau.",
+      "Kết hợp đổi mới kinh tế và đổi mới chính trị.",
+      "Chỉ đổi mới chính trị, không đổi mới kinh tế.",
+      "Đổi mới kinh tế trước, đổi mới chính trị sau."
+    ],
+    "globalId": 345,
+    "set": "basic_100"
+  },
+  {
+    "id": 46,
+    "uid": "basic_46",
+    "question": "Theo chủ nghĩa duy vật lịch sử, nhà nước mang bản chất của:",
+    "originalA": "Giai cấp thống trị.",
+    "originalOptions": {
+      "A": "Giai cấp thống trị.",
+      "B": "Nhân dân.",
+      "C": "Tầng lớp bị áp bức.",
+      "D": "Giai cấp bị thống trị."
+    },
+    "correctAnswer": "Giai cấp thống trị.",
+    "options": [
+      "Giai cấp bị thống trị.",
+      "Nhân dân.",
+      "Giai cấp thống trị.",
+      "Tầng lớp bị áp bức."
+    ],
+    "globalId": 346,
+    "set": "basic_100"
+  },
+  {
+    "id": 47,
+    "uid": "basic_47",
+    "question": "Nhận định nào sau đây là sai?",
+    "originalA": "Trong kết cấu của ý thức xã hội, tâm lý xã hội và hệ tư tưởng tách rời nhau.",
+    "originalOptions": {
+      "A": "Trong kết cấu của ý thức xã hội, tâm lý xã hội và hệ tư tưởng tách rời nhau.",
+      "B": "Trong kết cấu của ý thức xã hội, tâm lý xã hội và hệ tưởng tác động qua lại lẫn nhau",
+      "C": "Trong kết cấu của ý thức xã hội, tâm lý xã hội và hệ tư tưởng kế thừa lẫn nhau.",
+      "D": "Tâm lý xã hội và hệ tư tưởng là hai cấp độ của ý thức xã hội"
+    },
+    "correctAnswer": "Trong kết cấu của ý thức xã hội, tâm lý xã hội và hệ tư tưởng tách rời nhau.",
+    "options": [
+      "Trong kết cấu của ý thức xã hội, tâm lý xã hội và hệ tư tưởng kế thừa lẫn nhau.",
+      "Tâm lý xã hội và hệ tư tưởng là hai cấp độ của ý thức xã hội",
+      "Trong kết cấu của ý thức xã hội, tâm lý xã hội và hệ tư tưởng tách rời nhau.",
+      "Trong kết cấu của ý thức xã hội, tâm lý xã hội và hệ tưởng tác động qua lại lẫn nhau"
+    ],
+    "globalId": 347,
+    "set": "basic_100"
+  },
+  {
+    "id": 48,
+    "uid": "basic_48",
+    "question": "Việc các trường đại học tăng cường giáo dục đạo đức nghề nghiệp, trách nhiệm xã hội và văn hóa ứng xử cho sinh viên trong nội dung chương trình đào tạo là sự thể hiện của hình thái ý thức xã hội nào?",
+    "originalA": "Ý thức đạo đức.",
+    "originalOptions": {
+      "A": "Ý thức đạo đức.",
+      "B": "Ý thức chính trị.",
+      "C": "Ý thức pháp quyền.",
+      "D": "Ý thức khoa học."
+    },
+    "correctAnswer": "Ý thức đạo đức.",
+    "options": [
+      "Ý thức pháp quyền.",
+      "Ý thức đạo đức.",
+      "Ý thức chính trị.",
+      "Ý thức khoa học."
+    ],
+    "globalId": 348,
+    "set": "basic_100"
+  },
+  {
+    "id": 49,
+    "uid": "basic_49",
+    "question": "Quan điểm nào sau đây không phải là của chủ nghĩa duy vật lịch sử?",
+    "originalA": "Con người không khác biệt so với con vật khi họ bắt đầu sản xuất ra những tư liệu sinh hoạt của mình.",
+    "originalOptions": {
+      "A": "Con người không khác biệt so với con vật khi họ bắt đầu sản xuất ra những tư liệu sinh hoạt của mình.",
+      "B": "Hoạt động xã hội quan trọng nhất của con người là lao động sản xuất.",
+      "C": "Con người là sản phẩm của lịch sử và của chính bản thân con người.",
+      "D": "Con người vừa là chủ thể của lịch sử, vừa là sản phẩm của lịch sử."
+    },
+    "correctAnswer": "Con người không khác biệt so với con vật khi họ bắt đầu sản xuất ra những tư liệu sinh hoạt của mình.",
+    "options": [
+      "Con người là sản phẩm của lịch sử và của chính bản thân con người.",
+      "Con người không khác biệt so với con vật khi họ bắt đầu sản xuất ra những tư liệu sinh hoạt của mình.",
+      "Con người vừa là chủ thể của lịch sử, vừa là sản phẩm của lịch sử.",
+      "Hoạt động xã hội quan trọng nhất của con người là lao động sản xuất."
+    ],
+    "globalId": 349,
+    "set": "basic_100"
+  },
+  {
+    "id": 50,
+    "uid": "basic_50",
+    "question": "Theo quan điểm của chủ nghĩa duy vật lịch sử về bản chất con người, câu ca dao: “Trong đầm gì đẹp bằng sen, lá xanh bông trắng lại chen nhị vàng, nhị vàng bông trắng lá xanh, gần bùn mà chẳng hôi tanh mùi bùn” nói lên điều gì?",
+    "originalA": "Mặc dù chịu tác động của hoàn cảnh xã hội, con người vẫn có khả năng rèn luyện, phát huy những giá trị tốt đẹp để hoàn thiện bản thân.",
+    "originalOptions": {
+      "A": "Mặc dù chịu tác động của hoàn cảnh xã hội, con người vẫn có khả năng rèn luyện, phát huy những giá trị tốt đẹp để hoàn thiện bản thân.",
+      "B": "Con người có bản chất bẩm sinh, không chịu ảnh hưởng của hoàn cảnh xã hội.",
+      "C": "Con người luôn bị hoàn cảnh xã hội quyết định hoàn toàn.",
+      "D": "Con người không thể vượt lên những điều kiện bất lợi."
+    },
+    "correctAnswer": "Mặc dù chịu tác động của hoàn cảnh xã hội, con người vẫn có khả năng rèn luyện, phát huy những giá trị tốt đẹp để hoàn thiện bản thân.",
+    "options": [
+      "Con người luôn bị hoàn cảnh xã hội quyết định hoàn toàn.",
+      "Con người không thể vượt lên những điều kiện bất lợi.",
+      "Con người có bản chất bẩm sinh, không chịu ảnh hưởng của hoàn cảnh xã hội.",
+      "Mặc dù chịu tác động của hoàn cảnh xã hội, con người vẫn có khả năng rèn luyện, phát huy những giá trị tốt đẹp để hoàn thiện bản thân."
+    ],
+    "globalId": 350,
+    "set": "basic_100"
+  },
+  {
+    "id": 51,
+    "uid": "basic_51",
+    "question": "Khi giải quyết mặt thứ nhất vấn đề cơ bản của triết học, trường phái nào cho rằng ý thức, tinh thần, ý niệm, cảm giác là cái có trước giới tự nhiên?",
+    "originalA": "Chủ nghĩa duy tâm.",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy tâm.",
+      "B": "Chủ nghĩa duy vật.",
+      "C": "Thuyết bất khả tri (Không thể biết).",
+      "D": "Nhị nguyên luận."
+    },
+    "correctAnswer": "Chủ nghĩa duy tâm.",
+    "options": [
+      "Nhị nguyên luận.",
+      "Thuyết bất khả tri (Không thể biết).",
+      "Chủ nghĩa duy vật.",
+      "Chủ nghĩa duy tâm."
+    ],
+    "globalId": 351,
+    "set": "basic_100"
+  },
+  {
+    "id": 52,
+    "uid": "basic_52",
+    "question": "Đoạn tuyệt triệt để với tham vọng coi triết học là “khoa học của các khoa học”, triết học Mác xác định đối tượng nghiên cứu của mình là gì?",
+    "originalA": "Giải quyết mối quan hệ giữa vật chất và ý thức trên lập trường duy vật biện chứng và nghiên cứu những quy luật chung nhất của tự nhiên, xã hội và tư duy.",
+    "originalOptions": {
+      "A": "Giải quyết mối quan hệ giữa vật chất và ý thức trên lập trường duy vật biện chứng và nghiên cứu những quy luật chung nhất của tự nhiên, xã hội và tư duy.",
+      "B": "Nghiên cứu những quy luật trong các lĩnh vực riêng biệt về tự nhiên, xã hội hoặc tư duy.",
+      "C": "Mô tả những hiện tượng tinh thần, phân tích ngữ nghĩa và chú giải các văn bản triết học cổ đại.",
+      "D": "Nghiên cứu các chủ đề như niềm tin tôn giáo, thiên đường, địa ngục hoặc chú giải các tín điều phi thế tục."
+    },
+    "correctAnswer": "Giải quyết mối quan hệ giữa vật chất và ý thức trên lập trường duy vật biện chứng và nghiên cứu những quy luật chung nhất của tự nhiên, xã hội và tư duy.",
+    "options": [
+      "Mô tả những hiện tượng tinh thần, phân tích ngữ nghĩa và chú giải các văn bản triết học cổ đại.",
+      "Nghiên cứu những quy luật trong các lĩnh vực riêng biệt về tự nhiên, xã hội hoặc tư duy.",
+      "Nghiên cứu các chủ đề như niềm tin tôn giáo, thiên đường, địa ngục hoặc chú giải các tín điều phi thế tục.",
+      "Giải quyết mối quan hệ giữa vật chất và ý thức trên lập trường duy vật biện chứng và nghiên cứu những quy luật chung nhất của tự nhiên, xã hội và tư duy."
+    ],
+    "globalId": 352,
+    "set": "basic_100"
+  },
+  {
+    "id": 53,
+    "uid": "basic_53",
+    "question": "Việc giải quyết mặt thứ nhất vấn đề cơ bản của triết học (giữa ý thức và vật chất thì cái nào có trước) đã chia các nhà triết học thành hai trường phái lớn nào?",
+    "originalA": "Chủ nghĩa duy vật và chủ nghĩa duy tâm.",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật và chủ nghĩa duy tâm.",
+      "B": "Thuyết khả tri và thuyết bất khả tri.",
+      "C": "Phương pháp biện chứng và phương pháp siêu hình.",
+      "D": "Nhất nguyên luận và nhị nguyên luận."
+    },
+    "correctAnswer": "Chủ nghĩa duy vật và chủ nghĩa duy tâm.",
+    "options": [
+      "Chủ nghĩa duy vật và chủ nghĩa duy tâm.",
+      "Thuyết khả tri và thuyết bất khả tri.",
+      "Nhất nguyên luận và nhị nguyên luận.",
+      "Phương pháp biện chứng và phương pháp siêu hình."
+    ],
+    "globalId": 353,
+    "set": "basic_100"
+  },
+  {
+    "id": 54,
+    "uid": "basic_54",
+    "question": "Hình thức nào của chủ nghĩa duy vật thừa nhận tính thứ nhất của vật chất nhưng lại đồng nhất vật chất với một hay một số chất cụ thể của vật chất?",
+    "originalA": "Chủ nghĩa duy vật chất phác.",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật chất phác.",
+      "B": "Chủ nghĩa duy vật siêu hình.",
+      "C": "Chủ nghĩa duy vật biện chứng.",
+      "D": "Chủ nghĩa duy tâm khách quan."
+    },
+    "correctAnswer": "Chủ nghĩa duy vật chất phác.",
+    "options": [
+      "Chủ nghĩa duy vật biện chứng.",
+      "Chủ nghĩa duy vật chất phác.",
+      "Chủ nghĩa duy vật siêu hình.",
+      "Chủ nghĩa duy tâm khách quan."
+    ],
+    "globalId": 354,
+    "set": "basic_100"
+  },
+  {
+    "id": 55,
+    "uid": "basic_55",
+    "question": "Khi xem xét một sự vật, nếu chủ thể nhận thức \"chỉ nhìn thấy cây mà không thấy rừng\", chỉ nhìn thấy trạng thái tĩnh mà quên mất sự vận động của sự vật, thì chủ thể đó đang mắc phải sai lầm của phương pháp tư duy nào?",
+    "originalA": "Phương pháp siêu hình.",
+    "originalOptions": {
+      "A": "Phương pháp siêu hình.",
+      "B": "Phương pháp biện chứng.",
+      "C": "Phương pháp duy tâm chủ quan.",
+      "D": "Phương pháp ngụy biện và chiết trung."
+    },
+    "correctAnswer": "Phương pháp siêu hình.",
+    "options": [
+      "Phương pháp duy tâm chủ quan.",
+      "Phương pháp siêu hình.",
+      "Phương pháp biện chứng.",
+      "Phương pháp ngụy biện và chiết trung."
+    ],
+    "globalId": 355,
+    "set": "basic_100"
+  },
+  {
+    "id": 56,
+    "uid": "basic_56",
+    "question": "Một nhà khoa học khi nghiên cứu một hiện tượng xã hội chỉ chú ý đến các yếu tố thống kê tĩnh tại ở một thời điểm, tách rời hiện tượng đó khỏi hoàn cảnh lịch sử và phủ nhận mâu thuẫn bên trong của nó. Cách nghiên cứu này mang đặc trưng của phương pháp tư duy nào?",
+    "originalA": "Phương pháp siêu hình.",
+    "originalOptions": {
+      "A": "Phương pháp siêu hình.",
+      "B": "Phương pháp biện chứng duy vật.",
+      "C": "Phương pháp lịch sử - cụ thể.",
+      "D": "Phương pháp biện chứng tự phát."
+    },
+    "correctAnswer": "Phương pháp siêu hình.",
+    "options": [
+      "Phương pháp biện chứng tự phát.",
+      "Phương pháp siêu hình.",
+      "Phương pháp lịch sử - cụ thể.",
+      "Phương pháp biện chứng duy vật."
+    ],
+    "globalId": 356,
+    "set": "basic_100"
+  },
+  {
+    "id": 57,
+    "uid": "basic_57",
+    "question": "Khi thu thập và phân tích tài liệu để viết báo cáo khoa học về sự biến đổi của triết học phương Tây thế kỷ XV - XVII, sinh viên cần vạch ra đặc trưng cốt lõi nào làm nền tảng cho sự chuyển biến tư tưởng ở thời kỳ này?",
+    "originalA": "Sự ra đời và phát triển mạnh mẽ của khoa học thực nghiệm đã thúc đẩy chủ nghĩa duy vật đấu tranh chống lại chủ nghĩa duy tâm và tôn giáo.",
+    "originalOptions": {
+      "A": "Sự ra đời và phát triển mạnh mẽ của khoa học thực nghiệm đã thúc đẩy chủ nghĩa duy vật đấu tranh chống lại chủ nghĩa duy tâm và tôn giáo.",
+      "B": "Sự ra đời của triết học Mác đã đoạn tuyệt triệt để với tham vọng coi triết học là “khoa học của các khoa học”.",
+      "C": "Quyền lực của Giáo hội bao trùm mọi lĩnh vực làm cho triết học trở thành nữ tì của thần học, nặng về tư biện.",
+      "D": "Tư duy huyền thoại suy giảm, tư duy lý luận xuất hiện đóng vai trò giải quyết tất cả các vấn đề về tự nhiên, xã hội."
+    },
+    "correctAnswer": "Sự ra đời và phát triển mạnh mẽ của khoa học thực nghiệm đã thúc đẩy chủ nghĩa duy vật đấu tranh chống lại chủ nghĩa duy tâm và tôn giáo.",
+    "options": [
+      "Sự ra đời và phát triển mạnh mẽ của khoa học thực nghiệm đã thúc đẩy chủ nghĩa duy vật đấu tranh chống lại chủ nghĩa duy tâm và tôn giáo.",
+      "Sự ra đời của triết học Mác đã đoạn tuyệt triệt để với tham vọng coi triết học là “khoa học của các khoa học”.",
+      "Quyền lực của Giáo hội bao trùm mọi lĩnh vực làm cho triết học trở thành nữ tì của thần học, nặng về tư biện.",
+      "Tư duy huyền thoại suy giảm, tư duy lý luận xuất hiện đóng vai trò giải quyết tất cả các vấn đề về tự nhiên, xã hội."
+    ],
+    "globalId": 357,
+    "set": "basic_100"
+  },
+  {
+    "id": 58,
+    "uid": "basic_58",
+    "question": "Khi làm việc nhóm để giải quyết một bài tập khoa học chuyên ngành, theo triết học Mác - Lênin, việc các thành viên trong nhóm (dù vô tình hay hữu ý) đều bị chi phối bởi một thế giới quan triết học nhất định được lý giải do đâu?",
+    "originalA": "Vì tư duy triết học luôn ẩn giấu sâu trong mỗi suy nghĩ, hành vi, là chỗ dựa tiềm thức của kinh nghiệm cá nhân và là thành tố hữu cơ trong tri thức khoa học.",
+    "originalOptions": {
+      "A": "Vì tư duy triết học luôn ẩn giấu sâu trong mỗi suy nghĩ, hành vi, là chỗ dựa tiềm thức của kinh nghiệm cá nhân và là thành tố hữu cơ trong tri thức khoa học.",
+      "B": "Vì mọi cá nhân đều bắt buộc phải tham gia các khóa học về triết học trước khi có thể tiến hành nghiên cứu các khoa học chuyên ngành.",
+      "C": "Vì triết học là khoa học của mọi khoa học, cung cấp trực tiếp các công thức và định lý để giải quyết mọi tình huống chuyên sâu cụ thể.",
+      "D": "Vì thế giới quan triết học là sự phản chiếu trực tiếp của tín ngưỡng tôn giáo, điều mà con người không thể rũ bỏ trong hoạt động thực tiễn."
+    },
+    "correctAnswer": "Vì tư duy triết học luôn ẩn giấu sâu trong mỗi suy nghĩ, hành vi, là chỗ dựa tiềm thức của kinh nghiệm cá nhân và là thành tố hữu cơ trong tri thức khoa học.",
+    "options": [
+      "Vì mọi cá nhân đều bắt buộc phải tham gia các khóa học về triết học trước khi có thể tiến hành nghiên cứu các khoa học chuyên ngành.",
+      "Vì tư duy triết học luôn ẩn giấu sâu trong mỗi suy nghĩ, hành vi, là chỗ dựa tiềm thức của kinh nghiệm cá nhân và là thành tố hữu cơ trong tri thức khoa học.",
+      "Vì triết học là khoa học của mọi khoa học, cung cấp trực tiếp các công thức và định lý để giải quyết mọi tình huống chuyên sâu cụ thể.",
+      "Vì thế giới quan triết học là sự phản chiếu trực tiếp của tín ngưỡng tôn giáo, điều mà con người không thể rũ bỏ trong hoạt động thực tiễn."
+    ],
+    "globalId": 358,
+    "set": "basic_100"
+  },
+  {
+    "id": 59,
+    "uid": "basic_59",
+    "question": "Khi thảo luận nhóm để phân tích nguyên nhân thất bại của một phong trào xã hội, nếu một sinh viên chỉ liệt kê các dữ kiện tĩnh tại ở một thời điểm, tách rời phong trào đó khỏi hoàn cảnh lịch sử, sinh viên này cần phải điều chỉnh phương pháp tư duy nào để phù hợp với yêu cầu phân tích khoa học?",
+    "originalA": "Từ bỏ phương pháp tư duy siêu hình để chuyển sang phương pháp tư duy biện chứng.",
+    "originalOptions": {
+      "A": "Từ bỏ phương pháp tư duy siêu hình để chuyển sang phương pháp tư duy biện chứng.",
+      "B": "Từ bỏ phương pháp ngụy biện để chuyển sang phương pháp duy tâm chủ quan.",
+      "C": "Từ bỏ phương pháp biện chứng tự phát để chuyển sang phương pháp chiết trung.",
+      "D": "Từ bỏ phương pháp nhận thức kinh nghiệm để trở về với phương pháp tư duy giáo điều."
+    },
+    "correctAnswer": "Từ bỏ phương pháp tư duy siêu hình để chuyển sang phương pháp tư duy biện chứng.",
+    "options": [
+      "Từ bỏ phương pháp nhận thức kinh nghiệm để trở về với phương pháp tư duy giáo điều.",
+      "Từ bỏ phương pháp ngụy biện để chuyển sang phương pháp duy tâm chủ quan.",
+      "Từ bỏ phương pháp biện chứng tự phát để chuyển sang phương pháp chiết trung.",
+      "Từ bỏ phương pháp tư duy siêu hình để chuyển sang phương pháp tư duy biện chứng."
+    ],
+    "globalId": 359,
+    "set": "basic_100"
+  },
+  {
+    "id": 60,
+    "uid": "basic_60",
+    "question": "Khi giải quyết mặt thứ hai của vấn đề cơ bản của triết học, học thuyết nào khẳng định về nguyên tắc con người có thể hiểu được bản chất của sự vật?",
+    "originalA": "Thuyết khả tri (Thuyết có thể biết).",
+    "originalOptions": {
+      "A": "Thuyết khả tri (Thuyết có thể biết).",
+      "B": "Thuyết bất khả tri (Thuyết không thể biết).",
+      "C": "Hoài nghi luận.",
+      "D": "Nhị nguyên luận."
+    },
+    "correctAnswer": "Thuyết khả tri (Thuyết có thể biết).",
+    "options": [
+      "Thuyết bất khả tri (Thuyết không thể biết).",
+      "Hoài nghi luận.",
+      "Nhị nguyên luận.",
+      "Thuyết khả tri (Thuyết có thể biết)."
+    ],
+    "globalId": 360,
+    "set": "basic_100"
+  },
+  {
+    "id": 61,
+    "uid": "basic_61",
+    "question": "Một nhóm sinh viên khi phân tích sự thất bại của một chính sách kinh tế đã chỉ ra rằng: Người ban hành chính sách chỉ mang nguyên lý chung áp dụng vào thực tế mà không tính đến \"kinh nghiệm cụ thể của lịch sử\" và hoàn cảnh thực tại. Theo triết học Mác - Lênin, người ban hành chính sách đã mắc phải sai lầm gì?",
+    "originalA": "Vi phạm nguyên tắc lịch sử - cụ thể, sa vào chủ nghĩa giáo điều khi vận dụng lý luận.",
+    "originalOptions": {
+      "A": "Vi phạm nguyên tắc lịch sử - cụ thể, sa vào chủ nghĩa giáo điều khi vận dụng lý luận.",
+      "B": "Vi phạm nguyên tắc khách quan, sa vào chủ nghĩa duy tâm chủ quan.",
+      "C": "Vi phạm nguyên tắc phát triển, sa vào chủ nghĩa bảo thủ, trì trệ.",
+      "D": "Vi phạm nguyên tắc toàn diện, sa vào thuật ngụy biện và chiết trung."
+    },
+    "correctAnswer": "Vi phạm nguyên tắc lịch sử - cụ thể, sa vào chủ nghĩa giáo điều khi vận dụng lý luận.",
+    "options": [
+      "Vi phạm nguyên tắc khách quan, sa vào chủ nghĩa duy tâm chủ quan.",
+      "Vi phạm nguyên tắc toàn diện, sa vào thuật ngụy biện và chiết trung.",
+      "Vi phạm nguyên tắc phát triển, sa vào chủ nghĩa bảo thủ, trì trệ.",
+      "Vi phạm nguyên tắc lịch sử - cụ thể, sa vào chủ nghĩa giáo điều khi vận dụng lý luận."
+    ],
+    "globalId": 361,
+    "set": "basic_100"
+  },
+  {
+    "id": 62,
+    "uid": "basic_62",
+    "question": "Khi các thế lực thù địch lợi dụng sự sụp đổ của mô hình chủ nghĩa xã hội ở Liên Xô và Đông Âu để rêu rao rằng \"Chủ nghĩa Mác - Lênin đã lỗi thời\", sinh viên cần vận dụng lập trường triết học nào để phản bác luận điệu này?",
+    "originalA": "Khẳng định sự sụp đổ đó là do sai lầm chủ quan, giáo điều, xa rời lập trường Mác - Lênin trong quá trình lãnh đạo, chứ không phải do bản chất khoa học và cách mạng của chủ nghĩa Mác - Lênin đã lỗi thời.",
+    "originalOptions": {
+      "A": "Khẳng định sự sụp đổ đó là do sai lầm chủ quan, giáo điều, xa rời lập trường Mác - Lênin trong quá trình lãnh đạo, chứ không phải do bản chất khoa học và cách mạng của chủ nghĩa Mác - Lênin đã lỗi thời.",
+      "B": "Thừa nhận chủ nghĩa Mác - Lênin đã lỗi thời về mặt mô hình chính trị nhưng vẫn còn giá trị về mặt nhân văn, đạo đức.",
+      "C": "Khẳng định sự sụp đổ đó là một bước lùi ngẫu nhiên không có nguyên nhân cụ thể, không liên quan đến học thuyết.",
+      "D": "Phủ nhận hoàn toàn sự sụp đổ của mô hình Xô Viết, coi đó chỉ là thông tin bịa đặt của truyền thông phương Tây."
+    },
+    "correctAnswer": "Khẳng định sự sụp đổ đó là do sai lầm chủ quan, giáo điều, xa rời lập trường Mác - Lênin trong quá trình lãnh đạo, chứ không phải do bản chất khoa học và cách mạng của chủ nghĩa Mác - Lênin đã lỗi thời.",
+    "options": [
+      "Thừa nhận chủ nghĩa Mác - Lênin đã lỗi thời về mặt mô hình chính trị nhưng vẫn còn giá trị về mặt nhân văn, đạo đức.",
+      "Khẳng định sự sụp đổ đó là do sai lầm chủ quan, giáo điều, xa rời lập trường Mác - Lênin trong quá trình lãnh đạo, chứ không phải do bản chất khoa học và cách mạng của chủ nghĩa Mác - Lênin đã lỗi thời.",
+      "Khẳng định sự sụp đổ đó là một bước lùi ngẫu nhiên không có nguyên nhân cụ thể, không liên quan đến học thuyết.",
+      "Phủ nhận hoàn toàn sự sụp đổ của mô hình Xô Viết, coi đó chỉ là thông tin bịa đặt của truyền thông phương Tây."
+    ],
+    "globalId": 362,
+    "set": "basic_100"
+  },
+  {
+    "id": 63,
+    "uid": "basic_63",
+    "question": "Một cán bộ quản lý cho rằng chỉ cần học thuộc lòng các nguyên lý triết học Mác - Lênin là có thể tự động giải quyết mọi vấn đề phức tạp tại địa phương mà không cần khảo sát thực tiễn. Theo phương pháp luận mácxít, cán bộ này đã mắc phải sai lầm gì?",
+    "originalA": "Tuyệt đối hóa vai trò của triết học, sa vào chủ nghĩa giáo điều khi áp dụng máy móc các nguyên lý chung mà không tính đến “kinh nghiệm cụ thể của lịch sử”.,",
+    "originalOptions": {
+      "A": "Tuyệt đối hóa vai trò của triết học, sa vào chủ nghĩa giáo điều khi áp dụng máy móc các nguyên lý chung mà không tính đến “kinh nghiệm cụ thể của lịch sử”.,",
+      "B": "Phủ nhận hoàn toàn vai trò của lý luận triết học, sa vào chủ nghĩa kinh nghiệm thuần túy, mù quáng.",
+      "C": "Rơi vào chủ nghĩa hoài nghi, không tin tưởng vào sự tồn tại của các quy luật khách quan trong xã hội.",
+      "D": "Sa vào chủ nghĩa chiết trung, lắp ghép vô nguyên tắc các định lý khoa học tự nhiên vào quản lý xã hội."
+    },
+    "correctAnswer": "Tuyệt đối hóa vai trò của triết học, sa vào chủ nghĩa giáo điều khi áp dụng máy móc các nguyên lý chung mà không tính đến “kinh nghiệm cụ thể của lịch sử”.,",
+    "options": [
+      "Phủ nhận hoàn toàn vai trò của lý luận triết học, sa vào chủ nghĩa kinh nghiệm thuần túy, mù quáng.",
+      "Tuyệt đối hóa vai trò của triết học, sa vào chủ nghĩa giáo điều khi áp dụng máy móc các nguyên lý chung mà không tính đến “kinh nghiệm cụ thể của lịch sử”.,",
+      "Rơi vào chủ nghĩa hoài nghi, không tin tưởng vào sự tồn tại của các quy luật khách quan trong xã hội.",
+      "Sa vào chủ nghĩa chiết trung, lắp ghép vô nguyên tắc các định lý khoa học tự nhiên vào quản lý xã hội."
+    ],
+    "globalId": 363,
+    "set": "basic_100"
+  },
+  {
+    "id": 64,
+    "uid": "basic_64",
+    "question": "Vận dụng phương pháp luận của triết học Mác - Lênin vào thực tiễn Đổi mới, Đảng Cộng sản Việt Nam xác định mối quan hệ nào là cốt lõi, mang tính nền tảng cho việc giải quyết các mối quan hệ khác?",
+    "originalA": "Mối quan hệ giữa đổi mới kinh tế và đổi mới chính trị.",
+    "originalOptions": {
+      "A": "Mối quan hệ giữa đổi mới kinh tế và đổi mới chính trị.",
+      "B": "Mối quan hệ giữa đổi mới văn hóa và đổi mới giáo dục.",
+      "C": "Mối quan hệ giữa hội nhập quốc tế và bảo vệ an ninh quốc gia.",
+      "D": "Mối quan hệ giữa phát triển lực lượng sản xuất và phát triển khoa học công nghệ."
+    },
+    "correctAnswer": "Mối quan hệ giữa đổi mới kinh tế và đổi mới chính trị.",
+    "options": [
+      "Mối quan hệ giữa phát triển lực lượng sản xuất và phát triển khoa học công nghệ.",
+      "Mối quan hệ giữa đổi mới kinh tế và đổi mới chính trị.",
+      "Mối quan hệ giữa hội nhập quốc tế và bảo vệ an ninh quốc gia.",
+      "Mối quan hệ giữa đổi mới văn hóa và đổi mới giáo dục."
+    ],
+    "globalId": 364,
+    "set": "basic_100"
+  },
+  {
+    "id": 65,
+    "uid": "basic_65",
+    "question": "Nguyên lý cơ bản của phép biện chứng duy vật là nguyên lý nào?",
+    "originalA": "Nguyên lý về mối liên hệ phổ biến và về sự phát triển",
+    "originalOptions": {
+      "A": "Nguyên lý về mối liên hệ phổ biến và về sự phát triển",
+      "B": "Nguyên lý về sự tồn tại khách quan của vật chất",
+      "C": "Nguyên lý về sự vận động và đứng im của các sự vật",
+      "D": "Nguyên lý về tính liên tục và tính gián đoạn của thế giới vật chất"
+    },
+    "correctAnswer": "Nguyên lý về mối liên hệ phổ biến và về sự phát triển",
+    "options": [
+      "Nguyên lý về tính liên tục và tính gián đoạn của thế giới vật chất",
+      "Nguyên lý về sự vận động và đứng im của các sự vật",
+      "Nguyên lý về mối liên hệ phổ biến và về sự phát triển",
+      "Nguyên lý về sự tồn tại khách quan của vật chất"
+    ],
+    "globalId": 365,
+    "set": "basic_100"
+  },
+  {
+    "id": 66,
+    "uid": "basic_66",
+    "question": "Theo quan điểm của chủ nghĩa Mác-Lênin:",
+    "originalA": "Vật chất quyết định nội dung, bản chất và sự vận động, phát triển của ý thức.",
+    "originalOptions": {
+      "A": "Vật chất quyết định nội dung, bản chất và sự vận động, phát triển của ý thức.",
+      "B": "Vật chất chỉ quyết định nội dung của ý thức, không quyết định sự vận động, phát triển của ý thức.",
+      "C": "Vật chất quyết định sự vật động và bản chất của thức, không quyết định nội dung của ý thức.",
+      "D": "Vật chất chỉ quyết định bản chất của ý thức, không quyết định sự vận động của ý thức"
+    },
+    "correctAnswer": "Vật chất quyết định nội dung, bản chất và sự vận động, phát triển của ý thức.",
+    "options": [
+      "Vật chất quyết định nội dung, bản chất và sự vận động, phát triển của ý thức.",
+      "Vật chất quyết định sự vật động và bản chất của thức, không quyết định nội dung của ý thức.",
+      "Vật chất chỉ quyết định nội dung của ý thức, không quyết định sự vận động, phát triển của ý thức.",
+      "Vật chất chỉ quyết định bản chất của ý thức, không quyết định sự vận động của ý thức"
+    ],
+    "globalId": 366,
+    "set": "basic_100"
+  },
+  {
+    "id": 67,
+    "uid": "basic_67",
+    "question": "Phạm trù nói lên bước ngoặt của sự thay đổi về lượng đưa đến sự thay đổi về chất là:",
+    "originalA": "Bước nhảy.",
+    "originalOptions": {
+      "A": "Bước nhảy.",
+      "B": "Độ.",
+      "C": "Điểm nút.",
+      "D": "Đột biến."
+    },
+    "correctAnswer": "Bước nhảy.",
+    "options": [
+      "Điểm nút.",
+      "Độ.",
+      "Bước nhảy.",
+      "Đột biến."
+    ],
+    "globalId": 367,
+    "set": "basic_100"
+  },
+  {
+    "id": 68,
+    "uid": "basic_68",
+    "question": "Quy luật vạch ra nguồn gốc của sự phát triển là:",
+    "originalA": "Quy luật thống nhất và đấu tranh của các mặt đối lập.",
+    "originalOptions": {
+      "A": "Quy luật thống nhất và đấu tranh của các mặt đối lập.",
+      "B": "Quy luật từ những sự thay đổi về lượng thành những sự thay đổi về chất và ngược lại.",
+      "C": "Quy luật phủ định của phủ định.",
+      "D": "Quy luật quan hệ sản xuất phù hợp với trình độ phát triển của lực lượng sản xuất."
+    },
+    "correctAnswer": "Quy luật thống nhất và đấu tranh của các mặt đối lập.",
+    "options": [
+      "Quy luật quan hệ sản xuất phù hợp với trình độ phát triển của lực lượng sản xuất.",
+      "Quy luật từ những sự thay đổi về lượng thành những sự thay đổi về chất và ngược lại.",
+      "Quy luật thống nhất và đấu tranh của các mặt đối lập.",
+      "Quy luật phủ định của phủ định."
+    ],
+    "globalId": 368,
+    "set": "basic_100"
+  },
+  {
+    "id": 69,
+    "uid": "basic_69",
+    "question": "Tính quy định nói lên quy mô trình độ phát triển của sự vật được gọi là gì?",
+    "originalA": "Lượng",
+    "originalOptions": {
+      "A": "Lượng",
+      "B": "Chất",
+      "C": "Độ",
+      "D": "Điểm nút"
+    },
+    "correctAnswer": "Lượng",
+    "options": [
+      "Lượng",
+      "Độ",
+      "Điểm nút",
+      "Chất"
+    ],
+    "globalId": 369,
+    "set": "basic_100"
+  },
+  {
+    "id": 70,
+    "uid": "basic_70",
+    "question": "Yếu tố quan trọng nhất trong kết cấu của ý thức:",
+    "originalA": "Tri thức.",
+    "originalOptions": {
+      "A": "Tri thức.",
+      "B": "Ý chí.",
+      "C": "Niềm tin.",
+      "D": "Tình cảm."
+    },
+    "correctAnswer": "Tri thức.",
+    "options": [
+      "Tri thức.",
+      "Niềm tin.",
+      "Ý chí.",
+      "Tình cảm."
+    ],
+    "globalId": 370,
+    "set": "basic_100"
+  },
+  {
+    "id": 71,
+    "uid": "basic_71",
+    "question": "Lựa chọn câu đúng nhất theo quan điểm của chủ nghĩa duy vật biện chứng",
+    "originalA": "Mối liên hệ của sự vật hiện tượng không chỉ diễn ra giữa các sự vật hiện tượng mà còn diễn ra ngay trong sự vật hiện tượng.",
+    "originalOptions": {
+      "A": "Mối liên hệ của sự vật hiện tượng không chỉ diễn ra giữa các sự vật hiện tượng mà còn diễn ra ngay trong sự vật hiện tượng.",
+      "B": "Mối liên hệ chỉ diễn ra giữa các sự vật hiện tượng với nhau còn trong bản thân sự vật hiện tượng không có sự liên hệ.",
+      "C": "Mối liên hệ của sự vật hiện tượng chỉ do ý chí con người tạo ra còn bản thân sự vật hiện tượng không có sự liên hệ.",
+      "D": "Tất cả các câu đều sai"
+    },
+    "correctAnswer": "Mối liên hệ của sự vật hiện tượng không chỉ diễn ra giữa các sự vật hiện tượng mà còn diễn ra ngay trong sự vật hiện tượng.",
+    "options": [
+      "Mối liên hệ của sự vật hiện tượng chỉ do ý chí con người tạo ra còn bản thân sự vật hiện tượng không có sự liên hệ.",
+      "Mối liên hệ chỉ diễn ra giữa các sự vật hiện tượng với nhau còn trong bản thân sự vật hiện tượng không có sự liên hệ.",
+      "Mối liên hệ của sự vật hiện tượng không chỉ diễn ra giữa các sự vật hiện tượng mà còn diễn ra ngay trong sự vật hiện tượng.",
+      "Tất cả các câu đều sai"
+    ],
+    "globalId": 371,
+    "set": "basic_100"
+  },
+  {
+    "id": 72,
+    "uid": "basic_72",
+    "question": "Trong một doanh nghiệp đang gặp khủng hoảng tài chính, đâu là mâu thuẫn chủ yếu?",
+    "originalA": "Giữa chi phí quá cao và doanh thu quá thấp.",
+    "originalOptions": {
+      "A": "Giữa chi phí quá cao và doanh thu quá thấp.",
+      "B": "Giữa các phòng ban.",
+      "C": "Giữa nhân viên và quản lý.",
+      "D": "Giữa doanh nghiệp với đối thủ cạnh tranh."
+    },
+    "correctAnswer": "Giữa chi phí quá cao và doanh thu quá thấp.",
+    "options": [
+      "Giữa nhân viên và quản lý.",
+      "Giữa chi phí quá cao và doanh thu quá thấp.",
+      "Giữa các phòng ban.",
+      "Giữa doanh nghiệp với đối thủ cạnh tranh."
+    ],
+    "globalId": 372,
+    "set": "basic_100"
+  },
+  {
+    "id": 73,
+    "uid": "basic_73",
+    "question": "Tìm đáp án sai theo quan điểm của chủ nghĩa duy vật biện chứng:",
+    "originalA": "Ý thức là thuộc tính của một dạng vật chất.",
+    "originalOptions": {
+      "A": "Ý thức là thuộc tính của một dạng vật chất.",
+      "B": "Ý thức là hình thức phản ánh chỉ có ở con người.",
+      "C": "Thuộc tính phản ánh cũng phát triển từ thấp đến cao, từ đơn giản đến phức tạp.",
+      "D": "Phản ánh là thuộc tính của mọi dạng vật chất."
+    },
+    "correctAnswer": "Ý thức là thuộc tính của một dạng vật chất.",
+    "options": [
+      "Ý thức là hình thức phản ánh chỉ có ở con người.",
+      "Phản ánh là thuộc tính của mọi dạng vật chất.",
+      "Ý thức là thuộc tính của một dạng vật chất.",
+      "Thuộc tính phản ánh cũng phát triển từ thấp đến cao, từ đơn giản đến phức tạp."
+    ],
+    "globalId": 373,
+    "set": "basic_100"
+  },
+  {
+    "id": 74,
+    "uid": "basic_74",
+    "question": "Tìm đáp án sai theo quan điểm của chủ nghĩa duy vật biện chứng về vai trò của thực tiễn đối với nhận thức:",
+    "originalA": "Nhận thức không cần có thực tiễn.",
+    "originalOptions": {
+      "A": "Nhận thức không cần có thực tiễn.",
+      "B": "Mục đích của nhận thức.",
+      "C": "Động lực của nhận thức.",
+      "D": "Nguồn gốc của nhận thức."
+    },
+    "correctAnswer": "Nhận thức không cần có thực tiễn.",
+    "options": [
+      "Nguồn gốc của nhận thức.",
+      "Động lực của nhận thức.",
+      "Nhận thức không cần có thực tiễn.",
+      "Mục đích của nhận thức."
+    ],
+    "globalId": 374,
+    "set": "basic_100"
+  },
+  {
+    "id": 75,
+    "uid": "basic_75",
+    "question": "Cơ sở lý luận của quan điểm toàn diện là:",
+    "originalA": "Nguyên lý về mối liên hệ phổ biến.",
+    "originalOptions": {
+      "A": "Nguyên lý về mối liên hệ phổ biến.",
+      "B": "Nguyên lý về sự phát triển.",
+      "C": "Quy luật phủ định của phủ định.",
+      "D": "Quy luật mâu thuẫn."
+    },
+    "correctAnswer": "Nguyên lý về mối liên hệ phổ biến.",
+    "options": [
+      "Nguyên lý về mối liên hệ phổ biến.",
+      "Nguyên lý về sự phát triển.",
+      "Quy luật phủ định của phủ định.",
+      "Quy luật mâu thuẫn."
+    ],
+    "globalId": 375,
+    "set": "basic_100"
+  },
+  {
+    "id": 76,
+    "uid": "basic_76",
+    "question": "Trong hoạt động thực tiễn, sai lầm của sự chủ quan nóng vội là do không tôn trọng quy luật nào?",
+    "originalA": "Quy luật lượng - chất",
+    "originalOptions": {
+      "A": "Quy luật lượng - chất",
+      "B": "Quy luật mâu thuẫn",
+      "C": "Quy luật phủ định của phủ định",
+      "D": "Quy luật về mối quan hệ biện chứng giữa cơ sở hạ tầng và kiến trúc thượng tầng."
+    },
+    "correctAnswer": "Quy luật lượng - chất",
+    "options": [
+      "Quy luật mâu thuẫn",
+      "Quy luật lượng - chất",
+      "Quy luật phủ định của phủ định",
+      "Quy luật về mối quan hệ biện chứng giữa cơ sở hạ tầng và kiến trúc thượng tầng."
+    ],
+    "globalId": 376,
+    "set": "basic_100"
+  },
+  {
+    "id": 77,
+    "uid": "basic_77",
+    "question": "Cơ sở lý luận của quan điểm phát triển là:",
+    "originalA": "Nguyên lý về sự phát triển.",
+    "originalOptions": {
+      "A": "Nguyên lý về sự phát triển.",
+      "B": "Nguyên lý về mối liên hệ phổ biến.",
+      "C": "Nguyên lý về sự tồn tại khách quan của thế giới.",
+      "D": "Nguyên lý ý thức tác động đến vật chất."
+    },
+    "correctAnswer": "Nguyên lý về sự phát triển.",
+    "options": [
+      "Nguyên lý về sự tồn tại khách quan của thế giới.",
+      "Nguyên lý ý thức tác động đến vật chất.",
+      "Nguyên lý về mối liên hệ phổ biến.",
+      "Nguyên lý về sự phát triển."
+    ],
+    "globalId": 377,
+    "set": "basic_100"
+  },
+  {
+    "id": 78,
+    "uid": "basic_78",
+    "question": "Theo quan điểm của chủ nghĩa duy vật biện chứng, luận điểm nào sau đây là sai?",
+    "originalA": "Chất đồng nhất với thuộc tính",
+    "originalOptions": {
+      "A": "Chất đồng nhất với thuộc tính",
+      "B": "Chất là tính quy định vốn có của sự vật",
+      "C": "Chất là tổng hợp hữu cơ các thuộc tính của sự vật nói lên sự vật là cái gì",
+      "D": "Chất là cái để phân biệt nó với cái khác"
+    },
+    "correctAnswer": "Chất đồng nhất với thuộc tính",
+    "options": [
+      "Chất là tính quy định vốn có của sự vật",
+      "Chất đồng nhất với thuộc tính",
+      "Chất là cái để phân biệt nó với cái khác",
+      "Chất là tổng hợp hữu cơ các thuộc tính của sự vật nói lên sự vật là cái gì"
+    ],
+    "globalId": 378,
+    "set": "basic_100"
+  },
+  {
+    "id": 79,
+    "uid": "basic_79",
+    "question": "Trường phái triết học nào cho vận động là tuyệt đối, đứng im là tương đối?",
+    "originalA": "Chủ nghĩa duy vật biện chứng",
+    "originalOptions": {
+      "A": "Chủ nghĩa duy vật biện chứng",
+      "B": "Chủ nghĩa duy vật tự phát",
+      "C": "Chủ nghĩa duy tâm khách quan",
+      "D": "Chủ nghĩa duy vật siêu hình thế kỷ XVII – XVIII"
+    },
+    "correctAnswer": "Chủ nghĩa duy vật biện chứng",
+    "options": [
+      "Chủ nghĩa duy vật siêu hình thế kỷ XVII – XVIII",
+      "Chủ nghĩa duy vật tự phát",
+      "Chủ nghĩa duy tâm khách quan",
+      "Chủ nghĩa duy vật biện chứng"
+    ],
+    "globalId": 379,
+    "set": "basic_100"
+  },
+  {
+    "id": 80,
+    "uid": "basic_80",
+    "question": "Theo quan điểm của chủ nghĩa duy vật biện chứng, luận điểm nào sau đây là sai?",
+    "originalA": "Chất tồn tại khách quan bên ngoài sự vật",
+    "originalOptions": {
+      "A": "Chất tồn tại khách quan bên ngoài sự vật",
+      "B": "Chất tồn tại khách quan gắn liền với sự vật",
+      "C": "Không có chất thuần tuý bên ngoài sự vật",
+      "D": "Chất là cái vốn có của sự vật"
+    },
+    "correctAnswer": "Chất tồn tại khách quan bên ngoài sự vật",
+    "options": [
+      "Chất tồn tại khách quan bên ngoài sự vật",
+      "Chất là cái vốn có của sự vật",
+      "Không có chất thuần tuý bên ngoài sự vật",
+      "Chất tồn tại khách quan gắn liền với sự vật"
+    ],
+    "globalId": 380,
+    "set": "basic_100"
+  },
+  {
+    "id": 81,
+    "uid": "basic_81",
+    "question": "Phương thức sản xuất bao gồm những yếu tố nào?",
+    "originalA": "Lực lượng sản xuất và quan hệ sản xuất.",
+    "originalOptions": {
+      "A": "Lực lượng sản xuất và quan hệ sản xuất.",
+      "B": "Quan hệ sản xuất và kiến trúc thượng tầng.",
+      "C": "Lực lượng sản xuất và kiến trúc thượng tầng.",
+      "D": "Lực lượng sản xuất và cơ sở hạ tầng."
+    },
+    "correctAnswer": "Lực lượng sản xuất và quan hệ sản xuất.",
+    "options": [
+      "Quan hệ sản xuất và kiến trúc thượng tầng.",
+      "Lực lượng sản xuất và quan hệ sản xuất.",
+      "Lực lượng sản xuất và cơ sở hạ tầng.",
+      "Lực lượng sản xuất và kiến trúc thượng tầng."
+    ],
+    "globalId": 381,
+    "set": "basic_100"
+  },
+  {
+    "id": 82,
+    "uid": "basic_82",
+    "question": "Phương diện nào trong phương thức sản xuất thể hiện mối quan hệ giữa con người với con người trong quá trình sản xuất vật chất?",
+    "originalA": "Quan hệ sản xuất.",
+    "originalOptions": {
+      "A": "Quan hệ sản xuất.",
+      "B": "Lực lượng sản xuất.",
+      "C": "Đối tượng lao động.",
+      "D": "Tư liệu lao động."
+    },
+    "correctAnswer": "Quan hệ sản xuất.",
+    "options": [
+      "Đối tượng lao động.",
+      "Tư liệu lao động.",
+      "Lực lượng sản xuất.",
+      "Quan hệ sản xuất."
+    ],
+    "globalId": 382,
+    "set": "basic_100"
+  },
+  {
+    "id": 83,
+    "uid": "basic_83",
+    "question": "Quan hệ sản xuất không bao gồm quan hệ nào dưới đây?",
+    "originalA": "Quan hệ tình cảm giữa nhà tư bản và công nhân.",
+    "originalOptions": {
+      "A": "Quan hệ tình cảm giữa nhà tư bản và công nhân.",
+      "B": "Quan hệ về phân phối kết quả của quá trình sản xuất.",
+      "C": "Quan hệ về tổ chức – quản lý quá trình sản xuất.",
+      "D": "Quan hệ sở hữu đối với tư liệu sản xuất."
+    },
+    "correctAnswer": "Quan hệ tình cảm giữa nhà tư bản và công nhân.",
+    "options": [
+      "Quan hệ về phân phối kết quả của quá trình sản xuất.",
+      "Quan hệ về tổ chức – quản lý quá trình sản xuất.",
+      "Quan hệ tình cảm giữa nhà tư bản và công nhân.",
+      "Quan hệ sở hữu đối với tư liệu sản xuất."
+    ],
+    "globalId": 383,
+    "set": "basic_100"
+  },
+  {
+    "id": 84,
+    "uid": "basic_84",
+    "question": "Trong bối cảnh Cách mạng công nghiệp lần thứ tư, sự phát triển của trí tuệ nhân tạo (AI) có tác động như thế nào đối với hoạt động sản xuất của các doanh nghiệp Việt Nam?",
+    "originalA": "AI làm thay đổi cách thức tổ chức, quản lý sản xuất.",
+    "originalOptions": {
+      "A": "AI làm thay đổi cách thức tổ chức, quản lý sản xuất.",
+      "B": "AI thay thế hoàn toàn lực lượng sản xuất.",
+      "C": "AI chỉ tác động đến tư liệu lao động nên không ảnh hưởng đến quan hệ sản xuất.",
+      "D": "AI làm cho quan hệ sản xuất không còn chịu sự chi phối của các quy luật kinh tế."
+    },
+    "correctAnswer": "AI làm thay đổi cách thức tổ chức, quản lý sản xuất.",
+    "options": [
+      "AI chỉ tác động đến tư liệu lao động nên không ảnh hưởng đến quan hệ sản xuất.",
+      "AI làm cho quan hệ sản xuất không còn chịu sự chi phối của các quy luật kinh tế.",
+      "AI thay thế hoàn toàn lực lượng sản xuất.",
+      "AI làm thay đổi cách thức tổ chức, quản lý sản xuất."
+    ],
+    "globalId": 384,
+    "set": "basic_100"
+  },
+  {
+    "id": 85,
+    "uid": "basic_85",
+    "question": "Chủ trương thực hiện nhất quán cơ cấu kinh tế nhiều thành phần ở nước ta hiện nay là:",
+    "originalA": "Sự vận dụng đúng đắn quy luật về sự phù hợp của quan hệ sản xuất với trình độ của lực lượng sản xuất.",
+    "originalOptions": {
+      "A": "Sự vận dụng đúng đắn quy luật về sự phù hợp của quan hệ sản xuất với trình độ của lực lượng sản xuất.",
+      "B": "Nhằm đáp ứng yêu cầu hội nhập kinh tế thế giới.",
+      "C": "Nhằm thúc đẩy sự phát triển kinh tế.",
+      "D": "Nhằm phát triển quan hệ sản xuất."
+    },
+    "correctAnswer": "Sự vận dụng đúng đắn quy luật về sự phù hợp của quan hệ sản xuất với trình độ của lực lượng sản xuất.",
+    "options": [
+      "Nhằm phát triển quan hệ sản xuất.",
+      "Nhằm đáp ứng yêu cầu hội nhập kinh tế thế giới.",
+      "Nhằm thúc đẩy sự phát triển kinh tế.",
+      "Sự vận dụng đúng đắn quy luật về sự phù hợp của quan hệ sản xuất với trình độ của lực lượng sản xuất."
+    ],
+    "globalId": 385,
+    "set": "basic_100"
+  },
+  {
+    "id": 86,
+    "uid": "basic_86",
+    "question": "Bộ phận có quyền lực mạnh nhất trong kiến trúc thượng tầng của xã hội có đối kháng giai cấp là bộ phận nào?",
+    "originalA": "Nhà nước",
+    "originalOptions": {
+      "A": "Nhà nước",
+      "B": "Tôn giáo",
+      "C": "Đạo đức",
+      "D": "Triết học"
+    },
+    "correctAnswer": "Nhà nước",
+    "options": [
+      "Tôn giáo",
+      "Nhà nước",
+      "Triết học",
+      "Đạo đức"
+    ],
+    "globalId": 386,
+    "set": "basic_100"
+  },
+  {
+    "id": 87,
+    "uid": "basic_87",
+    "question": "Thực chất của quan hệ biện chứng giữa cơ sở hạ tầng và kiến trúc thượng tầng là:",
+    "originalA": "Quan hệ giữa kinh tế và chính trị.",
+    "originalOptions": {
+      "A": "Quan hệ giữa kinh tế và chính trị.",
+      "B": "Quan hệ giữa vật chất và tinh thần.",
+      "C": "Quan hệ giữa xã hội và chính trị.",
+      "D": "Quan hệ giữa xã hội và sản xuất."
+    },
+    "correctAnswer": "Quan hệ giữa kinh tế và chính trị.",
+    "options": [
+      "Quan hệ giữa xã hội và sản xuất.",
+      "Quan hệ giữa kinh tế và chính trị.",
+      "Quan hệ giữa vật chất và tinh thần.",
+      "Quan hệ giữa xã hội và chính trị."
+    ],
+    "globalId": 387,
+    "set": "basic_100"
+  },
+  {
+    "id": 88,
+    "uid": "basic_88",
+    "question": "Yếu tố nào không thuộc kiến trúc thượng tầng của xã hội Việt Nam hiện nay?",
+    "originalA": "Nền kinh tế thị trường định hướng xã hội chủ nghĩa Việt Nam.",
+    "originalOptions": {
+      "A": "Nền kinh tế thị trường định hướng xã hội chủ nghĩa Việt Nam.",
+      "B": "Đảng Cộng sản Việt Nam.",
+      "C": "Nhà nước pháp quyền xã hội chủ nghĩa Việt Nam.",
+      "D": "Mặt trận Tổ quốc Việt Nam."
+    },
+    "correctAnswer": "Nền kinh tế thị trường định hướng xã hội chủ nghĩa Việt Nam.",
+    "options": [
+      "Mặt trận Tổ quốc Việt Nam.",
+      "Nền kinh tế thị trường định hướng xã hội chủ nghĩa Việt Nam.",
+      "Đảng Cộng sản Việt Nam.",
+      "Nhà nước pháp quyền xã hội chủ nghĩa Việt Nam."
+    ],
+    "globalId": 388,
+    "set": "basic_100"
+  },
+  {
+    "id": 89,
+    "uid": "basic_89",
+    "question": "Bản chất chế độ sở hữu xã hội chủ nghĩa là:",
+    "originalA": "Chế độ công hữu về tư liệu sản xuất.",
+    "originalOptions": {
+      "A": "Chế độ công hữu về tư liệu sản xuất.",
+      "B": "Đa hình thức sở hữu.",
+      "C": "Sở hữu hỗn hợp.",
+      "D": "Không có câu trả lời đúng."
+    },
+    "correctAnswer": "Chế độ công hữu về tư liệu sản xuất.",
+    "options": [
+      "Không có câu trả lời đúng.",
+      "Sở hữu hỗn hợp.",
+      "Đa hình thức sở hữu.",
+      "Chế độ công hữu về tư liệu sản xuất."
+    ],
+    "globalId": 389,
+    "set": "basic_100"
+  },
+  {
+    "id": 90,
+    "uid": "basic_90",
+    "question": "Căn cứ vào đâu để phân chia giai cấp thành giai cấp cơ bản và giai cấp không cơ bản ?",
+    "originalA": "Vào phương thức sản xuất mà giai cấp đó đại diện.",
+    "originalOptions": {
+      "A": "Vào phương thức sản xuất mà giai cấp đó đại diện.",
+      "B": "Vào hệ tư tưởng của giai cấp đó.",
+      "C": "Vào số lượng.",
+      "D": "Vào cương lĩnh chính trị, đường lối của giai cấp đó."
+    },
+    "correctAnswer": "Vào phương thức sản xuất mà giai cấp đó đại diện.",
+    "options": [
+      "Vào hệ tư tưởng của giai cấp đó.",
+      "Vào số lượng.",
+      "Vào phương thức sản xuất mà giai cấp đó đại diện.",
+      "Vào cương lĩnh chính trị, đường lối của giai cấp đó."
+    ],
+    "globalId": 390,
+    "set": "basic_100"
+  },
+  {
+    "id": 91,
+    "uid": "basic_91",
+    "question": "Sự phân chia giai cấp trong xã hội bắt đầu từ hình thái kinh tế - xã hội nào?",
+    "originalA": "Chiếm hữu nô lệ.",
+    "originalOptions": {
+      "A": "Chiếm hữu nô lệ.",
+      "B": "Công xã nguyên thủy.",
+      "C": "Phong kiến.",
+      "D": "Tư bản chủ nghĩa."
+    },
+    "correctAnswer": "Chiếm hữu nô lệ.",
+    "options": [
+      "Công xã nguyên thủy.",
+      "Phong kiến.",
+      "Tư bản chủ nghĩa.",
+      "Chiếm hữu nô lệ."
+    ],
+    "globalId": 391,
+    "set": "basic_100"
+  },
+  {
+    "id": 92,
+    "uid": "basic_92",
+    "question": "Trong quá trình lãnh đạo con thuyền cách mạng của dân tộc, Đảng Cộng sản Việt Nam luôn khẳng định “lực lượng đi đầu trong sự nghiệp công nghiệp hóa, hiện đại hóa và xây dựng chủ nghĩa xã hội” là:",
+    "originalA": "Giai cấp công nhân.",
+    "originalOptions": {
+      "A": "Giai cấp công nhân.",
+      "B": "Tầng lớp trí thức.",
+      "C": "Giai cấp nông dân.",
+      "D": "Doanh nhân."
+    },
+    "correctAnswer": "Giai cấp công nhân.",
+    "options": [
+      "Tầng lớp trí thức.",
+      "Doanh nhân.",
+      "Giai cấp công nhân.",
+      "Giai cấp nông dân."
+    ],
+    "globalId": 392,
+    "set": "basic_100"
+  },
+  {
+    "id": 93,
+    "uid": "basic_93",
+    "question": "Hiện nay, Việt Nam tham gia nhiều hiệp ước và tổ chức kinh tế quốc tế lớn như WTO, APEC, ASEAN, CPTPP v.v... Theo quan điểm của chủ nghĩa duy vật lịch sử, hoạt động này phản ánh chức năng nào của nhà nước?",
+    "originalA": "Chức năng đối ngoại.",
+    "originalOptions": {
+      "A": "Chức năng đối ngoại.",
+      "B": "Chức năng quản lý xã hội.",
+      "C": "Chức năng thống trị chính trị.",
+      "D": "Chức năng đối nội"
+    },
+    "correctAnswer": "Chức năng đối ngoại.",
+    "options": [
+      "Chức năng đối ngoại.",
+      "Chức năng đối nội",
+      "Chức năng quản lý xã hội.",
+      "Chức năng thống trị chính trị."
+    ],
+    "globalId": 393,
+    "set": "basic_100"
+  },
+  {
+    "id": 94,
+    "uid": "basic_94",
+    "question": "Việc các trường đại học đưa nội dung phòng chống tham nhũng, an ninh mạng vào chương trình đào tạo là sự vận dụng chủ yếu của hình thái ý thức xã hội nào?",
+    "originalA": "Ý thức pháp quyền.",
+    "originalOptions": {
+      "A": "Ý thức pháp quyền.",
+      "B": "Ý thức đạo đức.",
+      "C": "Ý thức khoa học.",
+      "D": "Ý thức chính trị."
+    },
+    "correctAnswer": "Ý thức pháp quyền.",
+    "options": [
+      "Ý thức chính trị.",
+      "Ý thức khoa học.",
+      "Ý thức đạo đức.",
+      "Ý thức pháp quyền."
+    ],
+    "globalId": 394,
+    "set": "basic_100"
+  },
+  {
+    "id": 95,
+    "uid": "basic_95",
+    "question": "Chủ trương bảo tồn di sản văn hóa ở Việt Nam hiện nay là sự vận dụng tính độc lập tương đối của ý thức xã hội ở phương diện nào?",
+    "originalA": "Tính kế thừa.",
+    "originalOptions": {
+      "A": "Tính kế thừa.",
+      "B": "Tính lệ thuộc.",
+      "C": "Tính lạc hậu.",
+      "D": "Tính vượt trước."
+    },
+    "correctAnswer": "Tính kế thừa.",
+    "options": [
+      "Tính kế thừa.",
+      "Tính vượt trước.",
+      "Tính lạc hậu.",
+      "Tính lệ thuộc."
+    ],
+    "globalId": 395,
+    "set": "basic_100"
+  },
+  {
+    "id": 96,
+    "uid": "basic_96",
+    "question": "Quá trình chuyển đổi số và phát triển kinh tế số ở Việt Nam đã làm thay đổi phương thức sáng tạo, phổ biến và tiếp nhận các sản phẩm văn hóa. Đây là sự phản ánh của nội dung nào trong chủ nghĩa duy vật lịch sử?",
+    "originalA": "Tồn tại xã hội quyết định ý thức xã hội.",
+    "originalOptions": {
+      "A": "Tồn tại xã hội quyết định ý thức xã hội.",
+      "B": "Ý thức xã hội tác động trở lại tồn tại xã hội.",
+      "C": "Ý thức xã hội độc lập hoàn toàn với tồn tại xã hội.",
+      "D": "Ý thức xã hội quyết định tồn tại xã hội."
+    },
+    "correctAnswer": "Tồn tại xã hội quyết định ý thức xã hội.",
+    "options": [
+      "Ý thức xã hội tác động trở lại tồn tại xã hội.",
+      "Tồn tại xã hội quyết định ý thức xã hội.",
+      "Ý thức xã hội độc lập hoàn toàn với tồn tại xã hội.",
+      "Ý thức xã hội quyết định tồn tại xã hội."
+    ],
+    "globalId": 396,
+    "set": "basic_100"
+  },
+  {
+    "id": 97,
+    "uid": "basic_97",
+    "question": "Nhóm sinh viên được giao chuẩn bị bài thuyết trình về tính độc lập tương đối của ý thức xã hội, một thành viên cho rằng: “ý thức xã hội phụ thuộc hoàn toàn vào tồn tại xã hội”. Để nhóm đạt kết quả tốt nhất, các thành viên nên làm gì?",
+    "originalA": "Cùng phân tích tài liệu và thống nhất rằng ý thức xã hội vừa được quyết định bởi tồn tại xã hội, vừa có tính độc lập tương đối và có thể tác động trở lại tồn tại xã hội.",
+    "originalOptions": {
+      "A": "Cùng phân tích tài liệu và thống nhất rằng ý thức xã hội vừa được quyết định bởi tồn tại xã hội, vừa có tính độc lập tương đối và có thể tác động trở lại tồn tại xã hội.",
+      "B": "Bỏ qua ý kiến đó để tiết kiệm thời gian.",
+      "C": "Để người có học lực tốt nhất trong nhóm quyết định.",
+      "D": "Giữ nguyên hai quan điểm khác nhau trong bài trình bày."
+    },
+    "correctAnswer": "Cùng phân tích tài liệu và thống nhất rằng ý thức xã hội vừa được quyết định bởi tồn tại xã hội, vừa có tính độc lập tương đối và có thể tác động trở lại tồn tại xã hội.",
+    "options": [
+      "Cùng phân tích tài liệu và thống nhất rằng ý thức xã hội vừa được quyết định bởi tồn tại xã hội, vừa có tính độc lập tương đối và có thể tác động trở lại tồn tại xã hội.",
+      "Bỏ qua ý kiến đó để tiết kiệm thời gian.",
+      "Giữ nguyên hai quan điểm khác nhau trong bài trình bày.",
+      "Để người có học lực tốt nhất trong nhóm quyết định."
+    ],
+    "globalId": 397,
+    "set": "basic_100"
+  },
+  {
+    "id": 98,
+    "uid": "basic_98",
+    "question": "Khi thuyết trình về nội dung ý thức thẩm mỹ, sinh viên chỉ nêu tên tác phẩm nghệ thuật mà không giải thích. Đây là biểu hiện hạn chế của kỹ năng nào trong thuyết trình?",
+    "originalA": "Kỹ năng sử dụng dẫn chứng và minh họa.",
+    "originalOptions": {
+      "A": "Kỹ năng sử dụng dẫn chứng và minh họa.",
+      "B": "Kỹ năng thiết kế phương tiện trình chiếu.",
+      "C": "Kỹ năng tương tác với người nghe.",
+      "D": "Kỹ năng quản lý thời gian."
+    },
+    "correctAnswer": "Kỹ năng sử dụng dẫn chứng và minh họa.",
+    "options": [
+      "Kỹ năng sử dụng dẫn chứng và minh họa.",
+      "Kỹ năng tương tác với người nghe.",
+      "Kỹ năng thiết kế phương tiện trình chiếu.",
+      "Kỹ năng quản lý thời gian."
+    ],
+    "globalId": 398,
+    "set": "basic_100"
+  },
+  {
+    "id": 99,
+    "uid": "basic_99",
+    "question": "Để viết báo cáo nội dung tính lạc hậu của ý thức xã hội, nguồn minh chứng nào sau đây phù hợp nhất?",
+    "originalA": "Tập quán, hủ tục còn tồn tại ở địa phương.",
+    "originalOptions": {
+      "A": "Tập quán, hủ tục còn tồn tại ở địa phương.",
+      "B": "Một câu chuyện lấy từ mạng xã hội.",
+      "C": "Một bài báo điện tử không rõ tác giả.",
+      "D": "Tất cả các câu trả lời đều đúng."
+    },
+    "correctAnswer": "Tập quán, hủ tục còn tồn tại ở địa phương.",
+    "options": [
+      "Tất cả các câu trả lời đều đúng.",
+      "Một câu chuyện lấy từ mạng xã hội.",
+      "Một bài báo điện tử không rõ tác giả.",
+      "Tập quán, hủ tục còn tồn tại ở địa phương."
+    ],
+    "globalId": 399,
+    "set": "basic_100"
+  },
+  {
+    "id": 100,
+    "uid": "basic_100",
+    "question": "Theo quan điểm của chủ nghĩa duy vật lịch sử, con người là gì?",
+    "originalA": "Là thực thể thống nhất giữa mặt sinh học và mặt xã hội.",
+    "originalOptions": {
+      "A": "Là thực thể thống nhất giữa mặt sinh học và mặt xã hội.",
+      "B": "Là thực thể vật chất tự nhiên thuần túy.",
+      "C": "Là thực thể chính trị - xã hội.",
+      "D": "Là thực thể siêu tự nhiên, sản phẩm của đấng sáng tạo."
+    },
+    "correctAnswer": "Là thực thể thống nhất giữa mặt sinh học và mặt xã hội.",
+    "options": [
+      "Là thực thể siêu tự nhiên, sản phẩm của đấng sáng tạo.",
+      "Là thực thể chính trị - xã hội.",
+      "Là thực thể vật chất tự nhiên thuần túy.",
+      "Là thực thể thống nhất giữa mặt sinh học và mặt xã hội."
+    ],
+    "globalId": 400,
+    "set": "basic_100"
+  }
+];
+
+const QUESTION_SETS = {
+  set_300: {
+    id: 'set_300',
+    title: '300 Câu Trắc Nghiệm Triết Học Mác - Lênin (ĐH SPKT TP.HCM)',
+    shortTitle: 'Bộ 300 câu (ĐH SPKT)',
+    badge: '300 câu',
+    description: 'Bộ 300 câu hỏi trắc nghiệm kèm đáp án chính xác môn Triết học Mác - Lênin trường ĐH Sư phạm Kỹ thuật TP.HCM',
+    questions: SET_300_QUESTIONS
+  },
+  set_100: {
+    id: 'set_100',
+    title: '100 Câu Hỏi Ôn Tập Cơ Bản',
+    shortTitle: 'Bộ 100 câu cơ bản',
+    badge: '100 câu',
+    description: 'Bộ 100 câu hỏi ôn tập trọng tâm Triết học Mác - Lênin',
+    questions: SET_100_QUESTIONS
+  },
+  all: {
+    id: 'all',
+    title: 'Toàn Bộ Ngân Hàng Câu Hỏi (400 Câu)',
+    shortTitle: 'Tất cả (400 câu)',
+    badge: '400 câu',
+    description: 'Tổng hợp cả 2 bộ đề (300 câu SPKT + 100 câu cơ bản) giúp ôn luyện toàn diện',
+    questions: ALL_QUESTIONS
+  }
+};
+
+// Mặc định cho tương thích ngược
+const RAW_QUESTIONS = SET_300_QUESTIONS;
