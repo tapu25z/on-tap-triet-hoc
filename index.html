@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#4f46e5">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=2.0.2">
   <!-- canvas confetti -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
 </head>
@@ -84,13 +84,16 @@
         <!-- Control Bar -->
         <div class="control-bar">
           <div class="control-left">
+            <button class="btn btn-primary btn-sm" onclick="openSetSelectModal()" title="Nhấn để đổi sang bộ 300 câu, 100 câu hoặc tất cả 400 câu">
+              📂 <span id="ctrl-current-set-label">Bộ 300 câu</span>
+            </button>
             <button class="btn btn-secondary btn-sm" onclick="openPaletteModal()">
-              📋 Bảng câu hỏi (<span id="palette-progress-txt">0/100</span>)
+              📋 Bảng câu (<span id="palette-progress-txt">0/300</span>)
             </button>
             <button class="btn btn-secondary btn-sm" onclick="shuffleCurrentOptions()" title="Xáo trộn lại các đáp án A, B, C, D">
               🔀 Đảo đáp án
             </button>
-            <button class="btn btn-secondary btn-sm" onclick="shuffleQuestionsOrder()" title="Xáo trộn ngẫu nhiên thứ tự 100 câu hỏi">
+            <button class="btn btn-secondary btn-sm" onclick="shuffleQuestionsOrder()" title="Xáo trộn ngẫu nhiên thứ tự các câu hỏi">
               🎲 Đảo thứ tự câu
             </button>
           </div>
@@ -411,6 +414,21 @@
       </div>
       <div class="modal-body">
         <div style="margin-bottom: 1.25rem;">
+          <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">📚 Bộ đề thi:</label>
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.5rem;" id="exam-set-options-grid">
+            <button type="button" class="btn btn-secondary exam-set-btn active" id="exam-set-btn-set_300" onclick="selectExamSet('set_300', this)">
+              🏛️ 300 câu SPKT
+            </button>
+            <button type="button" class="btn btn-secondary exam-set-btn" id="exam-set-btn-set_100" onclick="selectExamSet('set_100', this)">
+              📘 100 câu cơ bản
+            </button>
+            <button type="button" class="btn btn-secondary exam-set-btn" id="exam-set-btn-all" onclick="selectExamSet('all', this)">
+              🌟 Tất cả (400)
+            </button>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 1.25rem;">
           <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Số lượng câu hỏi & Thời gian:</label>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;" id="exam-size-options-grid">
             <button type="button" class="btn btn-secondary exam-size-opt active" data-size="20" data-time="20" onclick="selectExamConfig(20, 20, this)">
@@ -450,8 +468,56 @@
     </div>
   </div>
 
+
+  <!-- ================= MODAL: SELECT QUESTION SET ================= -->
+  <div class="modal-overlay" id="set-select-modal">
+    <div class="modal-card" style="max-width: 520px;">
+      <div class="modal-header">
+        <h3 class="modal-title">📂 Chọn Bộ Đề Câu Hỏi</h3>
+        <button class="btn-icon" onclick="closeSetSelectModal()">✕</button>
+      </div>
+      <div class="modal-body" style="display: flex; flex-direction: column; gap: 0.75rem;">
+        <div class="set-card-option active" id="set-card-set_300" onclick="selectQuestionSetFromModal('set_300')">
+          <div class="set-card-icon">🏛️</div>
+          <div class="set-card-info">
+            <div class="set-card-title">Bộ 300 câu (ĐH SPKT TP.HCM) <span class="set-pill-tag">Mới</span></div>
+            <div class="set-card-desc">300 câu hỏi trắc nghiệm kèm đáp án chính xác trường ĐH Sư phạm Kỹ thuật TP.HCM.</div>
+          </div>
+          <div class="set-card-badge" id="set-card-badge-set_300">Đang chọn</div>
+        </div>
+
+        <div class="set-card-option" id="set-card-set_100" onclick="selectQuestionSetFromModal('set_100')">
+          <div class="set-card-icon">📘</div>
+          <div class="set-card-info">
+            <div class="set-card-title">Bộ 100 câu hỏi ôn tập cơ bản</div>
+            <div class="set-card-desc">100 câu trắc nghiệm trọng tâm có xáo trộn ngẫu nhiên đáp án chống học vẹt.</div>
+          </div>
+          <div class="set-card-badge" id="set-card-badge-set_100">Chọn</div>
+        </div>
+
+        <div class="set-card-option" id="set-card-all" onclick="selectQuestionSetFromModal('all')">
+          <div class="set-card-icon">🌟</div>
+          <div class="set-card-info">
+            <div class="set-card-title">Tất cả câu hỏi (400 câu)</div>
+            <div class="set-card-desc">Tổng hợp cả 2 bộ đề (300 câu SPKT + 100 câu cơ bản) để ôn luyện toàn diện.</div>
+          </div>
+          <div class="set-card-badge" id="set-card-badge-all">Chọn</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeSetSelectModal()">Đóng</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-notification" id="toast-box">
+    <span id="toast-icon">✅</span>
+    <span id="toast-msg">Thông báo</span>
+  </div>
+
   <!-- Scripts -->
-  <script src="data.js"></script>
-  <script src="app.js"></script>
+  <script src="data.js?v=2.0.2"></script>
+  <script src="app.js?v=2.0.2"></script>
 </body>
 </html>

@@ -123,6 +123,32 @@ function loadSet(setId, resetIndex = false) {
     subEl.textContent = `${currentSetInfo.title} (${questions.length} câu)`;
   }
 
+  // Update control bar set label if present
+  const ctrlSetLabel = document.getElementById('ctrl-current-set-label');
+  if (ctrlSetLabel) {
+    ctrlSetLabel.textContent = currentSetInfo.shortTitle;
+  }
+
+  // Update modal cards active state in set-select-modal
+  ['set_300', 'set_100', 'all'].forEach(s => {
+    const card = document.getElementById(`set-card-${s}`);
+    const badge = document.getElementById(`set-card-badge-${s}`);
+    if (card) {
+      if (s === setId) {
+        card.classList.add('active');
+        if (badge) badge.textContent = 'Đang chọn';
+      } else {
+        card.classList.remove('active');
+        if (badge) badge.textContent = 'Chọn';
+      }
+    }
+  });
+
+  // Update exam set selector buttons if present
+  document.querySelectorAll('.exam-set-btn').forEach(b => b.classList.remove('active'));
+  const examSetBtn = document.getElementById(`exam-set-btn-${setId}`);
+  if (examSetBtn) examSetBtn.classList.add('active');
+
   // Load localStorage state for this set
   loadSetLocalStorage(setId);
 
@@ -150,10 +176,54 @@ function loadSet(setId, resetIndex = false) {
   updatePaletteProgressTxt();
 }
 
+// Toast notification helper
+let toastTimeout = null;
+function showToast(message, icon = '✅') {
+  const box = document.getElementById('toast-box');
+  const msgEl = document.getElementById('toast-msg');
+  const iconEl = document.getElementById('toast-icon');
+  if (!box || !msgEl) return;
+
+  msgEl.textContent = message;
+  if (iconEl) iconEl.textContent = icon;
+
+  box.classList.add('show');
+  if (toastTimeout) clearTimeout(toastTimeout);
+  toastTimeout = setTimeout(() => {
+    box.classList.remove('show');
+  }, 2500);
+}
+
 function selectQuestionSet(setId) {
   playSound('click');
   loadSet(setId, false);
   saveLocalStorage();
+  showToast(`Đã chọn: ${currentSetInfo.title}!`, '📚');
+}
+
+function openSetSelectModal() {
+  playSound('click');
+  const modal = document.getElementById('set-select-modal');
+  if (modal) modal.classList.add('active');
+}
+
+function closeSetSelectModal() {
+  const modal = document.getElementById('set-select-modal');
+  if (modal) modal.classList.remove('active');
+}
+
+function selectQuestionSetFromModal(setId) {
+  selectQuestionSet(setId);
+  closeSetSelectModal();
+}
+
+function selectExamSet(setId, btnElem) {
+  playSound('click');
+  document.querySelectorAll('.exam-set-btn').forEach(b => b.classList.remove('active'));
+  if (btnElem) btnElem.classList.add('active');
+  loadSet(setId, false);
+  saveLocalStorage();
+  showToast(`Bộ đề thi: ${currentSetInfo.title}`, '⏱️');
 }
 
 function loadSetLocalStorage(setId) {
@@ -228,6 +298,14 @@ function initApp() {
 
   // Load current active question set (Default: set_300)
   loadSet(currentSetId, false);
+
+  // Attach explicit click events to set pills
+  const p300 = document.getElementById('pill-set-300');
+  if (p300) p300.onclick = () => selectQuestionSet('set_300');
+  const p100 = document.getElementById('pill-set-100');
+  if (p100) p100.onclick = () => selectQuestionSet('set_100');
+  const pAll = document.getElementById('pill-set-all');
+  if (pAll) pAll.onclick = () => selectQuestionSet('all');
 
   // Keyboard navigation
   setupKeyboardShortcuts();
@@ -1122,3 +1200,14 @@ function setupKeyboardShortcuts() {
 
 // Start app on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', initApp);
+
+// Export to window explicitly
+if (typeof window !== 'undefined') {
+  window.selectQuestionSet = selectQuestionSet;
+  window.loadSet = loadSet;
+  window.openSetSelectModal = openSetSelectModal;
+  window.closeSetSelectModal = closeSetSelectModal;
+  window.selectQuestionSetFromModal = selectQuestionSetFromModal;
+  window.selectExamSet = selectExamSet;
+  window.showToast = showToast;
+}

@@ -16799,3 +16799,12 @@ const QUESTION_SETS = {
 
 // Mặc định cho tương thích ngược
 const RAW_QUESTIONS = SET_300_QUESTIONS;
+
+// Gắn rõ ràng vào window để mọi script và thẻ inline đều truy cập được
+if (typeof window !== 'undefined') {
+  window.SET_300_QUESTIONS = SET_300_QUESTIONS;
+  window.SET_100_QUESTIONS = SET_100_QUESTIONS;
+  window.ALL_QUESTIONS = ALL_QUESTIONS;
+  window.QUESTION_SETS = QUESTION_SETS;
+  window.RAW_QUESTIONS = RAW_QUESTIONS;
+}
